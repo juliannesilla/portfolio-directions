@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Julianne Silla — Director of Marketing · Liquid Glass</title>
-<meta name="description" content="Paid-media & GTM strategist who turns chaos into clarity, and clarity into revenue."/>
+<title>Julianne Silla — Selected Work · Liquid Glass</title>
+<meta name="description" content="Proven strategies. Measurable impact. Selected go-to-market, brand, web, and case-study work from Julianne Silla."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ====================================================================
-   JULIANNE SILLA — DIRECTION 06 · "LIQUID GLASS"  (flagship)
-   Real content + tokens (charcoal/champagne/cream · Playfair/Inter/Archivo).
-   Frost = backdrop-filter on panels. "Liquid" warp = SVG displacement on the
-   BACKGROUND only (text stays crisp). Solid fallback + reduced-motion gated.
+   JULIANNE SILLA — DIRECTION 06 · "LIQUID GLASS"  ·  WORK PAGE
+   Visual system copied wholesale from v6 index.html (tokens, .glass,
+   liquid-warp .bg, .grain, .nav, .prog, footer, .vbadge, .r, reduced-motion).
+   Page-specific blocks: .workhead, .filters, work card thumbs, .ctaband.
    ==================================================================== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -83,29 +83,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing
 .nav-links a{position:relative;color:var(--on-dark-mut);transition:color .3s}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
 .nav-links a:hover{color:var(--on-dark)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold)}.nav-links a.active::after{width:100%}
 .nav-cta{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:10px 20px;border:1px solid var(--gold);color:var(--gold);border-radius:9px;transition:.35s var(--ease)}
 .nav-cta:hover{background:var(--gold);color:var(--char)}
-@media(max-width:860px){.nav-links{display:none}}
+@media(max-width:980px){.nav-links{display:none}}
 
 /* ---- progress ---- */
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-dim),var(--gold-hi));z-index:9000}
-
-/* ---- hero ---- */
-.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;padding:150px 0 70px;position:relative}
-.hero-card{padding:54px 50px;border-radius:24px}
-.hero h1{font-size:clamp(3.6rem,8.5vw,7.4rem);line-height:.9;margin:14px 0 0}
-.hero h1 .sub{display:block;font-size:.62em;font-style:italic;font-weight:500;color:var(--gold-hi)}
-.role{font-family:var(--grotesk);font-size:clamp(.66rem,1vw,.82rem);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-mut);margin:26px 0 30px;line-height:1.9}
-.role b{color:var(--gold)}
-.hero .line{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.85rem);line-height:1.25;color:var(--on-dark);max-width:30ch;margin-bottom:34px}
-.hero .line b{color:var(--gold)}.hero .line i{color:var(--on-dark-mut)}
-.hero-photo{position:relative;height:80vh;border-radius:24px;overflow:hidden;border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow)}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;transform:scale(1.05);transition:transform .8s var(--ease)}
-.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,13,12,.5)),linear-gradient(90deg,rgba(219,191,148,.10),transparent 40%)}
-.hero-photo .float{position:absolute;left:24px;bottom:24px;right:24px;padding:18px 22px;border-radius:14px;display:flex;align-items:center;gap:14px}
-.hero-photo .float .dot{width:8px;height:8px;border-radius:50%;background:#7Cdca0;box-shadow:0 0 12px #7Cdca0;flex:none}
-.hero-photo .float span{font-family:var(--grotesk);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark)}
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:130px}.hero-photo{height:52vh;order:-1}.hero-card{padding:38px 30px}}
 
 /* ---- btn ---- */
 .btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 34px;border:1px solid var(--gold);color:var(--gold);border-radius:11px;cursor:pointer;transition:.4s var(--ease);background:rgba(219,191,148,.06)}
@@ -121,52 +105,53 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .rule .ln{height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex:1}
 .dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
 
-/* ---- stats ---- */
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.stat{padding:30px 18px;text-align:center;border-radius:16px;transition:transform .5s var(--ease)}
-.stat:hover{transform:translateY(-6px)}
-.stat .n{font-family:var(--serif);font-size:2.3rem;font-weight:700;color:var(--gold-hi)}
-.stat .l{font-family:var(--grotesk);font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+/* ---- work page head (hero band) ---- */
+.workhead{padding:172px 0 0;position:relative}
+.crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:22px;display:flex;gap:10px;align-items:center}
+.crumb a{color:var(--on-dark-mut);transition:color .3s}
+.crumb a:hover{color:var(--gold)}
+.crumb .sep{color:var(--gold);opacity:.6}
+.workhead h1{font-size:clamp(3rem,8vw,6.6rem);line-height:.92;margin:14px 0 0}
+.workhead h1 .it{font-style:italic;font-weight:500;color:var(--gold-hi)}
+.workhead .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.25;color:var(--on-dark);max-width:30ch;margin-top:26px}
+.workhead .intro b{color:var(--gold)}
+.headcard{padding:48px 46px;border-radius:24px}
+@media(max-width:900px){.workhead{padding-top:140px}.headcard{padding:36px 28px}}
 
-/* ---- about ---- */
-.about{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
-.about .big{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.16;margin-bottom:30px}
-.about .big b{color:var(--gold)}.about .big i{font-style:italic;color:var(--on-dark-mut)}
-.about p{color:var(--on-dark-mut);margin-bottom:18px;max-width:56ch}
-.about p b{color:var(--on-dark)}
-.about-card{padding:40px 36px;border-radius:20px}
-.pillars{display:grid;gap:22px}
-.pillar{display:flex;gap:18px;align-items:flex-start}
-.pillar .ic{width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);flex:none;font-size:1.1rem}
-.pillar h3{font-family:var(--grotesk);font-size:.86rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
-.pillar p{color:var(--on-dark-mut);font-size:.92rem;margin:0}
-@media(max-width:900px){.about{grid-template-columns:1fr;gap:34px}}
+/* ---- filter pills ---- */
+.filters{display:flex;flex-wrap:wrap;gap:12px;margin-top:46px}
+.pill{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:11px 22px;border-radius:999px;color:var(--on-dark-mut);cursor:pointer;
+  background:var(--glass);border:1px solid var(--glass-edge);
+  -webkit-backdrop-filter:blur(12px) saturate(150%);backdrop-filter:blur(12px) saturate(150%);
+  transition:color .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
+.pill:hover{color:var(--on-dark);border-color:var(--gold)}
+.pill.active{color:var(--char);background:var(--gold);border-color:var(--gold)}
 
-/* ---- work ---- */
+/* ---- work grid (thumb cards) ---- */
 .work{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{padding:32px 28px;min-height:260px;border-radius:18px;display:flex;flex-direction:column;cursor:pointer;transition:transform .55s var(--ease)}
+.card{border-radius:18px;display:flex;flex-direction:column;cursor:pointer;transition:transform .55s var(--ease),opacity .45s var(--ease);overflow:hidden}
 .card:hover{transform:translateY(-7px)}
-.card .no{font-family:var(--grotesk);font-size:.78rem;font-weight:700;letter-spacing:.2em;color:var(--gold);display:flex;align-items:center;gap:12px}
-.card .no::after{content:'';width:32px;height:1px;background:var(--gold)}
-.card h3{font-family:var(--serif);font-size:1.5rem;color:var(--cream);margin:auto 0 8px;line-height:1.12}
+.card.hidden{display:none}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--glass-edge)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.04);transition:transform .8s var(--ease)}
+.card:hover .thumb img{transform:scale(1.1)}
+.thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,12,0) 40%,rgba(14,13,12,.55)),linear-gradient(110deg,rgba(219,191,148,.12),transparent 45%);pointer-events:none}
+.thumb .no{position:absolute;top:16px;left:18px;z-index:2;font-family:var(--grotesk);font-size:.74rem;font-weight:700;letter-spacing:.2em;color:var(--gold-hi);text-shadow:0 1px 8px rgba(0,0,0,.6);display:flex;align-items:center;gap:10px}
+.thumb .no::after{content:'';width:28px;height:1px;background:var(--gold)}
+.cbody{padding:26px 26px 30px;display:flex;flex-direction:column;flex:1}
+.card h3{font-family:var(--serif);font-size:1.42rem;color:var(--cream);margin:0 0 8px;line-height:1.14}
 .card .meta{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.85}
-.card .view{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);margin-top:20px;display:flex;align-items:center;gap:10px;opacity:.6;transition:.4s var(--ease)}
+.card .view{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);margin-top:22px;display:flex;align-items:center;gap:10px;opacity:.6;transition:.4s var(--ease)}
 .card:hover .view{opacity:1;gap:16px;color:var(--gold-hi)}
 @media(max-width:900px){.work{grid-template-columns:1fr}}
 
-/* ---- contact ---- */
-.contact{text-align:center}
-.contact .mono{font-family:var(--serif);font-size:clamp(3rem,9vw,7rem);line-height:.92}
-.contact .mono .dot{color:var(--gold)}
-.contact .lead{color:var(--on-dark-mut);font-size:1.15rem;margin:26px auto 0;max-width:46ch}
-.contact .lead b{color:var(--gold)}
-.cinfo{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
-.cinfo .c{padding:28px 22px;border-radius:14px;text-align:left}
-.cinfo .ic{color:var(--gold);font-size:1.1rem;margin-bottom:12px}
-.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:6px}
-.cinfo .v{font-size:.94rem;color:var(--on-dark)}
-@media(max-width:760px){.cinfo{grid-template-columns:repeat(2,1fr)}}
+/* ---- CTA band ---- */
+.ctaband{text-align:center}
+.ctacard{padding:clamp(48px,7vw,84px) 40px;border-radius:26px;text-align:center}
+.ctaband h2{font-size:clamp(2.2rem,5.5vw,4rem);line-height:.98}
+.ctaband .lead{color:var(--on-dark-mut);font-size:1.12rem;margin:22px auto 0;max-width:46ch}
+.ctaband .lead b{color:var(--gold)}
 
 footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
 footer a:hover{color:var(--gold)}
@@ -183,11 +168,12 @@ footer a:hover{color:var(--gold)}
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
   .r{opacity:1!important;transform:none!important}
-  .bg{filter:none}.glass::before{display:none}.hero-photo img{transform:none}
+  .bg{filter:none}.glass::before{display:none}.thumb img{transform:none}
   /* kill new interactive layer: no parallax drift, no 3D tilt, no cursor refraction */
   [data-tilt]{transform:none!important;will-change:auto}
   .glass::after{display:none}
-  .bg,.grain,.hero-photo img,.hero-card{transform:none!important;will-change:auto}
+  .bg,.grain,.thumb img,.headcard{transform:none!important;will-change:auto}
+  .card:hover .thumb img{transform:none}
 }
 </style>
 </head>
@@ -204,92 +190,116 @@ footer a:hover{color:var(--gold)}
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="index.html">JS</a>
+    <a href="index.html" class="logo">JS</a>
     <div class="nav-links">
-      <a href="about.html">About</a><a href="work.html">Work</a><a href="services.html">Services</a><a href="case-study.html">Case Study</a><a href="ugc.html">UGC</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html" class="active" aria-current="page">Work</a>
+      <a href="services.html">Services</a>
+      <a href="case-study.html">Case Study</a>
+      <a href="ugc.html">UGC</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero wrap">
-  <div class="hero-card glass r">
-    <div class="eyebrow">The partner behind your growth</div>
-    <h1>Julianne<span class="sub">Silla</span></h1>
-    <div class="role">Director of Marketing <b>/</b> GTM Engineer <b>/</b> AI &amp; Automation <b>/</b> Conversion Copywriter</div>
-    <div class="line">I turn <b>chaos into clarity</b>, <i>and</i> <b>clarity into revenue.</b></div>
-    <a class="btn" data-mag href="#work">View my work <span class="ar">→</span></a>
+<!-- WORK HEAD -->
+<header class="workhead wrap">
+  <div class="headcard glass r" data-tilt>
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span><span>Work</span>
+    </nav>
+    <div class="eyebrow">Portfolio</div>
+    <h1>Selected <span class="it">Work</span></h1>
+    <div class="intro">Proven <b>strategies.</b> Measurable <b>impact.</b></div>
   </div>
-  <div class="hero-photo r d2">
-    <img src="../../assets/photos/julz-profile-card.jpg" alt="Julianne Silla, Director of Marketing"/>
-    <div class="float glass"><span class="dot"></span><span>Available for select partnerships</span></div>
+
+  <!-- FILTER PILLS -->
+  <div class="filters r d1" id="filters" role="tablist" aria-label="Filter work by category">
+    <button class="pill active" data-filter="all" role="tab" aria-selected="true">All Work</button>
+    <button class="pill" data-filter="strategy" role="tab" aria-selected="false">Strategy</button>
+    <button class="pill" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+    <button class="pill" data-filter="web" role="tab" aria-selected="false">Web + UX</button>
+    <button class="pill" data-filter="systems" role="tab" aria-selected="false">Systems</button>
+    <button class="pill" data-filter="case" role="tab" aria-selected="false">Case Studies</button>
   </div>
 </header>
 
-<!-- STATS -->
-<section class="wrap" style="padding-top:0">
-  <div class="stats">
-    <div class="stat glass r" data-tilt><div class="n" data-count="8" data-pre="$" data-suf="M+">$0</div><div class="l">Cumulative Revenue Impact</div></div>
-    <div class="stat glass r d1" data-tilt><div class="n" data-count="600" data-suf="K+">0</div><div class="l">Podcast Listens</div></div>
-    <div class="stat glass r d2" data-tilt><div class="n" data-count="100" data-suf="+">0</div><div class="l">Podcasts Produced</div></div>
-    <div class="stat glass r d3" data-tilt><div class="n" data-count="40" data-suf="+">0</div><div class="l">SOPs Established</div></div>
-    <div class="stat glass r d4" data-tilt><div class="n" data-count="15" data-suf="+">0</div><div class="l">GTM Launches</div></div>
-  </div>
-</section>
+<!-- WORK GRID -->
+<section class="wrap" id="work" style="padding-top:clamp(3rem,6vw,5rem)">
+  <div class="work" id="workGrid">
 
-<!-- ABOUT -->
-<section class="wrap" id="about">
-  <div class="rule r"><span class="dia"></span><span class="eyebrow">About Me</span><span class="ln"></span></div>
-  <div class="about">
-    <div class="r">
-      <div class="big">I turn <b>chaos into clarity</b>, <i>and</i> <b>clarity into revenue.</b></div>
-      <p>I'm a launch-obsessed, full-stack marketing leader. In my last role I led <b>15+ GTM launches</b> that drove <b>$1.5M in revenue</b>, <b>117 high-ticket enrollments</b>, and <b>3 sold-out events</b> in a four-month span.</p>
-      <p>I build <b>KPI dashboards</b> for pipeline forecasting, enforce clean <b>UTM governance</b>, and consistently hit <b>35–40% open</b>, <b>8–10% CTR</b>, and <b>15%+ checkout lift</b>. Strategy. Systems. Scale — that's my lane.</p>
-    </div>
-    <div class="about-card glass r d2" data-tilt>
-      <div class="pillars">
-        <div class="pillar"><div class="ic">◷</div><div><h3>Data-Driven Decisions</h3><p>Real insights that eliminate waste and focus on what moves the needle.</p></div></div>
-        <div class="pillar"><div class="ic">❖</div><div><h3>Systems That Scale</h3><p>Repeatable systems that streamline execution and unlock sustainable growth.</p></div></div>
-        <div class="pillar"><div class="ic">↗</div><div><h3>Revenue That Compounds</h3><p>Long-term impact that compounds — not short-term vanity wins.</p></div></div>
+    <a class="card glass r" data-tilt href="work.html" data-cat="strategy">
+      <div class="thumb"><div class="no">01</div><img src="../../preview/work-1.png" alt="Go-to-Market (GTM) Engineering project thumbnail" loading="lazy"/></div>
+      <div class="cbody">
+        <h3>Go-to-Market (GTM) Engineering</h3>
+        <div class="meta">Strategy · Positioning · Execution</div>
+        <div class="view">View Project →</div>
       </div>
-    </div>
+    </a>
+
+    <a class="card glass r d1" data-tilt href="work.html" data-cat="branding">
+      <div class="thumb"><div class="no">02</div><img src="../../preview/work-2.png" alt="Designs — brand and visual identity project thumbnail" loading="lazy"/></div>
+      <div class="cbody">
+        <h3>Designs</h3>
+        <div class="meta">Brand · Visual Identity · Assets</div>
+        <div class="view">View Project →</div>
+      </div>
+    </a>
+
+    <a class="card glass r d2" data-tilt href="work.html" data-cat="strategy">
+      <div class="thumb"><div class="no">03</div><img src="../../preview/work-3.png" alt="Brand Audit project thumbnail" loading="lazy"/></div>
+      <div class="cbody">
+        <h3>Brand Audit</h3>
+        <div class="meta">Clarity · Positioning · Growth Map</div>
+        <div class="view">View Project →</div>
+      </div>
+    </a>
+
+    <a class="card glass r" data-tilt href="work.html" data-cat="web">
+      <div class="thumb"><div class="no">04</div><img src="../../preview/work-4.png" alt="Website — web design, UX, and conversion project thumbnail" loading="lazy"/></div>
+      <div class="cbody">
+        <h3>Website</h3>
+        <div class="meta">Web Design · UX · Conversion</div>
+        <div class="view">View Project →</div>
+      </div>
+    </a>
+
+    <a class="card glass r d1" data-tilt href="case-study.html" data-cat="case systems">
+      <div class="thumb"><div class="no">05</div><img src="../../preview/work-5.png" alt="Case Study #1 — Mindset Mastery thumbnail" loading="lazy"/></div>
+      <div class="cbody">
+        <h3>Case Study #1 — Mindset Mastery</h3>
+        <div class="meta">Full GTM · 100% high-ticket conversion</div>
+        <div class="view">View Case Study →</div>
+      </div>
+    </a>
+
+    <a class="card glass r d2" data-tilt href="case-study.html" data-cat="case systems">
+      <div class="thumb"><div class="no">06</div><img src="../../preview/work-6.png" alt="Case Study #2 — Multi-Launch + Lifecycle Engine thumbnail" loading="lazy"/></div>
+      <div class="cbody">
+        <h3>Case Study #2 — Multi-Launch + Lifecycle Engine</h3>
+        <div class="meta">Repeatable launch architecture</div>
+        <div class="view">View Case Study →</div>
+      </div>
+    </a>
+
   </div>
 </section>
 
-<!-- WORK -->
-<section class="wrap" id="work">
-  <div class="shead r">
-    <div class="eyebrow">Strategy. Systems. Scale.</div>
-    <h2 style="margin-top:14px">Selected Work</h2>
-    <div class="lead">Proven strategies. Measurable impact.</div>
-  </div>
-  <div class="work">
-    <div class="card glass r" data-tilt><div class="no">01</div><h3>Go-to-Market (GTM) Engineering</h3><div class="meta">Strategy · Positioning · Execution</div><div class="view">View Project →</div></div>
-    <div class="card glass r d1" data-tilt><div class="no">02</div><h3>Designs</h3><div class="meta">Brand · Visual Identity · Assets</div><div class="view">View Project →</div></div>
-    <div class="card glass r d2" data-tilt><div class="no">03</div><h3>Brand Audit</h3><div class="meta">Clarity · Positioning · Growth Map</div><div class="view">View Project →</div></div>
-    <div class="card glass r" data-tilt><div class="no">04</div><h3>Website</h3><div class="meta">Web Design · UX · Conversion</div><div class="view">View Project →</div></div>
-    <div class="card glass r d1" data-tilt><div class="no">05</div><h3>Case Study #1 — Mindset Mastery</h3><div class="meta">Full GTM · 100% high-ticket conversion</div><div class="view">View Project →</div></div>
-    <div class="card glass r d2" data-tilt><div class="no">06</div><h3>Case Study #2 — Multi-Launch + Lifecycle Engine</h3><div class="meta">Repeatable launch architecture</div><div class="view">View Project →</div></div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="wrap contact" id="contact">
-  <div class="rule r" style="justify-content:center;max-width:420px;margin:0 auto 36px"><span class="ln" style="background:linear-gradient(90deg,transparent,var(--gold))"></span><span class="dia"></span><span class="ln"></span></div>
-  <h2 class="mono r">Ready when<br>you are<span class="dot">.</span></h2>
-  <p class="lead r d1">Strategic marketing. Scalable systems. Sustainable growth. <b>Let's build what's next — together.</b></p>
-  <a class="btn r d2" data-mag href="mailto:julianne.mktg@gmail.com" style="margin-top:40px">Let's build what's next <span class="ar">→</span></a>
-  <div class="cinfo">
-    <div class="c glass r" data-tilt><div class="ic">✉</div><div class="k">Email</div><div class="v">julianne.mktg@gmail.com</div></div>
-    <div class="c glass r d1" data-tilt><div class="ic">✆</div><div class="k">Phone</div><div class="v">+650-759-0995</div></div>
-    <div class="c glass r d2" data-tilt><div class="ic">⌖</div><div class="k">Based In</div><div class="v">San Francisco, CA</div></div>
-    <div class="c glass r d3" data-tilt><div class="ic">◴</div><div class="k">Let's Connect</div><div class="v">Book a discovery call</div></div>
+<!-- CTA BAND -->
+<section class="wrap ctaband" id="cta">
+  <div class="ctacard glass r" data-tilt>
+    <div class="rule r" style="justify-content:center;max-width:420px;margin:0 auto 30px"><span class="ln" style="background:linear-gradient(90deg,transparent,var(--gold))"></span><span class="dia"></span><span class="ln"></span></div>
+    <h2 class="r">Ready to build something that lasts?</h2>
+    <p class="lead r d1">Strategy. Systems. Scale. <b>Let's build your next revenue engine — together.</b></p>
+    <a class="btn r d2" data-mag href="contact.html" style="margin-top:38px">Start the conversation <span class="ar">→</span></a>
   </div>
   <footer class="wrap" style="padding-left:0;padding-right:0"><span>© 2026 Julianne Silla</span><span>Strategy. Systems. Scale.</span><span>Working with clients worldwide</span></footer>
 </section>
 
-<div class="vbadge glass">Direction 06 · Liquid Glass &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
+<div class="vbadge glass">Direction 06 · Liquid Glass · Work &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -307,17 +317,6 @@ footer a:hover{color:var(--gold)}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
     rs.forEach(function(el){io.observe(el)});
   } else { rs.forEach(function(el){el.classList.add('in')}); }
-  /* count-up */
-  var counted=false;
-  function runCount(){ if(counted)return; counted=true;
-    document.querySelectorAll('[data-count]').forEach(function(el){
-      var t=+el.dataset.count,pre=el.dataset.pre||'',suf=el.dataset.suf||'',dur=1500,st=null;
-      function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);var v=Math.floor((1-Math.pow(1-p,3))*t);el.textContent=pre+v+suf;if(p<1)requestAnimationFrame(step);else el.textContent=pre+t+suf;}
-      requestAnimationFrame(step);
-    });
-  }
-  var se=document.querySelector('.stats');
-  if(se){ if(reduce)runCount(); else new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount()})},{threshold:.4}).observe(se); }
   /* nav + progress */
   var nav=document.getElementById('nav'),prog=document.getElementById('prog');
   addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop;nav.classList.toggle('stuck',y>40);prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
@@ -329,6 +328,22 @@ footer a:hover{color:var(--gold)}
       el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)'});
     });
   }
+  /* filter tabs — robust: filters the grid by data-cat, falls back to no-op if absent */
+  (function(){
+    var bar=document.getElementById('filters'); if(!bar) return;
+    var cards=Array.prototype.slice.call(document.querySelectorAll('#workGrid .card'));
+    bar.addEventListener('click',function(e){
+      var btn=e.target.closest('.pill'); if(!btn) return;
+      var f=btn.dataset.filter||'all';
+      bar.querySelectorAll('.pill').forEach(function(p){var on=p===btn;p.classList.toggle('active',on);p.setAttribute('aria-selected',on?'true':'false');});
+      cards.forEach(function(c){
+        var cats=(c.dataset.cat||'').split(/\s+/);
+        var show=(f==='all')||cats.indexOf(f)>-1;
+        c.classList.toggle('hidden',!show);
+      });
+      if(window.ScrollTrigger){ ScrollTrigger.refresh(); }
+    });
+  })();
 
   /* ---- GSAP parallax: scroll-scrubbed multi-speed layers (transform/opacity only) ---- */
   if(!reduce && window.gsap && window.ScrollTrigger){
@@ -337,12 +352,9 @@ footer a:hover{color:var(--gold)}
     var bgEl=document.querySelector('.bg'), grainEl=document.querySelector('.grain');
     if(bgEl){ gsap.to(bgEl,{yPercent:14,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}}); }
     if(grainEl){ gsap.to(grainEl,{yPercent:-8,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}}); }
-    /* hero portrait + card drift at different speeds while the hero scrolls past */
-    var heroPhoto=document.querySelector('.hero-photo img'), heroCard=document.querySelector('.hero-card'), hero=document.querySelector('.hero');
-    if(hero){
-      if(heroPhoto){ gsap.to(heroPhoto,{yPercent:12,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:true}}); }
-      if(heroCard){ gsap.to(heroCard,{yPercent:-6,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:true}}); }
-    }
+    /* head card drifts while the work head scrolls past */
+    var headCard=document.querySelector('.headcard'), head=document.querySelector('.workhead');
+    if(head && headCard){ gsap.to(headCard,{yPercent:-6,ease:'none',scrollTrigger:{trigger:head,start:'top top',end:'bottom top',scrub:true}}); }
     /* generic opt-in parallax for any future [data-parallax] layer */
     document.querySelectorAll('[data-parallax]').forEach(function(el){
       var amt=parseFloat(el.dataset.parallax)||80;

@@ -81,6 +81,261 @@
     { "id": "multi-launch", "title": "Multi-Launch + Lifecycle Engine", "meta": "Repeatable launch architecture", "needsExtraction": true }
   ],
 
+  "aboutPage": {
+    "crumb": "Home / About",
+    "heading": "About",
+    "sub": "I'm a launch-obsessed, full-stack marketing leader who turns chaos into clarity — and clarity into revenue.",
+    "sections": [
+      {
+        "label": "The Full Picture",
+        "heading": "Strategy. Systems. Scale. That's my lane.",
+        "body": [
+          "In my last role I led 15+ GTM launches that drove $1.5M in revenue, 117 high-ticket enrollments, and 3 sold-out events in a four-month span. I build KPI dashboards for pipeline forecasting, enforce clean UTM governance, and consistently hit 35–40% open rates, 8–10% CTR, and 15%+ checkout lift. From positioning to launch to post-mortem optimization — I own the full engine.",
+          "On the other side of the desk, I'm a UGC creator who makes authentic short-form content for brands. That dual identity is a real advantage: I know what a paid-media brief actually needs to convert, what a lifecycle sequence needs to retain, and what a scroll-stopping UGC hook needs to earn a second watch. Strategy plus story — both in my hands, both calibrated to results."
+        ]
+      },
+      {
+        "label": "By The Numbers",
+        "heading": "By The Numbers",
+        "stats": [
+          { "value": 8, "prefix": "$", "suffix": "M+", "label": "Cumulative Revenue Impact" },
+          { "value": 15, "prefix": "", "suffix": "+", "label": "GTM Launches Led" },
+          { "value": 117, "prefix": "", "suffix": "", "label": "High-Ticket Enrollments" },
+          { "value": 40, "prefix": "", "suffix": "%+", "label": "Avg Email Open Rate" },
+          { "value": 15, "prefix": "", "suffix": "%+", "label": "Checkout Lift" }
+        ]
+      },
+      {
+        "label": "What Drives Me",
+        "heading": "What I value",
+        "valueChips": ["Clarity", "Efficiency", "Scalability", "Data-Driven Precision"],
+        "showUpHeading": "How I show up",
+        "showUpChips": ["Authoritative", "Direct", "Strategic", "Result-Oriented"]
+      },
+      {
+        "label": "Credentials",
+        "heading": "Certifications & Specializations",
+        "lead": "Rigorous training across every layer of modern growth marketing.",
+        "chips": [
+          "Conversion Copywriter",
+          "Digital Marketing Certification",
+          "Email Marketing Certification",
+          "SEO Certification",
+          "AI & Automation",
+          "Account-Based GTM"
+        ]
+      }
+    ],
+    "pullQuote": "I don't do vanity metrics. I build the systems that turn strategy into compounding, measurable revenue.",
+    "cta": {
+      "heading": "Let's build what's next.",
+      "lead": "If you're ready for a marketing partner who brings full-funnel clarity and executes with precision — let's talk.",
+      "label": "Get In Touch",
+      "href": "./contact.html"
+    }
+  },
+
+  "workPage": {
+    "crumb": "Home / Work",
+    "eyebrow": "Portfolio",
+    "heading": "Selected Work",
+    "intro": "Proven strategies. Measurable impact.",
+    "filters": ["All Work", "Strategy", "Branding", "Web + UX", "Systems", "Case Studies"],
+    "projects": [
+      { "no": "01", "title": "Go-to-Market (GTM) Engineering", "meta": "Strategy · Positioning · Execution", "view": "View Project →", "href": "#" },
+      { "no": "02", "title": "Designs", "meta": "Brand · Visual Identity · Assets", "view": "View Project →", "href": "#" },
+      { "no": "03", "title": "Brand Audit", "meta": "Clarity · Positioning · Growth Map", "view": "View Project →", "href": "#" },
+      { "no": "04", "title": "Website", "meta": "Web Design · UX · Conversion", "view": "View Project →", "href": "#" },
+      { "no": "05", "title": "Case Study #1 — Mindset Mastery", "meta": "Full GTM · 100% high-ticket conversion", "view": "View Case Study →", "href": "./case-study.html" },
+      { "no": "06", "title": "Case Study #2 — Multi-Launch + Lifecycle Engine", "meta": "Repeatable launch architecture", "view": "View Case Study →", "href": "./case-study.html" }
+    ],
+    "cta": {
+      "heading": "Ready to build something that lasts?",
+      "lead": "Strategy. Systems. Scale. Let's build your next revenue engine — together.",
+      "label": "Start the conversation",
+      "href": "./contact.html"
+    }
+  },
+
+  "servicesPage": {
+    "crumb": "Home / Services",
+    "heading": "Services",
+    "intro": "How I turn strategy into measurable, repeatable revenue.",
+    "offersLabel": "What I Do",
+    "offersHeading": "The Full Stack",
+    "offersLead": "Every service is built around one outcome: revenue that compounds.",
+    "services": [
+      { "icon": "◷", "title": "GTM Engineering", "desc": "End-to-end go-to-market architecture — ICP definition, offer positioning, funnel mapping, and coordinated multi-channel launch execution that drives pipeline from day one." },
+      { "icon": "❖", "title": "Lifecycle & Email Automation", "desc": "High-converting email sequences, segmentation logic, and automated nurture flows engineered to move leads from cold to checkout — consistently hitting 35–40% open rates and 8–10% CTR." },
+      { "icon": "↗", "title": "CRO & Web Experience", "desc": "Conversion rate optimization across landing pages, checkout flows, and key UX touchpoints — backed by data, tested systematically, and built to deliver 15%+ lift in revenue per session." },
+      { "icon": "✦", "title": "Brand & Conversion Copy", "desc": "Strategic copywriting that aligns positioning with buyer psychology — from brand voice guides and campaign messaging to direct-response landing pages and email sequences that close." },
+      { "icon": "⟳", "title": "AI & Automation Systems", "desc": "Custom automation infrastructure using AI tooling, prompt engineering, and workflow design — eliminating manual overhead so your team executes more with fewer moving parts." },
+      { "icon": "◈", "title": "Analytics & Dashboards", "desc": "KPI dashboards, UTM governance frameworks, and attribution models that give you a single source of truth — so every decision is backed by clean, pipeline-ready data." }
+    ],
+    "processLabel": "The Process",
+    "processHeading": "How I work",
+    "processLead": "A proven five-phase framework — from first brief to repeatable playbook.",
+    "process": [
+      { "no": "01", "title": "GTM Architecture", "desc": "We start by getting ruthlessly clear on who we're targeting, what problem we're solving, and how the offer lands against the competitive landscape. ICP definition, positioning, offer structure, and funnel map — locked before a single asset is written." },
+      { "no": "02", "title": "Pre-Launch Warmup", "desc": "Audience priming across email and organic channels — warming cold subscribers, building anticipation, and setting up the nurture sequences that qualify leads before the cart opens. No launch succeeds without a warm audience." },
+      { "no": "03", "title": "Multi-Channel Launch", "desc": "Coordinated execution across email, paid, and organic — timed to hit simultaneously and reinforce each touchpoint. Checkout optimization, urgency copy, and cart abandonment sequences fire in real time to maximize conversion at peak intent." },
+      { "no": "04", "title": "Post-Launch Nurture", "desc": "The launch ends — the revenue engine doesn't. Lifecycle sequences, retention flows, win-back campaigns, and lead recovery automation keep your audience engaged and your pipeline full between launches." },
+      { "no": "05", "title": "Optimization & Playbooks", "desc": "Post-mortem analysis against every KPI, UTM attribution audit, and a documented SOP library — so your next launch runs faster, tighter, and with predictable results. Strategy that compounds every cycle." }
+    ],
+    "pullQuote": "Every engagement ends with a repeatable playbook — not just a one-time result.",
+    "proofLabel": "Proof Of Work",
+    "proofStats": [
+      { "value": 1.5, "prefix": "$", "suffix": "M", "label": "Revenue Driven — Single Role" },
+      { "value": 117, "prefix": "", "suffix": "", "label": "High-Ticket Enrollments" },
+      { "value": 3, "prefix": "", "suffix": "", "label": "Sold-Out Live Events" },
+      { "value": 40, "prefix": "", "suffix": "%", "label": "Email Open Rate" },
+      { "value": 15, "prefix": "", "suffix": "%+", "label": "Checkout Lift" }
+    ],
+    "cta": {
+      "heading": "Ready to build the engine?",
+      "lead": "Tell me where you're stuck — positioning, pipeline, conversion, or all three. I'll come in with a plan.",
+      "label": "Let's Talk Strategy",
+      "href": "./contact.html"
+    }
+  },
+
+  "caseStudyPages": [
+    {
+      "id": "mindset-mastery",
+      "crumb": "Home / Work / Case Study",
+      "title": "Mindset Mastery",
+      "sub": "A full go-to-market build and high-ticket launch — from zero to sold out.",
+      "client": "High-ticket membership program (redacted per NDA)",
+      "metrics": [
+        { "metric": "9", "label": "Seats Sold Out" },
+        { "metric": "100%", "label": "High-Ticket Conversion" },
+        { "metric": "4", "label": "Month Build" },
+        { "metric": "15+", "label": "Assets Shipped" }
+      ],
+      "metricsDisclaimer": "* Figures are representative and reflect the scope and nature of work delivered.",
+      "challengeLabel": "The Challenge",
+      "challengeHeading": "Starting from zero.",
+      "challengeLead": "A high-ticket membership program with no funnel, no launch system, and no attribution.",
+      "challenge": [
+        "The client had a compelling offer and a loyal audience — but no infrastructure to monetize either. There was no dedicated program site, no email sequence built for conversion, and no way to track where leads were coming from or why they converted.",
+        "Every launch was one-off, improvised, and impossible to repeat. The goal: build a repeatable revenue engine from scratch — one that could fill seats predictably and compound over time."
+      ],
+      "approachLabel": "The Approach",
+      "approachHeading": "Built end to end. Owned top to bottom.",
+      "approachLead": "Every asset, every automation, every data point — designed as a system, not a sprint.",
+      "approach": [
+        "Program site + landing pages. Designed and built a conversion-optimized program site with dedicated landing pages per audience segment. Copy, structure, and hierarchy all calibrated for high-ticket intent.",
+        "Full launch email sequence. Wrote every email in the launch cadence — nurture, open-cart, urgency, and close. Engineered for segmentation so messaging matched where each lead was in the funnel.",
+        "Lead attribution + funnel ownership. Implemented UTM governance, built a KPI tracking dashboard, and wired up source attribution from first touch to closed seat. No more guessing where buyers came from.",
+        "Automations + lifecycle triggers. Set up behavioral automations for lead nurture, cart abandonment, and post-purchase onboarding. Every trigger had a purpose — reduce friction, increase conviction, advance the close.",
+        "15+ assets shipped. From opt-in copy and social proof callouts to email templates and confirmation sequences — every touchpoint was built with the same strategic intent: remove doubt and move buyers forward."
+      ],
+      "resultLabel": "The Result",
+      "resultHeading": "Every seat. Every time.",
+      "resultLead": "From scattered one-off launches to a repeatable, predictable revenue architecture.",
+      "before": "Broad messaging that spoke to everyone and converted no one. One-off launches with no documentation, no repeatable process, and no data trail. Attribution was guesswork — there was no way to know which channel, which message, or which moment drove the close.",
+      "after": "Tightened segment narratives with copy engineered per buyer profile. A repeatable launch architecture — documented, templated, and scalable. Full attribution from first-touch to enrolled seat, with a KPI dashboard to prove ROI on every campaign going forward.",
+      "quote": "Filled every seat — 100% conversion of high-ticket leads.",
+      "confidentialityNote": "Select work has been redacted or visually altered to honor confidentiality and NDAs.",
+      "cta": {
+        "heading": "Want results like this?",
+        "lead": "Let's build your funnel, your launch system, and your revenue engine — from the ground up.",
+        "label": "Let's work together",
+        "href": "./contact.html"
+      }
+    },
+    {
+      "id": "multi-launch",
+      "title": "Multi-Launch + Lifecycle Engine",
+      "meta": "Repeatable launch architecture",
+      "needsContent": true,
+      "note": "Referenced as Case Study #2 in work.html and home work cards, but no dedicated preview page exists yet (work.html links both case-study cards to the same case-study.html / Mindset Mastery page). No real challenge/approach/results copy authored to extract."
+    }
+  ],
+
+  "resourcesPage": {
+    "crumb": "Home / Resources",
+    "heading": "Resources",
+    "intro": "Frameworks, playbooks, and tools I use to build revenue engines — yours to borrow.",
+    "libraryLabel": "Framework Library",
+    "libraryHeading": "Proven systems. Lift + take.",
+    "libraryLead": "These aren't templates — they're operational frameworks I've tested, refined, and used to drive measurable results across launches, campaigns, and growth programs.",
+    "items": [
+      { "icon": "◈", "title": "Hero Value-Prop Block", "desc": "A structured positioning framework for crafting the above-the-fold headline that converts cold traffic into warm leads on first contact.", "cta": "Get the framework →" },
+      { "icon": "❖", "title": "Three-Shift Method Stack", "desc": "A belief-shift sequence that moves a prospect from skeptical to sold by addressing the three core objections in the right order.", "cta": "Get the framework →" },
+      { "icon": "▦", "title": "Membership Benefits Grid", "desc": "A modular layout system for communicating tiered product value clearly — designed to lift upgrade rates and reduce decision fatigue.", "cta": "Get the framework →" },
+      { "icon": "★", "title": "Success-Story Proof Module", "desc": "A repeatable social-proof architecture that transforms raw testimonials into structured, conversion-ready case narratives.", "cta": "Get the framework →" }
+    ],
+    "leadMagnet": {
+      "label": "Free Resource",
+      "heading": "The GTM Starter Kit.",
+      "lead": "The exact go-to-market framework I use to launch campaigns that compound. Drop your email — I'll send it straight to your inbox, no strings.",
+      "fieldLabel": "Email address",
+      "placeholder": "your@email.com",
+      "button": "Send it to me →",
+      "disclaimer": "No spam. Unsubscribe any time."
+    },
+    "cta": {
+      "heading": "Want a custom playbook?",
+      "lead": "The frameworks above are starting points. The real work is building the version that fits your specific market, offer, and stage of growth.",
+      "label": "Let's build it together",
+      "href": "./contact.html"
+    }
+  },
+
+  "ugcPage": {
+    "crumb": "Home / UGC",
+    "heading": "UGC Creator",
+    "intro": "Authentic short-form for ambitious brands — testimonials, demos, lifestyle. Real, not staged.",
+    "reelLabel": "Content in the wild",
+    "reelHeading": "The work speaks.",
+    "reelLead": "Short-form content built for scroll-stopping performance — on TikTok, Reels, and wherever your audience lives.",
+    "reelNote": "Sample tiles — your real reels + brand names drop in here.",
+    "createLabel": "What I Create",
+    "createHeading": "Format-first. Results-driven.",
+    "createLead": "Every format is built with a clear job to do — from first impression to conversion.",
+    "items": [
+      { "icon": "▶", "title": "Short-Form Video", "desc": "Hook-forward content engineered to stop the scroll and hold attention through to the CTA." },
+      { "icon": "★", "title": "Testimonials & Reviews", "desc": "Trust-building first-person reviews that read as genuine because they are — no script, no performance." },
+      { "icon": "◎", "title": "Product Demos", "desc": "Clear, benefit-led demonstrations that show exactly how a product works and why it matters." },
+      { "icon": "◈", "title": "Lifestyle Content", "desc": "Aspirational yet attainable content that integrates your product naturally into a real world context." }
+    ],
+    "brandsLabel": "Brands",
+    "brandsHeading": "Built for brands that mean business.",
+    "brandsLead": "From launch-phase DTC to established household names — the work scales with the ambition.",
+    "brandsNote": "Placeholder chips — swapped for real brand logos on go-live.",
+    "brandsPlaceholder": { "needsContent": true, "note": "Brand chips are all 'Your brand here' placeholders — no real brand names/logos to extract until go-live." },
+    "cta": {
+      "heading": "Let's create something real.",
+      "lead": "Authentic content that converts. No fluff, no over-production — just work that performs.",
+      "label": "Start the conversation",
+      "href": "./contact.html"
+    }
+  },
+
+  "contactPage": {
+    "crumb": "Home / Contact",
+    "heading": "Ready when you are.",
+    "intro": "Strategic marketing. Scalable systems. Sustainable growth. Let's build what's next — together.",
+    "formLabel": "Get in touch",
+    "formHeading": "Let's talk.",
+    "formLead": "Drop a message below and I'll get back to you within 24 hours — no fluff, straight to the point.",
+    "fields": {
+      "name": { "label": "Name", "placeholder": "Your name" },
+      "email": { "label": "Email", "placeholder": "your@email.com" },
+      "message": { "label": "Message", "placeholder": "Tell me what you're building…" }
+    },
+    "button": "Send the message →",
+    "responseNote": "Response within 24 hours.",
+    "infoLabel": "Direct lines",
+    "info": [
+      { "icon": "✉", "key": "Email", "value": "julianne.mktg@gmail.com", "href": "mailto:julianne.mktg@gmail.com" },
+      { "icon": "✆", "key": "Phone", "value": "+650-759-0995", "href": "tel:+16507590995" },
+      { "icon": "⌖", "key": "Based In", "value": "San Francisco, CA", "href": "" },
+      { "icon": "◴", "key": "Let's Connect", "value": "Book a discovery call", "href": "" }
+    ]
+  },
+
   "contact": {
     "heading": "Ready when you are.",
     "lead": "Strategic marketing. Scalable systems. Sustainable growth. Let's build what's next — together.",

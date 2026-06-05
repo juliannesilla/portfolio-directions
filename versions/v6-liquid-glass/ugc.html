@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Julianne Silla — Director of Marketing · Liquid Glass</title>
-<meta name="description" content="Paid-media & GTM strategist who turns chaos into clarity, and clarity into revenue."/>
+<title>Julianne Silla — UGC Creator · Liquid Glass</title>
+<meta name="description" content="Authentic short-form for ambitious brands — testimonials, demos, lifestyle. Real, not staged. A marketing strategist who also creates the content that converts."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ====================================================================
-   JULIANNE SILLA — DIRECTION 06 · "LIQUID GLASS"  (flagship)
-   Real content + tokens (charcoal/champagne/cream · Playfair/Inter/Archivo).
-   Frost = backdrop-filter on panels. "Liquid" warp = SVG displacement on the
-   BACKGROUND only (text stays crisp). Solid fallback + reduced-motion gated.
+   JULIANNE SILLA — DIRECTION 06 · "LIQUID GLASS"  ·  UGC PAGE
+   Style + interactive system copied wholesale from the v6 HOME so the
+   inner page matches the home visual system EXACTLY.
+   Page-specific additions live in the clearly-labelled "UGC PAGE" block.
    ==================================================================== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -83,29 +83,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing
 .nav-links a{position:relative;color:var(--on-dark-mut);transition:color .3s}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
 .nav-links a:hover{color:var(--on-dark)}.nav-links a:hover::after{width:100%}
+/* active page state */
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after{width:100%}
 .nav-cta{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:10px 20px;border:1px solid var(--gold);color:var(--gold);border-radius:9px;transition:.35s var(--ease)}
 .nav-cta:hover{background:var(--gold);color:var(--char)}
-@media(max-width:860px){.nav-links{display:none}}
+@media(max-width:1040px){.nav-links{display:none}}
 
 /* ---- progress ---- */
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-dim),var(--gold-hi));z-index:9000}
-
-/* ---- hero ---- */
-.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;padding:150px 0 70px;position:relative}
-.hero-card{padding:54px 50px;border-radius:24px}
-.hero h1{font-size:clamp(3.6rem,8.5vw,7.4rem);line-height:.9;margin:14px 0 0}
-.hero h1 .sub{display:block;font-size:.62em;font-style:italic;font-weight:500;color:var(--gold-hi)}
-.role{font-family:var(--grotesk);font-size:clamp(.66rem,1vw,.82rem);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-mut);margin:26px 0 30px;line-height:1.9}
-.role b{color:var(--gold)}
-.hero .line{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.85rem);line-height:1.25;color:var(--on-dark);max-width:30ch;margin-bottom:34px}
-.hero .line b{color:var(--gold)}.hero .line i{color:var(--on-dark-mut)}
-.hero-photo{position:relative;height:80vh;border-radius:24px;overflow:hidden;border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow)}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;transform:scale(1.05);transition:transform .8s var(--ease)}
-.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,13,12,.5)),linear-gradient(90deg,rgba(219,191,148,.10),transparent 40%)}
-.hero-photo .float{position:absolute;left:24px;bottom:24px;right:24px;padding:18px 22px;border-radius:14px;display:flex;align-items:center;gap:14px}
-.hero-photo .float .dot{width:8px;height:8px;border-radius:50%;background:#7Cdca0;box-shadow:0 0 12px #7Cdca0;flex:none}
-.hero-photo .float span{font-family:var(--grotesk);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark)}
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:130px}.hero-photo{height:52vh;order:-1}.hero-card{padding:38px 30px}}
 
 /* ---- btn ---- */
 .btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 34px;border:1px solid var(--gold);color:var(--gold);border-radius:11px;cursor:pointer;transition:.4s var(--ease);background:rgba(219,191,148,.06)}
@@ -121,52 +107,12 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .rule .ln{height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex:1}
 .dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
 
-/* ---- stats ---- */
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.stat{padding:30px 18px;text-align:center;border-radius:16px;transition:transform .5s var(--ease)}
-.stat:hover{transform:translateY(-6px)}
-.stat .n{font-family:var(--serif);font-size:2.3rem;font-weight:700;color:var(--gold-hi)}
-.stat .l{font-family:var(--grotesk);font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
-
-/* ---- about ---- */
-.about{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
-.about .big{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.16;margin-bottom:30px}
-.about .big b{color:var(--gold)}.about .big i{font-style:italic;color:var(--on-dark-mut)}
-.about p{color:var(--on-dark-mut);margin-bottom:18px;max-width:56ch}
-.about p b{color:var(--on-dark)}
-.about-card{padding:40px 36px;border-radius:20px}
-.pillars{display:grid;gap:22px}
-.pillar{display:flex;gap:18px;align-items:flex-start}
-.pillar .ic{width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);flex:none;font-size:1.1rem}
-.pillar h3{font-family:var(--grotesk);font-size:.86rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
-.pillar p{color:var(--on-dark-mut);font-size:.92rem;margin:0}
-@media(max-width:900px){.about{grid-template-columns:1fr;gap:34px}}
-
-/* ---- work ---- */
-.work{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{padding:32px 28px;min-height:260px;border-radius:18px;display:flex;flex-direction:column;cursor:pointer;transition:transform .55s var(--ease)}
-.card:hover{transform:translateY(-7px)}
-.card .no{font-family:var(--grotesk);font-size:.78rem;font-weight:700;letter-spacing:.2em;color:var(--gold);display:flex;align-items:center;gap:12px}
-.card .no::after{content:'';width:32px;height:1px;background:var(--gold)}
-.card h3{font-family:var(--serif);font-size:1.5rem;color:var(--cream);margin:auto 0 8px;line-height:1.12}
-.card .meta{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.85}
-.card .view{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);margin-top:20px;display:flex;align-items:center;gap:10px;opacity:.6;transition:.4s var(--ease)}
-.card:hover .view{opacity:1;gap:16px;color:var(--gold-hi)}
-@media(max-width:900px){.work{grid-template-columns:1fr}}
-
 /* ---- contact ---- */
 .contact{text-align:center}
 .contact .mono{font-family:var(--serif);font-size:clamp(3rem,9vw,7rem);line-height:.92}
 .contact .mono .dot{color:var(--gold)}
 .contact .lead{color:var(--on-dark-mut);font-size:1.15rem;margin:26px auto 0;max-width:46ch}
 .contact .lead b{color:var(--gold)}
-.cinfo{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
-.cinfo .c{padding:28px 22px;border-radius:14px;text-align:left}
-.cinfo .ic{color:var(--gold);font-size:1.1rem;margin-bottom:12px}
-.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:6px}
-.cinfo .v{font-size:.94rem;color:var(--on-dark)}
-@media(max-width:760px){.cinfo{grid-template-columns:repeat(2,1fr)}}
 
 footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
 footer a:hover{color:var(--gold)}
@@ -178,16 +124,77 @@ footer a:hover{color:var(--gold)}
 /* ---- reveal ---- */
 .r{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .r.in{opacity:1;transform:none}
-.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}.r.d4{transition-delay:.36s}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}
+
+/* ====================================================================
+   UGC PAGE — page-specific layout, built on the home glass primitives
+   ==================================================================== */
+/* page hero */
+.phero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:180px 0 80px;position:relative}
+.crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:26px}
+.crumb a{color:var(--on-dark-mut);transition:color .3s}.crumb a:hover{color:var(--gold)}
+.crumb b{color:var(--gold);font-weight:600}
+.phero h1{font-size:clamp(3rem,8vw,6.6rem);line-height:.92;max-width:14ch}
+.phero h1 .sub{display:block;font-size:.5em;font-style:italic;font-weight:500;color:var(--gold-hi);letter-spacing:0}
+.phero .intro{font-family:var(--serif);font-size:clamp(1.25rem,2.1vw,1.8rem);line-height:1.3;color:var(--on-dark);max-width:34ch;margin:34px 0 14px}
+.phero .intro b{color:var(--gold)}
+.phero .dual{font-family:var(--sans);font-size:1.04rem;color:var(--on-dark-mut);max-width:54ch;margin-top:22px}
+.phero .dual b{color:var(--on-dark)}
+.phero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:40px}
+@media(max-width:760px){.phero{padding-top:150px;min-height:auto}}
+
+/* "what I create" cards */
+.create{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.ccard{padding:36px 34px;border-radius:18px;display:flex;flex-direction:column;gap:14px;transition:transform .55s var(--ease)}
+.ccard:hover{transform:translateY(-7px)}
+.ccard .ic{width:52px;height:52px;border:1px solid var(--gold);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.35rem;flex:none}
+.ccard h3{font-family:var(--serif);font-size:1.55rem;color:var(--cream);line-height:1.12}
+.ccard p{color:var(--on-dark-mut);font-size:.96rem;margin:0;max-width:42ch}
+@media(max-width:760px){.create{grid-template-columns:1fr}}
+
+/* reel gallery */
+.reels{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.reel{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;cursor:pointer;transition:transform .55s var(--ease)}
+.reel:hover{transform:translateY(-7px)}
+.reel img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform .8s var(--ease)}
+.reel:hover img{transform:scale(1.10)}
+.reel::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 50%,rgba(14,13,12,.62));pointer-events:none}
+.reel .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.92);z-index:3;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--char);background:rgba(243,226,190,.92);box-shadow:0 8px 30px rgba(0,0,0,.4);font-size:1.1rem;transition:transform .4s var(--ease),opacity .4s var(--ease);opacity:.86}
+.reel:hover .play{transform:translate(-50%,-50%) scale(1.05);opacity:1}
+.reel .cap{position:absolute;left:16px;bottom:14px;right:16px;z-index:3;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);display:flex;align-items:center;gap:9px}
+.reel .cap .tag{padding:4px 10px;border-radius:6px;background:rgba(14,13,12,.55);border:1px solid var(--glass-edge);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.reelnote{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:26px;display:flex;align-items:center;gap:12px}
+.reelnote::before{content:'';width:30px;height:1px;background:var(--gold-dim);flex:none}
+@media(max-width:760px){.reels{grid-template-columns:repeat(2,1fr)}}
+
+/* brands strip */
+.brandwrap{padding:54px 48px;border-radius:22px;text-align:center}
+.brandwrap .blead{color:var(--on-dark-mut);max-width:54ch;margin:0 auto 36px}
+.brandstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.bchip{font-family:var(--grotesk);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  padding:16px 26px;border-radius:12px;border:1px dashed var(--glass-edge);background:rgba(219,191,148,.05);
+  display:flex;align-items:center;gap:12px;transition:.4s var(--ease)}
+.bchip:hover{border-color:var(--gold);background:rgba(219,191,148,.10);transform:translateY(-4px)}
+.bchip .dia{width:6px;height:6px}
+.bchip.lead-chip{color:var(--gold-hi);border-style:solid;border-color:var(--gold)}
+.brandnote{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:30px}
+
+/* contact card block (page-level, matches home contact rhythm) */
+.cinfo{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.cinfo .c{padding:28px 22px;border-radius:14px;text-align:left}
+.cinfo .ic{color:var(--gold);font-size:1.1rem;margin-bottom:12px}
+.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:6px}
+.cinfo .v{font-size:.94rem;color:var(--on-dark)}
+@media(max-width:760px){.cinfo{grid-template-columns:repeat(2,1fr)}}
 
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
   .r{opacity:1!important;transform:none!important}
-  .bg{filter:none}.glass::before{display:none}.hero-photo img{transform:none}
+  .bg{filter:none}.glass::before{display:none}
   /* kill new interactive layer: no parallax drift, no 3D tilt, no cursor refraction */
   [data-tilt]{transform:none!important;will-change:auto}
   .glass::after{display:none}
-  .bg,.grain,.hero-photo img,.hero-card{transform:none!important;will-change:auto}
+  .bg,.grain,.reel img{transform:none!important;will-change:auto}
 }
 </style>
 </head>
@@ -204,92 +211,103 @@ footer a:hover{color:var(--gold)}
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="index.html">JS</a>
+    <a href="index.html" class="logo" aria-label="Julianne Silla — Home">JS</a>
     <div class="nav-links">
-      <a href="about.html">About</a><a href="work.html">Work</a><a href="services.html">Services</a><a href="case-study.html">Case Study</a><a href="ugc.html">UGC</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="case-study.html">Case Study</a>
+      <a href="ugc.html" class="active" aria-current="page">UGC</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero wrap">
-  <div class="hero-card glass r">
-    <div class="eyebrow">The partner behind your growth</div>
-    <h1>Julianne<span class="sub">Silla</span></h1>
-    <div class="role">Director of Marketing <b>/</b> GTM Engineer <b>/</b> AI &amp; Automation <b>/</b> Conversion Copywriter</div>
-    <div class="line">I turn <b>chaos into clarity</b>, <i>and</i> <b>clarity into revenue.</b></div>
-    <a class="btn" data-mag href="#work">View my work <span class="ar">→</span></a>
-  </div>
-  <div class="hero-photo r d2">
-    <img src="../../assets/photos/julz-profile-card.jpg" alt="Julianne Silla, Director of Marketing"/>
-    <div class="float glass"><span class="dot"></span><span>Available for select partnerships</span></div>
+<!-- PAGE HERO -->
+<header class="phero wrap">
+  <div class="crumb r">Home <span style="opacity:.5">/</span> <b>UGC</b></div>
+  <h1 class="r d1">UGC<span class="sub">Creator.</span></h1>
+  <p class="intro r d2">Authentic short-form for ambitious brands — <b>testimonials, demos, lifestyle.</b> Real, not staged.</p>
+  <p class="dual r d3">I'm a <b>marketing strategist</b> and a <b>UGC creator</b> — and that dual identity is the edge. I know what a paid-media brief actually needs to convert, what a lifecycle sequence needs to retain, and what a scroll-stopping hook needs to earn a second watch. <b>Strategy plus story — both in my hands, both calibrated to results.</b></p>
+  <div class="phero-actions r d4">
+    <a class="btn" data-mag href="#reels">See the work <span class="ar">→</span></a>
+    <a class="btn" data-mag href="contact.html" style="background:transparent">Start a collab <span class="ar">→</span></a>
   </div>
 </header>
 
-<!-- STATS -->
-<section class="wrap" style="padding-top:0">
-  <div class="stats">
-    <div class="stat glass r" data-tilt><div class="n" data-count="8" data-pre="$" data-suf="M+">$0</div><div class="l">Cumulative Revenue Impact</div></div>
-    <div class="stat glass r d1" data-tilt><div class="n" data-count="600" data-suf="K+">0</div><div class="l">Podcast Listens</div></div>
-    <div class="stat glass r d2" data-tilt><div class="n" data-count="100" data-suf="+">0</div><div class="l">Podcasts Produced</div></div>
-    <div class="stat glass r d3" data-tilt><div class="n" data-count="40" data-suf="+">0</div><div class="l">SOPs Established</div></div>
-    <div class="stat glass r d4" data-tilt><div class="n" data-count="15" data-suf="+">0</div><div class="l">GTM Launches</div></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="wrap" id="about">
-  <div class="rule r"><span class="dia"></span><span class="eyebrow">About Me</span><span class="ln"></span></div>
-  <div class="about">
-    <div class="r">
-      <div class="big">I turn <b>chaos into clarity</b>, <i>and</i> <b>clarity into revenue.</b></div>
-      <p>I'm a launch-obsessed, full-stack marketing leader. In my last role I led <b>15+ GTM launches</b> that drove <b>$1.5M in revenue</b>, <b>117 high-ticket enrollments</b>, and <b>3 sold-out events</b> in a four-month span.</p>
-      <p>I build <b>KPI dashboards</b> for pipeline forecasting, enforce clean <b>UTM governance</b>, and consistently hit <b>35–40% open</b>, <b>8–10% CTR</b>, and <b>15%+ checkout lift</b>. Strategy. Systems. Scale — that's my lane.</p>
-    </div>
-    <div class="about-card glass r d2" data-tilt>
-      <div class="pillars">
-        <div class="pillar"><div class="ic">◷</div><div><h3>Data-Driven Decisions</h3><p>Real insights that eliminate waste and focus on what moves the needle.</p></div></div>
-        <div class="pillar"><div class="ic">❖</div><div><h3>Systems That Scale</h3><p>Repeatable systems that streamline execution and unlock sustainable growth.</p></div></div>
-        <div class="pillar"><div class="ic">↗</div><div><h3>Revenue That Compounds</h3><p>Long-term impact that compounds — not short-term vanity wins.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORK -->
-<section class="wrap" id="work">
+<!-- WHAT I CREATE -->
+<section class="wrap" id="create">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">What I Create</span><span class="ln"></span></div>
   <div class="shead r">
-    <div class="eyebrow">Strategy. Systems. Scale.</div>
-    <h2 style="margin-top:14px">Selected Work</h2>
-    <div class="lead">Proven strategies. Measurable impact.</div>
+    <h2>Format-first. Results-driven.</h2>
+    <div class="lead">Every format is built with a clear job to do — from first impression to conversion.</div>
   </div>
-  <div class="work">
-    <div class="card glass r" data-tilt><div class="no">01</div><h3>Go-to-Market (GTM) Engineering</h3><div class="meta">Strategy · Positioning · Execution</div><div class="view">View Project →</div></div>
-    <div class="card glass r d1" data-tilt><div class="no">02</div><h3>Designs</h3><div class="meta">Brand · Visual Identity · Assets</div><div class="view">View Project →</div></div>
-    <div class="card glass r d2" data-tilt><div class="no">03</div><h3>Brand Audit</h3><div class="meta">Clarity · Positioning · Growth Map</div><div class="view">View Project →</div></div>
-    <div class="card glass r" data-tilt><div class="no">04</div><h3>Website</h3><div class="meta">Web Design · UX · Conversion</div><div class="view">View Project →</div></div>
-    <div class="card glass r d1" data-tilt><div class="no">05</div><h3>Case Study #1 — Mindset Mastery</h3><div class="meta">Full GTM · 100% high-ticket conversion</div><div class="view">View Project →</div></div>
-    <div class="card glass r d2" data-tilt><div class="no">06</div><h3>Case Study #2 — Multi-Launch + Lifecycle Engine</h3><div class="meta">Repeatable launch architecture</div><div class="view">View Project →</div></div>
+  <div class="create">
+    <div class="ccard glass r" data-tilt><div class="ic">▶</div><h3>Short-Form Video</h3><p>Hook-forward content engineered to stop the scroll and hold attention through to the CTA.</p></div>
+    <div class="ccard glass r d1" data-tilt><div class="ic">★</div><h3>Testimonials &amp; Reviews</h3><p>Trust-building first-person reviews that read as genuine because they are — no script, no performance.</p></div>
+    <div class="ccard glass r d2" data-tilt><div class="ic">◎</div><h3>Product Demos</h3><p>Clear, benefit-led demonstrations that show exactly how a product works and why it matters.</p></div>
+    <div class="ccard glass r d3" data-tilt><div class="ic">◈</div><h3>Lifestyle Content</h3><p>Aspirational yet attainable content that integrates your product naturally into a real world context.</p></div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- REEL GALLERY -->
+<section class="wrap" id="reels">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">Content in the wild</span><span class="ln"></span></div>
+  <div class="shead r">
+    <h2>The work speaks.</h2>
+    <div class="lead">Short-form content built for scroll-stopping performance — on TikTok, Reels, and wherever your audience lives.</div>
+  </div>
+  <div class="reels">
+    <div class="reel glass r" data-tilt><img src="../../preview/reel-1.jpg" alt="Sample short-form reel" loading="lazy"/><span class="play" aria-hidden="true">▶</span><span class="cap"><span class="tag">Sample reel 01</span></span></div>
+    <div class="reel glass r d1" data-tilt><img src="../../preview/reel-2.jpg" alt="Sample short-form reel" loading="lazy"/><span class="play" aria-hidden="true">▶</span><span class="cap"><span class="tag">Sample reel 02</span></span></div>
+    <div class="reel glass r d2" data-tilt><img src="../../preview/reel-3.jpg" alt="Sample short-form reel" loading="lazy"/><span class="play" aria-hidden="true">▶</span><span class="cap"><span class="tag">Sample reel 03</span></span></div>
+    <div class="reel glass r d3" data-tilt><img src="../../preview/reel-4.jpg" alt="Sample short-form reel" loading="lazy"/><span class="play" aria-hidden="true">▶</span><span class="cap"><span class="tag">Sample reel 04</span></span></div>
+    <div class="reel glass r d4" data-tilt><img src="../../preview/reel-5.jpg" alt="Sample short-form reel" loading="lazy"/><span class="play" aria-hidden="true">▶</span><span class="cap"><span class="tag">Sample reel 05</span></span></div>
+    <div class="reel glass r d5" data-tilt><img src="../../preview/reel-6.jpg" alt="Sample short-form reel" loading="lazy"/><span class="play" aria-hidden="true">▶</span><span class="cap"><span class="tag">Sample reel 06</span></span></div>
+  </div>
+  <div class="reelnote r">Sample tiles — your real reels + brand names drop in here.</div>
+</section>
+
+<!-- SELECTED BRANDS -->
+<section class="wrap" id="brands">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">Brands</span><span class="ln"></span></div>
+  <div class="brandwrap glass r" data-tilt>
+    <h2 style="font-size:clamp(1.9rem,4vw,3rem)">Built for brands that mean business.</h2>
+    <p class="blead" style="margin-top:18px">From launch-phase DTC to established household names — the work scales with the ambition.</p>
+    <div class="brandstrip">
+      <span class="bchip lead-chip"><span class="dia"></span>Partnerships available</span>
+      <span class="bchip"><span class="dia"></span>Your brand here</span>
+      <span class="bchip"><span class="dia"></span>Your brand here</span>
+      <span class="bchip"><span class="dia"></span>Open to brand collaborations</span>
+      <span class="bchip"><span class="dia"></span>Your brand here</span>
+    </div>
+    <div class="brandnote">Placeholder chips — swapped for real brand logos on go-live.</div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
 <section class="wrap contact" id="contact">
   <div class="rule r" style="justify-content:center;max-width:420px;margin:0 auto 36px"><span class="ln" style="background:linear-gradient(90deg,transparent,var(--gold))"></span><span class="dia"></span><span class="ln"></span></div>
-  <h2 class="mono r">Ready when<br>you are<span class="dot">.</span></h2>
-  <p class="lead r d1">Strategic marketing. Scalable systems. Sustainable growth. <b>Let's build what's next — together.</b></p>
-  <a class="btn r d2" data-mag href="mailto:julianne.mktg@gmail.com" style="margin-top:40px">Let's build what's next <span class="ar">→</span></a>
+  <h2 class="mono r">Let's create<br>something real<span class="dot">.</span></h2>
+  <p class="lead r d1">Authentic content that converts. No fluff, no over-production — <b>just work that performs.</b></p>
+  <a class="btn r d2" data-mag href="contact.html" style="margin-top:40px">Start the conversation <span class="ar">→</span></a>
   <div class="cinfo">
-    <div class="c glass r" data-tilt><div class="ic">✉</div><div class="k">Email</div><div class="v">julianne.mktg@gmail.com</div></div>
-    <div class="c glass r d1" data-tilt><div class="ic">✆</div><div class="k">Phone</div><div class="v">+650-759-0995</div></div>
+    <div class="c glass r" data-tilt><div class="ic">✉</div><div class="k">Email</div><div class="v"><a href="mailto:julianne.mktg@gmail.com">julianne.mktg@gmail.com</a></div></div>
+    <div class="c glass r d1" data-tilt><div class="ic">✆</div><div class="k">Phone</div><div class="v"><a href="tel:+16507590995">+650-759-0995</a></div></div>
     <div class="c glass r d2" data-tilt><div class="ic">⌖</div><div class="k">Based In</div><div class="v">San Francisco, CA</div></div>
     <div class="c glass r d3" data-tilt><div class="ic">◴</div><div class="k">Let's Connect</div><div class="v">Book a discovery call</div></div>
   </div>
-  <footer class="wrap" style="padding-left:0;padding-right:0"><span>© 2026 Julianne Silla</span><span>Strategy. Systems. Scale.</span><span>Working with clients worldwide</span></footer>
+  <footer class="wrap" style="padding-left:0;padding-right:0">
+    <span>© 2026 Julianne Silla</span>
+    <span>Strategy. Systems. Scale.</span>
+    <span>Working with clients worldwide</span>
+  </footer>
 </section>
 
-<div class="vbadge glass">Direction 06 · Liquid Glass &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
+<div class="vbadge glass">Direction 06 · Liquid Glass · UGC &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -307,17 +325,6 @@ footer a:hover{color:var(--gold)}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
     rs.forEach(function(el){io.observe(el)});
   } else { rs.forEach(function(el){el.classList.add('in')}); }
-  /* count-up */
-  var counted=false;
-  function runCount(){ if(counted)return; counted=true;
-    document.querySelectorAll('[data-count]').forEach(function(el){
-      var t=+el.dataset.count,pre=el.dataset.pre||'',suf=el.dataset.suf||'',dur=1500,st=null;
-      function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);var v=Math.floor((1-Math.pow(1-p,3))*t);el.textContent=pre+v+suf;if(p<1)requestAnimationFrame(step);else el.textContent=pre+t+suf;}
-      requestAnimationFrame(step);
-    });
-  }
-  var se=document.querySelector('.stats');
-  if(se){ if(reduce)runCount(); else new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount()})},{threshold:.4}).observe(se); }
   /* nav + progress */
   var nav=document.getElementById('nav'),prog=document.getElementById('prog');
   addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop;nav.classList.toggle('stuck',y>40);prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
@@ -337,13 +344,7 @@ footer a:hover{color:var(--gold)}
     var bgEl=document.querySelector('.bg'), grainEl=document.querySelector('.grain');
     if(bgEl){ gsap.to(bgEl,{yPercent:14,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}}); }
     if(grainEl){ gsap.to(grainEl,{yPercent:-8,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}}); }
-    /* hero portrait + card drift at different speeds while the hero scrolls past */
-    var heroPhoto=document.querySelector('.hero-photo img'), heroCard=document.querySelector('.hero-card'), hero=document.querySelector('.hero');
-    if(hero){
-      if(heroPhoto){ gsap.to(heroPhoto,{yPercent:12,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:true}}); }
-      if(heroCard){ gsap.to(heroCard,{yPercent:-6,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:true}}); }
-    }
-    /* generic opt-in parallax for any future [data-parallax] layer */
+    /* generic opt-in parallax for any [data-parallax] layer */
     document.querySelectorAll('[data-parallax]').forEach(function(el){
       var amt=parseFloat(el.dataset.parallax)||80;
       gsap.to(el,{yPercent:amt,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}});
