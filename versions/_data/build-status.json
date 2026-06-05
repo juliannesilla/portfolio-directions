@@ -1,0 +1,24 @@
+{
+  "project": "juliannesilla.com — 8 Design Directions",
+  "updatedAt": "2026-06-04 14:55",
+  "note": "Live build status. Updated as each page ships.",
+  "pagesPerDirection": ["home","about","work","case: Mindset Mastery","case: Multi-Launch","services","ugc","resources","contact"],
+  "directions": [
+    { "id": "v6-liquid-glass", "name": "Liquid Glass", "badge": "flagship", "from": "fluid.glass (the effect)", "status": "building",
+      "pages": { "home": "done", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
+    { "id": "v1-data-editorial", "name": "Data Editorial", "from": "dvdrod.com", "status": "queued",
+      "pages": { "home": "queued", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
+    { "id": "v2-silk", "name": "Silk", "from": "awwwards · Cleo/KVS", "status": "queued",
+      "pages": { "home": "queued", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
+    { "id": "v3-cinematic", "name": "Cinematic", "from": "pumpco hero", "status": "queued",
+      "pages": { "home": "queued", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
+    { "id": "v4-editorial-luxe", "name": "Editorial Luxe", "from": "vivre · tenuta-di-murlo", "status": "queued",
+      "pages": { "home": "queued", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
+    { "id": "v5-spatial", "name": "Spatial", "from": "mango · nonsense (faux-3D)", "status": "queued",
+      "pages": { "home": "queued", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
+    { "id": "v7-story-whitespace", "name": "Story / Warm Whitespace", "from": "tomcardermedia", "status": "queued",
+      "pages": { "home": "queued", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
+    { "id": "v8-atelier", "name": "Atelier", "from": "fluid.glass (real site)", "status": "queued",
+      "pages": { "home": "queued", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } }
+  ]
+}

@@ -1,0 +1,25 @@
+# Code-only repo (HR-57 + locked "git breaks on large binaries" rule).
+# Media is referenced by the static site + uploaded to Vercel via CLI,
+# but NOT versioned here. SVGs are text, so they stay tracked.
+
+# images / video / heavy binaries
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.avif
+*.mp4
+*.mov
+*.MOV
+*.pdf
+*.PDF
+
+# keep SVGs (text, small, part of the design system)
+!*.svg
+
+# vercel / tooling
+.vercel/
+node_modules/
+.DS_Store
+Thumbs.db

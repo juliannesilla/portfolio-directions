@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Julianne Silla</title>
+<meta name="description" content="Strategic marketing. Scalable systems. Sustainable growth. Let's build what's next — together."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+
+<div class="prog"></div>
+<div class="cur"></div>
+<div class="ring"></div>
+
+<nav class="nav">
+  <a class="logo" href="./index.html">JS</a>
+  <div class="nav-links">
+    <a href="./about.html">About</a>
+    <a href="./work.html">Work</a>
+    <a href="./services.html">Services</a>
+    <a href="./ugc.html">UGC</a>
+    <a href="./resources.html">Resources</a>
+    <a href="./contact.html" class="active">Contact</a>
+  </div>
+  <a href="./contact.html" class="nav-cta" data-mag>Work With Me</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero sec-dark center">
+  <div class="watermark">JS</div>
+  <div class="wrap">
+    <div class="crumb r"><a href="./index.html">Home</a> / Contact</div>
+    <h1 class="r d1">Ready when you are.</h1>
+    <p class="sub r d2">Strategic marketing. Scalable systems. Sustainable growth. Let's build what's next — together.</p>
+  </div>
+</div>
+
+<!-- FORM + CONTACT INFO -->
+<section class="sec-panel">
+  <div class="wrap">
+    <div class="rule r" style="margin-bottom:40px"><span class="dia"></span><span class="eyebrow">Get in touch</span><span class="ln"></span></div>
+    <div class="grid-2">
+      <div>
+        <div class="shead r">
+          <h2>Let's talk.</h2>
+          <p class="lead">Drop a message below and I'll get back to you within 24 hours — no fluff, straight to the point.</p>
+        </div>
+        <form class="form r d1" onsubmit="return false;">
+          <div class="row">
+            <div>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name"/>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com"/>
+            </div>
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me what you're building…"></textarea>
+          </div>
+          <div>
+            <button class="btn solid" type="button" data-mag>Send the message <span class="ar">→</span></button>
+          </div>
+        </form>
+        <p class="r d2" style="margin-top:18px;font-family:var(--grotesk);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);">Response within 24 hours.</p>
+      </div>
+      <div class="portrait r d1">
+        <img src="./julz-about.jpg" alt="Julianne Silla"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT INFO CARDS -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="rule r" style="margin-bottom:40px"><span class="dia"></span><span class="eyebrow">Direct lines</span><span class="ln"></span></div>
+    <div class="cinfo r d1">
+      <div class="c">
+        <div class="ic">✉</div>
+        <div class="k">Email</div>
+        <div class="v"><a href="mailto:julianne.mktg@gmail.com">julianne.mktg@gmail.com</a></div>
+      </div>
+      <div class="c">
+        <div class="ic">✆</div>
+        <div class="k">Phone</div>
+        <div class="v"><a href="tel:+16507590995">+650-759-0995</a></div>
+      </div>
+      <div class="c">
+        <div class="ic">⌖</div>
+        <div class="k">Based In</div>
+        <div class="v">San Francisco, CA</div>
+      </div>
+      <div class="c">
+        <div class="ic">◴</div>
+        <div class="k">Let's Connect</div>
+        <div class="v">Book a discovery call</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Julianne Silla</span>
+  <span>Strategy. Systems. Scale.</span>
+  <span><a href="./contact.html">Let's connect</a></span>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

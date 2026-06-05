@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Julianne Silla — 8 Design Directions · Choose Your Favorite</title>
+<meta name="description" content="Eight fully interactive design directions for juliannesilla.com. Scroll each, then rank your favorite."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --char:#0E0D0C;--char2:#15120F;--panel:#1A1612;--cream:#E5E2DD;
+  --gold:#DBBF94;--gold-hi:#F3E2BE;--gold-dim:#8C7350;
+  --on-dark:#F0EBE1;--on-dark-mut:#A99E8E;--line:#2A241D;
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;--grotesk:'Archivo',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:
+  radial-gradient(60% 50% at 15% 8%,rgba(219,191,148,.16),transparent 70%),
+  radial-gradient(50% 45% at 90% 100%,rgba(140,115,80,.16),transparent 72%),
+  linear-gradient(165deg,#15120F,#0E0D0C 60%);
+  color:var(--on-dark);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--grotesk);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.34em;color:var(--gold)}
+::selection{background:var(--gold);color:var(--char)}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px;border-radius:4px}
+
+header.hd{padding:110px 0 56px;text-align:center}
+header.hd .eyebrow{margin-bottom:20px}
+header.hd h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.8rem,7vw,5.4rem);line-height:.98;letter-spacing:-.02em}
+header.hd h1 .it{font-style:italic;color:var(--gold-hi)}
+header.hd p{color:var(--on-dark-mut);max-width:54ch;margin:24px auto 0;font-size:1.08rem}
+header.hd .rule{display:flex;align-items:center;gap:14px;justify-content:center;max-width:360px;margin:36px auto 0;color:var(--gold)}
+header.hd .rule .ln{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);flex:1}
+header.hd .rule .dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;padding:20px 0 90px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{position:relative;display:flex;flex-direction:column;min-height:240px;padding:34px 32px;border-radius:20px;
+  background:rgba(244,238,228,.04);border:1px solid var(--line);overflow:hidden;
+  transition:transform .5s var(--ease),border-color .5s var(--ease),background .5s var(--ease)}
+.card:hover{transform:translateY(-6px);border-color:var(--gold-dim);background:rgba(244,238,228,.06)}
+.card .no{font-family:var(--grotesk);font-size:.78rem;font-weight:800;letter-spacing:.2em;color:var(--gold);display:flex;align-items:center;gap:12px}
+.card .no::after{content:'';width:34px;height:1px;background:var(--gold)}
+.card .from{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut);margin-left:auto}
+.card .no{justify-content:space-between}
+.card h2{font-family:var(--serif);font-size:1.9rem;line-height:1.06;margin:20px 0 10px}
+.card .one{color:var(--on-dark-mut);font-size:.98rem;max-width:42ch;flex:1}
+.card .sig{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);margin-top:16px;line-height:1.7}
+.card .open{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark);margin-top:22px;display:flex;align-items:center;gap:10px;transition:.4s var(--ease)}
+.card:hover .open{gap:16px;color:var(--gold-hi)}
+.card.flag::before{content:'★ FLAGSHIP';position:absolute;top:18px;right:0;font-family:var(--grotesk);font-size:.56rem;font-weight:800;letter-spacing:.18em;color:var(--char);background:var(--gold);padding:5px 14px 5px 12px;border-radius:8px 0 0 8px}
+.card .badge3d{position:absolute;top:18px;right:0;font-family:var(--grotesk);font-size:.56rem;font-weight:800;letter-spacing:.16em;color:var(--char);background:var(--gold-hi);padding:5px 14px 5px 12px;border-radius:8px 0 0 8px}
+
+footer{padding:40px 0 70px;border-top:1px solid var(--line);text-align:center;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
+.note{max-width:var(--maxw);margin:0 auto 30px;padding:18px 26px;border:1px dashed var(--gold-dim);border-radius:14px;color:var(--on-dark-mut);font-size:.92rem;text-align:center}
+.note b{color:var(--gold)}
+</style>
+</head>
+<body>
+<header class="hd wrap">
+  <div class="eyebrow">Julianne Silla · Portfolio Exploration</div>
+  <h1>Eight ways to wear<br><span class="it">your story.</span></h1>
+  <p>The same real work, reimagined eight distinct ways — each one a fully interactive build with parallax, a 3D moment, and motion. Scroll each, then tell me your favorites.</p>
+  <div class="rule"><span class="ln"></span><span class="dia"></span><span class="ln"></span></div>
+</header>
+
+<div class="note wrap">Tip: open each on your phone too. Every direction respects <b>reduced-motion</b> — turn it on in your OS to see the calm/static version.</div>
+
+<main class="grid wrap">
+  <a class="card flag" href="v6-liquid-glass/index.html">
+    <div class="no"><span>06</span><span class="from">fluid.glass — the effect</span></div>
+    <h2>Liquid Glass</h2>
+    <div class="one">Frosted, refracting glass nav + cards over a warm gradient — the effect you loved, made real.</div>
+    <div class="sig">SVG liquid warp · parallax behind glass · 3D-tilt glass cards</div>
+    <div class="open">Open direction →</div>
+  </a>
+
+  <a class="card" href="v1-data-editorial/index.html">
+    <div class="no"><span>01</span><span class="from">dvdrod.com</span></div>
+    <h2>Data Editorial</h2>
+    <div class="one">Your metrics ARE the hero — a light, editorial, numbers-first layout.</div>
+    <div class="sig">Scroll-scrubbed count-ups · parallax stat columns · 3D flip cards</div>
+    <div class="open">Open direction →</div>
+  </a>
+
+  <a class="card" href="v2-silk/index.html">
+    <div class="no"><span>02</span><span class="from">awwwards · premium tech</span></div>
+    <h2>Silk</h2>
+    <div class="one">Buttery scroll and breathing whitespace — quiet, premium, expensive-feeling.</div>
+    <div class="sig">Lenis parallax layers · magnetic CTAs · 3D-tilt cards · scroll-skew</div>
+    <div class="open">Open direction →</div>
+  </a>
+
+  <a class="card" href="v3-cinematic/index.html">
+    <div class="no"><span>03</span><span class="from">pumpco hero</span></div>
+    <h2>Cinematic</h2>
+    <div class="one">A full-bleed, film-trailer hero that pulls you in immediately.</div>
+    <div class="sig">Parallax hero layers · scroll-scrubbed reveal · 3D depth transitions</div>
+    <div class="open">Open direction →</div>
+  </a>
+
+  <a class="card" href="v4-editorial-luxe/index.html">
+    <div class="no"><span>04</span><span class="from">vivre · tenuta-di-murlo</span></div>
+    <h2>Editorial Luxe</h2>
+    <div class="one">Gallery-grade alternating image-and-text — photography that breathes.</div>
+    <div class="sig">Multi-speed image parallax · 3D-tilt gallery · cursor-reveal captions</div>
+    <div class="open">Open direction →</div>
+  </a>
+
+  <a class="card" href="v5-spatial/index.html">
+    <span class="badge3d">REAL 3D</span>
+    <div class="no"><span>05</span><span class="from">mango · nonsense</span></div>
+    <h2>Spatial</h2>
+    <div class="one">Your work floating in depth — the boldest, most playful direction.</div>
+    <div class="sig">WebGL / Three.js scene · mouse-parallax · scroll-driven camera</div>
+    <div class="open">Open direction →</div>
+  </a>
+
+  <a class="card" href="v7-story-whitespace/index.html">
+    <div class="no"><span>07</span><span class="from">tomcardermedia</span></div>
+    <h2>Story / Warm Whitespace</h2>
+    <div class="one">Bold Playfair headlines with lots of air — warm, human, confident.</div>
+    <div class="sig">Parallax stamps + headline depth · 3D hover cards · z-translate reveals</div>
+    <div class="open">Open direction →</div>
+  </a>
+
+  <a class="card" href="v8-atelier/index.html">
+    <div class="no"><span>08</span><span class="from">fluid.glass — the real site</span></div>
+    <h2>Atelier</h2>
+    <div class="one">Big quiet photos, generous grid, near-silent motion — restrained and architectural.</div>
+    <div class="sig">Slow single-axis image parallax · one quiet 3D rotate · cursor-reactive grid</div>
+    <div class="open">Open direction →</div>
+  </a>
+</main>
+
+<footer>© 2026 Julianne Silla &nbsp;·&nbsp; Strategy. Systems. Scale. &nbsp;·&nbsp; 8 directions, one you</footer>
+</body>
+</html>

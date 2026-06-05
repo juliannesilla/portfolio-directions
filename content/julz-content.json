@@ -1,0 +1,139 @@
+{
+  "_meta": {
+    "note": "SINGLE SOURCE OF TRUTH for all 8 design directions. Copy is verbatim from the verified v6 home + Canva site export. Do NOT invent copy or stats (HR-10/49). Pages not yet extracted from preview/ are marked needsExtraction:true and are out of scope for the home build.",
+    "updatedAt": "2026-06-05",
+    "assetBasePathFromVersion": "../../assets",
+    "previewBasePathFromVersion": "../../preview"
+  },
+
+  "brand": {
+    "name": "Julianne Silla",
+    "monogram": "JS",
+    "eyebrow": "The partner behind your growth",
+    "roleTitles": ["Director of Marketing", "GTM Engineer", "AI & Automation", "Conversion Copywriter"],
+    "tagline": "I turn chaos into clarity, and clarity into revenue.",
+    "taglineParts": { "a": "chaos into clarity", "b": "clarity into revenue" },
+    "motto": "Strategy. Systems. Scale.",
+    "metaDescription": "Paid-media & GTM strategist who turns chaos into clarity, and clarity into revenue."
+  },
+
+  "tokens": {
+    "colors": {
+      "char": "#0E0D0C", "char2": "#15120F", "panel": "#1A1612",
+      "cream": "#E5E2DD", "cream2": "#EFEBE2",
+      "gold": "#DBBF94", "goldHi": "#F3E2BE", "goldDim": "#8C7350",
+      "onDark": "#F0EBE1", "onDarkMut": "#A99E8E", "line": "#2A241D"
+    },
+    "fonts": { "serif": "Playfair Display", "sans": "Inter", "grotesk": "Archivo" },
+    "fontLink": "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap",
+    "ease": "cubic-bezier(.16,1,.3,1)",
+    "easeQ": "cubic-bezier(.25,1,.5,1)",
+    "maxWidth": "1240px"
+  },
+
+  "hero": {
+    "eyebrow": "The partner behind your growth",
+    "name": "Julianne Silla",
+    "roleLine": "Director of Marketing / GTM Engineer / AI & Automation / Conversion Copywriter",
+    "line": "I turn chaos into clarity, and clarity into revenue.",
+    "cta": { "label": "View my work", "href": "#work" },
+    "availability": "Available for select partnerships"
+  },
+
+  "stats": [
+    { "value": 8, "prefix": "$", "suffix": "M+", "label": "Cumulative Revenue Impact" },
+    { "value": 600, "prefix": "", "suffix": "K+", "label": "Podcast Listens" },
+    { "value": 100, "prefix": "", "suffix": "+", "label": "Podcasts Produced" },
+    { "value": 40, "prefix": "", "suffix": "+", "label": "SOPs Established" },
+    { "value": 15, "prefix": "", "suffix": "+", "label": "GTM Launches" }
+  ],
+
+  "about": {
+    "eyebrow": "About Me",
+    "big": "I turn chaos into clarity, and clarity into revenue.",
+    "paragraphs": [
+      "I'm a launch-obsessed, full-stack marketing leader. In my last role I led 15+ GTM launches that drove $1.5M in revenue, 117 high-ticket enrollments, and 3 sold-out events in a four-month span.",
+      "I build KPI dashboards for pipeline forecasting, enforce clean UTM governance, and consistently hit 35–40% open, 8–10% CTR, and 15%+ checkout lift. Strategy. Systems. Scale — that's my lane."
+    ],
+    "pillars": [
+      { "icon": "◷", "title": "Data-Driven Decisions", "body": "Real insights that eliminate waste and focus on what moves the needle." },
+      { "icon": "❖", "title": "Systems That Scale", "body": "Repeatable systems that streamline execution and unlock sustainable growth." },
+      { "icon": "↗", "title": "Revenue That Compounds", "body": "Long-term impact that compounds — not short-term vanity wins." }
+    ]
+  },
+
+  "work": {
+    "eyebrow": "Strategy. Systems. Scale.",
+    "heading": "Selected Work",
+    "lead": "Proven strategies. Measurable impact.",
+    "cards": [
+      { "no": "01", "title": "Go-to-Market (GTM) Engineering", "meta": "Strategy · Positioning · Execution", "href": "work.html" },
+      { "no": "02", "title": "Designs", "meta": "Brand · Visual Identity · Assets", "href": "work.html" },
+      { "no": "03", "title": "Brand Audit", "meta": "Clarity · Positioning · Growth Map", "href": "work.html" },
+      { "no": "04", "title": "Website", "meta": "Web Design · UX · Conversion", "href": "work.html" },
+      { "no": "05", "title": "Case Study #1 — Mindset Mastery", "meta": "Full GTM · 100% high-ticket conversion", "href": "case-study.html" },
+      { "no": "06", "title": "Case Study #2 — Multi-Launch + Lifecycle Engine", "meta": "Repeatable launch architecture", "href": "case-study.html" }
+    ]
+  },
+
+  "caseStudies": [
+    { "id": "mindset-mastery", "title": "Mindset Mastery", "meta": "Full GTM · 100% high-ticket conversion", "needsExtraction": true },
+    { "id": "multi-launch", "title": "Multi-Launch + Lifecycle Engine", "meta": "Repeatable launch architecture", "needsExtraction": true }
+  ],
+
+  "contact": {
+    "heading": "Ready when you are.",
+    "lead": "Strategic marketing. Scalable systems. Sustainable growth. Let's build what's next — together.",
+    "cta": { "label": "Let's build what's next", "href": "mailto:julianne.mktg@gmail.com" },
+    "info": [
+      { "icon": "✉", "key": "Email", "value": "julianne.mktg@gmail.com", "href": "mailto:julianne.mktg@gmail.com" },
+      { "icon": "✆", "key": "Phone", "value": "+650-759-0995", "href": "tel:+16507590995" },
+      { "icon": "⌖", "key": "Based In", "value": "San Francisco, CA", "href": "" },
+      { "icon": "◴", "key": "Let's Connect", "value": "Book a discovery call", "href": "mailto:julianne.mktg@gmail.com" }
+    ]
+  },
+
+  "footer": ["© 2026 Julianne Silla", "Strategy. Systems. Scale.", "Working with clients worldwide"],
+
+  "nav": [
+    { "label": "About", "href": "#about" },
+    { "label": "Work", "href": "#work" },
+    { "label": "Case Studies", "href": "#work" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "navCta": { "label": "Work With Me", "href": "#contact" },
+
+  "assets": {
+    "portraitPrimary": "../../assets/photos/julz-hero-pro.png",
+    "portraitCard": "../../assets/photos/julz-profile-card.jpg",
+    "portraitFallbacks": [
+      "../../assets/photos/julz-profile-card.jpg",
+      "../../preview/julz-hero.jpg",
+      "../../preview/about-portrait.jpg",
+      "../../preview/julz-about.jpg"
+    ],
+    "lifestyle": [
+      "../../assets/photos/portfolio-photo-01.jpg",
+      "../../assets/photos/portfolio-photo-02.jpg",
+      "../../assets/photos/portfolio-photo-03.jpg",
+      "../../assets/photos/hero-landscape.jpg",
+      "../../assets/photos/about-me-landscape.jpg"
+    ],
+    "reels": [
+      "../../preview/reel-1.jpg", "../../preview/reel-2.jpg", "../../preview/reel-3.jpg",
+      "../../preview/reel-4.jpg", "../../preview/reel-5.jpg", "../../preview/reel-6.jpg"
+    ],
+    "workThumbs": [
+      "../../preview/work-1.png", "../../preview/work-2.png", "../../preview/work-3.png",
+      "../../preview/work-4.png", "../../preview/work-5.png", "../../preview/work-6.png"
+    ],
+    "caseVisuals": [
+      "../../assets/case-studies/v7-section-1-HERO-8K.png",
+      "../../assets/case-studies/v7-section-2-STACK-8K.png",
+      "../../assets/case-studies/v7-section-3-OUTCOMES-FOOTER-8K.png",
+      "../../assets/case-studies/campaigns-overview.png",
+      "../../assets/case-studies/performance-overview.png"
+    ],
+    "logoMark": "../../assets/brand/JS.png"
+  }
+}
