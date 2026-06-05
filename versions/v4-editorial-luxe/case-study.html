@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mindset Mastery — Case Study · Julianne Silla · Editorial Luxe</title>
+<meta name="description" content="A full go-to-market build and high-ticket launch — from zero to sold out. Case study by Julianne Silla."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ====================================================================
+   JULIANNE SILLA — DIRECTION 04 · "EDITORIAL LUXE"  ·  CASE STUDY PAGE
+   Visual system copied wholesale from the v4 HOME (index.html):
+   tokens (champagne/cream + warm earth · Playfair/Inter/Archivo),
+   .atmo/.grain, .nav, .prog, footer.fz, .vbadge, .r reveals,
+   reduced-motion. Signature interactions carried over verbatim:
+   multi-speed image parallax (data-frame), 3D-tilt (data-tilt),
+   cursor-reveal captions, magnetic CTAs, count-up.
+   Page-specific blocks (.crumb, .case-hero, .panel, .steps, .compare,
+   .results, .pullq, .conf, .ctaband) extend — never override — the system.
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* elevated champagne / cream + warm earth */
+  --bg:#E9E4DB;            /* page */
+  --cream:#F4F0E8;         /* surfaces */
+  --cream2:#FBF8F2;        /* lifted surfaces */
+  --ink:#2A241D;           /* text */
+  --ink-soft:#5C5346;      /* secondary text */
+  --ink-mut:#8A8073;       /* labels / muted */
+  --gold:#B9985F;          /* primary accent */
+  --gold-deep:#9A7B45;     /* deep gold for AA on cream */
+  --gold-hi:#D8BC8C;       /* highlight gold */
+  --sage:#7C8270;          /* muted secondary */
+  --clay:#A88B6F;          /* warm secondary */
+  --line:#D6CEC0;          /* hairlines */
+  --line-2:#C9BFAE;
+  --char:#23201B;          /* footer/dark moments */
+  --serif:'Playfair Display',serif; --sans:'Inter',sans-serif; --grotesk:'Archivo',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1); --ease-q:cubic-bezier(.25,1,.5,1); --maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;min-height:100vh}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spacing:-.012em}
+em,.it{font-style:italic}
+.eyebrow{font-family:var(--grotesk);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.36em;color:var(--gold-deep)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+::selection{background:var(--gold);color:var(--cream2)}
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:4px;border-radius:2px}
+
+/* paper grain — gallery-grade texture, barely there */
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* soft warm wash to give the cream depth */
+.atmo{position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(48% 40% at 12% 8%, rgba(216,188,140,.30), transparent 72%),
+    radial-gradient(42% 38% at 92% 84%, rgba(124,130,112,.14), transparent 74%),
+    linear-gradient(180deg,#EDE8DF,#E9E4DB 60%,#E4DDD1)}
+
+/* ---- progress hairline ---- */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--clay),var(--gold-hi));z-index:9000}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .5s var(--ease),box-shadow .5s var(--ease),padding .5s var(--ease)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:26px 40px;transition:padding .5s var(--ease)}
+.nav.stuck{background:rgba(244,240,232,.82);-webkit-backdrop-filter:blur(14px) saturate(120%);backdrop-filter:blur(14px) saturate(120%);box-shadow:0 1px 0 var(--line),0 8px 30px rgba(42,36,29,.06)}
+.nav.stuck .wrap{padding:14px 40px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:.06em;line-height:1}
+.logo b{color:var(--gold-deep)}
+.nav-links{display:flex;gap:38px;font-family:var(--grotesk);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.nav-links a{position:relative;color:var(--ink-soft);transition:color .35s var(--ease)}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--gold-deep);transition:width .4s var(--ease)}
+.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold-deep)}.nav-links a.active::after{width:100%}
+.nav-cta{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:11px 22px;border:1px solid var(--gold-deep);color:var(--gold-deep);border-radius:2px;transition:.4s var(--ease)}
+.nav-cta:hover{background:var(--gold-deep);color:var(--cream2)}
+@media(max-width:880px){.nav-links{display:none}}
+
+/* ---- mobile menu: hamburger button + slide-in panel ---- */
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+  padding:0;border:1px solid var(--line-2);border-radius:2px;background:rgba(244,240,232,.7);
+  -webkit-backdrop-filter:blur(12px) saturate(120%);backdrop-filter:blur(12px) saturate(120%);
+  cursor:pointer;flex:none;transition:background .35s var(--ease),border-color .35s var(--ease)}
+.nav-burger:hover{background:var(--cream2);border-color:var(--gold-deep)}
+.nav-burger .bars{position:relative;display:block;width:20px;height:14px}
+.nav-burger .bars span{position:absolute;left:0;width:100%;height:1.5px;border-radius:2px;background:var(--gold-deep);
+  transition:transform .4s var(--ease),opacity .3s var(--ease),top .4s var(--ease)}
+.nav-burger .bars span:nth-child(1){top:0}
+.nav-burger .bars span:nth-child(2){top:6px}
+.nav-burger .bars span:nth-child(3){top:12px}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(3){top:6px;transform:rotate(-45deg)}
+.mobnav-back{position:fixed;inset:0;z-index:1000;background:rgba(35,32,27,.42);
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s var(--ease);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.mobnav-back.open{opacity:1;visibility:visible}
+.mobnav{position:fixed;top:0;right:0;z-index:1001;width:min(86vw,360px);height:100%;
+  background:var(--cream2);border-left:1px solid var(--line);
+  display:flex;flex-direction:column;padding:96px 30px 40px;gap:4px;
+  transform:translateX(102%);transition:transform .5s var(--ease);visibility:hidden;
+  box-shadow:-30px 0 70px -30px rgba(42,36,29,.4)}
+.mobnav.open{transform:translateX(0);visibility:visible}
+.mobnav .mob-eyebrow{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--ink-mut);margin:0 6px 14px}
+.mobnav a.mob-link{position:relative;display:block;font-family:var(--grotesk);font-size:1rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:15px 16px;border-radius:2px;
+  transition:background .3s var(--ease),color .3s var(--ease),padding-left .3s var(--ease)}
+.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:var(--cream);color:var(--gold-deep);padding-left:22px}
+.mobnav a.mob-link.active{color:var(--gold-deep)}
+.mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:20px;background:var(--gold-deep)}
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.72rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--gold-deep);
+  color:var(--gold-deep);border-radius:2px;transition:.35s var(--ease)}
+.mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--gold-deep);color:var(--cream2)}
+body.menu-open{overflow:hidden}
+@media(min-width:881px){.mobnav,.mobnav-back{display:none}}
+@media(max-width:880px){.nav-burger{display:inline-flex}}
+
+/* ---- buttons ---- */
+.btn{display:inline-flex;align-items:center;gap:16px;font-family:var(--grotesk);font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:18px 36px;background:var(--ink);color:var(--cream2);border:1px solid var(--ink);border-radius:2px;cursor:pointer;transition:.45s var(--ease)}
+.btn:hover{background:var(--gold-deep);border-color:var(--gold-deep);color:var(--cream2)}
+.btn .ar{transition:transform .45s var(--ease)}.btn:hover .ar{transform:translateX(7px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--cream2)}
+
+/* ---- sections ---- */
+section{padding:clamp(5.5rem,10vw,9.5rem) 0;position:relative}
+.rule{display:flex;align-items:center;gap:16px;color:var(--gold-deep);margin-bottom:34px}
+.rule .ln{height:1px;background:linear-gradient(90deg,var(--line-2),transparent);flex:1}
+.dia{width:6px;height:6px;background:var(--gold-deep);transform:rotate(45deg);flex:none}
+.shead{margin-bottom:60px;max-width:64ch}
+.shead h2{font-size:clamp(2.4rem,5.6vw,4.6rem);color:var(--ink)}
+.shead h2 .it{color:var(--gold-deep)}
+.shead .lead{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--ink-soft);margin-top:22px;max-width:44ch;line-height:1.5}
+
+/* ---- card surface — the editorial-luxe equivalent of the glass card ---- */
+.surface{position:relative;background:var(--cream);border:1px solid var(--line);border-radius:3px;
+  box-shadow:0 24px 60px -34px rgba(42,36,29,.34);overflow:hidden}
+.surface.lift{background:var(--cream2)}
+/* 3D-tilt primitive — preserve-3d so cards lean toward the cursor */
+[data-tilt]{transform-style:preserve-3d;transition:transform .55s var(--ease),box-shadow .55s var(--ease);will-change:transform}
+
+/* ---- footer ---- */
+footer.fz{background:var(--char);color:#CFC6B6;margin-top:0}
+footer.fz .wrap{padding-top:46px;padding-bottom:46px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center;
+  font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+footer.fz .fm{font-family:var(--serif);font-size:1.1rem;letter-spacing:.04em;color:var(--gold-hi);text-transform:none;font-style:italic;font-weight:400}
+footer.fz a:hover{color:var(--gold-hi)}
+
+/* ---- version badge ---- */
+.vbadge{position:fixed;right:20px;bottom:20px;z-index:950;padding:11px 17px;border-radius:2px;background:rgba(244,240,232,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 8px 26px rgba(42,36,29,.14);border:1px solid var(--line);
+  font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+.vbadge a{color:var(--ink-soft)}.vbadge a:hover{color:var(--gold-deep)}
+
+/* ---- reveal — slow + restrained ---- */
+.r{opacity:0;transform:translateY(30px);transition:opacity 1.25s var(--ease),transform 1.25s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.12s}.r.d2{transition-delay:.24s}.r.d3{transition-delay:.36s}.r.d4{transition-delay:.48s}
+
+/* ====================================================================
+   CASE-STUDY-PAGE-SPECIFIC LAYOUT (extends the system above)
+   ==================================================================== */
+
+/* ---- breadcrumb ---- */
+.crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);display:flex;align-items:center;gap:10px;margin-bottom:26px}
+.crumb a{color:var(--ink-mut);transition:color .3s}.crumb a:hover{color:var(--gold-deep)}
+.crumb .sep{color:var(--gold-deep);opacity:.7}
+
+/* ---- case hero ---- */
+.case-hero{padding:170px 0 0}
+.case-hero .head{max-width:64ch}
+.case-hero h1{font-size:clamp(3rem,7.5vw,6.2rem);line-height:.92;margin:14px 0 0;color:var(--ink)}
+.case-hero h1 i{font-style:italic;font-weight:400;color:var(--gold-deep)}
+.case-hero .sub{font-family:var(--serif);font-size:clamp(1.25rem,2.2vw,1.8rem);line-height:1.34;color:var(--ink-soft);max-width:34ch;margin:26px 0 0;font-weight:400}
+.case-meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.case-meta .chip{font-family:var(--grotesk);font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);padding:11px 18px;border-radius:2px;background:var(--cream);border:1px solid var(--line)}
+.case-meta .chip b{color:var(--ink);font-weight:600;margin-left:8px}
+/* case visual — editorial-framed, with multi-speed parallax inside the frame */
+.case-visual{margin-top:54px;border-radius:3px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px -38px rgba(42,36,29,.42);position:relative;aspect-ratio:16/8}
+.case-visual .frame{position:absolute;inset:-10% 0;will-change:transform}
+.case-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);transform:scale(1.02)}
+.case-visual:hover img{transform:scale(1.05)}
+.case-visual::after{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(244,240,232,.5);background:linear-gradient(180deg,transparent 52%,rgba(35,32,27,.24))}
+.case-visual .cap{position:absolute;left:22px;bottom:20px;z-index:2;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);padding:10px 16px;border-radius:2px;background:rgba(244,240,232,.86);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* ---- prose panel (Challenge) ---- */
+.panel{padding:clamp(34px,4vw,52px);border-radius:3px;max-width:none}
+.panel p{color:var(--ink-soft);margin-bottom:18px;max-width:62ch}
+.panel p:last-child{margin-bottom:0}
+.panel p b{color:var(--ink);font-weight:600}
+.panel p i{color:var(--gold-deep);font-style:italic}
+
+/* ---- numbered steps (Approach) ---- */
+.steps{display:grid;gap:18px;margin-top:8px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;padding:30px 34px;border-radius:3px;transition:transform .55s var(--ease),box-shadow .55s var(--ease)}
+.step:hover{transform:translateY(-5px)}
+.step .no{font-family:var(--serif);font-size:2.2rem;font-weight:500;color:var(--gold-deep);line-height:1;min-width:1.6em}
+.step .body h3{font-family:var(--grotesk);font-size:.9rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:9px}
+.step .body p{color:var(--ink-soft);font-size:.98rem;margin:0;max-width:62ch}
+@media(max-width:680px){.step{grid-template-columns:1fr;gap:12px}.step .no{font-size:1.7rem}}
+
+/* ---- before -> after comparison ---- */
+.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:stretch}
+.compare .col{padding:34px 32px;border-radius:3px}
+.compare .col .tag{font-family:var(--grotesk);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.compare .col.before .tag{color:var(--ink-mut)}
+.compare .col.before .tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--ink-mut);opacity:.7}
+.compare .col.after .tag{color:var(--gold-deep)}
+.compare .col.after .tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--sage);box-shadow:0 0 12px rgba(124,130,112,.6)}
+.compare .col p{margin:0;font-size:.99rem}
+.compare .col.before p{color:var(--ink-mut)}
+.compare .col.after p{color:var(--ink-soft)}
+.compare .arrow{display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.4rem;color:var(--gold-deep);flex:none}
+@media(max-width:820px){.compare{grid-template-columns:1fr}.compare .arrow{transform:rotate(90deg);padding:4px 0}}
+
+/* ---- results stat tiles ---- */
+.results{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.rstat{padding:38px 22px;text-align:center;border-radius:3px;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.rstat:hover{transform:translateY(-6px)}
+.rstat .n{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.2rem);font-weight:500;color:var(--ink);line-height:1}
+.rstat .l{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut);margin-top:14px;line-height:1.5}
+@media(max-width:760px){.results{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- pull quote ---- */
+.pullq{padding:clamp(44px,6vw,72px) clamp(34px,5vw,64px);border-radius:3px;text-align:center}
+.pullq .mark{font-family:var(--serif);font-size:5rem;line-height:.6;color:var(--gold-deep);opacity:.5;height:.5em;display:block}
+.pullq blockquote{font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,3rem);line-height:1.2;color:var(--ink);max-width:24ch;margin:18px auto 0;font-style:italic;font-weight:400}
+.pullq cite{display:block;font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-top:28px;font-style:normal}
+
+/* ---- confidentiality / disclaimer ---- */
+.conf{margin-top:34px;display:grid;gap:10px;max-width:72ch}
+.conf p{font-size:.8rem;color:var(--ink-mut);line-height:1.6;display:flex;gap:11px;align-items:flex-start}
+.conf p .lk{color:var(--gold-deep);flex:none;margin-top:.1em}
+
+/* ---- next case study (honest placeholder, no fabrication) ---- */
+.nextcase{margin-top:30px;padding:30px 34px;border-radius:3px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.nextcase .lbl{font-family:var(--grotesk);font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut)}
+.nextcase .t{font-family:var(--serif);font-size:1.4rem;color:var(--ink);margin-top:6px}
+.nextcase .soon{font-family:var(--grotesk);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);padding:9px 16px;border:1px solid var(--gold-deep);border-radius:2px;opacity:.9}
+
+/* ---- CTA band ---- */
+.ctaband{text-align:center}
+.ctaband .panel{padding:clamp(48px,7vw,84px) clamp(30px,5vw,64px)}
+.ctaband h2{font-size:clamp(2.2rem,6vw,4.4rem);line-height:.98;color:var(--ink)}
+.ctaband h2 .dot{color:var(--gold-deep)}
+.ctaband .lead{color:var(--ink-soft);font-size:1.12rem;margin:24px auto 0;max-width:48ch;font-family:var(--serif);font-style:italic}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .r{opacity:1!important;transform:none!important}
+  .case-visual .frame{position:absolute;inset:0!important}
+  .case-visual img{transform:none}
+  [data-tilt]{transform:none!important;will-change:auto}
+  .grain,.atmo{display:none}
+}
+</style>
+</head>
+<body>
+<div class="atmo"></div><div class="grain"></div>
+<div class="prog" id="prog"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">J<b>S</b></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="case-study.html" class="active" aria-current="page">Case Study</a>
+      <a href="ugc.html">UGC</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobnav-back" id="mobnavBack"></div>
+<nav class="mobnav" id="mobnav" aria-label="Mobile" aria-hidden="true">
+  <span class="mob-eyebrow">Menu</span>
+  <a class="mob-link" href="index.html">Home</a>
+  <a class="mob-link" href="about.html">About</a>
+  <a class="mob-link" href="work.html">Work</a>
+  <a class="mob-link" href="services.html">Services</a>
+  <a class="mob-link active" aria-current="page" href="case-study.html">Case Study</a>
+  <a class="mob-link" href="ugc.html">UGC</a>
+  <a class="mob-link" href="resources.html">Resources</a>
+  <a class="mob-link" href="contact.html">Contact</a>
+  <a class="mob-cta" href="contact.html">Work With Me</a>
+</nav>
+
+<!-- CASE HERO -->
+<header class="case-hero wrap">
+  <div class="head">
+    <div class="crumb r">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="work.html">Work</a><span class="sep">/</span>
+      <span>Case Study</span>
+    </div>
+    <div class="eyebrow r">Case Study #1</div>
+    <h1 class="r d1">Mindset <i>Mastery</i></h1>
+    <p class="sub r d2">A full go-to-market build and high-ticket launch — from zero to sold out.</p>
+    <div class="case-meta r d3">
+      <span class="chip">Engagement <b>Full GTM Build</b></span>
+      <span class="chip">Outcome <b>100% High-Ticket Conversion</b></span>
+      <span class="chip">Client <b>High-ticket membership program (redacted per NDA)</b></span>
+    </div>
+  </div>
+  <figure class="case-visual r d2">
+    <div class="frame" data-frame="12"><img src="../../assets/case-studies/campaigns-overview.png" alt="Campaign performance overview — Mindset Mastery launch" loading="lazy"/></div>
+    <figcaption class="cap">Launch &amp; campaign overview</figcaption>
+  </figure>
+</header>
+
+<!-- THE CHALLENGE -->
+<section class="wrap" id="challenge">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">The Challenge</span><span class="ln"></span></div>
+  <div class="shead r">
+    <h2>Starting from <span class="it">zero.</span></h2>
+    <div class="lead">A high-ticket membership program with no funnel, no launch system, and no attribution.</div>
+  </div>
+  <div class="panel surface r d1" data-tilt>
+    <p>The client had a compelling offer and a loyal audience — but no infrastructure to monetize either. There was no dedicated program site, no email sequence built for conversion, and no way to track where leads were coming from or why they converted.</p>
+    <p>Every launch was one-off, improvised, and impossible to repeat. The goal: <b>build a repeatable revenue engine from scratch</b> — one that could fill seats predictably and compound over time.</p>
+  </div>
+</section>
+
+<!-- THE APPROACH -->
+<section class="wrap" id="approach">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">The Approach</span><span class="ln"></span></div>
+  <div class="shead r">
+    <h2>Built end to end. <span class="it">Owned top to bottom.</span></h2>
+    <div class="lead">Every asset, every automation, every data point — designed as a system, not a sprint.</div>
+  </div>
+  <div class="steps">
+    <div class="step surface r" data-tilt>
+      <div class="no">01</div>
+      <div class="body"><h3>Program site + landing pages</h3><p>Designed and built a conversion-optimized program site with dedicated landing pages per audience segment. Copy, structure, and hierarchy all calibrated for high-ticket intent.</p></div>
+    </div>
+    <div class="step surface r d1" data-tilt>
+      <div class="no">02</div>
+      <div class="body"><h3>Full launch email sequence</h3><p>Wrote every email in the launch cadence — nurture, open-cart, urgency, and close. Engineered for segmentation so messaging matched where each lead was in the funnel.</p></div>
+    </div>
+    <div class="step surface r d2" data-tilt>
+      <div class="no">03</div>
+      <div class="body"><h3>Lead attribution + funnel ownership</h3><p>Implemented UTM governance, built a KPI tracking dashboard, and wired up source attribution from first touch to closed seat. No more guessing where buyers came from.</p></div>
+    </div>
+    <div class="step surface r d3" data-tilt>
+      <div class="no">04</div>
+      <div class="body"><h3>Automations + lifecycle triggers</h3><p>Set up behavioral automations for lead nurture, cart abandonment, and post-purchase onboarding. Every trigger had a purpose — reduce friction, increase conviction, advance the close.</p></div>
+    </div>
+    <div class="step surface r d4" data-tilt>
+      <div class="no">05</div>
+      <div class="body"><h3>15+ assets shipped</h3><p>From opt-in copy and social proof callouts to email templates and confirmation sequences — every touchpoint was built with the same strategic intent: remove doubt and move buyers forward.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE RESULT — before / after -->
+<section class="wrap" id="result">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">The Result</span><span class="ln"></span></div>
+  <div class="shead r">
+    <h2>Every seat. <span class="it">Every time.</span></h2>
+    <div class="lead">From scattered one-off launches to a repeatable, predictable revenue architecture.</div>
+  </div>
+  <div class="compare">
+    <div class="col before surface r" data-tilt>
+      <div class="tag">Before</div>
+      <p>Broad messaging that spoke to everyone and converted no one. One-off launches with no documentation, no repeatable process, and no data trail. Attribution was guesswork — there was no way to know which channel, which message, or which moment drove the close.</p>
+    </div>
+    <div class="arrow r d1" aria-hidden="true">→</div>
+    <div class="col after surface lift r d2" data-tilt>
+      <div class="tag">After</div>
+      <p>Tightened segment narratives with copy engineered per buyer profile. A repeatable launch architecture — documented, templated, and scalable. Full attribution from first-touch to enrolled seat, with a KPI dashboard to prove ROI on every campaign going forward.</p>
+    </div>
+  </div>
+
+  <!-- RESULTS metrics as count-up stat tiles -->
+  <div class="results" style="margin-top:32px">
+    <div class="rstat surface r" data-tilt><div class="n" data-count="9">0</div><div class="l">Seats Sold Out</div></div>
+    <div class="rstat surface r d1" data-tilt><div class="n" data-count="100" data-suf="%">0%</div><div class="l">High-Ticket Conversion</div></div>
+    <div class="rstat surface r d2" data-tilt><div class="n" data-count="4">0</div><div class="l">Month Build</div></div>
+    <div class="rstat surface r d3" data-tilt><div class="n" data-count="15" data-suf="+">0</div><div class="l">Assets Shipped</div></div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="wrap" id="quote">
+  <div class="pullq surface r" data-tilt>
+    <span class="mark" aria-hidden="true">&ldquo;</span>
+    <blockquote>Filled every seat — 100% conversion of high-ticket leads.</blockquote>
+    <cite>Mindset Mastery — Full GTM Launch</cite>
+  </div>
+
+  <!-- confidentiality + representative-figures note (honest, small) -->
+  <div class="conf r d1">
+    <p><span class="lk">◇</span><span>* Figures are representative and reflect the scope and nature of work delivered.</span></p>
+    <p><span class="lk">◇</span><span>Select work has been redacted or visually altered to honor confidentiality and NDAs.</span></p>
+  </div>
+
+  <!-- next case study — honest placeholder, NO fabricated details (caseStudyPages[1] = needsContent) -->
+  <div class="nextcase surface r d2">
+    <div>
+      <div class="lbl">Up Next</div>
+      <div class="t">Case Study #2 — Multi-Launch + Lifecycle Engine</div>
+    </div>
+    <span class="soon">Coming soon</span>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="wrap ctaband" id="cta">
+  <div class="panel surface lift r" data-tilt>
+    <div class="rule r d1" style="justify-content:center;max-width:420px;margin:0 auto 30px"><span class="ln" style="background:linear-gradient(90deg,transparent,var(--line-2))"></span><span class="dia"></span><span class="ln"></span></div>
+    <h2 class="r d1">Want results<br>like this<span class="dot">?</span></h2>
+    <p class="lead r d2">Let's build your funnel, your launch system, and your revenue engine — from the ground up.</p>
+    <a class="btn r d3" data-mag href="contact.html" style="margin-top:38px">Let's work together <span class="ar">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="fz">
+  <div class="wrap">
+    <span>© 2026 Julianne Silla</span>
+    <span class="fm">Strategy. Systems. Scale.</span>
+    <span>Working with clients worldwide</span>
+  </div>
+</footer>
+
+<div class="vbadge">Direction 04 · Editorial Luxe · Case Study &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
+
+<!-- ============================= SCRIPTS ============================= -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine   = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ---- Lenis smooth scroll ---- */
+  if(!reduce && window.Lenis){
+    var lenis = new Lenis({duration:1.2, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))}});
+    function raf(t){lenis.raf(t); requestAnimationFrame(raf);} requestAnimationFrame(raf);
+    if(window.ScrollTrigger){ lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(function(time){lenis.raf(time*1000)}); gsap.ticker.lagSmoothing(0); }
+  }
+
+  /* ---- slow restrained reveals ---- */
+  var rs=[].slice.call(document.querySelectorAll('.r'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14});
+    rs.forEach(function(el){io.observe(el);});
+  } else { rs.forEach(function(el){el.classList.add('in');}); }
+
+  /* ---- count-up ---- */
+  var counted=false;
+  function runCount(){ if(counted)return; counted=true;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var t=+el.dataset.count, pre=el.dataset.pre||'', suf=el.dataset.suf||'', dur=1700, st=null;
+      function step(ts){if(!st)st=ts; var p=Math.min((ts-st)/dur,1); var v=Math.floor((1-Math.pow(1-p,3))*t); el.textContent=pre+v+suf; if(p<1)requestAnimationFrame(step); else el.textContent=pre+t+suf;}
+      requestAnimationFrame(step);
+    });
+  }
+  var se=document.querySelector('.results');
+  if(se){ if(reduce){runCount();} else { new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount();})},{threshold:.4}).observe(se); } }
+
+  /* ---- scroll-aware nav + progress bar ---- */
+  var nav=document.getElementById('nav'), prog=document.getElementById('prog');
+  addEventListener('scroll',function(){
+    var h=document.documentElement, y=h.scrollTop;
+    if(nav) nav.classList.toggle('stuck', y>40);
+    if(prog) prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';
+  },{passive:true});
+
+  /* ---- magnetic CTAs ---- */
+  if(!reduce && fine){
+    document.querySelectorAll('[data-mag]').forEach(function(el){
+      el.style.transition='transform .4s cubic-bezier(.16,1,.3,1)';
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(); el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.2+'px,'+(e.clientY-r.top-r.height/2)*.3+'px)';});
+      el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)';});
+    });
+  }
+
+  /* ---- SIGNATURE 1: multi-speed image parallax ----
+     each [data-frame] image drifts INSIDE its frame at a different rate
+     than the surrounding text. transform-only, scroll-scrubbed.        */
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('[data-frame]').forEach(function(el){
+      var amt = parseFloat(el.dataset.frame)||12;
+      gsap.fromTo(el, {yPercent:-amt}, {yPercent:amt, ease:'none',
+        scrollTrigger:{trigger:el.parentElement, start:'top bottom', end:'bottom top', scrub:true}});
+    });
+  }
+
+  /* ---- SIGNATURE 2: subtle 3D tilt on cards (preserve-3d) ---- */
+  if(!reduce && fine){
+    document.querySelectorAll('[data-tilt]').forEach(function(el){
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+        el.style.transform='perspective(1000px) rotateY('+(x*5)+'deg) rotateX('+(-y*5)+'deg)';
+        el.style.boxShadow='0 40px 90px -34px rgba(42,36,29,.42)';
+      });
+      el.addEventListener('mouseleave',function(){
+        el.style.transform='perspective(1000px) rotateY(0deg) rotateX(0deg)';
+        el.style.boxShadow='';
+      });
+    });
+  }
+
+  /* ---- SIGNATURE 3: cursor-reveal caption following the cursor on the case visual ---- */
+  if(!reduce && fine){
+    var cv=document.querySelector('.case-visual'); var cvcap=cv?cv.querySelector('.cap'):null;
+    if(cv && cvcap){
+      cv.addEventListener('mousemove',function(e){
+        var r=cv.getBoundingClientRect();
+        cvcap.style.left=(e.clientX-r.left+14)+'px';
+        cvcap.style.top=(e.clientY-r.top+14)+'px';
+        cvcap.style.bottom='auto';
+      });
+      cv.addEventListener('mouseleave',function(){
+        cvcap.style.left=''; cvcap.style.top=''; cvcap.style.bottom='';
+      });
+    }
+  }
+
+  /* ---- mobile menu: hamburger toggle + slide-in panel (dependency-free) ---- */
+  (function(){
+    var burger=document.getElementById('navBurger'),
+        panel=document.getElementById('mobnav'),
+        back=document.getElementById('mobnavBack');
+    if(!burger||!panel||!back) return;
+    var isOpen=false, lastFocus=null;
+    function firstLink(){ return panel.querySelector('a'); }
+    function open(){
+      if(isOpen) return; isOpen=true; lastFocus=document.activeElement;
+      panel.classList.add('open'); back.classList.add('open');
+      burger.setAttribute('aria-expanded','true');
+      burger.setAttribute('aria-label','Close menu');
+      panel.setAttribute('aria-hidden','false');
+      document.body.classList.add('menu-open');
+      var f=firstLink(); if(f) f.focus();
+    }
+    function close(returnFocus){
+      if(!isOpen) return; isOpen=false;
+      panel.classList.remove('open'); back.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+      panel.setAttribute('aria-hidden','true');
+      document.body.classList.remove('menu-open');
+      if(returnFocus!==false) burger.focus();
+    }
+    burger.addEventListener('click',function(){ isOpen?close():open(); });
+    back.addEventListener('click',function(){ close(); });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ close(false); });
+    });
+    document.addEventListener('keydown',function(e){
+      if(!isOpen) return;
+      if(e.key==='Escape'||e.key==='Esc'){ e.preventDefault(); close(); return; }
+      if(e.key==='Tab'){
+        var f=panel.querySelectorAll('a'); if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    matchMedia('(min-width:881px)').addEventListener('change',function(ev){ if(ev.matches) close(false); });
+  })();
+})();
+</script>
+</body>
+</html>

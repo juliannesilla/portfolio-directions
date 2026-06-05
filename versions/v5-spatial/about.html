@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Julianne Silla · Director of Marketing · Spatial</title>
+<meta name="description" content="I'm a launch-obsessed, full-stack marketing leader who turns chaos into clarity — and clarity into revenue."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ====================================================================
+   JULIANNE SILLA — DIRECTION 05 · "SPATIAL"  ·  ABOUT
+   Playful-brutalist depth. Visual system reused verbatim from
+   index.html (home): same :root tokens, .panel primitive, atmospheric
+   .bg deep-field + .gridfloor receding floor + .grain, .nav, .prog,
+   footer, .vbadge, reveal .r, count-up, magnetic CTAs, GSAP scrubbed
+   parallax, CSS preserve-3d tilt cards, reduced-motion block. Inner
+   page stays lighter on WebGL (no Three.js scene) but keeps the depth
+   signature via parallax ghosts + tilt + the receding grid floor.
+   Page-specific sections (about-hero, full-picture panel, stats,
+   value chips, credentials, pull quote, cta band) carry v6's real copy.
+   Palette: charcoal/near-black · champagne gold · icy electric accent.
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --char:#0E0D0C; --char2:#15120F; --panel:#1A1612; --cream:#E5E2DD; --cream2:#EFEBE2;
+  --gold:#DBBF94; --gold-hi:#F3E2BE; --gold-dim:#8C7350;
+  --ice:#BFE3F0; --ice-hi:#E4F4FA; --ice-dim:#6FA9BC;
+  --on-dark:#F0EBE1; --on-dark-mut:#A99E8E; --line:#2A241D;
+  --serif:'Playfair Display',serif; --sans:'Inter',sans-serif; --grotesk:'Archivo',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1); --ease-q:cubic-bezier(.25,1,.5,1); --maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--char);color:var(--on-dark);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;min-height:100vh}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing:-.015em}
+.eyebrow{font-family:var(--grotesk);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.34em;color:var(--gold)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;position:relative}
+::selection{background:var(--ice);color:var(--char)}
+:focus-visible{outline:2px solid var(--ice-hi);outline-offset:3px;border-radius:3px}
+
+/* ---- atmospheric spatial background (deep field + drifting glows) ---- */
+.bg{position:fixed;inset:-10%;z-index:-3;
+  background:
+    radial-gradient(46% 42% at 16% 14%, rgba(191,227,240,.16), transparent 70%),
+    radial-gradient(44% 40% at 86% 20%, rgba(243,226,190,.16), transparent 70%),
+    radial-gradient(60% 56% at 74% 94%, rgba(140,115,80,.20), transparent 75%),
+    linear-gradient(160deg,#15120F,#0E0D0C 55%,#0B0A09);
+  will-change:transform}
+/* faint depth-grid that reads as a 3D floor receding to the horizon */
+.gridfloor{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;
+  background-image:
+    linear-gradient(rgba(191,227,240,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(191,227,240,.06) 1px,transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 38%,#000 0%,transparent 72%);
+  mask-image:radial-gradient(120% 80% at 50% 38%,#000 0%,transparent 72%)}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---- panel primitive (brutalist card: hard edge + offset shadow) ---- */
+.panel{position:relative;background:linear-gradient(165deg,rgba(30,26,21,.92),rgba(18,16,13,.92));
+  border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 18px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(243,226,190,.06)}
+/* 3D-tilt primitives — preserve-3d so cards lean toward the cursor */
+[data-tilt]{transform-style:preserve-3d;transition:transform .5s var(--ease);will-change:transform}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:18px;left:0;right:0;z-index:900}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;
+  padding:12px 22px;border-radius:14px;
+  background:rgba(14,13,12,.55);border:1px solid var(--line);
+  -webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);
+  box-shadow:0 8px 30px rgba(0,0,0,.34);transition:padding .4s var(--ease),background .4s var(--ease)}
+.nav.stuck .wrap{padding:9px 22px;background:rgba(14,13,12,.78)}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:800;font-size:1.4rem;color:var(--gold);letter-spacing:.04em}
+.logo .mk{width:26px;height:26px;border:1px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-family:var(--grotesk);font-weight:800;color:var(--gold);transform:rotate(-6deg)}
+.nav-links{display:flex;gap:30px;font-family:var(--grotesk);font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.nav-links a{position:relative;color:var(--on-dark-mut);transition:color .3s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--ice);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--on-dark)}.nav-links a:hover::after{width:100%}
+/* active link — gold + persistent underline */
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after{width:100%;background:var(--gold)}
+.nav-cta{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:10px 20px;border:1px solid var(--gold);color:var(--gold);border-radius:9px;transition:.35s var(--ease)}
+.nav-cta:hover{background:var(--gold);color:var(--char)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ---- mobile menu: hamburger button + slide-in panel ---- */
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+  padding:0;border:1px solid var(--line);border-radius:11px;background:rgba(14,13,12,.55);
+  -webkit-backdrop-filter:blur(12px) saturate(150%);backdrop-filter:blur(12px) saturate(150%);
+  cursor:pointer;flex:none;transition:background .35s var(--ease),border-color .35s var(--ease)}
+.nav-burger:hover{background:rgba(14,13,12,.78);border-color:var(--gold)}
+.nav-burger .bars{position:relative;display:block;width:20px;height:14px}
+.nav-burger .bars span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:var(--gold);
+  transition:transform .4s var(--ease),opacity .3s var(--ease),top .4s var(--ease)}
+.nav-burger .bars span:nth-child(1){top:0}
+.nav-burger .bars span:nth-child(2){top:6px}
+.nav-burger .bars span:nth-child(3){top:12px}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(3){top:6px;transform:rotate(-45deg)}
+.mobnav-back{position:fixed;inset:0;z-index:1000;background:rgba(8,7,6,.6);
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s var(--ease);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.mobnav-back.open{opacity:1;visibility:visible}
+.mobnav{position:fixed;top:0;right:0;z-index:1001;width:min(86vw,360px);height:100%;
+  border-left:1px solid var(--line);background:linear-gradient(165deg,rgba(26,22,18,.97),rgba(14,13,12,.98));
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);
+  display:flex;flex-direction:column;padding:96px 30px 40px;gap:6px;
+  transform:translateX(102%);transition:transform .5s var(--ease);visibility:hidden}
+.mobnav.open{transform:translateX(0);visibility:visible}
+.mobnav .mob-eyebrow{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--on-dark-mut);margin:0 6px 14px}
+.mobnav a.mob-link{position:relative;display:block;font-family:var(--grotesk);font-size:1.05rem;font-weight:600;
+  letter-spacing:.04em;color:var(--on-dark);padding:15px 16px;border-radius:12px;
+  transition:background .3s var(--ease),color .3s var(--ease),padding-left .3s var(--ease)}
+.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:rgba(191,227,240,.08);color:var(--ice-hi);padding-left:22px}
+.mobnav a.mob-link.active{color:var(--gold)}
+.mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:22px;border-radius:2px;background:var(--gold)}
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.74rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--gold);
+  color:var(--gold);border-radius:11px;transition:.35s var(--ease)}
+.mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--gold);color:var(--char)}
+body.menu-open{overflow:hidden}
+@media(min-width:861px){.mobnav,.mobnav-back{display:none}}
+@media(max-width:860px){.nav-burger{display:inline-flex}}
+
+/* ---- progress ---- */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-dim),var(--gold-hi),var(--ice));z-index:9000}
+
+/* ---- btn ---- */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 34px;border:1px solid var(--gold);color:var(--gold);border-radius:11px;cursor:pointer;transition:.4s var(--ease);background:rgba(219,191,148,.06)}
+.btn:hover{background:var(--gold);color:var(--char)}
+.btn.ice{border-color:var(--ice);color:var(--ice);background:rgba(191,227,240,.06)}
+.btn.ice:hover{background:var(--ice);color:var(--char)}
+.btn .ar{transition:transform .4s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
+
+/* ---- sections ---- */
+section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
+.shead{margin-bottom:48px;max-width:60ch}
+.shead h2{font-size:clamp(2.4rem,5.5vw,4.4rem)}
+.shead .lead{font-family:var(--sans);font-size:1.05rem;color:var(--on-dark-mut);margin-top:18px;max-width:48ch}
+.shead .lead i{color:var(--ice)}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:30px}
+.rule .ln{height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex:1}
+.dia{width:7px;height:7px;background:var(--ice);transform:rotate(45deg);flex:none}
+
+/* ---- about hero ---- */
+.ahero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:160px 0 60px;position:relative}
+.ahero .crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:26px}
+.ahero .crumb b{color:var(--gold)}
+.ahero h1{font-size:clamp(3.6rem,11vw,9rem);line-height:.88}
+.ahero h1 .dot{color:var(--ice)}
+.ahero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.4vw,2rem);line-height:1.28;color:var(--on-dark);max-width:30ch;margin-top:30px}
+.ahero .sub b{color:var(--gold)}
+/* layered depth ghosts — the SPATIAL z-stack signature, echoing the home hero */
+.ahero .deco{position:absolute;right:-2%;top:10%;width:clamp(180px,26vw,360px);height:clamp(180px,26vw,360px);border-radius:50%;
+  background:radial-gradient(circle at 38% 32%,rgba(191,227,240,.20),rgba(140,115,80,.10) 55%,transparent 72%);
+  filter:blur(8px);pointer-events:none;z-index:-1}
+.ahero .deco2{position:absolute;right:18%;top:32%;width:clamp(90px,14vw,180px);height:clamp(90px,14vw,180px);border-radius:50%;
+  background:radial-gradient(circle at 40% 36%,rgba(243,226,190,.18),transparent 68%);
+  filter:blur(6px);pointer-events:none;z-index:-1}
+@media(max-width:760px){.ahero{padding-top:130px;min-height:64vh}.ahero .deco,.ahero .deco2{display:none}}
+
+/* ---- full-picture panel ---- */
+.fpic{display:grid;grid-template-columns:.92fr 1.08fr;gap:54px;align-items:center}
+.fpic .lead-col h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.06}
+.fpic .lead-col .eyebrow{display:block;margin-bottom:20px}
+.fpanel{padding:46px 44px;border-radius:22px;transform-style:preserve-3d}
+.fpanel p{color:var(--on-dark-mut);margin-bottom:22px;max-width:60ch}
+.fpanel p:last-child{margin-bottom:0}
+.fpanel p b{color:var(--on-dark)}
+@media(max-width:900px){.fpic{grid-template-columns:1fr;gap:30px}.fpanel{padding:34px 28px}}
+
+/* ---- stats (count-up tiles) ---- */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.stat{padding:32px 18px;text-align:center;border-radius:16px;transition:transform .5s var(--ease)}
+.stat:hover{transform:translateY(-6px)}
+.stat .n{font-family:var(--serif);font-size:2.3rem;font-weight:700;color:var(--gold-hi)}
+.stat:nth-child(even) .n{color:var(--ice-hi)}
+.stat .l{font-family:var(--grotesk);font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- drives me (value chips) ---- */
+.drives{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.chipcard{padding:40px 38px;border-radius:20px;transform-style:preserve-3d}
+.chipcard h3{font-family:var(--grotesk);font-size:.88rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.chipcard h3::before{content:'';width:8px;height:8px;background:var(--ice);transform:rotate(45deg);flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{font-family:var(--grotesk);font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:11px 20px;border-radius:999px;border:1px solid var(--line);color:var(--gold-hi);
+  background:rgba(219,191,148,.07);transition:.4s var(--ease)}
+.chip:hover{background:var(--gold);color:var(--char);border-color:var(--gold)}
+@media(max-width:760px){.drives{grid-template-columns:1fr}.chipcard{padding:30px 26px}}
+
+/* ---- credentials ---- */
+.creds{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.cred{font-family:var(--grotesk);font-size:.78rem;font-weight:600;letter-spacing:.08em;
+  padding:16px 26px;border-radius:14px;color:var(--on-dark);display:flex;align-items:center;gap:12px;
+  transition:transform .5s var(--ease),border-color .35s var(--ease)}
+.cred:hover{transform:translateY(-5px);border-color:var(--ice)}
+.cred::before{content:'✦';color:var(--gold);font-size:.85rem}
+@media(max-width:760px){.cred{flex:1 1 100%}}
+
+/* ---- pull quote ---- */
+.pquote{padding:60px 56px;border-radius:24px;text-align:center;max-width:1000px;margin:0 auto;transform-style:preserve-3d}
+.pquote .mark{font-family:var(--serif);font-size:5rem;line-height:.4;color:var(--gold);opacity:.55;display:block;height:.5em}
+.pquote q{quotes:none;font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3.6vw,2.9rem);line-height:1.28;color:var(--cream)}
+.pquote q b{color:var(--gold)}
+.pquote q i{color:var(--ice)}
+@media(max-width:760px){.pquote{padding:42px 28px}}
+
+/* ---- cta band ---- */
+.ctaband{text-align:center}
+.ctaband .mono{font-family:var(--serif);font-size:clamp(2.6rem,8vw,6rem);line-height:.94}
+.ctaband .mono .dot{color:var(--ice)}
+.ctaband .lead{color:var(--on-dark-mut);font-size:1.15rem;margin:26px auto 0;max-width:48ch}
+.ctaband .lead b{color:var(--gold)}
+
+footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
+footer a:hover{color:var(--ice)}
+
+/* version badge */
+.vbadge{position:fixed;right:18px;bottom:18px;z-index:950;padding:10px 16px;border-radius:11px;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  background:rgba(14,13,12,.6);border:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.vbadge a{color:var(--on-dark-mut)}.vbadge a:hover{color:var(--ice)}
+
+/* ---- reveal ---- */
+.r{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}.r.d4{transition-delay:.36s}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+  .r{opacity:1!important;transform:none!important}
+  .bg{filter:none}
+  /* kill the interactive depth layer: no parallax drift, no 3D tilt */
+  [data-tilt]{transform:none!important;will-change:auto}
+  .bg,.grain,.gridfloor,.ahero .deco,.ahero .deco2{transform:none!important;will-change:auto}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="gridfloor"></div><div class="grain"></div>
+<div class="prog" id="prog"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="mk">JS</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active" aria-current="page">About</a>
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="case-study.html">Case Study</a>
+      <a href="ugc.html">UGC</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobnav-back" id="mobnavBack"></div>
+<nav class="mobnav" id="mobnav" aria-label="Mobile" aria-hidden="true">
+  <span class="mob-eyebrow">Menu</span>
+  <a class="mob-link" href="index.html">Home</a>
+  <a class="mob-link active" aria-current="page" href="about.html">About</a>
+  <a class="mob-link" href="work.html">Work</a>
+  <a class="mob-link" href="services.html">Services</a>
+  <a class="mob-link" href="case-study.html">Case Study</a>
+  <a class="mob-link" href="ugc.html">UGC</a>
+  <a class="mob-link" href="resources.html">Resources</a>
+  <a class="mob-link" href="contact.html">Contact</a>
+  <a class="mob-cta" href="contact.html">Work With Me</a>
+</nav>
+
+<!-- ABOUT HERO -->
+<header class="ahero wrap">
+  <div class="deco" data-parallax="-30"></div>
+  <div class="deco2" data-parallax="-16"></div>
+  <div class="crumb r">Home <b>/</b> About</div>
+  <h1 class="r d1">About<span class="dot">.</span></h1>
+  <p class="sub r d2">I'm a launch-obsessed, full-stack marketing leader who turns <b>chaos into clarity</b> — and <b>clarity into revenue.</b></p>
+</header>
+
+<!-- THE FULL PICTURE -->
+<section class="wrap" id="full-picture">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">The Full Picture</span><span class="ln"></span></div>
+  <div class="fpic">
+    <div class="lead-col r">
+      <h2>Strategy. Systems. Scale. That's my lane.</h2>
+    </div>
+    <div class="fpanel panel r d1" data-tilt>
+      <p>In my last role I led <b>15+ GTM launches</b> that drove <b>$1.5M in revenue</b>, <b>117 high-ticket enrollments</b>, and <b>3 sold-out events</b> in a four-month span. I build <b>KPI dashboards</b> for pipeline forecasting, enforce clean <b>UTM governance</b>, and consistently hit <b>35–40% open rates</b>, <b>8–10% CTR</b>, and <b>15%+ checkout lift</b>. From positioning to launch to post-mortem optimization — I own the full engine.</p>
+      <p>On the other side of the desk, I'm a <b>UGC creator</b> who makes authentic short-form content for brands. That dual identity is a real advantage: I know what a paid-media brief actually needs to convert, what a lifecycle sequence needs to retain, and what a scroll-stopping UGC hook needs to earn a second watch. <b>Strategy plus story</b> — both in my hands, both calibrated to results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section class="wrap" id="by-the-numbers">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">By The Numbers</span><span class="ln"></span></div>
+  <div class="stats">
+    <div class="stat panel r" data-tilt><div class="n" data-count="8" data-pre="$" data-suf="M+">$0</div><div class="l">Cumulative Revenue Impact</div></div>
+    <div class="stat panel r d1" data-tilt><div class="n" data-count="15" data-suf="+">0</div><div class="l">GTM Launches Led</div></div>
+    <div class="stat panel r d2" data-tilt><div class="n" data-count="117">0</div><div class="l">High-Ticket Enrollments</div></div>
+    <div class="stat panel r d3" data-tilt><div class="n" data-count="40" data-suf="%+">0</div><div class="l">Avg Email Open Rate</div></div>
+    <div class="stat panel r d4" data-tilt><div class="n" data-count="15" data-suf="%+">0</div><div class="l">Checkout Lift</div></div>
+  </div>
+</section>
+
+<!-- WHAT DRIVES ME -->
+<section class="wrap" id="drives">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">What Drives Me</span><span class="ln"></span></div>
+  <div class="shead r"><h2>What I value</h2></div>
+  <div class="drives">
+    <div class="chipcard panel r" data-tilt>
+      <h3>What I value</h3>
+      <div class="chips">
+        <span class="chip">Clarity</span>
+        <span class="chip">Efficiency</span>
+        <span class="chip">Scalability</span>
+        <span class="chip">Data-Driven Precision</span>
+      </div>
+    </div>
+    <div class="chipcard panel r d1" data-tilt>
+      <h3>How I show up</h3>
+      <div class="chips">
+        <span class="chip">Authoritative</span>
+        <span class="chip">Direct</span>
+        <span class="chip">Strategic</span>
+        <span class="chip">Result-Oriented</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="wrap" id="credentials">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">Credentials</span><span class="ln"></span></div>
+  <div class="shead r">
+    <h2>Certifications &amp; Specializations</h2>
+    <div class="lead">Rigorous training across every layer of modern growth marketing.</div>
+  </div>
+  <div class="creds">
+    <span class="cred panel r" data-tilt>Conversion Copywriter</span>
+    <span class="cred panel r d1" data-tilt>Digital Marketing Certification</span>
+    <span class="cred panel r d2" data-tilt>Email Marketing Certification</span>
+    <span class="cred panel r d3" data-tilt>SEO Certification</span>
+    <span class="cred panel r d1" data-tilt>AI &amp; Automation</span>
+    <span class="cred panel r d2" data-tilt>Account-Based GTM</span>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="wrap" id="quote">
+  <div class="pquote panel r" data-tilt>
+    <span class="mark" aria-hidden="true">&ldquo;</span>
+    <q>I don't do vanity metrics. I build the systems that turn strategy into <b>compounding, measurable revenue.</b></q>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="wrap ctaband" id="cta">
+  <div class="rule r" style="justify-content:center;max-width:420px;margin:0 auto 36px"><span class="ln" style="background:linear-gradient(90deg,transparent,var(--gold))"></span><span class="dia"></span><span class="ln"></span></div>
+  <h2 class="mono r">Let's build<br>what's next<span class="dot">.</span></h2>
+  <p class="lead r d1">If you're ready for a marketing partner who brings <b>full-funnel clarity</b> and executes with precision — let's talk.</p>
+  <a class="btn ice r d2" data-mag href="contact.html" style="margin-top:40px">Get In Touch <span class="ar">→</span></a>
+  <footer class="wrap" style="padding-left:0;padding-right:0"><span>© 2026 Julianne Silla</span><span>Strategy. Systems. Scale.</span><span>Working with clients worldwide</span></footer>
+</section>
+
+<div class="vbadge">Direction 05 · Spatial · About &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* ---------- base interactivity (Lenis · reveals · count-up · nav · magnetic · parallax · tilt · mobile menu) ---------- */
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine   = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  window.__JZ = { reduce:reduce, fine:fine, lenis:null };
+
+  if(!reduce && window.Lenis){
+    var lenis = new Lenis({duration:1.15, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+    function raf(t){lenis.raf(t); requestAnimationFrame(raf);} requestAnimationFrame(raf);
+    window.__JZ.lenis = lenis;
+    if(window.ScrollTrigger){ lenis.on('scroll', ScrollTrigger.update); }
+  }
+
+  /* reveals */
+  var rs=[].slice.call(document.querySelectorAll('.r'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+    rs.forEach(function(el){io.observe(el);});
+  } else { rs.forEach(function(el){el.classList.add('in');}); }
+
+  /* count-up */
+  var counted=false;
+  function runCount(){ if(counted)return; counted=true;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var t=+el.dataset.count, pre=el.dataset.pre||'', suf=el.dataset.suf||'', dur=1500, st=null;
+      function step(ts){if(!st)st=ts; var p=Math.min((ts-st)/dur,1); el.textContent=pre+Math.floor((1-Math.pow(1-p,3))*t)+suf; if(p<1)requestAnimationFrame(step); else el.textContent=pre+t+suf;}
+      requestAnimationFrame(step);
+    });
+  }
+  var se=document.querySelector('.stats');
+  if(se){ if(reduce){runCount();} else { new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount();});},{threshold:.4}).observe(se); } }
+
+  /* nav + progress */
+  var nav=document.getElementById('nav'), prog=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop; if(nav)nav.classList.toggle('stuck',y>40); if(prog)prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+
+  /* magnetic CTAs */
+  if(!reduce && fine){
+    document.querySelectorAll('[data-mag]').forEach(function(el){
+      el.style.transition='transform .35s cubic-bezier(.16,1,.3,1)';
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(); el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.22+'px,'+(e.clientY-r.top-r.height/2)*.32+'px)';});
+      el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)';});
+    });
+  }
+
+  /* GSAP scrubbed parallax layers (depth signature on inner page) */
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    /* atmospheric background + floor drift slow — opposite directions read as depth */
+    var bgEl=document.querySelector('.bg'), floorEl=document.querySelector('.gridfloor');
+    if(bgEl){ gsap.to(bgEl,{yPercent:12,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}}); }
+    if(floorEl){ gsap.to(floorEl,{yPercent:-8,ease:'none',scrollTrigger:{start:0,end:'max',scrub:true}}); }
+    /* generic opt-in parallax for any [data-parallax] layer (hero decor orbs) */
+    document.querySelectorAll('[data-parallax]').forEach(function(el){
+      var amt = parseFloat(el.dataset.parallax)||80;
+      gsap.to(el,{yPercent:amt, ease:'none', scrollTrigger:{trigger:el, start:'top bottom', end:'bottom top', scrub:true}});
+    });
+  }
+
+  /* CSS preserve-3d tilt cards */
+  if(!reduce && fine){
+    document.querySelectorAll('[data-tilt]').forEach(function(el){
+      el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        el.style.transform='perspective(900px) rotateY('+(x*8)+'deg) rotateX('+(-y*8)+'deg) translateZ(0)';});
+      el.addEventListener('pointerleave',function(){el.style.transform='perspective(900px) rotateY(0) rotateX(0)';});
+    });
+  }
+
+  /* ---- mobile menu: hamburger toggle + slide-in panel (dependency-free) ---- */
+  (function(){
+    var burger=document.getElementById('navBurger'),
+        panel=document.getElementById('mobnav'),
+        back=document.getElementById('mobnavBack');
+    if(!burger||!panel||!back) return;
+    var isOpen=false;
+    function firstLink(){ return panel.querySelector('a'); }
+    function open(){
+      if(isOpen) return; isOpen=true;
+      panel.classList.add('open'); back.classList.add('open');
+      burger.setAttribute('aria-expanded','true');
+      burger.setAttribute('aria-label','Close menu');
+      panel.setAttribute('aria-hidden','false');
+      document.body.classList.add('menu-open');
+      var f=firstLink(); if(f) f.focus();
+    }
+    function close(returnFocus){
+      if(!isOpen) return; isOpen=false;
+      panel.classList.remove('open'); back.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+      panel.setAttribute('aria-hidden','true');
+      document.body.classList.remove('menu-open');
+      if(returnFocus!==false) burger.focus();
+    }
+    burger.addEventListener('click',function(){ isOpen?close():open(); });
+    back.addEventListener('click',function(){ close(); });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ close(false); });
+    });
+    document.addEventListener('keydown',function(e){
+      if(!isOpen) return;
+      if(e.key==='Escape'||e.key==='Esc'){ e.preventDefault(); close(); return; }
+      if(e.key==='Tab'){
+        var f=panel.querySelectorAll('a'); if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    matchMedia('(min-width:861px)').addEventListener('change',function(ev){ if(ev.matches) close(false); });
+  })();
+})();
+</script>
+</body>
+</html>
