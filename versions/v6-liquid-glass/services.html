@@ -88,6 +88,55 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing
 .nav-cta:hover{background:var(--gold);color:var(--char)}
 @media(max-width:860px){.nav-links{display:none}}
 
+/* ---- mobile menu: hamburger button + slide-in glass panel ---- */
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+  padding:0;border:1px solid var(--glass-edge);border-radius:11px;background:var(--glass);
+  -webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);
+  cursor:pointer;flex:none;transition:background .35s var(--ease),border-color .35s var(--ease)}
+.nav-burger:hover{background:var(--glass-2);border-color:var(--gold)}
+.nav-burger .bars{position:relative;display:block;width:20px;height:14px}
+.nav-burger .bars span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:var(--gold);
+  transition:transform .4s var(--ease),opacity .3s var(--ease),top .4s var(--ease)}
+.nav-burger .bars span:nth-child(1){top:0}
+.nav-burger .bars span:nth-child(2){top:6px}
+.nav-burger .bars span:nth-child(3){top:12px}
+/* morph to X when the panel is open (burger reflects aria-expanded) */
+.nav-burger[aria-expanded="true"] .bars span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(3){top:6px;transform:rotate(-45deg)}
+
+/* backdrop behind the panel */
+.mobnav-back{position:fixed;inset:0;z-index:1000;background:rgba(8,7,6,.55);
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s var(--ease);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.mobnav-back.open{opacity:1;visibility:visible}
+
+/* the slide-in glass panel itself */
+.mobnav{position:fixed;top:0;right:0;z-index:1001;width:min(86vw,360px);height:100%;
+  border-radius:0;border:none;border-left:1px solid var(--glass-edge);
+  display:flex;flex-direction:column;padding:96px 30px 40px;gap:6px;
+  transform:translateX(102%);transition:transform .5s var(--ease);
+  visibility:hidden}
+.mobnav.open{transform:translateX(0);visibility:visible}
+.mobnav .mob-eyebrow{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--on-dark-mut);margin:0 6px 14px}
+.mobnav a.mob-link{position:relative;display:block;font-family:var(--grotesk);font-size:1.05rem;font-weight:600;
+  letter-spacing:.04em;color:var(--on-dark);padding:15px 16px;border-radius:12px;
+  transition:background .3s var(--ease),color .3s var(--ease),padding-left .3s var(--ease)}
+.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:var(--glass-2);color:var(--gold-hi);padding-left:22px}
+.mobnav a.mob-link.active{color:var(--gold)}
+.mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:22px;border-radius:2px;background:var(--gold)}
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.74rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--gold);
+  color:var(--gold);border-radius:11px;transition:.35s var(--ease)}
+.mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--gold);color:var(--char)}
+/* lock the page behind the open panel */
+body.menu-open{overflow:hidden}
+/* show the burger exactly where .nav-links hides; keep panel hidden above that width */
+@media(min-width:861px){.mobnav,.mobnav-back{display:none}}
+@media(max-width:860px){.nav-burger{display:inline-flex}}
+
 /* ---- progress ---- */
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-dim),var(--gold-hi));z-index:9000}
 
@@ -206,7 +255,23 @@ footer a:hover{color:var(--gold)}
       <a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
   </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobnav-back" id="mobnavBack"></div>
+<nav class="mobnav glass" id="mobnav" aria-label="Mobile" aria-hidden="true">
+  <span class="mob-eyebrow">Menu</span>
+  <a class="mob-link" href="index.html">Home</a>
+  <a class="mob-link" href="about.html">About</a>
+  <a class="mob-link" href="work.html">Work</a>
+  <a class="mob-link active" aria-current="page" href="services.html">Services</a>
+  <a class="mob-link" href="case-study.html">Case Study</a>
+  <a class="mob-link" href="ugc.html">UGC</a>
+  <a class="mob-link" href="resources.html">Resources</a>
+  <a class="mob-link" href="contact.html">Contact</a>
+  <a class="mob-cta" href="contact.html">Work With Me</a>
 </nav>
 
 <!-- PAGE HERO -->
@@ -450,6 +515,53 @@ footer a:hover{color:var(--gold)}
       el.addEventListener('pointerleave',function(){ el.classList.remove('lit'); });
     });
   }
+
+  /* ---- mobile menu: hamburger toggle + slide-in glass panel (dependency-free) ---- */
+  (function(){
+    var burger=document.getElementById('navBurger'),
+        panel=document.getElementById('mobnav'),
+        back=document.getElementById('mobnavBack');
+    if(!burger||!panel||!back) return;
+    var isOpen=false, lastFocus=null;
+    function firstLink(){ return panel.querySelector('a'); }
+    function open(){
+      if(isOpen) return; isOpen=true; lastFocus=document.activeElement;
+      panel.classList.add('open'); back.classList.add('open');
+      burger.setAttribute('aria-expanded','true');
+      burger.setAttribute('aria-label','Close menu');
+      panel.setAttribute('aria-hidden','false');
+      document.body.classList.add('menu-open');
+      var f=firstLink(); if(f) f.focus();
+    }
+    function close(returnFocus){
+      if(!isOpen) return; isOpen=false;
+      panel.classList.remove('open'); back.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+      panel.setAttribute('aria-hidden','true');
+      document.body.classList.remove('menu-open');
+      if(returnFocus!==false) burger.focus();
+    }
+    burger.addEventListener('click',function(){ isOpen?close():open(); });
+    back.addEventListener('click',function(){ close(); });
+    /* close on any link tap inside the panel (navigation follows) */
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ close(false); });
+    });
+    /* Escape closes; simple focus trap keeps Tab inside the panel while open */
+    document.addEventListener('keydown',function(e){
+      if(!isOpen) return;
+      if(e.key==='Escape'||e.key==='Esc'){ e.preventDefault(); close(); return; }
+      if(e.key==='Tab'){
+        var f=panel.querySelectorAll('a'); if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    /* if the viewport grows past the mobile breakpoint, force-close + restore state */
+    matchMedia('(min-width:861px)').addEventListener('change',function(ev){ if(ev.matches) close(false); });
+  })();
 })();
 </script>
 </body>
