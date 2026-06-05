@@ -17,13 +17,12 @@ Scroll all 8 design directions. The flagship (Liquid Glass) is now a **full clic
 3. **Put it on a durable public link** (GitHub Pages) so you can view on your phone — no Vercel login needed. *(Public; same info as your live site. Say the word and I take it down / make private after you rank.)*
 4. **Optimized every image** — the page weight dropped from ~76MB to ~17MB (one file was 13.9MB → 274KB). Loads fast on mobile now.
 5. **Mobile-QA'd all 8 homes** — responsive, no broken layouts.
-6. **Built FOUR directions into full 8-page sites** — about, work, services, a real case study (Mindset Mastery), UGC, resources, contact, all real copy + working nav:
-   - **v6 Liquid Glass** — full ELON gate, PASS (the most-verified).
-   - **v1 Data Editorial · v2 Silk · v3 Cinematic** — also full sites (built during the run); I spot-verified each renders correctly with your real content + clean nav. Strong, but they haven't had v6's full page-by-page gate yet.
-   - **v4 Editorial Luxe · v5 Spatial · v7 Story · v8 Atelier** — homes only (await your ranking).
+6. **Built ALL 8 directions into full 8-page sites** — every direction (Liquid Glass, Data Editorial, Silk, Cinematic, Editorial Luxe, Spatial, Story/Whitespace, Atelier) now has about · work · services · case study (Mindset Mastery) · UGC · resources · contact, all real copy from one source + working nav. **You can click fully through all 8.**
+   - **v6 Liquid Glass** got the full page-by-page ELON gate (PASS) + a mobile menu.
+   - The other 7 were built by reskinning v6's proven structure into each aesthetic; I independently scanned all 56 inner pages (clean — no lorem, no fabricated copy) and spot-verified several render correctly. A final gate ran across the set.
 
 ## 🔴 What I need from you (the one thing)
-**Rank the 8 directions** (or just tell me your top 2-3 / a kill-list). You can already click fully through 4 of them (v6, v1, v2, v3). Once you pick, I'll finish the remaining homes-only directions to full sites + run the full ELON gate on whatever you choose. I held off finishing v4/v5/v7/v8 so we don't sink work into a look you don't love.
+**Rank the 8 directions** (or just tell me your top 2-3 / a kill-list). All 8 are now fully clickable, so you can judge them as complete sites, not just homepages. Once you pick a winner, I'll do the production pass on it: final ELON gate, real Case Study #2 + UGC brand logos (currently honest placeholders), per-page SEO/share tags, then productionize into the Next.js stack + DNS cutover per the approved plan.
 
 ## 🟡 Honest notes (none blocking)
 - **v3 Cinematic** uses a landscape/lifestyle photo as its hero — there's **no photo of you** in that one. Want a headshot pass if you like it?
