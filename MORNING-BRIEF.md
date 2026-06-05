@@ -19,7 +19,8 @@ Scroll all 8 design directions. The flagship (Liquid Glass) is now a **full clic
 5. **Mobile-QA'd all 8 homes** — responsive, no broken layouts.
 6. **Built ALL 8 directions into full 8-page sites** — every direction (Liquid Glass, Data Editorial, Silk, Cinematic, Editorial Luxe, Spatial, Story/Whitespace, Atelier) now has about · work · services · case study (Mindset Mastery) · UGC · resources · contact, all real copy from one source + working nav. **You can click fully through all 8.**
    - **v6 Liquid Glass** got the full page-by-page ELON gate (PASS) + a mobile menu.
-   - The other 7 were built by reskinning v6's proven structure into each aesthetic; I independently scanned all 56 inner pages (clean — no lorem, no fabricated copy) and spot-verified several render correctly. A final gate ran across the set.
+   - The other 7 were built by reskinning v6's proven structure into each aesthetic; I independently scanned all 56 inner pages (clean — no lorem, no fabricated copy) and spot-verified several render correctly.
+   - **A final ELON gate caught one real issue** — on the 7 non-v6 homes the nav didn't link out to Services/UGC/Resources (those pages were reachable, just orphaned from the homepage). **Fixed live** (+ added a mobile menu to every home). Re-gate: PASS.
 
 ## 🔴 What I need from you (the one thing)
 **Rank the 8 directions** (or just tell me your top 2-3 / a kill-list). All 8 are now fully clickable, so you can judge them as complete sites, not just homepages. Once you pick a winner, I'll do the production pass on it: final ELON gate, real Case Study #2 + UGC brand logos (currently honest placeholders), per-page SEO/share tags, then productionize into the Next.js stack + DNS cutover per the approved plan.
