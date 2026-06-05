@@ -1,26 +1,162 @@
 {
   "project": "juliannesilla.com — 8 Design Directions",
   "updatedAt": "2026-06-05",
-  "note": "Overnight: all 8 HOMES polished (clean hero, images optimized 76MB->17MB, mobile-QA'd). FOUR directions now FULL navigable sites: v6 Liquid Glass (full ELON gate PASS + mobile menu), and v1 Data Editorial / v2 Silk / v3 Cinematic (built during the run, spot-verified render + real content + nav, not yet full page-by-page gated). v4/v5/v7/v8 = homes only, await Julz ranking. All live.",
+  "note": "Wave 2 COMPLETE: all 8 directions now have all pages (home + about/work/case-study/services/ugc/resources/contact). 49 inner pages built (7 dirs x 7) by reskinning the proven v6 Liquid Glass page into each direction aesthetic, real copy from julz-content.json. Verified 49/49 valid on disk + ELON-T2 gate. Case Study #2 (Multi-Launch) is an honest coming-soon placeholder (no fabricated copy). Deployed to GitHub Pages.",
   "live": "https://juliannesilla.github.io/portfolio-directions/",
-  "pagesPerDirection": ["home","about","work","case: Mindset Mastery","case: Multi-Launch","services","ugc","resources","contact"],
-  "wave": "overnight-4-full-sites",
+  "pagesPerDirection": [
+    "home",
+    "about",
+    "work",
+    "case: Mindset Mastery",
+    "case: Multi-Launch",
+    "services",
+    "ugc",
+    "resources",
+    "contact"
+  ],
+  "wave": "2-all-pages-done",
   "directions": [
-    { "id": "v6-liquid-glass", "name": "Liquid Glass", "badge": "flagship", "from": "fluid.glass (the effect)", "status": "full-site-done", "verification": "full-ELON-gate-PASS + mobile menu",
-      "pages": { "home": "done", "about": "done", "work": "done", "case: Mindset Mastery": "done", "case: Multi-Launch": "coming-soon (no real content yet)", "services": "done", "ugc": "done (brands placeholder)", "resources": "done", "contact": "done" } },
-    { "id": "v1-data-editorial", "name": "Data Editorial", "from": "dvdrod.com", "status": "full-site-done", "verification": "spot-verified (render + content + nav); full gate pending",
-      "pages": { "home": "done", "about": "done", "work": "done", "case: Mindset Mastery": "done", "case: Multi-Launch": "coming-soon", "services": "done", "ugc": "done", "resources": "done", "contact": "done" } },
-    { "id": "v2-silk", "name": "Silk", "from": "awwwards · Cleo/KVS", "status": "full-site-done", "verification": "spot-verified; full gate pending",
-      "pages": { "home": "done", "about": "done", "work": "done", "case: Mindset Mastery": "done", "case: Multi-Launch": "coming-soon", "services": "done", "ugc": "done", "resources": "done", "contact": "done" } },
-    { "id": "v3-cinematic", "name": "Cinematic", "from": "pumpco hero", "status": "full-site-done", "verification": "spot-verified; full gate pending", "note": "hero uses landscape photo — no headshot of Julz (ELON flag)",
-      "pages": { "home": "done", "about": "done", "work": "done", "case: Mindset Mastery": "done", "case: Multi-Launch": "coming-soon", "services": "done", "ugc": "done", "resources": "done", "contact": "done" } },
-    { "id": "v4-editorial-luxe", "name": "Editorial Luxe", "from": "vivre · tenuta-di-murlo", "status": "home-done",
-      "pages": { "home": "done", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
-    { "id": "v5-spatial", "name": "Spatial", "from": "mango · nonsense (REAL 3D)", "status": "home-done",
-      "pages": { "home": "done", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
-    { "id": "v7-story-whitespace", "name": "Story / Warm Whitespace", "from": "tomcardermedia", "status": "home-done",
-      "pages": { "home": "done", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } },
-    { "id": "v8-atelier", "name": "Atelier", "from": "fluid.glass (real site)", "status": "home-done",
-      "pages": { "home": "done", "about": "queued", "work": "queued", "case: Mindset Mastery": "queued", "case: Multi-Launch": "queued", "services": "queued", "ugc": "queued", "resources": "queued", "contact": "queued" } }
+    {
+      "id": "v6-liquid-glass",
+      "name": "Liquid Glass",
+      "badge": "flagship",
+      "from": "fluid.glass (the effect)",
+      "status": "complete",
+      "verification": "full-ELON-gate-PASS + mobile menu",
+      "pages": {
+        "home": "done",
+        "about": "done",
+        "work": "done",
+        "case: Mindset Mastery": "done",
+        "case: Multi-Launch": "placeholder",
+        "services": "done",
+        "ugc": "done",
+        "resources": "done",
+        "contact": "done"
+      }
+    },
+    {
+      "id": "v1-data-editorial",
+      "name": "Data Editorial",
+      "from": "dvdrod.com",
+      "status": "complete",
+      "verification": "spot-verified (render + content + nav); full gate pending",
+      "pages": {
+        "home": "done",
+        "about": "done",
+        "work": "done",
+        "case: Mindset Mastery": "done",
+        "case: Multi-Launch": "placeholder",
+        "services": "done",
+        "ugc": "done",
+        "resources": "done",
+        "contact": "done"
+      }
+    },
+    {
+      "id": "v2-silk",
+      "name": "Silk",
+      "from": "awwwards · Cleo/KVS",
+      "status": "complete",
+      "verification": "spot-verified; full gate pending",
+      "pages": {
+        "home": "done",
+        "about": "done",
+        "work": "done",
+        "case: Mindset Mastery": "done",
+        "case: Multi-Launch": "placeholder",
+        "services": "done",
+        "ugc": "done",
+        "resources": "done",
+        "contact": "done"
+      }
+    },
+    {
+      "id": "v3-cinematic",
+      "name": "Cinematic",
+      "from": "pumpco hero",
+      "status": "complete",
+      "verification": "spot-verified; full gate pending",
+      "note": "hero uses landscape photo — no headshot of Julz (ELON flag)",
+      "pages": {
+        "home": "done",
+        "about": "done",
+        "work": "done",
+        "case: Mindset Mastery": "done",
+        "case: Multi-Launch": "placeholder",
+        "services": "done",
+        "ugc": "done",
+        "resources": "done",
+        "contact": "done"
+      }
+    },
+    {
+      "id": "v4-editorial-luxe",
+      "name": "Editorial Luxe",
+      "from": "vivre · tenuta-di-murlo",
+      "status": "complete",
+      "pages": {
+        "home": "done",
+        "about": "done",
+        "work": "done",
+        "case: Mindset Mastery": "done",
+        "case: Multi-Launch": "placeholder",
+        "services": "done",
+        "ugc": "done",
+        "resources": "done",
+        "contact": "done"
+      }
+    },
+    {
+      "id": "v5-spatial",
+      "name": "Spatial",
+      "from": "mango · nonsense (REAL 3D)",
+      "status": "complete",
+      "pages": {
+        "home": "done",
+        "about": "done",
+        "work": "done",
+        "case: Mindset Mastery": "done",
+        "case: Multi-Launch": "placeholder",
+        "services": "done",
+        "ugc": "done",
+        "resources": "done",
+        "contact": "done"
+      }
+    },
+    {
+      "id": "v7-story-whitespace",
+      "name": "Story / Warm Whitespace",
+      "from": "tomcardermedia",
+      "status": "complete",
+      "pages": {
+        "home": "done",
+        "about": "done",
+        "work": "done",
+        "case: Mindset Mastery": "done",
+        "case: Multi-Launch": "placeholder",
+        "services": "done",
+        "ugc": "done",
+        "resources": "done",
+        "contact": "done"
+      }
+    },
+    {
+      "id": "v8-atelier",
+      "name": "Atelier",
+      "from": "fluid.glass (real site)",
+      "status": "complete",
+      "pages": {
+        "home": "done",
+        "about": "done",
+        "work": "done",
+        "case: Mindset Mastery": "done",
+        "case: Multi-Launch": "placeholder",
+        "services": "done",
+        "ugc": "done",
+        "resources": "done",
+        "contact": "done"
+      }
+    }
   ]
 }
