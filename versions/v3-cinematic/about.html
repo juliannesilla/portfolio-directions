@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Julianne Silla · Director of Marketing · Cinematic</title>
+<meta name="description" content="I'm a launch-obsessed, full-stack marketing leader who turns chaos into clarity — and clarity into revenue."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ====================================================================
+   JULIANNE SILLA — DIRECTION 03 · "CINEMATIC"  ·  ABOUT
+   Visual system carried over verbatim from index.html (home): same
+   :root tokens, .grain film texture, .prog film-strip line, .nav,
+   letterbox-style hero, footer, .vbadge, reveal .r/.rz, reduced-motion
+   block, Lenis/GSAP/ScrollTrigger motion. v6's about SECTIONS + REAL
+   COPY reskinned into the charcoal + champagne-gold cinematic palette.
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --char:#0E0D0C; --char2:#15120F; --panel:#1A1612; --cream:#E5E2DD; --cream2:#EFEBE2;
+  --gold:#DBBF94; --gold-hi:#F3E2BE; --gold-dim:#8C7350;
+  --on-dark:#F0EBE1; --on-dark-mut:#A99E8E; --line:#2A241D;
+  --serif:'Playfair Display',serif; --sans:'Inter',sans-serif; --grotesk:'Archivo',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1); --ease-q:cubic-bezier(.25,1,.5,1); --maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--char);color:var(--on-dark);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;min-height:100vh}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing:-.015em}
+.eyebrow{font-family:var(--grotesk);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.36em;color:var(--gold)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+::selection{background:var(--gold);color:var(--char)}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px;border-radius:3px}
+
+/* ---- film grain over the whole page for cinematic texture ---- */
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---- progress (the 'film strip' line) ---- */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-dim),var(--gold-hi));z-index:9000;box-shadow:0 0 14px rgba(243,226,190,.5)}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .5s var(--ease),padding .5s var(--ease),border-color .5s var(--ease);
+  border-bottom:1px solid transparent}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;transition:padding .5s var(--ease)}
+.nav.stuck{background:rgba(14,13,12,.82);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+.nav.stuck .wrap{padding:13px 32px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.5rem;color:var(--gold);letter-spacing:.05em}
+.nav-links{display:flex;gap:30px;font-family:var(--grotesk);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.nav-links a{position:relative;color:var(--on-dark-mut);transition:color .3s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--on-dark)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after{width:100%}
+.nav-cta{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:11px 22px;border:1px solid var(--gold);color:var(--gold);border-radius:2px;transition:.35s var(--ease)}
+.nav-cta:hover{background:var(--gold);color:var(--char);box-shadow:0 0 24px rgba(219,191,148,.4)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ---- mobile menu: hamburger button + slide-in panel ---- */
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+  padding:0;border:1px solid var(--line);border-radius:3px;background:rgba(14,13,12,.6);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  cursor:pointer;flex:none;transition:background .35s var(--ease),border-color .35s var(--ease)}
+.nav-burger:hover{background:var(--char2);border-color:var(--gold)}
+.nav-burger .bars{position:relative;display:block;width:20px;height:14px}
+.nav-burger .bars span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:var(--gold);
+  transition:transform .4s var(--ease),opacity .3s var(--ease),top .4s var(--ease)}
+.nav-burger .bars span:nth-child(1){top:0}
+.nav-burger .bars span:nth-child(2){top:6px}
+.nav-burger .bars span:nth-child(3){top:12px}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(3){top:6px;transform:rotate(-45deg)}
+.mobnav-back{position:fixed;inset:0;z-index:1000;background:rgba(8,7,6,.62);
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s var(--ease);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.mobnav-back.open{opacity:1;visibility:visible}
+.mobnav{position:fixed;top:0;right:0;z-index:1001;width:min(86vw,360px);height:100%;
+  background:rgba(20,18,15,.96);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  border-left:1px solid var(--line);
+  display:flex;flex-direction:column;padding:96px 30px 40px;gap:4px;
+  transform:translateX(102%);transition:transform .5s var(--ease);visibility:hidden}
+.mobnav.open{transform:translateX(0);visibility:visible}
+.mobnav .mob-eyebrow{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--on-dark-mut);margin:0 6px 14px}
+.mobnav a.mob-link{position:relative;display:block;font-family:var(--grotesk);font-size:1.02rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--on-dark);padding:15px 16px;border-radius:3px;
+  transition:background .3s var(--ease),color .3s var(--ease),padding-left .3s var(--ease)}
+.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:var(--char2);color:var(--gold-hi);padding-left:22px}
+.mobnav a.mob-link.active{color:var(--gold)}
+.mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:22px;background:var(--gold)}
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.72rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--gold);
+  color:var(--gold);border-radius:2px;transition:.35s var(--ease)}
+.mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--gold);color:var(--char)}
+body.menu-open{overflow:hidden}
+@media(min-width:861px){.mobnav,.mobnav-back{display:none}}
+@media(max-width:860px){.nav-burger{display:inline-flex}}
+
+/* ---- btn ---- */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:17px 36px;border:1px solid var(--gold);color:var(--char);background:var(--gold);border-radius:2px;cursor:pointer;transition:.4s var(--ease)}
+.btn:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 0 34px rgba(243,226,190,.45)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn.ghost:hover{background:var(--gold);color:var(--char)}
+.btn .ar{transition:transform .4s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
+
+/* ---- sections ---- */
+section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative;z-index:2;background:var(--char)}
+.shead{margin-bottom:48px;max-width:62ch}
+.shead h2{font-size:clamp(2.4rem,5.5vw,4.4rem)}
+.shead .lead{font-family:var(--sans);font-size:1.05rem;color:var(--on-dark-mut);margin-top:18px;max-width:48ch}
+.rule{display:flex;align-items:center;gap:16px;color:var(--gold);margin-bottom:30px}
+.rule .ln{height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex:1}
+.dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
+.depth{transform-style:preserve-3d}
+
+/* ============================================================
+   ABOUT HERO — cinematic full-bleed photo + letterbox bars
+   ============================================================ */
+.ahero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--char)}
+.ahero-plate{position:absolute;inset:-8% -4%;z-index:0;will-change:transform}
+.ahero-plate img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;transform:scale(1.06)}
+.ahero-grade{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(14,13,12,.72) 0%,rgba(14,13,12,.18) 24%,rgba(14,13,12,.30) 52%,rgba(14,13,12,.86) 86%,rgba(14,13,12,.98) 100%),
+    linear-gradient(78deg,rgba(14,13,12,.74) 0%,transparent 50%),
+    radial-gradient(120% 80% at 80% 18%,rgba(219,191,148,.13),transparent 60%)}
+.ahero-spot{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(420px 420px at var(--mx,50%) var(--my,42%),rgba(243,226,190,.15),rgba(219,191,148,.05) 35%,transparent 62%);
+  transition:opacity .6s var(--ease);mix-blend-mode:screen}
+.ahero-vig{position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 220px 60px rgba(14,13,12,.9)}
+/* letterbox bars — scrubbed open on scroll */
+.bar{position:absolute;left:0;right:0;z-index:5;background:var(--char);will-change:transform}
+.bar.top{top:0;height:12vh;transform-origin:top;border-bottom:1px solid rgba(219,191,148,.18)}
+.bar.bot{bottom:0;height:12vh;transform-origin:bottom;border-top:1px solid rgba(219,191,148,.18)}
+.bar .slate{position:absolute;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--on-dark-mut);opacity:.7}
+.bar.top .slate{bottom:14px;left:32px}
+.bar.top .slate.r{left:auto;right:32px;color:var(--gold)}
+.bar.bot .slate{top:14px;left:32px}
+.bar.bot .slate.r{left:auto;right:32px}
+.ahero-inner{position:relative;z-index:6;width:100%;padding:0 32px calc(12vh + 56px);max-width:var(--maxw);margin:0 auto}
+.ahero .crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:26px;display:inline-flex;align-items:center;gap:14px}
+.ahero .crumb b{color:var(--gold);font-weight:600}
+.ahero .crumb .ln{width:36px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.ahero h1{font-size:clamp(3.6rem,11vw,9rem);line-height:.88;text-shadow:0 18px 70px rgba(0,0,0,.55)}
+.ahero h1 .dot{color:var(--gold)}
+.ahero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.4vw,2rem);line-height:1.3;color:var(--on-dark);max-width:32ch;margin-top:30px;text-shadow:0 10px 40px rgba(0,0,0,.5)}
+.ahero .sub b{font-style:normal;color:var(--gold)}
+@media(max-width:860px){.bar.top,.bar.bot{height:8vh}.ahero-inner{padding-bottom:calc(8vh + 40px)}.ahero{min-height:80vh}}
+
+/* ---- the full picture ---- */
+.fpic{display:grid;grid-template-columns:.92fr 1.08fr;gap:54px;align-items:center}
+.fpic .lead-col .eyebrow{display:block;margin-bottom:20px}
+.fpic .lead-col h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.06}
+.panel{padding:46px 44px;border-radius:3px;background:var(--char2);border:1px solid var(--line);position:relative;overflow:hidden}
+.panel::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(180deg,var(--gold-hi),var(--gold-dim));transition:height .9s var(--ease)}
+.panel.in::before{height:100%}
+.panel p{color:var(--on-dark-mut);margin-bottom:22px;max-width:60ch}
+.panel p:last-child{margin-bottom:0}
+.panel p b{color:var(--on-dark)}
+.panel p b.acc{color:var(--gold)}
+@media(max-width:900px){.fpic{grid-template-columns:1fr;gap:30px}.panel{padding:34px 28px}}
+
+/* ---- stats (count-up tiles) ---- */
+.stats-sec{background:linear-gradient(180deg,var(--char),var(--char2) 50%,var(--char))}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{padding:42px 18px;text-align:center;background:var(--char);transition:background .5s var(--ease),transform .5s var(--ease);position:relative}
+.stat:hover{background:var(--char2);transform:translateY(-4px)}
+.stat::before{content:'';position:absolute;top:0;left:50%;width:0;height:2px;background:var(--gold);transition:width .5s var(--ease),left .5s var(--ease)}
+.stat:hover::before{left:0;width:100%}
+.stat .n{font-family:var(--serif);font-size:clamp(2.1rem,4vw,3rem);font-weight:700;color:var(--gold-hi)}
+.stat .l{font-family:var(--grotesk);font-size:.58rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:12px;line-height:1.55}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.stat:last-child{grid-column:1/-1}}
+
+/* ---- what drives me (value cards w/ chips) ---- */
+.drives{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.chipcard{padding:40px 38px;border-radius:3px;background:var(--char2);border:1px solid var(--line);transition:border-color .5s var(--ease),transform .5s var(--ease)}
+.chipcard:hover{border-color:rgba(219,191,148,.5);transform:translateY(-5px)}
+.chipcard h3{font-family:var(--grotesk);font-size:.84rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.chipcard h3::before{content:'';width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{font-family:var(--grotesk);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:11px 20px;border-radius:2px;border:1px solid var(--line);color:var(--gold-hi);
+  background:rgba(219,191,148,.06);transition:.4s var(--ease)}
+.chip:hover{background:var(--gold);color:var(--char);border-color:var(--gold);box-shadow:0 0 18px rgba(219,191,148,.35)}
+@media(max-width:760px){.drives{grid-template-columns:1fr}.chipcard{padding:30px 26px}}
+
+/* ---- credentials ---- */
+.creds{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.cred{font-family:var(--grotesk);font-size:.78rem;font-weight:600;letter-spacing:.08em;
+  padding:16px 26px;border-radius:2px;background:var(--char2);border:1px solid var(--line);color:var(--on-dark);display:flex;align-items:center;gap:12px;
+  transition:transform .5s var(--ease),border-color .5s var(--ease),background .5s var(--ease)}
+.cred:hover{transform:translateY(-5px);border-color:rgba(219,191,148,.5);background:var(--panel)}
+.cred::before{content:'✦';color:var(--gold);font-size:.85rem}
+@media(max-width:760px){.cred{flex:1 1 100%}}
+
+/* ---- pull quote ---- */
+.pquote{padding:60px 56px;border-radius:3px;text-align:center;max-width:1000px;margin:0 auto;background:linear-gradient(180deg,var(--char2),var(--char));border:1px solid var(--line);position:relative;overflow:hidden}
+.pquote::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 0%,rgba(219,191,148,.10),transparent 60%)}
+.pquote .mark{font-family:var(--serif);font-size:5rem;line-height:.4;color:var(--gold);opacity:.55;display:block;height:.5em}
+.pquote q{quotes:none;font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3.6vw,2.9rem);line-height:1.28;color:var(--cream)}
+.pquote q b{color:var(--gold)}
+@media(max-width:760px){.pquote{padding:42px 28px}}
+
+/* ---- cta band ---- */
+.ctaband{text-align:center;background:linear-gradient(180deg,var(--char),var(--char2))}
+.ctaband .mono{font-family:var(--serif);font-size:clamp(2.6rem,8vw,6rem);line-height:.94}
+.ctaband .mono .dot{color:var(--gold)}
+.ctaband .lead{color:var(--on-dark-mut);font-size:1.15rem;margin:26px auto 0;max-width:48ch}
+.ctaband .lead b{color:var(--gold)}
+
+footer{padding:42px 0 64px;margin-top:0;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut)}
+footer a:hover{color:var(--gold)}
+
+/* version badge */
+.vbadge{position:fixed;right:18px;bottom:18px;z-index:950;padding:11px 16px;border-radius:2px;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);background:rgba(14,13,12,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line)}
+.vbadge a{color:var(--on-dark-mut)}.vbadge a:hover{color:var(--gold)}
+
+/* ---- reveal ---- */
+.r{opacity:0;transform:translateY(38px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}.r.d4{transition-delay:.36s}
+/* 3D depth reveal — sections lift out of the screen */
+.rz{opacity:0;transform:perspective(1400px) translateZ(-160px) translateY(46px) rotateX(7deg);transform-origin:50% 100%;transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rz.in{opacity:1;transform:perspective(1400px) translateZ(0) translateY(0) rotateX(0)}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .r,.rz{opacity:1!important;transform:none!important}
+  .grain,.ahero-spot{display:none}
+  .ahero-plate{inset:0}.ahero-plate img{transform:none}
+  .bar.top,.bar.bot{transform:none}
+  .panel::before{height:100%}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="prog" id="prog"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">JS</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active" aria-current="page">About</a>
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="case-study.html">Case Study</a>
+      <a href="ugc.html">UGC</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobnav-back" id="mobnavBack"></div>
+<nav class="mobnav" id="mobnav" aria-label="Mobile" aria-hidden="true">
+  <span class="mob-eyebrow">Menu</span>
+  <a class="mob-link" href="index.html">Home</a>
+  <a class="mob-link active" aria-current="page" href="about.html">About</a>
+  <a class="mob-link" href="work.html">Work</a>
+  <a class="mob-link" href="services.html">Services</a>
+  <a class="mob-link" href="case-study.html">Case Study</a>
+  <a class="mob-link" href="ugc.html">UGC</a>
+  <a class="mob-link" href="resources.html">Resources</a>
+  <a class="mob-link" href="contact.html">Contact</a>
+  <a class="mob-cta" href="contact.html">Work With Me</a>
+</nav>
+
+<!-- ============ CINEMATIC ABOUT HERO — full-bleed photo + letterbox ============ -->
+<header class="ahero" id="ahero">
+  <div class="ahero-plate" id="aheroPlate">
+    <img src="../../assets/photos/about-me-landscape.jpg"
+         alt="Julianne Silla — Director of Marketing"
+         fetchpriority="high" decoding="async"
+         onerror="this.onerror=null;this.src='../../assets/photos/portfolio-photo-01.jpg'"/>
+  </div>
+  <div class="ahero-grade"></div>
+  <div class="ahero-spot" id="aheroSpot"></div>
+  <div class="ahero-vig"></div>
+
+  <!-- letterbox bars -->
+  <div class="bar top" id="barTop">
+    <span class="slate">JS · About</span>
+    <span class="slate r">Reel — Strategy. Systems. Scale.</span>
+  </div>
+  <div class="bar bot" id="barBot">
+    <span class="slate">Launch-obsessed, full-stack marketing leader</span>
+    <span class="slate r">Take 2026</span>
+  </div>
+
+  <div class="ahero-inner" id="aheroInner">
+    <div class="crumb"><span class="ln"></span>Home <b>/</b> About</div>
+    <h1>About<span class="dot">.</span></h1>
+    <p class="sub">I'm a launch-obsessed, full-stack marketing leader who turns <b>chaos into clarity</b> — and <b>clarity into revenue.</b></p>
+  </div>
+</header>
+
+<!-- THE FULL PICTURE -->
+<section class="wrap" id="full-picture">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">The Full Picture</span><span class="ln"></span></div>
+  <div class="fpic">
+    <div class="lead-col r">
+      <span class="eyebrow">Strategy. Systems. Scale.</span>
+      <h2>Strategy. Systems. Scale. That's my lane.</h2>
+    </div>
+    <div class="panel r d1">
+      <p>In my last role I led <b class="acc">15+ GTM launches</b> that drove <b class="acc">$1.5M in revenue</b>, <b class="acc">117 high-ticket enrollments</b>, and <b class="acc">3 sold-out events</b> in a four-month span. I build <b>KPI dashboards</b> for pipeline forecasting, enforce clean <b>UTM governance</b>, and consistently hit <b>35–40% open rates</b>, <b>8–10% CTR</b>, and <b>15%+ checkout lift</b>. From positioning to launch to post-mortem optimization — I own the full engine.</p>
+      <p>On the other side of the desk, I'm a <b>UGC creator</b> who makes authentic short-form content for brands. That dual identity is a real advantage: I know what a paid-media brief actually needs to convert, what a lifecycle sequence needs to retain, and what a scroll-stopping UGC hook needs to earn a second watch. <b class="acc">Strategy plus story</b> — both in my hands, both calibrated to results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section class="stats-sec" id="by-the-numbers">
+  <div class="wrap">
+    <div class="rule r"><span class="dia"></span><span class="eyebrow">By The Numbers</span><span class="ln"></span></div>
+    <div class="stats rz">
+      <div class="stat"><div class="n" data-count="8" data-pre="$" data-suf="M+">$0</div><div class="l">Cumulative Revenue Impact</div></div>
+      <div class="stat"><div class="n" data-count="15" data-suf="+">0</div><div class="l">GTM Launches Led</div></div>
+      <div class="stat"><div class="n" data-count="117">0</div><div class="l">High-Ticket Enrollments</div></div>
+      <div class="stat"><div class="n" data-count="40" data-suf="%+">0</div><div class="l">Avg Email Open Rate</div></div>
+      <div class="stat"><div class="n" data-count="15" data-suf="%+">0</div><div class="l">Checkout Lift</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT DRIVES ME -->
+<section class="wrap" id="drives">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">What Drives Me</span><span class="ln"></span></div>
+  <div class="shead r"><h2>What I value</h2></div>
+  <div class="drives">
+    <div class="chipcard rz">
+      <h3>What I value</h3>
+      <div class="chips">
+        <span class="chip">Clarity</span>
+        <span class="chip">Efficiency</span>
+        <span class="chip">Scalability</span>
+        <span class="chip">Data-Driven Precision</span>
+      </div>
+    </div>
+    <div class="chipcard rz d1">
+      <h3>How I show up</h3>
+      <div class="chips">
+        <span class="chip">Authoritative</span>
+        <span class="chip">Direct</span>
+        <span class="chip">Strategic</span>
+        <span class="chip">Result-Oriented</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="wrap" id="credentials">
+  <div class="rule r"><span class="dia"></span><span class="eyebrow">Credentials</span><span class="ln"></span></div>
+  <div class="shead r">
+    <h2>Certifications &amp; Specializations</h2>
+    <div class="lead">Rigorous training across every layer of modern growth marketing.</div>
+  </div>
+  <div class="creds">
+    <span class="cred r">Conversion Copywriter</span>
+    <span class="cred r d1">Digital Marketing Certification</span>
+    <span class="cred r d2">Email Marketing Certification</span>
+    <span class="cred r d3">SEO Certification</span>
+    <span class="cred r d1">AI &amp; Automation</span>
+    <span class="cred r d2">Account-Based GTM</span>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="wrap" id="quote">
+  <div class="pquote rz">
+    <span class="mark" aria-hidden="true">&ldquo;</span>
+    <q>I don't do vanity metrics. I build the systems that turn strategy into <b>compounding, measurable revenue.</b></q>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="wrap ctaband" id="cta">
+  <div class="rule r" style="justify-content:center;max-width:420px;margin:0 auto 36px"><span class="ln" style="background:linear-gradient(90deg,transparent,var(--gold))"></span><span class="dia"></span><span class="ln"></span></div>
+  <h2 class="mono r">Let's build<br>what's next<span class="dot">.</span></h2>
+  <p class="lead r d1">If you're ready for a marketing partner who brings <b>full-funnel clarity</b> and executes with precision — let's talk.</p>
+  <a class="btn r d2" data-mag href="contact.html" style="margin-top:40px">Get In Touch <span class="ar">→</span></a>
+  <footer class="wrap" style="padding-left:0;padding-right:0"><span>© 2026 Julianne Silla</span><span>Strategy. Systems. Scale.</span><span>Working with clients worldwide</span></footer>
+</section>
+
+<div class="vbadge">Direction 03 · Cinematic · About &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine   = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ---- Lenis smooth scroll ---- */
+  if(!reduce && window.Lenis){
+    var lenis = new Lenis({duration:1.15, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+    function raf(t){lenis.raf(t); requestAnimationFrame(raf);} requestAnimationFrame(raf);
+    if(window.ScrollTrigger){ lenis.on('scroll', ScrollTrigger.update); }
+  }
+
+  /* ---- reveals (.r and .rz) ---- */
+  var rs=[].slice.call(document.querySelectorAll('.r,.rz'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+    rs.forEach(function(el){io.observe(el);});
+  } else { rs.forEach(function(el){el.classList.add('in');}); }
+
+  /* ---- count-up ---- */
+  var counted=false;
+  function runCount(){ if(counted)return; counted=true;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var t=+el.dataset.count, pre=el.dataset.pre||'', suf=el.dataset.suf||'', dur=1600, st=null;
+      function step(ts){if(!st)st=ts; var p=Math.min((ts-st)/dur,1); el.textContent=pre+Math.floor((1-Math.pow(1-p,3))*t)+suf; if(p<1)requestAnimationFrame(step); else el.textContent=pre+t+suf;}
+      requestAnimationFrame(step);
+    });
+  }
+  var se=document.querySelector('.stats');
+  if(se){ reduce ? runCount() : new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount();});},{threshold:.4}).observe(se); }
+
+  /* ---- nav + progress ---- */
+  var nav=document.getElementById('nav'), prog=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop; if(nav)nav.classList.toggle('stuck',y>40); if(prog)prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+
+  /* ---- magnetic CTAs ---- */
+  if(!reduce && fine){
+    document.querySelectorAll('[data-mag]').forEach(function(el){
+      el.style.transition='transform .35s cubic-bezier(.16,1,.3,1)';
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(); el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.22+'px,'+(e.clientY-r.top-r.height/2)*.32+'px)';});
+      el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)';});
+    });
+  }
+
+  /* ---- CINEMATIC cursor-follow spotlight over the about hero ---- */
+  if(!reduce && fine){
+    var hero=document.getElementById('ahero'), spot=document.getElementById('aheroSpot');
+    if(hero && spot){
+      hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();
+        spot.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+        spot.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+        spot.style.opacity='1';});
+      hero.addEventListener('mouseleave',function(){spot.style.opacity='0';});
+    }
+  }
+
+  /* ---- GSAP parallax + scrubbed letterbox reveal ---- */
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* (1) PARALLAX hero plate — image scales + drifts as the hero scrolls out */
+    var plate=document.getElementById('aheroPlate');
+    if(plate){
+      gsap.fromTo(plate,{yPercent:0,scale:1.0},{
+        yPercent:16, scale:1.12, ease:'none',
+        scrollTrigger:{trigger:'#ahero', start:'top top', end:'bottom top', scrub:true}
+      });
+    }
+
+    /* (2) SCROLL-SCRUBBED reveal — letterbox bars open, content settles, as scroll begins */
+    var barTop=document.getElementById('barTop'), barBot=document.getElementById('barBot'),
+        inner=document.getElementById('aheroInner');
+    var revealTl=gsap.timeline({scrollTrigger:{trigger:'#ahero', start:'top top', end:'+=60%', scrub:true}});
+    if(barTop) revealTl.to(barTop,{scaleY:0.0, ease:'none'},0);
+    if(barBot) revealTl.to(barBot,{scaleY:0.0, ease:'none'},0);
+    if(inner)  revealTl.to(inner,{y:-44, opacity:0.0, ease:'none'},0);
+
+    /* play the OPENING bars-open animation on load (curtain lifts to full bleed) */
+    gsap.fromTo([barTop,barBot],{scaleY:1.9},{scaleY:1, duration:1.5, ease:'power3.out', delay:.15});
+    gsap.fromTo(inner,{y:30,opacity:0},{y:0,opacity:1,duration:1.4,ease:'power3.out',delay:.35});
+
+    /* (3) generic data-parallax hook for any extra layers */
+    document.querySelectorAll('[data-parallax]').forEach(function(el){
+      var amt=parseFloat(el.dataset.parallax)||40;
+      gsap.to(el,{yPercent:amt, ease:'none', scrollTrigger:{trigger:el, start:'top bottom', end:'bottom top', scrub:true}});
+    });
+  }
+
+  /* ---- mobile menu: hamburger toggle + slide-in panel (dependency-free) ---- */
+  (function(){
+    var burger=document.getElementById('navBurger'),
+        panel=document.getElementById('mobnav'),
+        back=document.getElementById('mobnavBack');
+    if(!burger||!panel||!back) return;
+    var isOpen=false;
+    function firstLink(){ return panel.querySelector('a'); }
+    function open(){
+      if(isOpen) return; isOpen=true;
+      panel.classList.add('open'); back.classList.add('open');
+      burger.setAttribute('aria-expanded','true');
+      burger.setAttribute('aria-label','Close menu');
+      panel.setAttribute('aria-hidden','false');
+      document.body.classList.add('menu-open');
+      var f=firstLink(); if(f) f.focus();
+    }
+    function close(returnFocus){
+      if(!isOpen) return; isOpen=false;
+      panel.classList.remove('open'); back.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+      panel.setAttribute('aria-hidden','true');
+      document.body.classList.remove('menu-open');
+      if(returnFocus!==false) burger.focus();
+    }
+    burger.addEventListener('click',function(){ isOpen?close():open(); });
+    back.addEventListener('click',function(){ close(); });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ close(false); });
+    });
+    document.addEventListener('keydown',function(e){
+      if(!isOpen) return;
+      if(e.key==='Escape'||e.key==='Esc'){ e.preventDefault(); close(); return; }
+      if(e.key==='Tab'){
+        var f=panel.querySelectorAll('a'); if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    matchMedia('(min-width:861px)').addEventListener('change',function(ev){ if(ev.matches) close(false); });
+  })();
+})();
+</script>
+</body>
+</html>

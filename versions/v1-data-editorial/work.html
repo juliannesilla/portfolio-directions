@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Julianne Silla — Selected Work · Data Editorial</title>
+<meta name="description" content="Proven strategies. Measurable impact. Selected go-to-market, brand, web, and case-study work from Julianne Silla."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* ====================================================================
+   JULIANNE SILLA — DIRECTION 01 · "DATA EDITORIAL"  ·  WORK PAGE
+   Visual system reused wholesale from v1 index.html (tokens, paper/grain/
+   gridlines, .nav, .prog, cursor data-dots, footer, .vbadge, .r, reduced-
+   motion). Light cream canvas · Swiss grid · hairline gold rules.
+   Page sections mirror v6 work.html: work head + breadcrumb + intro,
+   filter pills, numbered work index (01–06), CTA band — RE-SKINNED into
+   the editorial palette. Signature motion preserved: scroll-scrubbed
+   count-ups, parallax stat columns, 3D flip metric cards, cursor data dot.
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* LIGHT — cream/off-white canvas, charcoal ink, champagne gold for light */
+  --bg:#EFEBE2; --surf:#F5F2EC; --surf2:#FBF9F4;
+  --ink:#15120F; --ink-soft:#3B342B; --ink-mut:#6E6354;
+  --gold:#B9985F; --gold-deep:#8C7350; --gold-hi:#CDAE76;
+  --line:#D8D0C1; --line-strong:#C3B7A1;
+  --serif:'Playfair Display',serif; --sans:'Inter',sans-serif;
+  --grotesk:'Archivo',sans-serif; --mono:'Space Mono',monospace;
+  --ease:cubic-bezier(.16,1,.3,1); --ease-q:cubic-bezier(.25,1,.5,1); --maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;min-height:100vh}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing:-.018em;color:var(--ink)}
+.eyebrow{font-family:var(--grotesk);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.34em;color:var(--gold-deep)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+::selection{background:var(--gold);color:var(--surf2)}
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px;border-radius:2px}
+
+/* ---- paper texture: faint grain + an ultra-light editorial grid ---- */
+.paper{position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(60% 50% at 78% 8%, rgba(185,152,95,.10), transparent 70%),
+    radial-gradient(55% 45% at 8% 88%, rgba(140,115,80,.07), transparent 72%),
+    var(--bg)}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* faint vertical column rules — Swiss grid feel */
+.gridlines{position:fixed;inset:0;z-index:-1;pointer-events:none;max-width:var(--maxw);margin:0 auto;
+  background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:calc(100% / 6) 100%;opacity:.45}
+@media(max-width:760px){.gridlines{background-size:calc(100% / 3) 100%}}
+
+/* cursor-reactive data dot that trails the pointer (fine pointers only) */
+.cursor-dot{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--gold);
+  pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;
+  transition:width .3s var(--ease),height .3s var(--ease),opacity .4s;opacity:0}
+.cursor-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid var(--gold-deep);border-radius:50%;
+  pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:opacity .4s,width .3s var(--ease),height .3s var(--ease)}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);padding:22px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.nav.stuck{background:rgba(245,242,236,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:13px 0}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.45rem;color:var(--ink);letter-spacing:.02em;display:flex;align-items:baseline;gap:2px}
+.logo .blink{color:var(--gold);font-family:var(--mono);font-weight:700;font-size:1rem}
+.nav-links{display:flex;gap:30px;font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.nav-links a{position:relative;color:var(--ink-mut);transition:color .3s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold-deep);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold-deep)}.nav-links a.active::after{width:100%}
+.nav-cta{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border:1px solid var(--ink);color:var(--ink);border-radius:2px;transition:.35s var(--ease)}
+.nav-cta:hover{background:var(--ink);color:var(--surf2)}
+@media(max-width:980px){.nav-links{display:none}}
+
+/* ---- mobile menu: hamburger button + slide-in editorial panel ---- */
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+  padding:0;border:1px solid var(--line-strong);border-radius:2px;background:var(--surf2);
+  cursor:pointer;flex:none;transition:background .35s var(--ease),border-color .35s var(--ease)}
+.nav-burger:hover{background:var(--surf);border-color:var(--gold-deep)}
+.nav-burger .bars{position:relative;display:block;width:20px;height:14px}
+.nav-burger .bars span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:var(--ink);
+  transition:transform .4s var(--ease),opacity .3s var(--ease),top .4s var(--ease)}
+.nav-burger .bars span:nth-child(1){top:0}
+.nav-burger .bars span:nth-child(2){top:6px}
+.nav-burger .bars span:nth-child(3){top:12px}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(3){top:6px;transform:rotate(-45deg)}
+.mobnav-back{position:fixed;inset:0;z-index:1000;background:rgba(21,18,15,.42);
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s var(--ease);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.mobnav-back.open{opacity:1;visibility:visible}
+.mobnav{position:fixed;top:0;right:0;z-index:1001;width:min(86vw,360px);height:100%;
+  background:var(--surf2);border-left:1px solid var(--line-strong);box-shadow:-20px 0 60px -30px rgba(21,18,15,.4);
+  display:flex;flex-direction:column;padding:96px 30px 40px;gap:4px;
+  transform:translateX(102%);transition:transform .5s var(--ease);visibility:hidden}
+.mobnav.open{transform:translateX(0);visibility:visible}
+.mobnav .mob-eyebrow{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--ink-mut);margin:0 6px 14px}
+.mobnav a.mob-link{position:relative;display:block;font-family:var(--grotesk);font-size:1.02rem;font-weight:600;
+  letter-spacing:.04em;color:var(--ink-soft);padding:15px 16px;border-radius:2px;
+  transition:background .3s var(--ease),color .3s var(--ease),padding-left .3s var(--ease)}
+.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:var(--surf);color:var(--gold-deep);padding-left:22px}
+.mobnav a.mob-link.active{color:var(--gold-deep)}
+.mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:22px;border-radius:2px;background:var(--gold)}
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.72rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--ink);
+  color:var(--ink);border-radius:2px;transition:.35s var(--ease)}
+.mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--ink);color:var(--surf2)}
+body.menu-open{overflow:hidden}
+@media(min-width:981px){.mobnav,.mobnav-back{display:none}}
+@media(max-width:980px){.nav-burger{display:inline-flex}}
+
+/* ---- progress ---- */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi));z-index:9000}
+
+/* ---- btn (editorial, sharp) ---- */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 32px;border:1px solid var(--ink);color:var(--surf2);background:var(--ink);border-radius:2px;cursor:pointer;transition:.4s var(--ease)}
+.btn:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn .ar{transition:transform .4s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--surf2)}
+
+/* ---- sections ---- */
+section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
+.rule{display:flex;align-items:center;gap:16px;color:var(--gold-deep);margin-bottom:34px}
+.rule .num{font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--gold-deep)}
+.rule .ln{height:1px;background:var(--line-strong);flex:1}
+.dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
+.shead{margin-bottom:52px;max-width:64ch}
+.shead h2{font-size:clamp(2.4rem,5.4vw,4.2rem);margin-top:14px}
+.shead .lead{font-family:var(--sans);font-size:1.06rem;color:var(--ink-mut);margin-top:18px;max-width:46ch}
+
+/* ---- work page head (editorial masthead) ---- */
+.workhead{padding:172px 0 0;position:relative}
+.crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:22px;display:flex;gap:10px;align-items:center}
+.crumb a{color:var(--ink-mut);transition:color .3s}
+.crumb a:hover{color:var(--gold-deep)}
+.crumb .sep{color:var(--gold-deep);opacity:.7}
+.headcard{position:relative;border-top:1px solid var(--ink);border-bottom:1px solid var(--line-strong);padding:44px 0 40px}
+.headcard .eyebrow{display:inline-flex;align-items:center;gap:14px}
+.headcard .eyebrow::before{content:'';width:42px;height:1px;background:var(--gold-deep)}
+.workhead h1{font-size:clamp(3rem,8vw,6.6rem);line-height:.92;margin:18px 0 0;font-weight:800}
+.workhead h1 .it{font-style:italic;font-weight:500;color:var(--gold-deep)}
+.workhead .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.25;color:var(--ink-soft);max-width:30ch;margin-top:26px}
+.workhead .intro b{font-style:italic;color:var(--gold-deep)}
+.head-fig{position:absolute;right:0;top:50%;transform:translateY(-50%);text-align:right;pointer-events:none}
+.head-fig .big{font-family:var(--mono);font-weight:700;font-size:clamp(3.4rem,8vw,6.4rem);line-height:.8;letter-spacing:-.04em;color:var(--ink);font-feature-settings:"tnum"}
+.head-fig .big .u{color:var(--gold-deep)}
+.head-fig .cap{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);margin-top:10px}
+@media(max-width:900px){.workhead{padding-top:140px}.head-fig{display:none}}
+
+/* ---- filter pills (editorial pills) ---- */
+.filters{display:flex;flex-wrap:wrap;gap:12px;margin-top:46px}
+.pill{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:11px 22px;border-radius:999px;color:var(--ink-mut);cursor:pointer;
+  background:var(--surf2);border:1px solid var(--line-strong);
+  transition:color .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
+.pill:hover{color:var(--ink);border-color:var(--gold-deep)}
+.pill.active{color:var(--surf2);background:var(--ink);border-color:var(--ink)}
+
+/* ===================================================================
+   WORK GRID — editorial thumb cards with mono index, 3D-flip on hover.
+   Front = thumbnail + title; signature flip reveals the metric/context.
+   =================================================================== */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{position:relative;perspective:1600px;cursor:pointer;transition:opacity .45s var(--ease)}
+.card.hidden{display:none}
+.cardflip{position:relative;width:100%;transform-style:preserve-3d;transition:transform .85s var(--ease);min-height:380px}
+.card:hover .cardflip,.card:focus-within .cardflip{transform:rotateY(180deg)}
+.cface{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+  display:flex;flex-direction:column;background:var(--surf2);border:1px solid var(--line-strong);border-radius:2px;overflow:hidden}
+.cface.back{transform:rotateY(180deg);padding:30px 28px;justify-content:space-between;background:var(--ink);color:var(--surf2)}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line-strong)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:saturate(.96) contrast(1.02)}
+.thumb::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(21,18,15,.06);background:linear-gradient(180deg,rgba(21,18,15,0) 55%,rgba(21,18,15,.18))}
+.thumb .no{position:absolute;top:14px;left:16px;z-index:2;font-family:var(--mono);font-size:.78rem;font-weight:700;letter-spacing:.18em;color:var(--surf2);text-shadow:0 1px 8px rgba(0,0,0,.5);display:flex;align-items:center;gap:10px}
+.thumb .no::after{content:'';width:26px;height:1px;background:var(--gold-hi)}
+.cbody{padding:24px 24px 28px;display:flex;flex-direction:column;flex:1}
+.card h3{font-family:var(--serif);font-size:1.4rem;color:var(--ink);margin:0 0 8px;line-height:1.12}
+.card .meta{font-family:var(--grotesk);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.card .view{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut);margin-top:auto;padding-top:22px;display:flex;align-items:center;gap:10px;transition:.4s var(--ease)}
+.card:hover .view{color:var(--gold-deep);gap:14px}
+.card .hint{position:absolute;bottom:16px;right:18px;z-index:2;font-family:var(--grotesk);font-size:.52rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut);opacity:.7}
+/* flip back face */
+.cface.back .tag{font-family:var(--mono);font-size:.62rem;color:var(--gold-hi);letter-spacing:.08em}
+.cface.back .n{font-family:var(--mono);font-weight:700;font-size:clamp(2.4rem,3.6vw,3.4rem);line-height:.9;letter-spacing:-.04em;color:var(--gold-hi);font-feature-settings:"tnum"}
+.cface.back .nl{font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut,#A99E8E);margin-top:6px}
+.cface.back .ctx{font-family:var(--serif);font-style:italic;font-size:1.12rem;line-height:1.4;color:var(--surf2);margin-top:18px}
+.cface.back .go{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);display:inline-flex;align-items:center;gap:10px;margin-top:18px}
+@media(max-width:900px){.work{grid-template-columns:1fr}.cardflip{min-height:360px}}
+
+/* ===================================================================
+   STATS STRIP — full-width dark band, oversized mono numerals, scroll-
+   scrubbed count-ups + alternating parallax columns. The data is hero.
+   =================================================================== */
+.statsband{background:var(--ink);color:var(--surf2);position:relative;overflow:hidden;padding:clamp(4.5rem,8vw,7rem) 0}
+.statsband .eyebrow{color:var(--gold-hi)}
+.statsband .band-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:54px;flex-wrap:wrap}
+.statsband .band-head h2{color:var(--surf2);font-size:clamp(1.8rem,4vw,3rem)}
+.statsband .band-head .note{font-family:var(--mono);font-size:.7rem;color:var(--gold-hi);letter-spacing:.06em}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.statgrid .stat{position:relative;padding:6px 18px;min-height:170px;display:flex;flex-direction:column;justify-content:space-between}
+.statgrid .stat+.stat{border-left:1px solid rgba(243,226,190,.16)}
+.stat .idx{font-family:var(--mono);font-size:.7rem;font-weight:700;color:rgba(243,226,190,.5);letter-spacing:.1em}
+.stat .n{font-family:var(--mono);font-weight:700;font-size:clamp(2.7rem,4.4vw,4.1rem);line-height:.9;letter-spacing:-.04em;color:var(--gold-hi);font-feature-settings:"tnum"}
+.stat .l{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut,#A99E8E);line-height:1.6;max-width:18ch}
+@media(max-width:880px){.statgrid{grid-template-columns:repeat(2,1fr);gap:1px}.statgrid .stat+.stat{border-left:none}.statgrid .stat{border-top:1px solid rgba(243,226,190,.14)}}
+@media(max-width:480px){.statgrid{grid-template-columns:1fr}}
+
+/* ---- CTA band ---- */
+.ctaband{text-align:center}
+.ctacard{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:clamp(48px,7vw,84px) 40px;text-align:center;position:relative}
+.ctaband h2{font-size:clamp(2.2rem,5.5vw,4rem);line-height:.98}
+.ctaband .lead{color:var(--ink-soft);font-size:1.12rem;margin:22px auto 0;max-width:46ch}
+.ctaband .lead b{color:var(--gold-deep)}
+
+footer{padding:42px 0 60px;margin-top:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut)}
+footer a:hover{color:var(--gold-deep)}
+
+/* version badge */
+.vbadge{position:fixed;right:18px;bottom:18px;z-index:950;padding:10px 15px;border-radius:2px;background:var(--surf2);border:1px solid var(--line-strong);font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);box-shadow:0 8px 24px -12px rgba(21,18,15,.4)}
+.vbadge a{color:var(--ink-mut)}.vbadge a:hover{color:var(--gold-deep)}
+
+/* ---- reveal ---- */
+.r{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.08s}.r.d2{transition-delay:.16s}.r.d3{transition-delay:.24s}.r.d4{transition-delay:.32s}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .r{opacity:1!important;transform:none!important}
+  .grain,.gridlines{display:none}
+  .cursor-dot,.cursor-ring{display:none!important}
+  .cardflip{transform:none!important}
+  .cface.back{display:none}
+  [data-parallax]{transform:none!important}
+}
+</style>
+</head>
+<body>
+<div class="paper"></div><div class="grain"></div><div class="gridlines"></div>
+<div class="prog" id="prog"></div>
+<div class="cursor-ring" id="cring" aria-hidden="true"></div>
+<div class="cursor-dot" id="cdot" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">J<span class="blink">/</span>S</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html" class="active" aria-current="page">Work</a>
+      <a href="services.html">Services</a>
+      <a href="case-study.html">Case Study</a>
+      <a href="ugc.html">UGC</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobnav-back" id="mobnavBack"></div>
+<nav class="mobnav" id="mobnav" aria-label="Mobile" aria-hidden="true">
+  <span class="mob-eyebrow">Menu</span>
+  <a class="mob-link" href="index.html">Home</a>
+  <a class="mob-link" href="about.html">About</a>
+  <a class="mob-link active" aria-current="page" href="work.html">Work</a>
+  <a class="mob-link" href="services.html">Services</a>
+  <a class="mob-link" href="case-study.html">Case Study</a>
+  <a class="mob-link" href="ugc.html">UGC</a>
+  <a class="mob-link" href="resources.html">Resources</a>
+  <a class="mob-link" href="contact.html">Contact</a>
+  <a class="mob-cta" href="contact.html">Work With Me</a>
+</nav>
+
+<!-- WORK HEAD -->
+<header class="workhead wrap">
+  <nav class="crumb r" aria-label="Breadcrumb">
+    <a href="index.html">Home</a><span class="sep">/</span><span>Work</span>
+  </nav>
+  <div class="headcard r">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Selected <span class="it">Work</span></h1>
+    <div class="intro">Proven <b>strategies.</b> Measurable <b>impact.</b></div>
+    <div class="head-fig" aria-hidden="true">
+      <div class="big" data-count="6" data-suf="" data-scrub>0</div>
+      <div class="cap">Selected projects · 01–06</div>
+    </div>
+  </div>
+
+  <!-- FILTER PILLS -->
+  <div class="filters r d1" id="filters" role="tablist" aria-label="Filter work by category">
+    <button class="pill active" data-filter="all" role="tab" aria-selected="true">All Work</button>
+    <button class="pill" data-filter="strategy" role="tab" aria-selected="false">Strategy</button>
+    <button class="pill" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+    <button class="pill" data-filter="web" role="tab" aria-selected="false">Web + UX</button>
+    <button class="pill" data-filter="systems" role="tab" aria-selected="false">Systems</button>
+    <button class="pill" data-filter="case" role="tab" aria-selected="false">Case Studies</button>
+  </div>
+</header>
+
+<!-- WORK GRID -->
+<section class="wrap" id="work" style="padding-top:clamp(3rem,6vw,5rem)">
+  <div class="work" id="workGrid">
+
+    <div class="card r" data-cat="strategy" tabindex="0">
+      <div class="cardflip">
+        <a class="cface front" href="work.html">
+          <div class="thumb"><div class="no">01</div><img src="../../preview/work-1.png" alt="Go-to-Market (GTM) Engineering project thumbnail" loading="lazy"/><span class="hint">Flip ↻</span></div>
+          <div class="cbody">
+            <h3>Go-to-Market (GTM) Engineering</h3>
+            <div class="meta">Strategy · Positioning · Execution</div>
+            <div class="view">View Project →</div>
+          </div>
+        </a>
+        <a class="cface back" href="work.html">
+          <span class="tag">/ 01 — strategy</span>
+          <div><div class="n">15+</div><div class="nl">GTM launches engineered</div></div>
+          <div class="ctx">Strategy, positioning and execution — built end-to-end, start to revenue.</div>
+          <span class="go">View Project →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card r d1" data-cat="branding" tabindex="0">
+      <div class="cardflip">
+        <a class="cface front" href="work.html">
+          <div class="thumb"><div class="no">02</div><img src="../../preview/work-2.png" alt="Designs — brand and visual identity project thumbnail" loading="lazy"/><span class="hint">Flip ↻</span></div>
+          <div class="cbody">
+            <h3>Designs</h3>
+            <div class="meta">Brand · Visual Identity · Assets</div>
+            <div class="view">View Project →</div>
+          </div>
+        </a>
+        <a class="cface back" href="work.html">
+          <span class="tag">/ 02 — branding</span>
+          <div><div class="n">100%</div><div class="nl">On-brand asset systems</div></div>
+          <div class="ctx">Brand, visual identity and asset libraries that scale across every channel.</div>
+          <span class="go">View Project →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card r d2" data-cat="strategy" tabindex="0">
+      <div class="cardflip">
+        <a class="cface front" href="work.html">
+          <div class="thumb"><div class="no">03</div><img src="../../preview/work-3.png" alt="Brand Audit project thumbnail" loading="lazy"/><span class="hint">Flip ↻</span></div>
+          <div class="cbody">
+            <h3>Brand Audit</h3>
+            <div class="meta">Clarity · Positioning · Growth Map</div>
+            <div class="view">View Project →</div>
+          </div>
+        </a>
+        <a class="cface back" href="work.html">
+          <span class="tag">/ 03 — strategy</span>
+          <div><div class="n">1</div><div class="nl">Clear growth map</div></div>
+          <div class="ctx">Clarity, positioning and a growth map that turns scattered effort into focus.</div>
+          <span class="go">View Project →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card r" data-cat="web" tabindex="0">
+      <div class="cardflip">
+        <a class="cface front" href="work.html">
+          <div class="thumb"><div class="no">04</div><img src="../../preview/work-4.png" alt="Website — web design, UX, and conversion project thumbnail" loading="lazy"/><span class="hint">Flip ↻</span></div>
+          <div class="cbody">
+            <h3>Website</h3>
+            <div class="meta">Web Design · UX · Conversion</div>
+            <div class="view">View Project →</div>
+          </div>
+        </a>
+        <a class="cface back" href="work.html">
+          <span class="tag">/ 04 — web + ux</span>
+          <div><div class="n">15%+</div><div class="nl">Checkout lift</div></div>
+          <div class="ctx">Web design, UX and conversion work tuned to move the metric that matters.</div>
+          <span class="go">View Project →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card r d1" data-cat="case systems" tabindex="0">
+      <div class="cardflip">
+        <a class="cface front" href="case-study.html">
+          <div class="thumb"><div class="no">05</div><img src="../../preview/work-5.png" alt="Case Study #1 — Mindset Mastery thumbnail" loading="lazy"/><span class="hint">Flip ↻</span></div>
+          <div class="cbody">
+            <h3>Case Study #1 — Mindset Mastery</h3>
+            <div class="meta">Full GTM · 100% high-ticket conversion</div>
+            <div class="view">View Case Study →</div>
+          </div>
+        </a>
+        <a class="cface back" href="case-study.html">
+          <span class="tag">/ 05 — case study</span>
+          <div><div class="n">100%</div><div class="nl">High-ticket conversion</div></div>
+          <div class="ctx">A full go-to-market that converted every qualified seat into a high-ticket enrollment.</div>
+          <span class="go">View Case Study →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card r d2" data-cat="case systems" tabindex="0">
+      <div class="cardflip">
+        <a class="cface front" href="case-study.html">
+          <div class="thumb"><div class="no">06</div><img src="../../preview/work-6.png" alt="Case Study #2 — Multi-Launch + Lifecycle Engine thumbnail" loading="lazy"/><span class="hint">Flip ↻</span></div>
+          <div class="cbody">
+            <h3>Case Study #2 — Multi-Launch + Lifecycle Engine</h3>
+            <div class="meta">Repeatable launch architecture</div>
+            <div class="view">View Case Study →</div>
+          </div>
+        </a>
+        <a class="cface back" href="case-study.html">
+          <span class="tag">/ 06 — case study</span>
+          <div><div class="n">$1.5M</div><div class="nl">Revenue in 4 months</div></div>
+          <div class="ctx">A repeatable launch architecture — multi-launch plus a lifecycle engine that compounds.</div>
+          <span class="go">View Case Study →</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS STRIP (the data is the hero) -->
+<section class="statsband" aria-label="Key metrics">
+  <div class="wrap">
+    <div class="band-head">
+      <div>
+        <div class="eyebrow r">By the numbers</div>
+        <h2 class="r d1" style="margin-top:14px">The measurable record.</h2>
+      </div>
+      <div class="note r d2">Fig. 01 — figures count up as you scroll</div>
+    </div>
+    <div class="statgrid stats">
+      <div class="stat r">
+        <span class="idx">01</span>
+        <div class="n" data-count="8" data-pre="$" data-suf="M+" data-scrub>$0</div>
+        <div class="l">Cumulative Revenue Impact</div>
+      </div>
+      <div class="stat r d1">
+        <span class="idx">02</span>
+        <div class="n" data-count="15" data-suf="+" data-scrub>0</div>
+        <div class="l">GTM Launches</div>
+      </div>
+      <div class="stat r d2">
+        <span class="idx">03</span>
+        <div class="n" data-count="117" data-suf="" data-scrub>0</div>
+        <div class="l">High-Ticket Enrollments</div>
+      </div>
+      <div class="stat r d3">
+        <span class="idx">04</span>
+        <div class="n" data-count="3" data-suf="" data-scrub>0</div>
+        <div class="l">Sold-Out Events</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="wrap ctaband" id="cta">
+  <div class="ctacard r">
+    <div class="rule r" style="justify-content:center;max-width:420px;margin:0 auto 30px"><span class="ln" style="background:linear-gradient(90deg,transparent,var(--gold-deep))"></span><span class="dia"></span><span class="ln" style="background:linear-gradient(90deg,var(--gold-deep),transparent)"></span></div>
+    <h2 class="r">Ready to build something that lasts?</h2>
+    <p class="lead r d1">Strategy. Systems. Scale. <b>Let's build your next revenue engine — together.</b></p>
+    <a class="btn r d2" data-mag href="contact.html" style="margin-top:38px">Start the conversation <span class="ar">→</span></a>
+  </div>
+  <footer><span>© 2026 Julianne Silla</span><span>Strategy. Systems. Scale.</span><span>Working with clients worldwide</span></footer>
+</section>
+
+<div class="vbadge">Direction 01 · Data Editorial · Work &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine   = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  // ---- Lenis smooth scroll ----
+  if(!reduce && window.Lenis){
+    var lenis = new Lenis({duration:1.15, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+    function raf(t){lenis.raf(t); requestAnimationFrame(raf);} requestAnimationFrame(raf);
+    if(window.ScrollTrigger){ lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(function(time){lenis.raf(time*1000);}); gsap.ticker.lagSmoothing(0); }
+  }
+
+  // ---- reveals ----
+  var rs=[].slice.call(document.querySelectorAll('.r'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+    rs.forEach(function(el){io.observe(el);});
+  } else { rs.forEach(function(el){el.classList.add('in');}); }
+
+  // ---- helper: format a count value with prefix/suffix ----
+  function fmt(el,val){ var pre=el.dataset.pre||'', suf=el.dataset.suf||''; return pre+val+suf; }
+
+  // ---- non-scrubbed count-up (fallback when reduced / no ScrollTrigger) ----
+  function runCountUp(el){
+    var t=+el.dataset.count, dur=1500, st=null;
+    function step(ts){ if(!st)st=ts; var p=Math.min((ts-st)/dur,1);
+      el.textContent=fmt(el,Math.floor((1-Math.pow(1-p,3))*t));
+      if(p<1)requestAnimationFrame(step); else el.textContent=fmt(el,t);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var scrubbed=[].slice.call(document.querySelectorAll('[data-scrub]'));
+
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ---- SIGNATURE 1: scroll-SCRUBBED count-ups (numbers tick with scroll) ----
+    scrubbed.forEach(function(el){
+      var t=+el.dataset.count, obj={v:0};
+      gsap.to(obj,{ v:t, ease:'none',
+        scrollTrigger:{ trigger:el, start:'top 92%', end:'top 42%', scrub:.5 },
+        onUpdate:function(){ el.textContent=fmt(el,Math.round(obj.v)); },
+        onComplete:function(){ el.textContent=fmt(el,t); }
+      });
+    });
+
+    // ---- SIGNATURE 2: PARALLAX stat columns drifting at different speeds ----
+    document.querySelectorAll('[data-parallax]').forEach(function(el){
+      var amt = parseFloat(el.dataset.parallax)||10;
+      gsap.to(el,{ yPercent:amt, ease:'none',
+        scrollTrigger:{ trigger:el, start:'top bottom', end:'bottom top', scrub:true } });
+    });
+    var stats=[].slice.call(document.querySelectorAll('.statgrid .stat'));
+    stats.forEach(function(el,i){
+      var depth = (i%2===0) ? -22 : 18;       // alternating drift
+      depth += (i-1.5)*4;                       // outer columns drift more
+      gsap.fromTo(el,{y:0},{ y:depth, ease:'none',
+        scrollTrigger:{ trigger:'.statsband', start:'top bottom', end:'bottom top', scrub:true } });
+    });
+  } else {
+    // reduced-motion / no GSAP: still animate counts once on view, no scrub
+    if('IntersectionObserver' in window && !reduce){
+      var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){runCountUp(e.target);cio.unobserve(e.target);}});},{threshold:.5});
+      scrubbed.forEach(function(el){cio.observe(el);});
+    } else {
+      scrubbed.forEach(function(el){ el.textContent=fmt(el,+el.dataset.count); });
+    }
+  }
+
+  // ---- nav + progress ----
+  var nav=document.getElementById('nav'), prog=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop;
+    if(nav)nav.classList.toggle('stuck',y>40);
+    if(prog)prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';
+  },{passive:true});
+
+  // ---- magnetic CTAs ----
+  if(!reduce && fine){
+    document.querySelectorAll('[data-mag]').forEach(function(el){
+      el.style.transition='transform .35s cubic-bezier(.16,1,.3,1)';
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();
+        el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.22+'px,'+(e.clientY-r.top-r.height/2)*.32+'px)';});
+      el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)';});
+    });
+  }
+
+  // ---- filter tabs — filters the grid by data-cat, no-op if absent ----
+  (function(){
+    var bar=document.getElementById('filters'); if(!bar) return;
+    var cards=Array.prototype.slice.call(document.querySelectorAll('#workGrid .card'));
+    bar.addEventListener('click',function(e){
+      var btn=e.target.closest('.pill'); if(!btn) return;
+      var f=btn.dataset.filter||'all';
+      bar.querySelectorAll('.pill').forEach(function(p){var on=p===btn;p.classList.toggle('active',on);p.setAttribute('aria-selected',on?'true':'false');});
+      cards.forEach(function(c){
+        var cats=(c.dataset.cat||'').split(/\s+/);
+        var show=(f==='all')||cats.indexOf(f)>-1;
+        c.classList.toggle('hidden',!show);
+      });
+      if(window.ScrollTrigger){ ScrollTrigger.refresh(); }
+    });
+  })();
+
+  // ---- SIGNATURE 4: cursor-reactive data point (dot + ring trail) ----
+  if(!reduce && fine){
+    var dot=document.getElementById('cdot'), ring=document.getElementById('cring');
+    var mx=0,my=0,rx=0,ry=0,shown=false;
+    addEventListener('mousemove',function(e){ mx=e.clientX; my=e.clientY;
+      if(!shown){shown=true; dot.style.opacity='1'; ring.style.opacity='.6';}
+      dot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';
+    },{passive:true});
+    (function ringRaf(){ rx+=(mx-rx)*.16; ry+=(my-ry)*.16;
+      ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
+      requestAnimationFrame(ringRaf);
+    })();
+    document.querySelectorAll('a,button,[data-mag],.card,.pill,.stat').forEach(function(el){
+      el.addEventListener('mouseenter',function(){ ring.style.width='52px'; ring.style.height='52px'; dot.style.width='6px'; dot.style.height='6px'; });
+      el.addEventListener('mouseleave',function(){ ring.style.width='34px'; ring.style.height='34px'; dot.style.width='9px'; dot.style.height='9px'; });
+    });
+    addEventListener('mouseleave',function(){ dot.style.opacity='0'; ring.style.opacity='0'; });
+  }
+
+  // ---- mobile menu: hamburger toggle + slide-in panel (dependency-free) ----
+  (function(){
+    var burger=document.getElementById('navBurger'),
+        panel=document.getElementById('mobnav'),
+        back=document.getElementById('mobnavBack');
+    if(!burger||!panel||!back) return;
+    var isOpen=false, lastFocus=null;
+    function firstLink(){ return panel.querySelector('a'); }
+    function open(){
+      if(isOpen) return; isOpen=true; lastFocus=document.activeElement;
+      panel.classList.add('open'); back.classList.add('open');
+      burger.setAttribute('aria-expanded','true');
+      burger.setAttribute('aria-label','Close menu');
+      panel.setAttribute('aria-hidden','false');
+      document.body.classList.add('menu-open');
+      var f=firstLink(); if(f) f.focus();
+    }
+    function close(returnFocus){
+      if(!isOpen) return; isOpen=false;
+      panel.classList.remove('open'); back.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+      panel.setAttribute('aria-hidden','true');
+      document.body.classList.remove('menu-open');
+      if(returnFocus!==false) burger.focus();
+    }
+    burger.addEventListener('click',function(){ isOpen?close():open(); });
+    back.addEventListener('click',function(){ close(); });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ close(false); });
+    });
+    document.addEventListener('keydown',function(e){
+      if(!isOpen) return;
+      if(e.key==='Escape'||e.key==='Esc'){ e.preventDefault(); close(); return; }
+      if(e.key==='Tab'){
+        var f=panel.querySelectorAll('a'); if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    matchMedia('(min-width:981px)').addEventListener('change',function(ev){ if(ev.matches) close(false); });
+  })();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Julianne Silla — Resources · Cinematic</title>
+<meta name="description" content="Frameworks, playbooks, and tools I use to build revenue engines — yours to borrow."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ====================================================================
+   JULIANNE SILLA — DIRECTION 03 · "CINEMATIC" · RESOURCES
+   Full-bleed film-opening feel. Dark high-contrast charcoal base,
+   champagne gold as the 'energy' accent. Letterbox bars, scroll-scrubbed
+   reveal, parallax photo drift, cursor-follow spotlight, 3D depth on
+   section entry. Real content + tokens. Reduced-motion gated to static.
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --char:#0E0D0C; --char2:#15120F; --panel:#1A1612; --cream:#E5E2DD; --cream2:#EFEBE2;
+  --gold:#DBBF94; --gold-hi:#F3E2BE; --gold-dim:#8C7350;
+  --on-dark:#F0EBE1; --on-dark-mut:#A99E8E; --line:#2A241D;
+  --serif:'Playfair Display',serif; --sans:'Inter',sans-serif; --grotesk:'Archivo',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1); --ease-q:cubic-bezier(.25,1,.5,1); --maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--char);color:var(--on-dark);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;min-height:100vh}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing:-.015em}
+.eyebrow{font-family:var(--grotesk);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.36em;color:var(--gold)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+::selection{background:var(--gold);color:var(--char)}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px;border-radius:3px}
+
+/* ---- film grain over the whole page for cinematic texture ---- */
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---- progress (the 'film strip' line) ---- */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-dim),var(--gold-hi));z-index:9000;box-shadow:0 0 14px rgba(243,226,190,.5)}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .5s var(--ease),padding .5s var(--ease),border-color .5s var(--ease);
+  border-bottom:1px solid transparent}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;transition:padding .5s var(--ease)}
+.nav.stuck{background:rgba(14,13,12,.82);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+.nav.stuck .wrap{padding:13px 32px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.5rem;color:var(--gold);letter-spacing:.05em}
+.nav-links{display:flex;gap:30px;font-family:var(--grotesk);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.nav-links a{position:relative;color:var(--on-dark-mut);transition:color .3s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--on-dark)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold)}.nav-links a.active::after{width:100%}
+.nav-cta{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:11px 22px;border:1px solid var(--gold);color:var(--gold);border-radius:2px;transition:.35s var(--ease)}
+.nav-cta:hover{background:var(--gold);color:var(--char);box-shadow:0 0 24px rgba(219,191,148,.4)}
+@media(max-width:980px){.nav-links{display:none}}
+
+/* ---- mobile menu: hamburger button + slide-in panel ---- */
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+  padding:0;border:1px solid var(--line);border-radius:2px;background:rgba(14,13,12,.6);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  cursor:pointer;flex:none;transition:border-color .35s var(--ease)}
+.nav-burger:hover{border-color:var(--gold)}
+.nav-burger .bars{position:relative;display:block;width:20px;height:14px}
+.nav-burger .bars span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:var(--gold);
+  transition:transform .4s var(--ease),opacity .3s var(--ease),top .4s var(--ease)}
+.nav-burger .bars span:nth-child(1){top:0}
+.nav-burger .bars span:nth-child(2){top:6px}
+.nav-burger .bars span:nth-child(3){top:12px}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(3){top:6px;transform:rotate(-45deg)}
+.mobnav-back{position:fixed;inset:0;z-index:1000;background:rgba(8,7,6,.62);
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s var(--ease);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.mobnav-back.open{opacity:1;visibility:visible}
+.mobnav{position:fixed;top:0;right:0;z-index:1001;width:min(86vw,360px);height:100%;
+  background:rgba(14,13,12,.96);-webkit-backdrop-filter:blur(20px) saturate(140%);backdrop-filter:blur(20px) saturate(140%);
+  border-left:1px solid var(--line);
+  display:flex;flex-direction:column;padding:96px 30px 40px;gap:4px;
+  transform:translateX(102%);transition:transform .5s var(--ease);visibility:hidden}
+.mobnav.open{transform:translateX(0);visibility:visible}
+.mobnav .mob-eyebrow{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--on-dark-mut);margin:0 6px 14px}
+.mobnav a.mob-link{position:relative;display:block;font-family:var(--grotesk);font-size:1rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark);padding:14px 16px;border-radius:2px;
+  transition:background .3s var(--ease),color .3s var(--ease),padding-left .3s var(--ease)}
+.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:var(--char2);color:var(--gold-hi);padding-left:22px}
+.mobnav a.mob-link.active{color:var(--gold)}
+.mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:20px;background:var(--gold)}
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.72rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--gold);
+  color:var(--gold);border-radius:2px;transition:.35s var(--ease)}
+.mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--gold);color:var(--char)}
+body.menu-open{overflow:hidden}
+@media(min-width:981px){.mobnav,.mobnav-back{display:none}}
+@media(max-width:980px){.nav-burger{display:inline-flex}}
+
+/* ============================================================
+   CINEMATIC PAGE-HERO — letterbox bars + parallax photo plate
+   ============================================================ */
+.page-hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;overflow:hidden;padding-bottom:0}
+.ph-plate{position:absolute;inset:-8% -4%;z-index:0;will-change:transform}
+.ph-plate img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.06);filter:grayscale(.35) brightness(.6) contrast(1.05)}
+.ph-grade{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(14,13,12,.82) 0%,rgba(14,13,12,.32) 30%,rgba(14,13,12,.5) 64%,rgba(14,13,12,.97) 100%),
+    linear-gradient(80deg,rgba(14,13,12,.78) 0%,transparent 56%),
+    radial-gradient(120% 80% at 80% 16%,rgba(219,191,148,.13),transparent 60%)}
+.ph-spot{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(420px 420px at var(--mx,50%) var(--my,42%),rgba(243,226,190,.14),rgba(219,191,148,.05) 35%,transparent 62%);
+  transition:opacity .6s var(--ease);mix-blend-mode:screen;opacity:0}
+.ph-vig{position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 220px 60px rgba(14,13,12,.85)}
+/* letterbox bars — scrubbed open on scroll */
+.bar{position:absolute;left:0;right:0;z-index:5;background:var(--char);will-change:transform}
+.bar.top{top:0;height:13vh;transform-origin:top;border-bottom:1px solid rgba(219,191,148,.18)}
+.bar.bot{bottom:0;height:13vh;transform-origin:bottom;border-top:1px solid rgba(219,191,148,.18)}
+.bar .slate{position:absolute;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--on-dark-mut);opacity:.75}
+.bar.top .slate{bottom:14px;left:32px}
+.bar.top .slate.r{left:auto;right:32px;color:var(--gold)}
+.bar.bot .slate{top:14px;left:32px}
+.bar.bot .slate.r{left:auto;right:32px;color:var(--gold)}
+.ph-inner{position:relative;z-index:6;width:100%;padding:0 32px calc(13vh + 56px);max-width:var(--maxw);margin:0 auto}
+.crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:22px}
+.crumb a:hover{color:var(--gold)}
+.page-hero .rule{display:flex;align-items:center;gap:16px;color:var(--gold);margin-bottom:24px}
+.page-hero .rule .ln{height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex:1;max-width:280px}
+.page-hero h1{font-size:clamp(3rem,9vw,7rem);line-height:.9;text-shadow:0 18px 70px rgba(0,0,0,.55)}
+.page-hero .intro{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2.3vw,1.85rem);line-height:1.3;color:var(--on-dark);max-width:36ch;margin-top:26px}
+.page-hero .intro b{font-style:normal;color:var(--gold)}
+@media(max-width:860px){.bar.top,.bar.bot{height:9vh}.ph-inner{padding-bottom:calc(9vh + 40px)}}
+
+/* ---- btn ---- */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:17px 36px;border:1px solid var(--gold);color:var(--char);background:var(--gold);border-radius:2px;cursor:pointer;transition:.4s var(--ease)}
+.btn:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 0 34px rgba(243,226,190,.45)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn.ghost:hover{background:var(--gold);color:var(--char)}
+.btn .ar{transition:transform .4s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
+
+/* ---- sections ---- */
+section{padding:clamp(5.5rem,10vw,9rem) 0;position:relative;z-index:2;background:var(--char)}
+.rule{display:flex;align-items:center;gap:16px;color:var(--gold);margin-bottom:30px}
+.rule .ln{height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex:1}
+.dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
+.shead{margin-bottom:52px;max-width:62ch}
+.shead h2{font-size:clamp(2.5rem,6vw,4.6rem)}
+.shead .lead{font-family:var(--sans);font-size:1.08rem;color:var(--on-dark-mut);margin-top:18px;max-width:50ch}
+
+/* depth: sections enter with subtle z-translate / perspective */
+.depth{transform-style:preserve-3d}
+
+/* ---- framework library cards (cinematic panels) ---- */
+.frameworks{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.fcard{position:relative;padding:40px 36px;border-radius:3px;border:1px solid var(--line);background:linear-gradient(180deg,var(--char2),var(--char));display:flex;flex-direction:column;cursor:pointer;transition:transform .55s var(--ease),border-color .55s var(--ease);overflow:hidden;isolation:isolate}
+.fcard::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--gold);transition:width .6s var(--ease)}
+.fcard:hover{transform:translateY(-7px);border-color:rgba(219,191,148,.5)}
+.fcard:hover::before{width:100%}
+.fcard .ic{width:52px;height:52px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.3rem;margin-bottom:24px;flex:none;transition:.4s var(--ease)}
+.fcard:hover .ic{background:var(--gold);color:var(--char)}
+.fcard h3{font-family:var(--serif);font-size:1.6rem;color:var(--cream);margin-bottom:14px;line-height:1.12}
+.fcard p{color:var(--on-dark-mut);font-size:.96rem;margin-bottom:24px;flex:1;max-width:46ch}
+.fcard .cta{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark);display:flex;align-items:center;gap:10px;opacity:.6;transition:.4s var(--ease)}
+.fcard:hover .cta{opacity:1;gap:16px;color:var(--gold-hi)}
+@media(max-width:760px){.frameworks{grid-template-columns:1fr}}
+
+/* ---- lead-magnet panel ---- */
+.lm-sec{background:linear-gradient(180deg,var(--char),var(--char2) 50%,var(--char))}
+.lead-magnet{position:relative;padding:clamp(3rem,6vw,5rem) clamp(2rem,5vw,4rem);border-radius:3px;text-align:center;max-width:800px;margin:0 auto;border:1px solid var(--line);background:linear-gradient(180deg,var(--char2),var(--char));overflow:hidden;isolation:isolate}
+.lead-magnet::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(120% 90% at 50% 0%,rgba(219,191,148,.1),transparent 60%)}
+.lead-magnet .eyebrow{margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+.lead-magnet .eyebrow::before,.lead-magnet .eyebrow::after{content:'';width:30px;height:1px;background:var(--gold);opacity:.6}
+.lead-magnet h2{font-size:clamp(2.4rem,6vw,4rem);line-height:.96}
+.lead-magnet h2 .dot{color:var(--gold)}
+.lead-magnet .lm-lead{color:var(--on-dark-mut);font-size:1.1rem;margin:24px auto 0;max-width:52ch;line-height:1.6}
+.lm-form{display:flex;gap:12px;margin:38px auto 0;max-width:520px;flex-wrap:wrap}
+.lm-form .field{flex:1;min-width:240px;position:relative;text-align:left}
+.lm-form label{position:absolute;left:-9999px}
+.lm-form input{width:100%;font-family:var(--sans);font-size:1rem;color:var(--on-dark);
+  background:rgba(244,238,228,.04);border:1px solid var(--line);border-radius:2px;
+  padding:17px 22px;transition:.35s var(--ease)}
+.lm-form input::placeholder{color:var(--on-dark-mut);opacity:.8}
+.lm-form input:focus{outline:none;border-color:var(--gold);background:rgba(244,238,228,.07);box-shadow:0 0 0 3px rgba(219,191,148,.16)}
+.lm-form .btn{justify-content:center;white-space:nowrap}
+.lm-disclaimer{font-family:var(--grotesk);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:22px;opacity:.85}
+@media(max-width:560px){.lm-form .btn{width:100%}}
+
+/* ---- contact / cta band ---- */
+.contact{text-align:center;background:linear-gradient(180deg,var(--char),var(--char2))}
+.contact .mono{font-family:var(--serif);font-size:clamp(3rem,9vw,7rem);line-height:.92}
+.contact .mono .dot{color:var(--gold)}
+.contact .lead{color:var(--on-dark-mut);font-size:1.18rem;margin:28px auto 0;max-width:48ch}
+.contact .lead b{color:var(--gold)}
+
+footer{padding:42px 0 64px;margin-top:0;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut)}
+footer a:hover{color:var(--gold)}
+
+/* version badge */
+.vbadge{position:fixed;right:18px;bottom:18px;z-index:950;padding:11px 16px;border-radius:2px;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);background:rgba(14,13,12,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line)}
+.vbadge a{color:var(--on-dark-mut)}.vbadge a:hover{color:var(--gold)}
+
+/* ---- reveal ---- */
+.r{opacity:0;transform:translateY(38px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}.r.d4{transition-delay:.36s}
+/* 3D depth reveal — sections lift out of the screen */
+.rz{opacity:0;transform:perspective(1400px) translateZ(-160px) translateY(46px) rotateX(7deg);transform-origin:50% 100%;transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rz.in{opacity:1;transform:perspective(1400px) translateZ(0) translateY(0) rotateX(0)}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .r,.rz{opacity:1!important;transform:none!important}
+  .grain,.ph-spot{display:none}
+  .ph-plate{inset:0}.ph-plate img{transform:none}
+  .bar.top,.bar.bot{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="prog" id="prog"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">JS</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="work.html">Work</a><a href="case-study.html">Case Study</a><a href="services.html">Services</a><a href="ugc.html">UGC</a><a href="resources.html" class="active" aria-current="page">Resources</a><a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobnav-back" id="mobnavBack"></div>
+<nav class="mobnav" id="mobnav" aria-label="Mobile" aria-hidden="true">
+  <span class="mob-eyebrow">Menu</span>
+  <a class="mob-link" href="index.html">Home</a>
+  <a class="mob-link" href="about.html">About</a>
+  <a class="mob-link" href="work.html">Work</a>
+  <a class="mob-link" href="case-study.html">Case Study</a>
+  <a class="mob-link" href="services.html">Services</a>
+  <a class="mob-link" href="ugc.html">UGC</a>
+  <a class="mob-link active" aria-current="page" href="resources.html">Resources</a>
+  <a class="mob-link" href="contact.html">Contact</a>
+  <a class="mob-cta" href="contact.html">Work With Me</a>
+</nav>
+
+<!-- ============ CINEMATIC PAGE-HERO ============ -->
+<header class="page-hero" id="pageHero">
+  <div class="ph-plate" id="phPlate">
+    <img src="../../assets/photos/about-me-landscape.jpg"
+         alt="Julianne Silla — Resources"
+         fetchpriority="high" decoding="async"
+         onerror="this.onerror=null;this.src='../../assets/photos/hero-landscape.jpg'"/>
+  </div>
+  <div class="ph-grade"></div>
+  <div class="ph-spot" id="phSpot"></div>
+  <div class="ph-vig"></div>
+
+  <!-- letterbox bars -->
+  <div class="bar top" id="barTop">
+    <span class="slate">JS · 07</span>
+    <span class="slate r">Reel — Frameworks &amp; Playbooks</span>
+  </div>
+  <div class="bar bot" id="barBot">
+    <span class="slate">Proven systems. Lift + take.</span>
+    <span class="slate r">Take 2026</span>
+  </div>
+
+  <!-- hero content -->
+  <div class="ph-inner" id="phInner">
+    <div class="crumb r"><a href="index.html">Home</a> / Resources</div>
+    <div class="rule r"><span class="dia"></span><span class="eyebrow">Resources</span><span class="ln"></span></div>
+    <h1 class="r">Resources</h1>
+    <p class="intro r d1">Frameworks, playbooks, and tools I use to build revenue engines — <b>yours to borrow.</b></p>
+  </div>
+</header>
+
+<!-- FRAMEWORK LIBRARY -->
+<section class="wrap" id="library">
+  <div class="shead r">
+    <div class="eyebrow">Framework Library</div>
+    <h2 style="margin-top:14px">Proven systems. Lift + take.</h2>
+    <div class="lead">These aren't templates — they're operational frameworks I've tested, refined, and used to drive measurable results across launches, campaigns, and growth programs.</div>
+  </div>
+  <div class="frameworks">
+    <div class="fcard rz" data-tilt>
+      <div class="ic">◈</div>
+      <h3>Hero Value-Prop Block</h3>
+      <p>A structured positioning framework for crafting the above-the-fold headline that converts cold traffic into warm leads on first contact.</p>
+      <div class="cta">Get the framework →</div>
+    </div>
+    <div class="fcard rz d1" data-tilt>
+      <div class="ic">❖</div>
+      <h3>Three-Shift Method Stack</h3>
+      <p>A belief-shift sequence that moves a prospect from skeptical to sold by addressing the three core objections in the right order.</p>
+      <div class="cta">Get the framework →</div>
+    </div>
+    <div class="fcard rz d2" data-tilt>
+      <div class="ic">▦</div>
+      <h3>Membership Benefits Grid</h3>
+      <p>A modular layout system for communicating tiered product value clearly — designed to lift upgrade rates and reduce decision fatigue.</p>
+      <div class="cta">Get the framework →</div>
+    </div>
+    <div class="fcard rz d3" data-tilt>
+      <div class="ic">★</div>
+      <h3>Success-Story Proof Module</h3>
+      <p>A repeatable social-proof architecture that transforms raw testimonials into structured, conversion-ready case narratives.</p>
+      <div class="cta">Get the framework →</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET — GTM STARTER KIT -->
+<section class="wrap lm-sec" id="starter-kit">
+  <div class="lead-magnet rz" data-tilt>
+    <div class="eyebrow">Free Resource</div>
+    <h2>The GTM Starter Kit<span class="dot">.</span></h2>
+    <p class="lm-lead">The exact go-to-market framework I use to launch campaigns that compound. Drop your email — I'll send it straight to your inbox, no strings.</p>
+    <form class="lm-form" onsubmit="return false" novalidate>
+      <div class="field">
+        <label for="lm-email">Email address</label>
+        <input id="lm-email" type="email" name="email" placeholder="your@email.com" autocomplete="email"/>
+      </div>
+      <button type="submit" class="btn" data-mag>Send it to me <span class="ar">→</span></button>
+    </form>
+    <div class="lm-disclaimer">No spam. Unsubscribe any time.</div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="wrap contact" id="contact">
+  <div class="rule r" style="justify-content:center;max-width:420px;margin:0 auto 36px"><span class="ln" style="background:linear-gradient(90deg,transparent,var(--gold))"></span><span class="dia"></span><span class="ln"></span></div>
+  <h2 class="mono r">Want a custom<br>playbook<span class="dot">?</span></h2>
+  <p class="lead r d1">The frameworks above are starting points. The real work is building the version that fits your specific market, offer, and stage of growth.</p>
+  <a class="btn r d2" data-mag href="contact.html" style="margin-top:40px">Let's build it together <span class="ar">→</span></a>
+  <footer class="wrap" style="padding-left:0;padding-right:0"><span>© 2026 Julianne Silla</span><span>Strategy. Systems. Scale.</span><span>Working with clients worldwide</span></footer>
+</section>
+
+<div class="vbadge">Direction 03 · Cinematic · Resources &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine   = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ---- Lenis smooth scroll ---- */
+  if(!reduce && window.Lenis){
+    var lenis = new Lenis({duration:1.15, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+    function raf(t){lenis.raf(t); requestAnimationFrame(raf);} requestAnimationFrame(raf);
+    if(window.ScrollTrigger){ lenis.on('scroll', ScrollTrigger.update); }
+  }
+
+  /* ---- reveals (.r and .rz) ---- */
+  var rs=[].slice.call(document.querySelectorAll('.r,.rz'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+    rs.forEach(function(el){io.observe(el);});
+  } else { rs.forEach(function(el){el.classList.add('in');}); }
+
+  /* ---- count-up (kept for parity; fires if any [data-count] added) ---- */
+  var counted=false;
+  function runCount(){ if(counted)return; counted=true;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var t=+el.dataset.count, pre=el.dataset.pre||'', suf=el.dataset.suf||'', dur=1600, st=null;
+      function step(ts){if(!st)st=ts; var p=Math.min((ts-st)/dur,1); el.textContent=pre+Math.floor((1-Math.pow(1-p,3))*t)+suf; if(p<1)requestAnimationFrame(step); else el.textContent=pre+t+suf;}
+      requestAnimationFrame(step);
+    });
+  }
+  var se=document.querySelector('.stats');
+  if(se){ reduce ? runCount() : new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount();});},{threshold:.4}).observe(se); }
+
+  /* ---- nav + progress ---- */
+  var nav=document.getElementById('nav'), prog=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop; if(nav)nav.classList.toggle('stuck',y>40); if(prog)prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+
+  /* ---- magnetic CTAs ---- */
+  if(!reduce && fine){
+    document.querySelectorAll('[data-mag]').forEach(function(el){
+      el.style.transition='transform .35s cubic-bezier(.16,1,.3,1)';
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(); el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.22+'px,'+(e.clientY-r.top-r.height/2)*.32+'px)';});
+      el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)';});
+    });
+  }
+
+  /* ---- 3D tilt on [data-tilt] (framework + lead-magnet panels) ---- */
+  if(!reduce && fine){
+    document.querySelectorAll('[data-tilt]').forEach(function(el){
+      el.style.transition='transform .4s cubic-bezier(.16,1,.3,1)';
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        el.style.transform='perspective(900px) rotateY('+(x*6)+'deg) rotateX('+(-y*6)+'deg) scale(1.01)';});
+      el.addEventListener('mouseleave',function(){el.style.transform='perspective(900px) rotateY(0) rotateX(0) scale(1)';});
+    });
+  }
+
+  /* ---- CINEMATIC cursor-follow spotlight over the page-hero ---- */
+  if(!reduce && fine){
+    var hero=document.getElementById('pageHero'), spot=document.getElementById('phSpot');
+    if(hero && spot){
+      hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();
+        spot.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+        spot.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+        spot.style.opacity='1';});
+      hero.addEventListener('mouseleave',function(){spot.style.opacity='0';});
+    }
+  }
+
+  /* ---- GSAP parallax + scrubbed letterbox reveal ---- */
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* (1) PARALLAX hero plate — image scales + drifts as the hero scrolls out */
+    var plate=document.getElementById('phPlate');
+    if(plate){
+      gsap.fromTo(plate,{yPercent:0,scale:1.0},{
+        yPercent:14, scale:1.12, ease:'none',
+        scrollTrigger:{trigger:'#pageHero', start:'top top', end:'bottom top', scrub:true}
+      });
+    }
+
+    /* (2) SCROLL-SCRUBBED reveal — letterbox bars open, content settles, as scroll begins */
+    var barTop=document.getElementById('barTop'), barBot=document.getElementById('barBot'),
+        inner=document.getElementById('phInner');
+    var revealTl=gsap.timeline({scrollTrigger:{trigger:'#pageHero', start:'top top', end:'+=55%', scrub:true}});
+    if(barTop) revealTl.to(barTop,{scaleY:0.0, ease:'none'},0);
+    if(barBot) revealTl.to(barBot,{scaleY:0.0, ease:'none'},0);
+    if(inner)  revealTl.to(inner,{y:-40, opacity:0.0, ease:'none'},0);
+
+    /* play the OPENING bars-open animation on load (curtain lifts to full bleed) */
+    gsap.fromTo([barTop,barBot],{scaleY:1.9},{scaleY:1, duration:1.5, ease:'power3.out', delay:.15});
+    gsap.fromTo(inner,{y:30,opacity:0},{y:0,opacity:1,duration:1.4,ease:'power3.out',delay:.35});
+
+    /* (3) generic data-parallax hook for any extra layers */
+    document.querySelectorAll('[data-parallax]').forEach(function(el){
+      var amt=parseFloat(el.dataset.parallax)||40;
+      gsap.to(el,{yPercent:amt, ease:'none', scrollTrigger:{trigger:el, start:'top bottom', end:'bottom top', scrub:true}});
+    });
+  }
+
+  /* ---- mobile menu: hamburger toggle + slide-in panel (dependency-free) ---- */
+  (function(){
+    var burger=document.getElementById('navBurger'),
+        panel=document.getElementById('mobnav'),
+        back=document.getElementById('mobnavBack');
+    if(!burger||!panel||!back) return;
+    var isOpen=false, lastFocus=null;
+    function firstLink(){ return panel.querySelector('a'); }
+    function open(){
+      if(isOpen) return; isOpen=true; lastFocus=document.activeElement;
+      panel.classList.add('open'); back.classList.add('open');
+      burger.setAttribute('aria-expanded','true');
+      burger.setAttribute('aria-label','Close menu');
+      panel.setAttribute('aria-hidden','false');
+      document.body.classList.add('menu-open');
+      var f=firstLink(); if(f) f.focus();
+    }
+    function close(returnFocus){
+      if(!isOpen) return; isOpen=false;
+      panel.classList.remove('open'); back.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+      panel.setAttribute('aria-hidden','true');
+      document.body.classList.remove('menu-open');
+      if(returnFocus!==false) burger.focus();
+    }
+    burger.addEventListener('click',function(){ isOpen?close():open(); });
+    back.addEventListener('click',function(){ close(); });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ close(false); });
+    });
+    document.addEventListener('keydown',function(e){
+      if(!isOpen) return;
+      if(e.key==='Escape'||e.key==='Esc'){ e.preventDefault(); close(); return; }
+      if(e.key==='Tab'){
+        var f=panel.querySelectorAll('a'); if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    matchMedia('(min-width:981px)').addEventListener('change',function(ev){ if(ev.matches) close(false); });
+  })();
+})();
+</script>
+</body>
+</html>

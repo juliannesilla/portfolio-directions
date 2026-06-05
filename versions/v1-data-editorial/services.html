@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — Julianne Silla · Data Editorial</title>
+<meta name="description" content="How I turn strategy into measurable, repeatable revenue — GTM engineering, lifecycle automation, CRO, conversion copy, AI systems, and analytics."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* ====================================================================
+   JULIANNE SILLA — DIRECTION 01 · "DATA EDITORIAL" · SERVICES
+   Light cream canvas · Swiss grid · hairline gold rules · whitespace.
+   THE METRICS ARE THE HERO: oversized Space Mono numerals, scroll-
+   scrubbed count-ups, parallax stat columns, 3D flip metric cards,
+   cursor-reactive data dots. Reduced-motion gated. Real content inlined.
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* LIGHT — cream/off-white canvas, charcoal ink, champagne gold for light */
+  --bg:#EFEBE2; --surf:#F5F2EC; --surf2:#FBF9F4;
+  --ink:#15120F; --ink-soft:#3B342B; --ink-mut:#6E6354;
+  --gold:#B9985F; --gold-deep:#8C7350; --gold-hi:#CDAE76;
+  --line:#D8D0C1; --line-strong:#C3B7A1;
+  --serif:'Playfair Display',serif; --sans:'Inter',sans-serif;
+  --grotesk:'Archivo',sans-serif; --mono:'Space Mono',monospace;
+  --ease:cubic-bezier(.16,1,.3,1); --ease-q:cubic-bezier(.25,1,.5,1); --maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;min-height:100vh}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing:-.018em;color:var(--ink)}
+.eyebrow{font-family:var(--grotesk);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.34em;color:var(--gold-deep)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+::selection{background:var(--gold);color:var(--surf2)}
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px;border-radius:2px}
+
+/* ---- paper texture: faint grain + an ultra-light editorial grid ---- */
+.paper{position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(60% 50% at 78% 8%, rgba(185,152,95,.10), transparent 70%),
+    radial-gradient(55% 45% at 8% 88%, rgba(140,115,80,.07), transparent 72%),
+    var(--bg)}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* faint vertical column rules — Swiss grid feel */
+.gridlines{position:fixed;inset:0;z-index:-1;pointer-events:none;max-width:var(--maxw);margin:0 auto;
+  background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:calc(100% / 6) 100%;opacity:.45}
+@media(max-width:760px){.gridlines{background-size:calc(100% / 3) 100%}}
+
+/* cursor-reactive data dot that trails the pointer (fine pointers only) */
+.cursor-dot{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--gold);
+  pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;
+  transition:width .3s var(--ease),height .3s var(--ease),opacity .4s;opacity:0}
+.cursor-ring{position:fixed;top:0;left:0;width:34px;height:34px;border:1px solid var(--gold-deep);border-radius:50%;
+  pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:0;transition:opacity .4s,width .3s var(--ease),height .3s var(--ease)}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);padding:22px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.nav.stuck{background:rgba(245,242,236,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:13px 0}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.45rem;color:var(--ink);letter-spacing:.02em;display:flex;align-items:baseline;gap:2px}
+.logo .blink{color:var(--gold);font-family:var(--mono);font-weight:700;font-size:1rem}
+.nav-links{display:flex;gap:30px;font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.nav-links a{position:relative;color:var(--ink-mut);transition:color .3s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold-deep);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--gold-deep)}.nav-links a.active::after{width:100%}
+.nav-cta{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border:1px solid var(--ink);color:var(--ink);border-radius:2px;transition:.35s var(--ease)}
+.nav-cta:hover{background:var(--ink);color:var(--surf2)}
+@media(max-width:880px){.nav-links{display:none}}
+
+/* ---- mobile menu: hamburger button + slide-in panel ---- */
+.nav-burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+  padding:0;border:1px solid var(--line-strong);border-radius:2px;background:var(--surf2);
+  cursor:pointer;flex:none;transition:background .35s var(--ease),border-color .35s var(--ease)}
+.nav-burger:hover{background:var(--surf);border-color:var(--gold-deep)}
+.nav-burger .bars{position:relative;display:block;width:20px;height:14px}
+.nav-burger .bars span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:var(--ink);
+  transition:transform .4s var(--ease),opacity .3s var(--ease),top .4s var(--ease)}
+.nav-burger .bars span:nth-child(1){top:0}
+.nav-burger .bars span:nth-child(2){top:6px}
+.nav-burger .bars span:nth-child(3){top:12px}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(1){top:6px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] .bars span:nth-child(3){top:6px;transform:rotate(-45deg)}
+.mobnav-back{position:fixed;inset:0;z-index:1000;background:rgba(21,18,15,.45);
+  opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s var(--ease);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.mobnav-back.open{opacity:1;visibility:visible}
+.mobnav{position:fixed;top:0;right:0;z-index:1001;width:min(86vw,360px);height:100%;
+  background:var(--surf2);border-left:1px solid var(--line-strong);
+  display:flex;flex-direction:column;padding:96px 30px 40px;gap:4px;
+  transform:translateX(102%);transition:transform .5s var(--ease);
+  visibility:hidden;box-shadow:-20px 0 60px -30px rgba(21,18,15,.5)}
+.mobnav.open{transform:translateX(0);visibility:visible}
+.mobnav .mob-eyebrow{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--ink-mut);margin:0 6px 14px}
+.mobnav a.mob-link{position:relative;display:block;font-family:var(--grotesk);font-size:1rem;font-weight:700;
+  letter-spacing:.04em;color:var(--ink-soft);padding:14px 16px;border-radius:2px;
+  transition:background .3s var(--ease),color .3s var(--ease),padding-left .3s var(--ease)}
+.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:var(--surf);color:var(--gold-deep);padding-left:22px}
+.mobnav a.mob-link.active{color:var(--gold-deep)}
+.mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:3px;height:22px;border-radius:2px;background:var(--gold)}
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.72rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--ink);
+  color:var(--ink);border-radius:2px;transition:.35s var(--ease)}
+.mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--ink);color:var(--surf2)}
+body.menu-open{overflow:hidden}
+@media(min-width:881px){.mobnav,.mobnav-back{display:none}}
+@media(max-width:880px){.nav-burger{display:inline-flex}}
+
+/* ---- progress ---- */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi));z-index:9000}
+
+/* ---- btn (editorial, sharp) ---- */
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 32px;border:1px solid var(--ink);color:var(--surf2);background:var(--ink);border-radius:2px;cursor:pointer;transition:.4s var(--ease)}
+.btn:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn .ar{transition:transform .4s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--surf2)}
+
+/* ---- sections ---- */
+section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
+.rule{display:flex;align-items:center;gap:16px;color:var(--gold-deep);margin-bottom:34px}
+.rule .num{font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--gold-deep)}
+.rule .ln{height:1px;background:var(--line-strong);flex:1}
+.dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
+.shead{margin-bottom:52px;max-width:64ch}
+.shead h2{font-size:clamp(2.4rem,5.4vw,4.2rem);margin-top:14px}
+.shead .lead{font-family:var(--sans);font-size:1.06rem;color:var(--ink-mut);margin-top:18px;max-width:46ch}
+
+/* ---- page hero (inner) ---- */
+.phero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;padding:180px 0 60px;position:relative}
+.crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:26px}
+.crumb a{color:var(--gold-deep)}.crumb a:hover{color:var(--ink)}
+.phero .eyebrow{display:inline-flex;align-items:center;gap:14px}
+.phero .eyebrow::before{content:'';width:42px;height:1px;background:var(--gold-deep)}
+.phero h1{font-size:clamp(3rem,8vw,6.4rem);line-height:.92;margin:22px 0 0;font-weight:800}
+.phero h1 .it{font-style:italic;font-weight:500;color:var(--gold-deep)}
+.phero .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,2rem);line-height:1.25;color:var(--ink-soft);max-width:26ch;margin-top:30px}
+.phero .intro b{color:var(--gold-deep);font-style:italic}
+@media(max-width:900px){.phero{min-height:auto;padding-top:140px}}
+
+/* ---- services grid — editorial cards with hairline borders + flip-up ---- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);border-left:1px solid var(--line-strong)}
+.svc{padding:38px 32px 34px;min-height:280px;display:flex;flex-direction:column;position:relative;
+  border-bottom:1px solid var(--line-strong);border-right:1px solid var(--line-strong);background:var(--surf2);
+  transition:background .5s var(--ease)}
+.svc::before{content:'';position:absolute;left:0;top:0;height:2px;width:0;background:var(--gold-deep);transition:width .5s var(--ease)}
+.svc:hover{background:var(--surf)}
+.svc:hover::before{width:100%}
+.svc .top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
+.svc .ic{width:50px;height:50px;border:1px solid var(--gold-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);flex:none;font-size:1.3rem}
+.svc .idx{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--gold-deep);letter-spacing:.06em}
+.svc h3{font-family:var(--serif);font-size:1.5rem;color:var(--ink);margin-bottom:14px;line-height:1.12}
+.svc p{color:var(--ink-mut);font-size:.95rem;line-height:1.62}
+@media(max-width:900px){.svc-grid{grid-template-columns:1fr}}
+
+/* ---- process (stepped accordion, editorial) ---- */
+.proc{display:grid;gap:0;border-top:1px solid var(--ink)}
+.step{border-bottom:1px solid var(--line-strong);position:relative;background:var(--surf2);transition:background .4s var(--ease)}
+.step.open{background:var(--surf)}
+.step-head{display:flex;align-items:center;gap:24px;padding:30px 8px;cursor:pointer;width:100%;background:transparent;border:0;text-align:left;color:inherit;font:inherit;position:relative;z-index:2}
+.step-head .no{font-family:var(--mono);font-size:1.05rem;font-weight:700;color:var(--gold-deep);flex:none;min-width:40px}
+.step-head h3{font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.95rem);color:var(--ink);flex:1;line-height:1.12}
+.step-head .tog{width:34px;height:34px;border:1px solid var(--line-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);flex:none;font-size:1.1rem;transition:transform .45s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
+.step.open .step-head .tog{transform:rotate(45deg);background:var(--ink);color:var(--surf2);border-color:var(--ink)}
+.step-body{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
+.step-body .inner{padding:0 8px 32px 72px;color:var(--ink-soft);font-size:1rem;line-height:1.7;max-width:74ch}
+@media(max-width:640px){.step-body .inner{padding-left:8px}.step-head{gap:16px;padding:24px 4px}}
+
+/* ---- pull quote ---- */
+.pull{padding:64px 56px;text-align:center;max-width:1000px;margin:0 auto;position:relative;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.pull .qm{font-family:var(--serif);font-size:5rem;line-height:0;color:var(--gold);opacity:.55;display:block;height:.4em}
+.pull blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.7rem,3.6vw,2.9rem);line-height:1.22;color:var(--ink)}
+@media(max-width:640px){.pull{padding:46px 24px}}
+
+/* ===================================================================
+   PROOF STATS BAND — full-width, oversized mono numerals, parallax
+   columns, 3D FLIP metric cards (front = number, back = context).
+   =================================================================== */
+.statsband{background:var(--ink);color:var(--surf2);position:relative;overflow:hidden;padding:clamp(4.5rem,8vw,7rem) 0}
+.statsband .eyebrow{color:var(--gold-hi)}
+.statsband .band-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:54px;flex-wrap:wrap}
+.statsband .band-head h2{color:var(--surf2);font-size:clamp(1.8rem,4vw,3rem)}
+.statsband .band-head .note{font-family:var(--mono);font-size:.7rem;color:var(--gold-hi);letter-spacing:.06em}
+.statgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.statgrid .stat{position:relative;perspective:1400px;padding:6px 18px;min-height:230px}
+.statgrid .stat+.stat{border-left:1px solid rgba(243,226,190,.16)}
+.flip{position:relative;width:100%;height:100%;min-height:220px;transform-style:preserve-3d;transition:transform .85s var(--ease)}
+.stat:hover .flip,.stat:focus-within .flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.face.back{transform:rotateY(180deg)}
+.stat .n{font-family:var(--mono);font-weight:700;font-size:clamp(2.6rem,4.2vw,3.9rem);line-height:.9;letter-spacing:-.04em;color:var(--gold-hi);font-feature-settings:"tnum"}
+.stat .idx{font-family:var(--mono);font-size:.7rem;font-weight:700;color:rgba(243,226,190,.5);letter-spacing:.1em}
+.stat .l{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#A99E8E;line-height:1.6;max-width:18ch}
+.face.back .ctx{font-family:var(--serif);font-style:italic;font-size:1.12rem;line-height:1.4;color:var(--surf2)}
+.face.back .tag{font-family:var(--mono);font-size:.62rem;color:var(--gold-hi);letter-spacing:.08em}
+.stat .hint{font-family:var(--grotesk);font-size:.52rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,226,190,.4)}
+@media(max-width:880px){.statgrid{grid-template-columns:repeat(2,1fr);gap:1px}.statgrid .stat{min-height:200px}.statgrid .stat+.stat{border-left:none}.statgrid .stat{border-top:1px solid rgba(243,226,190,.14)}}
+@media(max-width:480px){.statgrid{grid-template-columns:1fr}}
+
+/* ---- CTA band ---- */
+.ctaband{text-align:center;padding:72px 50px;max-width:1000px;margin:0 auto;
+  border:1px solid var(--ink);border-radius:2px;background:var(--surf2)}
+.ctaband h2{font-size:clamp(2.4rem,6vw,4.2rem);line-height:.96}
+.ctaband h2 .dot{color:var(--gold)}
+.ctaband .lead{color:var(--ink-soft);font-size:1.12rem;margin:24px auto 0;max-width:46ch}
+.ctaband .lead b{color:var(--gold-deep)}
+@media(max-width:640px){.ctaband{padding:50px 24px}}
+
+footer{padding:42px 0 60px;margin-top:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut)}
+footer a:hover{color:var(--gold-deep)}
+
+/* version badge */
+.vbadge{position:fixed;right:18px;bottom:18px;z-index:950;padding:10px 15px;border-radius:2px;background:var(--surf2);border:1px solid var(--line-strong);font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);box-shadow:0 8px 24px -12px rgba(21,18,15,.4)}
+.vbadge a{color:var(--ink-mut)}.vbadge a:hover{color:var(--gold-deep)}
+
+/* ---- reveal ---- */
+.r{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.08s}.r.d2{transition-delay:.16s}.r.d3{transition-delay:.24s}.r.d4{transition-delay:.32s}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .r{opacity:1!important;transform:none!important}
+  .grain,.gridlines{display:none}
+  .cursor-dot,.cursor-ring{display:none!important}
+  .flip{transform:none!important}
+  .face.back{display:none}
+  [data-parallax]{transform:none!important}
+  /* accordions default open so all content is reachable without JS motion */
+  .step-body{max-height:none!important}
+}
+</style>
+</head>
+<body>
+<div class="paper"></div><div class="grain"></div><div class="gridlines"></div>
+<div class="prog" id="prog"></div>
+<div class="cursor-ring" id="cring" aria-hidden="true"></div>
+<div class="cursor-dot" id="cdot" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">J<span class="blink">/</span>S</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="services.html" class="active" aria-current="page">Services</a>
+      <a href="case-study.html">Case Study</a>
+      <a href="ugc.html">UGC</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav"><span class="bars" aria-hidden="true"><span></span><span></span><span></span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobnav-back" id="mobnavBack"></div>
+<nav class="mobnav" id="mobnav" aria-label="Mobile" aria-hidden="true">
+  <span class="mob-eyebrow">Menu</span>
+  <a class="mob-link" href="index.html">Home</a>
+  <a class="mob-link" href="about.html">About</a>
+  <a class="mob-link" href="work.html">Work</a>
+  <a class="mob-link active" aria-current="page" href="services.html">Services</a>
+  <a class="mob-link" href="case-study.html">Case Study</a>
+  <a class="mob-link" href="ugc.html">UGC</a>
+  <a class="mob-link" href="resources.html">Resources</a>
+  <a class="mob-link" href="contact.html">Contact</a>
+  <a class="mob-cta" href="contact.html">Work With Me</a>
+</nav>
+
+<!-- PAGE HERO -->
+<header class="phero wrap">
+  <div class="crumb r"><a href="index.html">Home</a> / Services</div>
+  <div class="eyebrow r d1">What I Do</div>
+  <h1 class="r d1">Services</h1>
+  <p class="intro r d2">How I turn strategy into <b>measurable, repeatable revenue.</b></p>
+</header>
+
+<!-- SERVICES -->
+<section class="wrap" id="services" style="padding-top:0">
+  <div class="rule r"><span class="num">§ 01</span><span class="dia"></span><span class="eyebrow">What I Do</span><span class="ln"></span></div>
+  <div class="shead r">
+    <h2>The Full Stack</h2>
+    <div class="lead">Every service is built around one outcome: revenue that compounds.</div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc r">
+      <div class="top"><div class="ic">◷</div><span class="idx">01</span></div>
+      <h3>GTM Engineering</h3>
+      <p>End-to-end go-to-market architecture — ICP definition, offer positioning, funnel mapping, and coordinated multi-channel launch execution that drives pipeline from day one.</p>
+    </div>
+    <div class="svc r d1">
+      <div class="top"><div class="ic">❖</div><span class="idx">02</span></div>
+      <h3>Lifecycle &amp; Email Automation</h3>
+      <p>High-converting email sequences, segmentation logic, and automated nurture flows engineered to move leads from cold to checkout — consistently hitting 35–40% open rates and 8–10% CTR.</p>
+    </div>
+    <div class="svc r d2">
+      <div class="top"><div class="ic">↗</div><span class="idx">03</span></div>
+      <h3>CRO &amp; Web Experience</h3>
+      <p>Conversion rate optimization across landing pages, checkout flows, and key UX touchpoints — backed by data, tested systematically, and built to deliver 15%+ lift in revenue per session.</p>
+    </div>
+    <div class="svc r">
+      <div class="top"><div class="ic">✦</div><span class="idx">04</span></div>
+      <h3>Brand &amp; Conversion Copy</h3>
+      <p>Strategic copywriting that aligns positioning with buyer psychology — from brand voice guides and campaign messaging to direct-response landing pages and email sequences that close.</p>
+    </div>
+    <div class="svc r d1">
+      <div class="top"><div class="ic">⟳</div><span class="idx">05</span></div>
+      <h3>AI &amp; Automation Systems</h3>
+      <p>Custom automation infrastructure using AI tooling, prompt engineering, and workflow design — eliminating manual overhead so your team executes more with fewer moving parts.</p>
+    </div>
+    <div class="svc r d2">
+      <div class="top"><div class="ic">◈</div><span class="idx">06</span></div>
+      <h3>Analytics &amp; Dashboards</h3>
+      <p>KPI dashboards, UTM governance frameworks, and attribution models that give you a single source of truth — so every decision is backed by clean, pipeline-ready data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="wrap" id="process">
+  <div class="rule r"><span class="num">§ 02</span><span class="dia"></span><span class="eyebrow">The Process</span><span class="ln"></span></div>
+  <div class="shead r">
+    <h2>How I work</h2>
+    <div class="lead">A proven five-phase framework — from first brief to repeatable playbook.</div>
+  </div>
+  <div class="proc">
+    <div class="step r" data-step>
+      <button class="step-head" type="button" aria-expanded="true">
+        <span class="no">01</span>
+        <h3>GTM Architecture</h3>
+        <span class="tog" aria-hidden="true">＋</span>
+      </button>
+      <div class="step-body">
+        <div class="inner">We start by getting ruthlessly clear on who we're targeting, what problem we're solving, and how the offer lands against the competitive landscape. ICP definition, positioning, offer structure, and funnel map — locked before a single asset is written.</div>
+      </div>
+    </div>
+    <div class="step r d1" data-step>
+      <button class="step-head" type="button" aria-expanded="false">
+        <span class="no">02</span>
+        <h3>Pre-Launch Warmup</h3>
+        <span class="tog" aria-hidden="true">＋</span>
+      </button>
+      <div class="step-body">
+        <div class="inner">Audience priming across email and organic channels — warming cold subscribers, building anticipation, and setting up the nurture sequences that qualify leads before the cart opens. No launch succeeds without a warm audience.</div>
+      </div>
+    </div>
+    <div class="step r d2" data-step>
+      <button class="step-head" type="button" aria-expanded="false">
+        <span class="no">03</span>
+        <h3>Multi-Channel Launch</h3>
+        <span class="tog" aria-hidden="true">＋</span>
+      </button>
+      <div class="step-body">
+        <div class="inner">Coordinated execution across email, paid, and organic — timed to hit simultaneously and reinforce each touchpoint. Checkout optimization, urgency copy, and cart abandonment sequences fire in real time to maximize conversion at peak intent.</div>
+      </div>
+    </div>
+    <div class="step r d3" data-step>
+      <button class="step-head" type="button" aria-expanded="false">
+        <span class="no">04</span>
+        <h3>Post-Launch Nurture</h3>
+        <span class="tog" aria-hidden="true">＋</span>
+      </button>
+      <div class="step-body">
+        <div class="inner">The launch ends — the revenue engine doesn't. Lifecycle sequences, retention flows, win-back campaigns, and lead recovery automation keep your audience engaged and your pipeline full between launches.</div>
+      </div>
+    </div>
+    <div class="step r d4" data-step>
+      <button class="step-head" type="button" aria-expanded="false">
+        <span class="no">05</span>
+        <h3>Optimization &amp; Playbooks</h3>
+        <span class="tog" aria-hidden="true">＋</span>
+      </button>
+      <div class="step-body">
+        <div class="inner">Post-mortem analysis against every KPI, UTM attribution audit, and a documented SOP library — so your next launch runs faster, tighter, and with predictable results. Strategy that compounds every cycle.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="wrap">
+  <div class="pull r">
+    <span class="qm" aria-hidden="true">“</span>
+    <blockquote>Every engagement ends with a repeatable playbook — not just a one-time result.</blockquote>
+  </div>
+</section>
+
+<!-- PROOF STATS (the data is the hero) -->
+<section class="statsband" id="proof" aria-label="Proof of work">
+  <div class="wrap">
+    <div class="band-head">
+      <div>
+        <div class="eyebrow r">Proof Of Work</div>
+        <h2 class="r d1" style="margin-top:14px">The measurable record.</h2>
+      </div>
+      <div class="note r d2">Fig. 01 — hover any figure for context</div>
+    </div>
+    <div class="statgrid stats">
+      <div class="stat r" tabindex="0">
+        <div class="flip">
+          <div class="face front">
+            <span class="idx">01</span>
+            <div><div class="n" data-count="1.5" data-pre="$" data-suf="M" data-dec="1" data-scrub>$0</div><div class="l">Revenue Driven — Single Role</div></div>
+            <span class="hint">Flip ↻</span>
+          </div>
+          <div class="face back">
+            <span class="tag">/ 01 — revenue</span>
+            <div class="ctx">$1.5M driven in a single role across launches, lifecycle and paid.</div>
+            <span class="tag">$1.5M driven</span>
+          </div>
+        </div>
+      </div>
+      <div class="stat r d1" tabindex="0">
+        <div class="flip">
+          <div class="face front">
+            <span class="idx">02</span>
+            <div><div class="n" data-count="117" data-scrub>0</div><div class="l">High-Ticket Enrollments</div></div>
+            <span class="hint">Flip ↻</span>
+          </div>
+          <div class="face back">
+            <span class="tag">/ 02 — conversions</span>
+            <div class="ctx">High-ticket enrollments closed through engineered launch funnels.</div>
+            <span class="tag">117 enrolled</span>
+          </div>
+        </div>
+      </div>
+      <div class="stat r d2" tabindex="0">
+        <div class="flip">
+          <div class="face front">
+            <span class="idx">03</span>
+            <div><div class="n" data-count="3" data-scrub>0</div><div class="l">Sold-Out Live Events</div></div>
+            <span class="hint">Flip ↻</span>
+          </div>
+          <div class="face back">
+            <span class="tag">/ 03 — events</span>
+            <div class="ctx">Live events filled to capacity through coordinated multi-channel demand.</div>
+            <span class="tag">3 sold out</span>
+          </div>
+        </div>
+      </div>
+      <div class="stat r d3" tabindex="0">
+        <div class="flip">
+          <div class="face front">
+            <span class="idx">04</span>
+            <div><div class="n" data-count="40" data-suf="%" data-scrub>0</div><div class="l">Email Open Rate</div></div>
+            <span class="hint">Flip ↻</span>
+          </div>
+          <div class="face back">
+            <span class="tag">/ 04 — lifecycle</span>
+            <div class="ctx">Consistent 35–40% open rates from clean segmentation and nurture logic.</div>
+            <span class="tag">40% open rate</span>
+          </div>
+        </div>
+      </div>
+      <div class="stat r d4" tabindex="0">
+        <div class="flip">
+          <div class="face front">
+            <span class="idx">05</span>
+            <div><div class="n" data-count="15" data-suf="%+" data-scrub>0</div><div class="l">Checkout Lift</div></div>
+            <span class="hint">Flip ↻</span>
+          </div>
+          <div class="face back">
+            <span class="tag">/ 05 — conversion</span>
+            <div class="ctx">15%+ lift in revenue per session through systematic CRO testing.</div>
+            <span class="tag">15%+ lift</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="wrap" id="cta">
+  <div class="ctaband r">
+    <h2 class="r">Ready to build the engine<span class="dot">?</span></h2>
+    <p class="lead r d1">Tell me where you're stuck — positioning, pipeline, conversion, or all three. <b>I'll come in with a plan.</b></p>
+    <a class="btn r d2" data-mag href="contact.html" style="margin-top:38px">Let's Talk Strategy <span class="ar">→</span></a>
+  </div>
+  <footer><span>© 2026 Julianne Silla</span><span>Strategy. Systems. Scale.</span><span>Working with clients worldwide</span></footer>
+</section>
+
+<div class="vbadge">Direction 01 · Data Editorial · Services &nbsp;·&nbsp; <a href="../gallery.html">← all 8</a></div>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine   = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  // ---- Lenis smooth scroll ----
+  if(!reduce && window.Lenis){
+    var lenis = new Lenis({duration:1.15, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+    function raf(t){lenis.raf(t); requestAnimationFrame(raf);} requestAnimationFrame(raf);
+    if(window.ScrollTrigger){ lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(function(time){lenis.raf(time*1000);}); gsap.ticker.lagSmoothing(0); }
+  }
+
+  // ---- reveals ----
+  var rs=[].slice.call(document.querySelectorAll('.r'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+    rs.forEach(function(el){io.observe(el);});
+  } else { rs.forEach(function(el){el.classList.add('in');}); }
+
+  // ---- helper: format a count value with prefix/suffix/decimals ----
+  function fmt(el,val){ var pre=el.dataset.pre||'', suf=el.dataset.suf||'', dec=+el.dataset.dec||0;
+    var v = dec ? (+val).toFixed(dec) : Math.round(val); return pre+v+suf; }
+
+  // ---- non-scrubbed count-up (fallback when reduced / no ScrollTrigger) ----
+  function runCountUp(el){
+    var t=+el.dataset.count, dur=1500, st=null;
+    function step(ts){ if(!st)st=ts; var p=Math.min((ts-st)/dur,1);
+      el.textContent=fmt(el,(1-Math.pow(1-p,3))*t);
+      if(p<1)requestAnimationFrame(step); else el.textContent=fmt(el,t);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var scrubbed=[].slice.call(document.querySelectorAll('[data-scrub]'));
+
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ---- SIGNATURE 1: scroll-SCRUBBED count-ups (numbers tick with scroll) ----
+    scrubbed.forEach(function(el){
+      var t=+el.dataset.count, obj={v:0};
+      gsap.to(obj,{ v:t, ease:'none',
+        scrollTrigger:{ trigger:el, start:'top 92%', end:'top 42%', scrub:.5 },
+        onUpdate:function(){ el.textContent=fmt(el,obj.v); },
+        onComplete:function(){ el.textContent=fmt(el,t); }
+      });
+    });
+
+    // ---- SIGNATURE 2: PARALLAX layers drifting at different speeds ----
+    document.querySelectorAll('[data-parallax]').forEach(function(el){
+      var amt = parseFloat(el.dataset.parallax)||10;
+      gsap.to(el,{ yPercent:amt, ease:'none',
+        scrollTrigger:{ trigger:el, start:'top bottom', end:'bottom top', scrub:true } });
+    });
+    var stats=[].slice.call(document.querySelectorAll('.statgrid .stat'));
+    stats.forEach(function(el,i){
+      var depth = (i%2===0) ? -26 : 22;       // alternating drift
+      depth += (i-2)*5;                         // outer columns drift more
+      gsap.fromTo(el,{y:0},{ y:depth, ease:'none',
+        scrollTrigger:{ trigger:'.statsband', start:'top bottom', end:'bottom top', scrub:true } });
+    });
+  } else {
+    // reduced-motion / no GSAP: still animate counts once on view, no scrub
+    if('IntersectionObserver' in window && !reduce){
+      var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){runCountUp(e.target);cio.unobserve(e.target);}});},{threshold:.5});
+      scrubbed.forEach(function(el){cio.observe(el);});
+    } else {
+      scrubbed.forEach(function(el){ el.textContent=fmt(el,+el.dataset.count); });
+    }
+  }
+
+  // ---- nav + progress ----
+  var nav=document.getElementById('nav'), prog=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop;
+    if(nav)nav.classList.toggle('stuck',y>40);
+    if(prog)prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';
+  },{passive:true});
+
+  // ---- magnetic CTAs ----
+  if(!reduce && fine){
+    document.querySelectorAll('[data-mag]').forEach(function(el){
+      el.style.transition='transform .35s cubic-bezier(.16,1,.3,1)';
+      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();
+        el.style.transform='translate('+(e.clientX-r.left-r.width/2)*.22+'px,'+(e.clientY-r.top-r.height/2)*.32+'px)';});
+      el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)';});
+    });
+  }
+
+  // ---- process accordion (open one, animate height; reduced-motion = all open via CSS) ----
+  (function(){
+    var steps=[].slice.call(document.querySelectorAll('[data-step]'));
+    if(!steps.length) return;
+    function setOpen(step,open){
+      var head=step.querySelector('.step-head'), body=step.querySelector('.step-body');
+      step.classList.toggle('open',open);
+      head.setAttribute('aria-expanded',open?'true':'false');
+      if(reduce){ body.style.maxHeight='none'; return; }
+      body.style.maxHeight = open ? (body.querySelector('.inner').offsetHeight+8)+'px' : '0px';
+    }
+    steps.forEach(function(step,i){
+      var head=step.querySelector('.step-head');
+      setOpen(step,i===0); /* first phase open by default */
+      head.addEventListener('click',function(){
+        var willOpen=!step.classList.contains('open');
+        steps.forEach(function(s){ if(s!==step) setOpen(s,false); });
+        setOpen(step,willOpen);
+      });
+    });
+    addEventListener('resize',function(){
+      steps.forEach(function(s){ if(s.classList.contains('open')) setOpen(s,true); });
+    },{passive:true});
+  })();
+
+  // ---- SIGNATURE 4: cursor-reactive data point (dot + ring trail) ----
+  if(!reduce && fine){
+    var dot=document.getElementById('cdot'), ring=document.getElementById('cring');
+    var mx=0,my=0,rx=0,ry=0,shown=false;
+    addEventListener('mousemove',function(e){ mx=e.clientX; my=e.clientY;
+      if(!shown){shown=true; dot.style.opacity='1'; ring.style.opacity='.6';}
+      dot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';
+    },{passive:true});
+    (function ringRaf(){ rx+=(mx-rx)*.16; ry+=(my-ry)*.16;
+      ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
+      requestAnimationFrame(ringRaf);
+    })();
+    // grow on interactive targets — the data point "snaps" to figures/links
+    document.querySelectorAll('a,button,[data-mag],.stat,.svc,.step-head,.ctaband').forEach(function(el){
+      el.addEventListener('mouseenter',function(){ ring.style.width='52px'; ring.style.height='52px'; dot.style.width='6px'; dot.style.height='6px'; });
+      el.addEventListener('mouseleave',function(){ ring.style.width='34px'; ring.style.height='34px'; dot.style.width='9px'; dot.style.height='9px'; });
+    });
+    addEventListener('mouseleave',function(){ dot.style.opacity='0'; ring.style.opacity='0'; });
+  }
+
+  // ---- mobile menu: hamburger toggle + slide-in panel (dependency-free) ----
+  (function(){
+    var burger=document.getElementById('navBurger'),
+        panel=document.getElementById('mobnav'),
+        back=document.getElementById('mobnavBack');
+    if(!burger||!panel||!back) return;
+    var isOpen=false;
+    function open(){
+      if(isOpen) return; isOpen=true;
+      panel.classList.add('open'); back.classList.add('open');
+      burger.setAttribute('aria-expanded','true');
+      burger.setAttribute('aria-label','Close menu');
+      panel.setAttribute('aria-hidden','false');
+      document.body.classList.add('menu-open');
+      var f=panel.querySelector('a'); if(f) f.focus();
+    }
+    function close(returnFocus){
+      if(!isOpen) return; isOpen=false;
+      panel.classList.remove('open'); back.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Open menu');
+      panel.setAttribute('aria-hidden','true');
+      document.body.classList.remove('menu-open');
+      if(returnFocus!==false) burger.focus();
+    }
+    burger.addEventListener('click',function(){ isOpen?close():open(); });
+    back.addEventListener('click',function(){ close(); });
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){ close(false); });
+    });
+    document.addEventListener('keydown',function(e){
+      if(!isOpen) return;
+      if(e.key==='Escape'||e.key==='Esc'){ e.preventDefault(); close(); return; }
+      if(e.key==='Tab'){
+        var f=panel.querySelectorAll('a'); if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
+    matchMedia('(min-width:881px)').addEventListener('change',function(ev){ if(ev.matches) close(false); });
+  })();
+})();
+</script>
+</body>
+</html>
