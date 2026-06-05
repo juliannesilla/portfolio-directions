@@ -1,7 +1,7 @@
 {
   "project": "juliannesilla.com — 8 Design Directions",
   "updatedAt": "2026-06-05",
-  "note": "Wave 1 complete: all 8 direction HOMES built + verified (Lenis + GSAP parallax + 3D + reduced-motion, zero lorem). Other pages expand after Julz ranks. Live preview: http://localhost:4178/versions/gallery.html · Vercel deploy pending Julz login.",
+  "note": "Wave 1 complete + FIX: all 8 HOMES built, then a critical asset bug fixed — julz-hero-pro.png was a text-baked bio-site COVER (not a headshot), swapped to a clean optimized 1080w headshot (317KB). All 8 re-verified clean via Playwright screenshots. Real ELON QA run. Durable deploy → GitHub Pages (gh authed).",
   "pagesPerDirection": ["home","about","work","case: Mindset Mastery","case: Multi-Launch","services","ugc","resources","contact"],
   "wave": "1-homes-done",
   "directions": [
