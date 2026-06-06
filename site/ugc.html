@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Julianne Silla — UGC Creator</title>
+<meta name="description" content="Authentic short-form for ambitious brands — testimonials, demos, lifestyle. Real, not staged. The strategist who also creates."/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0D0C'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23CDAD7D' text-anchor='middle'%3EJS%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ====================================================================
+   JULIANNE SILLA — UGC PAGE  (real voice · real palette · real assets)
+   Performance-first: NO animated SVG filters · coalesced pointer rAF ·
+   backdrop-filter capped + off on mobile · reduced-motion gated. 60fps target.
+   Style system reused wholesale from index.html (the reference).
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --char:#0E0D0C;--char-2:#15120F;--ink:#1C1A16;--ink-2:#2A241D;
+  --gold:#CDAD7D;--gold-2:#DBBF94;--gold-3:#C8A46A;
+  --cream:#E5E2DD;--ivory:#F6F4E7;--stone:#BAB6A9;--taupe:#7A7A70;--sapphire:#0F52BA;--sapphire-hi:#2E6BE6;
+  --on-dark:#F0EBE1;--on-dark-mut:#A99E8E;--line:#2A241D;
+  --display:'Archivo',sans-serif;--serif:'Playfair Display',serif;--body:'Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--char);color:var(--on-dark);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.92}
+::selection{background:var(--gold);color:var(--char)}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:3px}
+
+/* ---- performant atmospheric background: static gradient + ONE cheap drifting blob (transform only) ---- */
+.bg{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+  radial-gradient(55% 45% at 15% 8%,rgba(205,173,125,.16),transparent 70%),
+  radial-gradient(50% 45% at 88% 100%,rgba(140,115,80,.16),transparent 72%),
+  linear-gradient(165deg,#15120F,#0E0D0C 62%)}
+.blob{position:fixed;top:-15%;left:55%;width:55vw;height:55vw;z-index:-1;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle,rgba(205,173,125,.10),transparent 62%);filter:blur(30px);
+  will-change:transform;animation:drift 26s var(--ease) infinite alternate}
+@keyframes drift{from{transform:translate3d(-6%,0,0) scale(1)}to{transform:translate3d(8%,6%,0) scale(1.12)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---- glass primitive: capped blur, applied sparingly, OFF on mobile ---- */
+.glass{background:rgba(244,238,228,.05);border:1px solid rgba(205,173,125,.22);border-radius:16px;
+  -webkit-backdrop-filter:blur(10px) saturate(140%);backdrop-filter:blur(10px) saturate(140%);
+  box-shadow:0 10px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)}
+@media(max-width:768px){.glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(26,22,18,.92)}}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:16px;left:0;right:0;z-index:900}
+.nav .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 22px;border-radius:14px;transition:padding .35s var(--ease)}
+.nav.stuck .bar{padding:8px 22px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.4rem;color:var(--gold);letter-spacing:.04em}
+.nav-links{display:flex;gap:26px;font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.nav-links a{color:var(--on-dark-mut);transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.active{color:var(--gold)}
+.nav-cta{font-family:var(--display);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--gold);color:var(--gold);border-radius:8px;transition:.3s var(--ease)}
+.nav-cta:hover{background:var(--gold);color:var(--char)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ---- hero ---- */
+.hero{padding:150px 0 60px;position:relative}
+@media(max-width:900px){.hero{padding:120px 0 44px}}
+.crumb{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
+.crumb b{color:var(--gold);font-weight:700}
+.hero .mega{font-size:clamp(4rem,16vw,11rem);margin:14px 0 4px;line-height:.86}
+.hero .mega .accent{color:var(--gold)}
+.hero .lead{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.5rem,3.6vw,2.6rem);color:var(--cream);max-width:24ch;line-height:1.16;margin-top:8px}
+.hero .lead b{font-style:normal;font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--gold)}
+.hero .intro{color:var(--on-dark-mut);font-size:1.08rem;max-width:54ch;margin-top:22px}
+.hero .role{font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.hero .role .dot{width:6px;height:6px;border-radius:50%;background:var(--sapphire-hi)}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center}
+.btn-p{background:var(--gold);color:var(--char)}.btn-p:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-o{border:1px solid var(--ink-2);color:var(--cream)}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ---- sections ---- */
+section{padding:90px 0}
+.sec-eyebrow{margin-bottom:14px}
+.sec-h{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:8px}
+.sec-lead{color:var(--on-dark-mut);font-size:1.06rem;max-width:60ch;margin-top:10px}
+.r{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.r.in{opacity:1;transform:none}
+
+/* ---- what I create: glass cards ---- */
+.create-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px}
+@media(max-width:760px){.create-grid{grid-template-columns:1fr}}
+.create{padding:30px 28px;border-radius:16px;transition:transform .5s var(--ease),border-color .5s var(--ease);will-change:transform}
+.create:hover{border-color:var(--gold-3)}
+.create .ic{font-family:var(--serif);font-size:1.9rem;color:var(--gold);line-height:1;display:inline-grid;place-items:center;width:54px;height:54px;border-radius:13px;border:1px solid var(--ink-2);background:var(--char-2)}
+.create h3{font-size:1.32rem;margin:18px 0 8px;text-transform:none;letter-spacing:0;font-family:var(--display);font-weight:800;color:var(--cream)}
+.create p{color:var(--on-dark-mut);font-size:.98rem;line-height:1.6}
+
+/* ---- reel gallery: 9:16-ish glass tiles ---- */
+.reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+@media(max-width:760px){.reel-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.reel-grid{grid-template-columns:1fr}}
+.reel{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--ink-2);background:var(--char-2);
+  aspect-ratio:9/16;transition:transform .5s var(--ease),border-color .5s var(--ease);will-change:transform}
+.reel:hover{border-color:var(--gold-3)}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.reel:hover img{transform:scale(1.06)}
+.reel .ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(14,13,12,.78) 100%);pointer-events:none}
+.reel .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(14,13,12,.5);border:1px solid rgba(205,173,125,.5);color:var(--gold);font-size:.9rem;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:.4s var(--ease)}
+.reel:hover .play{background:var(--gold);color:var(--char);border-color:var(--gold)}
+.reel .cap{position:absolute;left:16px;bottom:16px;font-family:var(--display);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);z-index:2}
+.reel .cap span{display:block;color:var(--gold);font-size:.58rem;letter-spacing:.16em;margin-top:3px}
+.reel-note{font-family:var(--display);font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--taupe);margin-top:22px;text-align:center}
+
+/* ---- brands: tasteful placeholder treatment (NO invented names) ---- */
+.brands{margin-top:44px}
+.brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+@media(max-width:760px){.brand-grid{grid-template-columns:repeat(2,1fr)}}
+.brand-chip{position:relative;min-height:120px;border-radius:14px;border:1px dashed rgba(205,173,125,.3);
+  background:rgba(244,238,228,.025);display:grid;place-items:center;text-align:center;padding:22px 16px;transition:.4s var(--ease)}
+.brand-chip:hover{border-color:var(--gold-3);background:rgba(244,238,228,.05)}
+.brand-chip .mark{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:var(--gold);opacity:.5;line-height:1}
+.brand-chip .txt{font-family:var(--display);font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);margin-top:12px}
+.brand-chip .sub{font-family:var(--display);font-size:.56rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:5px}
+.brand-banner{margin-top:24px;border-radius:16px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand-banner .h{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--cream);text-transform:uppercase;letter-spacing:.04em}
+.brand-banner .s{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+.brands-note{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.06em;color:var(--taupe);margin-top:18px}
+
+/* ---- CTA band ---- */
+.cta-band{text-align:center}
+.cta-band .big{font-size:clamp(2.4rem,7vw,5rem);margin:14px 0 18px}
+.cta-band .big b{color:var(--gold)}
+.cta-band .lead{color:var(--on-dark-mut);font-size:1.1rem;max-width:48ch;margin:0 auto 30px}
+
+footer{padding:46px 0;border-top:1px solid var(--line);text-align:center}
+footer .tag{font-family:var(--display);font-weight:800;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-top:10px}
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--sapphire-hi));z-index:1000}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .r{opacity:1!important;transform:none!important}
+  .blob{display:none}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="blob"></div><div class="grain"></div>
+<div class="prog" id="prog"></div>
+
+<nav class="nav" id="nav">
+  <div class="wrap"><div class="bar glass">
+    <a class="logo" href="index.html">JS</a>
+    <div class="nav-links">
+      <a href="about.html">About</a><a href="work.html">Work</a><a href="services.html">Services</a><a href="case-study.html">Case Studies</a><a href="ugc.html" class="active" aria-current="page">UGC</a><a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
+  </div></div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="crumb r">Home / <b>UGC</b></div>
+    <h1 class="mega r">UG<span class="accent">C</span></h1>
+    <div class="lead r">The strategist who also <b>creates.</b></div>
+    <p class="intro r">Authentic short-form for ambitious brands — testimonials, demos, lifestyle. Real, not staged.</p>
+    <div class="role r"><span class="dot"></span>Director of Marketing · UGC Creator · Both calibrated to results</div>
+    <div class="ctas r">
+      <a href="contact.html" class="btn btn-p" data-mag>Start the conversation →</a>
+      <a href="work.html" class="btn btn-o">See the strategy side</a>
+    </div>
+  </div>
+</header>
+
+<section id="create">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">What I Create</div>
+    <h2 class="sec-h r">Format-first.<br>Results-driven.</h2>
+    <p class="sec-lead r">Every format is built with a clear job to do — from first impression to conversion.</p>
+    <div class="create-grid">
+      <div class="create glass r" data-tilt><div class="ic">▶</div><h3>Short-Form Video</h3><p>Hook-forward content engineered to stop the scroll and hold attention through to the CTA.</p></div>
+      <div class="create glass r" data-tilt><div class="ic">★</div><h3>Testimonials &amp; Reviews</h3><p>Trust-building first-person reviews that read as genuine because they are — no script, no performance.</p></div>
+      <div class="create glass r" data-tilt><div class="ic">◎</div><h3>Product Demos</h3><p>Clear, benefit-led demonstrations that show exactly how a product works and why it matters.</p></div>
+      <div class="create glass r" data-tilt><div class="ic">◈</div><h3>Lifestyle Content</h3><p>Aspirational yet attainable content that integrates your product naturally into a real world context.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reels">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">Content in the wild</div>
+    <h2 class="sec-h r">The work speaks.</h2>
+    <p class="sec-lead r">Short-form content built for scroll-stopping performance — on TikTok, Reels, and wherever your audience lives.</p>
+    <div class="reel-grid">
+      <div class="reel r" data-tilt><img src="../preview/reel-1.jpg" loading="lazy" alt="Sample reel 1"/><div class="ov"></div><div class="play">▶</div><div class="cap">Sample reel<span>01</span></div></div>
+      <div class="reel r" data-tilt><img src="../preview/reel-2.jpg" loading="lazy" alt="Sample reel 2"/><div class="ov"></div><div class="play">▶</div><div class="cap">Sample reel<span>02</span></div></div>
+      <div class="reel r" data-tilt><img src="../preview/reel-3.jpg" loading="lazy" alt="Sample reel 3"/><div class="ov"></div><div class="play">▶</div><div class="cap">Sample reel<span>03</span></div></div>
+      <div class="reel r" data-tilt><img src="../preview/reel-4.jpg" loading="lazy" alt="Sample reel 4"/><div class="ov"></div><div class="play">▶</div><div class="cap">Sample reel<span>04</span></div></div>
+      <div class="reel r" data-tilt><img src="../preview/reel-5.jpg" loading="lazy" alt="Sample reel 5"/><div class="ov"></div><div class="play">▶</div><div class="cap">Sample reel<span>05</span></div></div>
+      <div class="reel r" data-tilt><img src="../preview/reel-6.jpg" loading="lazy" alt="Sample reel 6"/><div class="ov"></div><div class="play">▶</div><div class="cap">Sample reel<span>06</span></div></div>
+    </div>
+    <p class="reel-note r">Sample tiles — your real reels + brand names drop in here.</p>
+  </div>
+</section>
+
+<section id="brands">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">Brands</div>
+    <h2 class="sec-h r">Built for brands that mean business.</h2>
+    <p class="sec-lead r">From launch-phase DTC to established household names — the work scales with the ambition.</p>
+    <div class="brands">
+      <div class="brand-grid">
+        <div class="brand-chip r"><div class="mark">JS</div><div class="txt">Your brand here</div><div class="sub">Partnerships available</div></div>
+        <div class="brand-chip r"><div class="mark">JS</div><div class="txt">Your brand here</div><div class="sub">Partnerships available</div></div>
+        <div class="brand-chip r"><div class="mark">JS</div><div class="txt">Your brand here</div><div class="sub">Partnerships available</div></div>
+        <div class="brand-chip r"><div class="mark">JS</div><div class="txt">Your brand here</div><div class="sub">Partnerships available</div></div>
+      </div>
+      <div class="brand-banner glass r">
+        <div>
+          <div class="h">Your brand here</div>
+          <div class="s">Partnerships available · Select collaborations open</div>
+        </div>
+        <a href="contact.html" class="btn btn-p" data-mag>Partner with me →</a>
+      </div>
+      <p class="brands-note r">Placeholder chips — swapped for real brand logos on go-live.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="cta">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">Let's work</div>
+    <h2 class="big r">Let's create <b>something real.</b></h2>
+    <p class="lead r">Authentic content that converts. No fluff, no over-production — just work that performs.</p>
+    <a href="contact.html" class="btn btn-p r" data-mag>Start the conversation →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="tag">Strategy that connects. Stories that convert.</div>
+    <div class="fine">© 2026 Julianne Silla · Strategy. Systems. Scale.</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* Lenis smooth scroll — paused when tab hidden */
+  var lenis=null;
+  if(!reduce && window.Lenis){
+    lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+    function raf(t){if(lenis)lenis.raf(t);requestAnimationFrame(raf);}requestAnimationFrame(raf);
+    if(window.ScrollTrigger)lenis.on('scroll',ScrollTrigger.update);
+    document.addEventListener('visibilitychange',function(){ if(document.hidden)lenis.stop(); else lenis.start(); });
+  }
+
+  /* reveals */
+  var rs=[].slice.call(document.querySelectorAll('.r'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    rs.forEach(function(el,i){el.style.transitionDelay=(Math.min(i%6,5)*40)+'ms';io.observe(el);});
+  } else rs.forEach(function(el){el.classList.add('in');});
+
+  /* nav + scroll progress */
+  var nav=document.getElementById('nav'),prog=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop;nav.classList.toggle('stuck',y>30);if(prog)prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+
+  /* ---- SINGLE coalesced pointer rAF for tilt + magnetic (no per-handler reflow) ---- */
+  if(!reduce && fine){
+    var tilts=[].slice.call(document.querySelectorAll('[data-tilt]'));
+    var mags=[].slice.call(document.querySelectorAll('[data-mag]'));
+    var mx=0,my=0,ticking=false;
+    tilts.forEach(function(el){el.style.transformStyle='preserve-3d';el.style.transition='transform .4s var(--ease)';el._r=el.getBoundingClientRect();el._on=false;
+      el.addEventListener('mouseenter',function(){el._r=el.getBoundingClientRect();el._on=true;});
+      el.addEventListener('mouseleave',function(){el._on=false;el.style.transform='perspective(800px) rotateX(0) rotateY(0)';});
+    });
+    mags.forEach(function(el){el.style.transition='transform .35s var(--ease)';el._r=el.getBoundingClientRect();el._on=false;
+      el.addEventListener('mouseenter',function(){el._r=el.getBoundingClientRect();el._on=true;});
+      el.addEventListener('mouseleave',function(){el._on=false;el.style.transform='translate(0,0)';});
+    });
+    function onMove(e){mx=e.clientX;my=e.clientY;if(!ticking){ticking=true;requestAnimationFrame(apply);}}
+    function apply(){ticking=false;
+      tilts.forEach(function(el){if(!el._on)return;var r=el._r,x=(mx-r.left)/r.width-.5,y=(my-r.top)/r.height-.5;el.style.transform='perspective(800px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';});
+      mags.forEach(function(el){if(!el._on)return;var r=el._r;el.style.transform='translate('+((mx-r.left-r.width/2)*.2)+'px,'+((my-r.top-r.height/2)*.3)+'px)';});
+    }
+    addEventListener('mousemove',onMove,{passive:true});
+    addEventListener('resize',function(){tilts.concat(mags).forEach(function(el){el._r=el.getBoundingClientRect();});},{passive:true});
+  }
+
+  /* GSAP parallax on blob (transform only, scrubbed) */
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to('.blob',{yPercent:6,ease:'none',scrollTrigger:{trigger:'body',start:'top top',end:'bottom top',scrub:true}});
+  }
+})();
+</script>
+</body>
+</html>

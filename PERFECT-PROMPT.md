@@ -30,7 +30,7 @@ Real track record (résumé): HDMZ paid-search (oncology, ~$111K managed, 9.71% 
 | Gold support | `#DBBF94` · `#C8A46A` · `#D6BA8D` | Champagne tints |
 | Light | `#E5E2DD` · `#F6F4E7` | Cream / Ivory |
 | Warm greys | `#BAB6A9` · `#7A7A70` · `#54554B` | Stone / Taupe |
-| Whisper accent | `#F2CDFC` | Soft lilac (use *sparingly* — a nod to her secondary brand) |
+| Jewel accent | `#0F52BA` | Sapphire blue (tiny accent — use *sparingly*; pairs beautifully with the gold) |
 
 > NOTE: the pink/purple `Julz_Palette_v1` (#E55496 etc.) is your SEPARATE personal/UGC brand — **not** the portfolio. Portfolio = the editorial dark+gold above.
 

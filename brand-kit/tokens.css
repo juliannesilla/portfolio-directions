@@ -23,8 +23,9 @@
   --taupe:#7A7A70;
   --taupe-2:#54554B;
 
-  /* whisper accent — use sparingly */
-  --lilac:#F2CDFC;
+  /* tiny jewel accent — use sparingly (sapphire pairs beautifully with the gold) */
+  --sapphire:#0F52BA;
+  --sapphire-hi:#2E6BE6;
 
   /* text */
   --on-dark:#F0EBE1;

@@ -19,7 +19,7 @@
 :root{
   --char:#0E0D0C;--char-2:#15120F;--ink:#1C1A16;--ink-2:#2A241D;
   --gold:#CDAD7D;--gold-2:#DBBF94;--gold-3:#C8A46A;
-  --cream:#E5E2DD;--ivory:#F6F4E7;--stone:#BAB6A9;--taupe:#7A7A70;--lilac:#F2CDFC;
+  --cream:#E5E2DD;--ivory:#F6F4E7;--stone:#BAB6A9;--taupe:#7A7A70;--sapphire:#0F52BA;--sapphire-hi:#2E6BE6;
   --on-dark:#F0EBE1;--on-dark-mut:#A99E8E;--line:#2A241D;
   --display:'Archivo',sans-serif;--serif:'Playfair Display',serif;--body:'Inter',sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);--maxw:1240px;
@@ -134,7 +134,7 @@ section{padding:96px 0}
 footer{padding:46px 0;border-top:1px solid var(--line);text-align:center}
 footer .tag{font-family:var(--display);font-weight:800;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-top:10px}
-.prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:1000}
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--sapphire-hi));z-index:1000}
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -151,9 +151,9 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
   <div class="wrap"><div class="bar glass">
     <a class="logo" href="index.html">JS</a>
     <div class="nav-links">
-      <a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      <a href="about.html">About</a><a href="work.html">Work</a><a href="services.html">Services</a><a href="case-study.html">Case Studies</a><a href="ugc.html">UGC</a><a href="contact.html">Contact</a>
     </div>
-    <a href="#contact" class="nav-cta" data-mag>Work With Me</a>
+    <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
   </div></div>
 </nav>
 
@@ -165,7 +165,7 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
         <h1 class="statement r">I build revenue engines that measure what matters — <b>and kill what doesn't.</b></h1>
         <div class="role r">Julianne Silla · Director of Marketing · GTM Engineer · AI &amp; Automation · Conversion Copywriter</div>
         <div class="ctas r">
-          <a href="#work" class="btn btn-p" data-mag>View my work →</a>
+          <a href="work.html" class="btn btn-p" data-mag>View my work →</a>
           <a href="#contact" class="btn btn-o">Let's talk</a>
         </div>
       </div>
@@ -201,10 +201,10 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
     <div class="eyebrow sec-eyebrow r">02 — Selected Work</div>
     <h2 class="sec-h r">Proven strategies.<br>Measurable impact.</h2>
     <div class="work-grid">
-      <a class="card r" href="#contact" data-tilt><div class="thumb"><img src="../assets/case-studies/v7-section-1-HERO-8K.png" loading="lazy" alt="Mindset Mastery case study"/></div><div class="body"><div class="no">Case Study 01</div><h3>Mindset Mastery</h3><div class="meta">Full GTM · 100% high-ticket conversion · sold out</div></div></a>
-      <a class="card r" href="#contact" data-tilt><div class="thumb"><img src="../assets/case-studies/v7-section-2-STACK-8K.png" loading="lazy" alt="Multi-launch lifecycle engine"/></div><div class="body"><div class="no">Case Study 02</div><h3>Multi-Launch + Lifecycle Engine</h3><div class="meta">Repeatable launch architecture · $1.5M</div></div></a>
-      <a class="card r" href="#work" data-tilt><div class="thumb"><img src="../preview/work-1.png" loading="lazy" alt="GTM engineering"/></div><div class="body"><div class="no">Discipline 03</div><h3>Go-to-Market Engineering</h3><div class="meta">Strategy · Positioning · Execution</div></div></a>
-      <a class="card r" href="#work" data-tilt><div class="thumb"><img src="../preview/work-4.png" loading="lazy" alt="Web design"/></div><div class="body"><div class="no">Discipline 04</div><h3>Brand · Web · Conversion</h3><div class="meta">Audit · UX · CRO</div></div></a>
+      <a class="card r" href="case-study.html" data-tilt><div class="thumb"><img src="../assets/case-studies/real-case01-high-ticket-launch-01-cover-1200x900.jpg" loading="lazy" alt="High-ticket launch case study"/></div><div class="body"><div class="no">Case Study 01</div><h3>High-Ticket Launch</h3><div class="meta">Full GTM · 100% high-ticket conversion · sold out</div></div></a>
+      <a class="card r" href="case-study.html" data-tilt><div class="thumb"><img src="../assets/case-studies/real-case06-ai-marketing-ops-01-cover-1200x900.jpg" loading="lazy" alt="AI marketing ops case study"/></div><div class="body"><div class="no">Case Study 02</div><h3>AI Marketing Ops</h3><div class="meta">Automation · attribution · 40+ SOPs</div></div></a>
+      <a class="card r" href="work.html" data-tilt><div class="thumb"><img src="../preview/work-1.png" loading="lazy" alt="GTM engineering"/></div><div class="body"><div class="no">Discipline 03</div><h3>Go-to-Market Engineering</h3><div class="meta">Strategy · Positioning · Execution</div></div></a>
+      <a class="card r" href="work.html" data-tilt><div class="thumb"><img src="../preview/work-4.png" loading="lazy" alt="Web design"/></div><div class="body"><div class="no">Discipline 04</div><h3>Brand · Web · Conversion</h3><div class="meta">Audit · UX · CRO</div></div></a>
     </div>
   </div>
 </section>
