@@ -1,0 +1,42 @@
+/* Julianne Silla — OFFICIAL portfolio brand tokens
+   Sampled from the live juliannesilla.com. Editorial dark + champagne gold + cream.
+   (The pink/purple Julz_Palette is a separate personal/UGC brand — not this.) */
+:root{
+  /* base darks */
+  --char:#0E0D0C;      /* primary background */
+  --char-2:#15120F;    /* panels */
+  --ink:#242424;       /* raised surfaces */
+  --ink-2:#383737;     /* borders on dark */
+
+  /* champagne gold (PRIMARY = #CDAD7D) */
+  --gold:#CDAD7D;
+  --gold-2:#DBBF94;
+  --gold-3:#C8A46A;
+  --gold-soft:#D6BA8D;
+
+  /* cream / ivory (light surfaces + on-dark text) */
+  --cream:#E5E2DD;
+  --ivory:#F6F4E7;
+
+  /* warm greys */
+  --stone:#BAB6A9;
+  --taupe:#7A7A70;
+  --taupe-2:#54554B;
+
+  /* whisper accent — use sparingly */
+  --lilac:#F2CDFC;
+
+  /* text */
+  --on-dark:#F0EBE1;
+  --on-dark-mut:#A99E8E;
+  --on-light:#1A1714;
+
+  /* type */
+  --display:'Archivo','Archivo Black','Arial Narrow',sans-serif; /* heavy uppercase statements */
+  --serif:'Playfair Display',Georgia,serif;                      /* editorial italic accents */
+  --body:'Inter',system-ui,sans-serif;                           /* body */
+
+  /* motion (performant) */
+  --ease:cubic-bezier(.16,1,.3,1);
+  --maxw:1240px;
+}

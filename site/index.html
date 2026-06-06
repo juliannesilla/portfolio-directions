@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Julianne Silla — Director of Marketing</title>
+<meta name="description" content="I build revenue engines that measure what matters — and kill what doesn't. Director of Marketing · GTM Engineer · Conversion Copywriter."/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0D0C'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23CDAD7D' text-anchor='middle'%3EJS%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ====================================================================
+   JULIANNE SILLA — DEFINITIVE PORTFOLIO  (real voice · real palette · real assets)
+   Performance-first: NO animated SVG filters · coalesced pointer rAF ·
+   backdrop-filter capped + off on mobile · reduced-motion gated. 60fps target.
+   ==================================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --char:#0E0D0C;--char-2:#15120F;--ink:#1C1A16;--ink-2:#2A241D;
+  --gold:#CDAD7D;--gold-2:#DBBF94;--gold-3:#C8A46A;
+  --cream:#E5E2DD;--ivory:#F6F4E7;--stone:#BAB6A9;--taupe:#7A7A70;--lilac:#F2CDFC;
+  --on-dark:#F0EBE1;--on-dark-mut:#A99E8E;--line:#2A241D;
+  --display:'Archivo',sans-serif;--serif:'Playfair Display',serif;--body:'Inter',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--maxw:1240px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--char);color:var(--on-dark);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.92}
+::selection{background:var(--gold);color:var(--char)}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:3px}
+
+/* ---- performant atmospheric background: static gradient + ONE cheap drifting blob (transform only) ---- */
+.bg{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+  radial-gradient(55% 45% at 15% 8%,rgba(205,173,125,.16),transparent 70%),
+  radial-gradient(50% 45% at 88% 100%,rgba(140,115,80,.16),transparent 72%),
+  linear-gradient(165deg,#15120F,#0E0D0C 62%)}
+.blob{position:fixed;top:-15%;left:55%;width:55vw;height:55vw;z-index:-1;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle,rgba(205,173,125,.10),transparent 62%);filter:blur(30px);
+  will-change:transform;animation:drift 26s var(--ease) infinite alternate}
+@keyframes drift{from{transform:translate3d(-6%,0,0) scale(1)}to{transform:translate3d(8%,6%,0) scale(1.12)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---- glass primitive: capped blur, applied sparingly, OFF on mobile ---- */
+.glass{background:rgba(244,238,228,.05);border:1px solid rgba(205,173,125,.22);border-radius:16px;
+  -webkit-backdrop-filter:blur(10px) saturate(140%);backdrop-filter:blur(10px) saturate(140%);
+  box-shadow:0 10px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)}
+@media(max-width:768px){.glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(26,22,18,.92)}}
+
+/* ---- nav ---- */
+.nav{position:fixed;top:16px;left:0;right:0;z-index:900}
+.nav .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 22px;border-radius:14px;transition:padding .35s var(--ease)}
+.nav.stuck .bar{padding:8px 22px}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.4rem;color:var(--gold);letter-spacing:.04em}
+.nav-links{display:flex;gap:26px;font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.nav-links a{color:var(--on-dark-mut);transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-family:var(--display);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px;border:1px solid var(--gold);color:var(--gold);border-radius:8px;transition:.3s var(--ease)}
+.nav-cta:hover{background:var(--gold);color:var(--char)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ---- hero ---- */
+.hero{padding:150px 0 70px;position:relative}
+.hero .grid{display:grid;grid-template-columns:1.35fr .85fr;gap:48px;align-items:center}
+@media(max-width:900px){.hero{padding:120px 0 50px}.hero .grid{grid-template-columns:1fr;gap:30px}}
+.hero .statement{font-size:clamp(2.6rem,6.6vw,5.6rem);margin:18px 0}
+.hero .statement b{color:var(--gold)}
+.hero .role{font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:22px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center}
+.btn-p{background:var(--gold);color:var(--char)}.btn-p:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-o{border:1px solid var(--ink-2);color:var(--cream)}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+.hero .portrait{position:relative;padding:14px;border-radius:20px}
+.hero .portrait img{width:100%;border-radius:12px;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%}
+.hero .avail{position:absolute;left:24px;bottom:24px;font-family:var(--display);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:rgba(14,13,12,.6);padding:7px 12px;border-radius:7px;display:flex;align-items:center;gap:8px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.hero .avail::before{content:'';width:7px;height:7px;border-radius:50%;background:#8fd18f}
+
+/* ---- stats ---- */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:54px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:22px 18px;border-radius:13px;text-align:left}
+.stat .n{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--gold);line-height:1}
+.stat .l{font-family:var(--display);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:8px}
+
+/* ---- sections ---- */
+section{padding:96px 0}
+.sec-eyebrow{margin-bottom:14px}
+.sec-h{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:8px}
+.r{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.r.in{opacity:1;transform:none}
+
+/* about */
+.about .big{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.8rem,4.4vw,3rem);color:var(--cream);max-width:20ch;line-height:1.1}
+.about .big b{font-style:normal;font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--gold);display:block;font-size:.8em;margin-top:10px}
+.about .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+@media(max-width:820px){.about .cols{grid-template-columns:1fr;gap:20px}}
+.about p{color:var(--on-dark-mut);font-size:1.04rem}
+.about p b{color:var(--cream);font-weight:500}
+
+/* work */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
+@media(max-width:820px){.work-grid{grid-template-columns:1fr}}
+.card{border-radius:16px;overflow:hidden;border:1px solid var(--ink-2);background:var(--ink);transition:transform .5s var(--ease),border-color .5s var(--ease);will-change:transform}
+.card:hover{border-color:var(--gold-3)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--char-2)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.card:hover .thumb img{transform:scale(1.05)}
+.card .body{padding:24px}
+.card .no{font-family:var(--display);font-size:.66rem;font-weight:700;letter-spacing:.18em;color:var(--gold)}
+.card h3{font-size:1.5rem;margin:10px 0 6px;text-transform:none;letter-spacing:0;font-family:var(--display);font-weight:800}
+.card .meta{font-family:var(--display);font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-mut)}
+
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media(max-width:760px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+.skill{padding:18px 20px;border:1px solid var(--ink-2);border-radius:11px;font-family:var(--display);font-weight:600;font-size:.86rem;color:var(--cream);transition:.3s var(--ease)}
+.skill:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+
+/* contact */
+.contact{text-align:center}
+.contact .big{font-size:clamp(2.6rem,8vw,6rem);margin:18px 0 26px}
+.contact .big b{color:var(--gold)}
+.contact .info{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-family:var(--display);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-mut)}
+.contact .info a:hover{color:var(--gold)}
+.socials{display:flex;gap:16px;justify-content:center;margin-top:30px}
+.socials a{width:46px;height:46px;border:1px solid var(--ink-2);border-radius:50%;display:grid;place-items:center;color:var(--cream);transition:.3s var(--ease);font-family:var(--display);font-weight:700;font-size:.7rem}
+.socials a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+
+footer{padding:46px 0;border-top:1px solid var(--line);text-align:center}
+footer .tag{font-family:var(--display);font-weight:800;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-top:10px}
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:1000}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .r{opacity:1!important;transform:none!important}
+  .blob{display:none}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="blob"></div><div class="grain"></div>
+<div class="prog" id="prog"></div>
+
+<nav class="nav" id="nav">
+  <div class="wrap"><div class="bar glass">
+    <a class="logo" href="index.html">JS</a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta" data-mag>Work With Me</a>
+  </div></div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow r">The partner behind your growth</div>
+        <h1 class="statement r">I build revenue engines that measure what matters — <b>and kill what doesn't.</b></h1>
+        <div class="role r">Julianne Silla · Director of Marketing · GTM Engineer · AI &amp; Automation · Conversion Copywriter</div>
+        <div class="ctas r">
+          <a href="#work" class="btn btn-p" data-mag>View my work →</a>
+          <a href="#contact" class="btn btn-o">Let's talk</a>
+        </div>
+      </div>
+      <div class="portrait glass r" data-tilt>
+        <img src="../assets/photos/julz-hero-real.jpg" alt="Julianne Silla" fetchpriority="high"
+             onerror="this.onerror=null;this.src='../assets/photos/julz-profile-card.jpg'"/>
+        <span class="avail">Available for select partnerships</span>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat glass r"><div class="n" data-count="8" data-pre="$" data-suf="M+">$0</div><div class="l">Cumulative Revenue Impact</div></div>
+      <div class="stat glass r"><div class="n" data-count="600" data-suf="K+">0</div><div class="l">Podcast Listens</div></div>
+      <div class="stat glass r"><div class="n" data-count="100" data-suf="+">0</div><div class="l">Podcasts Produced</div></div>
+      <div class="stat glass r"><div class="n" data-count="40" data-suf="+">0</div><div class="l">SOPs Established</div></div>
+      <div class="stat glass r"><div class="n" data-count="15" data-suf="+">0</div><div class="l">GTM Launches</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">01 — About</div>
+    <div class="big r">Chaos into clarity, and clarity into revenue.<b>Strategy. Systems. Scale. That's my lane.</b></div>
+    <div class="cols">
+      <p class="r">I'm a launch-obsessed, full-stack marketing leader. In my last role I led <b>15+ GTM launches that drove $1.5M in revenue, 117 high-ticket enrollments, and 3 sold-out events</b> in a four-month span. I build KPI dashboards for pipeline forecasting, enforce clean UTM governance, and consistently hit 35–40% open, 8–10% CTR, and 15%+ checkout lift.</p>
+      <p class="r">On the other side of the desk, I'm a <b>UGC creator</b> who makes authentic short-form content for brands. That dual identity is the edge: I know what a paid-media brief needs to convert, what a lifecycle sequence needs to retain, and what a scroll-stopping hook needs to earn a second watch. <b>Strategy plus story — both in my hands, both calibrated to results.</b></p>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">02 — Selected Work</div>
+    <h2 class="sec-h r">Proven strategies.<br>Measurable impact.</h2>
+    <div class="work-grid">
+      <a class="card r" href="#contact" data-tilt><div class="thumb"><img src="../assets/case-studies/v7-section-1-HERO-8K.png" loading="lazy" alt="Mindset Mastery case study"/></div><div class="body"><div class="no">Case Study 01</div><h3>Mindset Mastery</h3><div class="meta">Full GTM · 100% high-ticket conversion · sold out</div></div></a>
+      <a class="card r" href="#contact" data-tilt><div class="thumb"><img src="../assets/case-studies/v7-section-2-STACK-8K.png" loading="lazy" alt="Multi-launch lifecycle engine"/></div><div class="body"><div class="no">Case Study 02</div><h3>Multi-Launch + Lifecycle Engine</h3><div class="meta">Repeatable launch architecture · $1.5M</div></div></a>
+      <a class="card r" href="#work" data-tilt><div class="thumb"><img src="../preview/work-1.png" loading="lazy" alt="GTM engineering"/></div><div class="body"><div class="no">Discipline 03</div><h3>Go-to-Market Engineering</h3><div class="meta">Strategy · Positioning · Execution</div></div></a>
+      <a class="card r" href="#work" data-tilt><div class="thumb"><img src="../preview/work-4.png" loading="lazy" alt="Web design"/></div><div class="body"><div class="no">Discipline 04</div><h3>Brand · Web · Conversion</h3><div class="meta">Audit · UX · CRO</div></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">03 — Skills</div>
+    <h2 class="sec-h r">The full stack.</h2>
+    <div class="skills-grid">
+      <div class="skill r">GTM Strategy</div><div class="skill r">Paid Search / SEM</div><div class="skill r">Email Marketing</div>
+      <div class="skill r">Lifecycle Automation</div><div class="skill r">AI &amp; Automation</div><div class="skill r">Conversion Copywriting</div>
+      <div class="skill r">Brand &amp; Positioning</div><div class="skill r">Analytics &amp; Attribution</div><div class="skill r">Podcast Production</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">04 — Contact</div>
+    <h2 class="big r">I can't wait to <b>work with you.</b></h2>
+    <div class="info r">
+      <a href="mailto:julianne.mktg@gmail.com">julianne.mktg@gmail.com</a>
+      <a href="tel:+16507590995">+650-759-0995</a>
+      <span>San Francisco, CA</span>
+    </div>
+    <div class="socials r">
+      <a href="mailto:julianne.mktg@gmail.com" aria-label="Email">@</a>
+      <a href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
+      <a href="https://www.instagram.com/" aria-label="Instagram">IG</a>
+      <a href="https://www.tiktok.com/" aria-label="TikTok">TT</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="tag">Strategy that connects. Stories that convert.</div>
+    <div class="fine">© 2026 Julianne Silla · Strategy. Systems. Scale.</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* Lenis smooth scroll — paused when tab hidden */
+  var lenis=null;
+  if(!reduce && window.Lenis){
+    lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
+    function raf(t){if(lenis)lenis.raf(t);requestAnimationFrame(raf);}requestAnimationFrame(raf);
+    if(window.ScrollTrigger)lenis.on('scroll',ScrollTrigger.update);
+    document.addEventListener('visibilitychange',function(){ if(document.hidden)lenis.stop(); else lenis.start(); });
+  }
+
+  /* reveals */
+  var rs=[].slice.call(document.querySelectorAll('.r'));
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    rs.forEach(function(el,i){el.style.transitionDelay=(Math.min(i%6,5)*40)+'ms';io.observe(el);});
+  } else rs.forEach(function(el){el.classList.add('in');});
+
+  /* count-up */
+  var counted=false;
+  function runCount(){ if(counted)return; counted=true;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var t=+el.dataset.count,pre=el.dataset.pre||'',suf=el.dataset.suf||'',st=null,dur=1500;
+      function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);el.textContent=pre+Math.floor((1-Math.pow(1-p,3))*t)+suf;if(p<1)requestAnimationFrame(step);else el.textContent=pre+t+suf;}
+      requestAnimationFrame(step);
+    });
+  }
+  var se=document.querySelector('.stats');
+  if(se){ reduce?runCount():new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount();});},{threshold:.4}).observe(se); }
+
+  /* nav + scroll progress */
+  var nav=document.getElementById('nav'),prog=document.getElementById('prog');
+  addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop;nav.classList.toggle('stuck',y>30);if(prog)prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+
+  /* ---- SINGLE coalesced pointer rAF for tilt + magnetic (no per-handler reflow) ---- */
+  if(!reduce && fine){
+    var tilts=[].slice.call(document.querySelectorAll('[data-tilt]'));
+    var mags=[].slice.call(document.querySelectorAll('[data-mag]'));
+    var mx=0,my=0,ticking=false;
+    tilts.forEach(function(el){el.style.transformStyle='preserve-3d';el.style.transition='transform .4s var(--ease)';el._r=el.getBoundingClientRect();el._on=false;
+      el.addEventListener('mouseenter',function(){el._r=el.getBoundingClientRect();el._on=true;});
+      el.addEventListener('mouseleave',function(){el._on=false;el.style.transform='perspective(800px) rotateX(0) rotateY(0)';});
+    });
+    mags.forEach(function(el){el.style.transition='transform .35s var(--ease)';el._r=el.getBoundingClientRect();el._on=false;
+      el.addEventListener('mouseenter',function(){el._r=el.getBoundingClientRect();el._on=true;});
+      el.addEventListener('mouseleave',function(){el._on=false;el.style.transform='translate(0,0)';});
+    });
+    function onMove(e){mx=e.clientX;my=e.clientY;if(!ticking){ticking=true;requestAnimationFrame(apply);}}
+    function apply(){ticking=false;
+      tilts.forEach(function(el){if(!el._on)return;var r=el._r,x=(mx-r.left)/r.width-.5,y=(my-r.top)/r.height-.5;el.style.transform='perspective(800px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';});
+      mags.forEach(function(el){if(!el._on)return;var r=el._r;el.style.transform='translate('+((mx-r.left-r.width/2)*.2)+'px,'+((my-r.top-r.height/2)*.3)+'px)';});
+    }
+    addEventListener('mousemove',onMove,{passive:true});
+    addEventListener('resize',function(){tilts.concat(mags).forEach(function(el){el._r=el.getBoundingClientRect();});},{passive:true});
+  }
+
+  /* GSAP parallax on portrait + blob (transform only, scrubbed) */
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to('.portrait img',{yPercent:-8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  }
+})();
+</script>
+</body>
+</html>
