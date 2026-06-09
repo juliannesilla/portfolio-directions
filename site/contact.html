@@ -26,12 +26,12 @@
   --ease:cubic-bezier(.16,1,.3,1);--maxw:1240px;
 }
 html{scroll-behavior:smooth}
-body{background:var(--char);color:var(--on-dark);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body{background:var(--char);color:var(--on-dark);font-family:var(--body);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
 .eyebrow{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
-h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.92}
+h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.005em;line-height:1.12}
 ::selection{background:var(--gold);color:var(--char)}
 :focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:3px}
 
@@ -67,13 +67,13 @@ h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;let
 @media(max-width:860px){.nav-links{display:none}}
 
 /* ---- buttons (from index) ---- */
-.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center;cursor:pointer}
+.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center;cursor:pointer}
 .btn-p{background:var(--gold);color:var(--char);border:none}.btn-p:hover{background:var(--gold-2);transform:translateY(-2px)}
 .btn-o{border:1px solid var(--ink-2);color:var(--cream);background:transparent}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
 
 /* ---- sections + reveal (from index) ---- */
-section{padding:96px 0}
-.sec-eyebrow{margin-bottom:14px}
+section{padding:120px 0}
+.sec-eyebrow{margin-bottom:28px}
 .r{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .r.in{opacity:1;transform:none}
 
@@ -138,6 +138,10 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
   .r{opacity:1!important;transform:none!important}
   .blob{display:none}
 }
+
+/* --- type/spacing polish (refactoring-ui pass) --- */
+@media(max-width:900px){section{padding:80px 0}}
+.about p,.cols p,.copy p,.copy-cols p,.lead p,p.lead{max-width:66ch}
 </style>
 </head>
 <body>
