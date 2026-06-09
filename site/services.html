@@ -14,6 +14,7 @@
    JULIANNE SILLA — SERVICES  (real voice · real palette · real assets)
    Performance-first: NO animated SVG filters · coalesced pointer rAF ·
    backdrop-filter capped + off on mobile · reduced-motion gated. 60fps target.
+   Style tokens copied wholesale from index.html for exact visual parity.
    ==================================================================== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -65,73 +66,65 @@ h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;let
 .nav-cta:hover{background:var(--gold);color:var(--char)}
 @media(max-width:860px){.nav-links{display:none}}
 
-/* ---- page hero ---- */
-.phero{padding:160px 0 40px;position:relative}
-@media(max-width:900px){.phero{padding:128px 0 30px}}
-.crumb{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:22px}
-.crumb a:hover{color:var(--gold)}
-.phero h1{font-size:clamp(2.6rem,7vw,5.4rem);margin:14px 0 18px}
-.phero h1 b{color:var(--gold)}
-.phero .lead{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.3rem,2.6vw,1.9rem);color:var(--cream);max-width:30ch;line-height:1.3}
+/* ---- page hero (services) ---- */
+.phead{padding:150px 0 36px;position:relative}
+@media(max-width:900px){.phead{padding:120px 0 28px}}
+.crumb{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);margin-bottom:18px}
+.phead h1{font-size:clamp(2.8rem,9vw,6.4rem);margin:10px 0 14px}
+.phead .lead{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.3rem,3.2vw,2rem);color:var(--cream);max-width:24ch;line-height:1.2}
 
 /* ---- sections ---- */
-section{padding:80px 0}
+section{padding:96px 0}
 .sec-eyebrow{margin-bottom:14px}
 .sec-h{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:8px}
-.sec-lead{color:var(--on-dark-mut);font-size:1.08rem;max-width:54ch;margin-top:14px}
-.sec-lead b{color:var(--cream);font-weight:500}
+.sec-lead{color:var(--on-dark-mut);font-size:1.04rem;max-width:54ch;margin-top:14px}
 .r{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .r.in{opacity:1;transform:none}
 
-/* ---- services grid (6 cards · 3D tilt) ---- */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+/* ---- services grid (glass cards, icons, 3D tilt) ---- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
 @media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.svc-grid{grid-template-columns:1fr}}
-.svc{padding:32px 28px;border-radius:16px;will-change:transform;transition:transform .4s var(--ease),border-color .4s var(--ease)}
+@media(max-width:640px){.svc-grid{grid-template-columns:1fr}}
+.svc{padding:30px 26px;border-radius:16px;transition:transform .5s var(--ease),border-color .5s var(--ease);will-change:transform}
 .svc:hover{border-color:var(--gold-3)}
-.svc .ic{width:54px;height:54px;border-radius:12px;display:grid;place-items:center;font-size:1.5rem;color:var(--gold);background:rgba(205,173,125,.10);border:1px solid rgba(205,173,125,.26);margin-bottom:20px}
-.svc h3{font-size:1.4rem;text-transform:none;letter-spacing:0;font-family:var(--display);font-weight:800;line-height:1.1;margin-bottom:12px}
-.svc p{color:var(--on-dark-mut);font-size:1rem;line-height:1.6}
+.svc .ic{width:54px;height:54px;border-radius:13px;display:grid;place-items:center;font-size:1.5rem;color:var(--gold);
+  background:rgba(205,173,125,.10);border:1px solid rgba(205,173,125,.28);margin-bottom:20px;font-family:var(--serif)}
+.svc h3{font-size:1.32rem;margin:0 0 10px;text-transform:none;letter-spacing:0;font-family:var(--display);font-weight:800;line-height:1.1}
+.svc p{color:var(--on-dark-mut);font-size:.98rem;line-height:1.6}
 
-/* ---- process (5-phase stepped accordion) ---- */
-.proc{display:grid;gap:14px;margin-top:42px}
-.step{border-radius:14px;overflow:hidden;transition:border-color .4s var(--ease)}
-.step:hover{border-color:var(--gold-3)}
-.step.open{border-color:var(--gold-3)}
-.step-head{width:100%;display:flex;align-items:center;gap:22px;padding:26px 28px;background:none;border:0;color:inherit;cursor:pointer;text-align:left;font-family:inherit}
-.step-no{font-family:var(--display);font-weight:900;font-size:clamp(1.6rem,3.4vw,2.4rem);color:var(--ink-2);line-height:.8;letter-spacing:-.02em;flex-shrink:0;transition:color .4s var(--ease)}
-.step.open .step-no,.step-head:hover .step-no{color:var(--gold)}
-.step-t{flex:1;font-family:var(--display);font-weight:800;font-size:clamp(1.15rem,2.4vw,1.55rem);text-transform:none;letter-spacing:0;line-height:1.12;color:var(--cream)}
-.step-tog{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--ink-2);display:grid;place-items:center;color:var(--gold);position:relative;transition:.4s var(--ease)}
-.step.open .step-tog{background:var(--gold);color:var(--char);border-color:var(--gold);transform:rotate(135deg)}
-.step-tog::before,.step-tog::after{content:'';position:absolute;background:currentColor;border-radius:2px}
-.step-tog::before{width:13px;height:2px}
-.step-tog::after{width:2px;height:13px}
-.step-body{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
-.step.open .step-body{max-height:340px}
-.step-body p{color:var(--on-dark-mut);font-size:1.04rem;line-height:1.62;padding:0 28px 28px 90px}
-@media(max-width:600px){.step-body p{padding:0 24px 24px 24px}.step-head{gap:16px;padding:22px 24px}}
-@media(prefers-reduced-motion:reduce){.step-body{max-height:none!important;overflow:visible}.step-tog{display:none}}
+/* ---- process (stepped / accordion glass) ---- */
+.proc{display:flex;flex-direction:column;gap:14px;margin-top:44px}
+.step{padding:0;border-radius:16px;overflow:hidden}
+.step .hd{display:flex;align-items:center;gap:22px;padding:24px 28px;cursor:pointer;width:100%;text-align:left;background:none;border:0;color:inherit;font:inherit}
+.step .no{font-family:var(--display);font-weight:900;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--gold);line-height:1;flex:0 0 auto;min-width:2.2ch}
+.step .ti{font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.6vw,1.55rem);text-transform:uppercase;letter-spacing:-.01em;color:var(--cream);flex:1}
+.step .tog{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--ink-2);display:grid;place-items:center;color:var(--gold);transition:transform .4s var(--ease),border-color .3s}
+.step.open .tog{transform:rotate(45deg);border-color:var(--gold)}
+.step .tog::before{content:'+';font-family:var(--display);font-weight:700;font-size:1.2rem;line-height:1}
+.step .bd{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.step.open .bd{max-height:420px}
+.step .bd p{padding:0 28px 26px 28px;color:var(--on-dark-mut);font-size:1.02rem;line-height:1.65;max-width:70ch}
+@media(prefers-reduced-motion:reduce){.step .bd{max-height:none}.step .tog{display:none}}
 
-/* ---- pull quote (matches case-study) ---- */
-.pull{margin:0;text-align:center;padding:0 4%}
-.pull q{font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(1.6rem,4vw,2.8rem);color:var(--cream);line-height:1.18;quotes:none}
-.pull q b{color:var(--gold)}
-.pull .src{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:20px}
+/* ---- proof stats (count-up) ---- */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:22px 18px;border-radius:13px;text-align:left}
+.stat .n{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--gold);line-height:1}
+.stat .l{font-family:var(--display);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:8px}
 
-/* ---- proof stats (glass count-up tiles) ---- */
-.proof-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
-@media(max-width:760px){.proof-stats{grid-template-columns:repeat(2,1fr)}}
-.pstat{padding:26px 20px;border-radius:13px;text-align:left}
-.pstat .n{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--gold);line-height:1}
-.pstat .l{font-family:var(--display);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px}
+/* ---- pull quote ---- */
+.pull{text-align:center;padding:30px 0}
+.pull blockquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.7rem,4.6vw,3rem);color:var(--cream);max-width:24ch;margin:0 auto;line-height:1.18}
+.pull blockquote b{font-style:normal;color:var(--gold)}
 
-/* ---- CTA band (matches case-study) ---- */
-.cta-band{text-align:center}
-.cta-band h2{font-size:clamp(2.4rem,7vw,5rem);margin:14px 0 18px}
-.cta-band h2 b{color:var(--gold)}
-.cta-band p{color:var(--on-dark-mut);font-size:1.1rem;max-width:48ch;margin:0 auto 30px}
-.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:16px 30px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center}
+/* ---- CTA band ---- */
+.cta{text-align:center}
+.cta .panel{padding:64px 40px;border-radius:20px}
+.cta h2{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:16px}
+.cta h2 b{color:var(--gold)}
+.cta .lead{color:var(--on-dark-mut);font-size:1.08rem;max-width:52ch;margin:0 auto 30px}
+.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center}
 .btn-p{background:var(--gold);color:var(--char)}.btn-p:hover{background:var(--gold-2);transform:translateY(-2px)}
 
 footer{padding:46px 0;border-top:1px solid var(--line);text-align:center}
@@ -154,156 +147,78 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
   <div class="wrap"><div class="bar glass">
     <a class="logo" href="index.html">JS</a>
     <div class="nav-links">
-      <a href="about.html">About</a><a href="work.html">Work</a><a href="services.html" class="active" aria-current="page">Services</a><a href="case-study.html">Case Studies</a><a href="ugc.html">UGC</a><a href="contact.html">Contact</a>
+      <a href="about.html">About</a><a href="work.html">Work</a><a href="services.html" class="active">Services</a><a href="case-study.html">Case Studies</a><a href="ugc.html">UGC</a><a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
   </div></div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<header class="phero">
+<header class="phead">
   <div class="wrap">
-    <div class="crumb r"><a href="index.html">Home</a> / Services</div>
-    <div class="eyebrow r">The partner behind your growth</div>
+    <div class="crumb r">Home / Services</div>
     <h1 class="r">Services</h1>
-    <p class="lead r">How I turn strategy into measurable, repeatable revenue.</p>
+    <div class="lead r">How I turn strategy into measurable, repeatable revenue.</div>
   </div>
 </header>
 
-<!-- ============ THE SERVICES (6 — glass cards · 3D tilt) ============ -->
 <section id="services">
   <div class="wrap">
     <div class="eyebrow sec-eyebrow r">What I Do</div>
     <h2 class="sec-h r">The Full Stack</h2>
-    <p class="sec-lead r">Every service is built around one outcome: <b>revenue that compounds.</b></p>
+    <p class="sec-lead r">Every service is built around one outcome: revenue that compounds.</p>
     <div class="svc-grid">
-      <div class="svc glass r" data-tilt>
-        <div class="ic" aria-hidden="true">◷</div>
-        <h3>GTM Engineering</h3>
-        <p>End-to-end go-to-market architecture — ICP definition, offer positioning, funnel mapping, and coordinated multi-channel launch execution that drives pipeline from day one.</p>
-      </div>
-      <div class="svc glass r" data-tilt>
-        <div class="ic" aria-hidden="true">❖</div>
-        <h3>Lifecycle &amp; Email Automation</h3>
-        <p>High-converting email sequences, segmentation logic, and automated nurture flows engineered to move leads from cold to checkout — consistently hitting 35–40% open rates and 8–10% CTR.</p>
-      </div>
-      <div class="svc glass r" data-tilt>
-        <div class="ic" aria-hidden="true">↗</div>
-        <h3>CRO &amp; Web Experience</h3>
-        <p>Conversion rate optimization across landing pages, checkout flows, and key UX touchpoints — backed by data, tested systematically, and built to deliver 15%+ lift in revenue per session.</p>
-      </div>
-      <div class="svc glass r" data-tilt>
-        <div class="ic" aria-hidden="true">✦</div>
-        <h3>Brand &amp; Conversion Copy</h3>
-        <p>Strategic copywriting that aligns positioning with buyer psychology — from brand voice guides and campaign messaging to direct-response landing pages and email sequences that close.</p>
-      </div>
-      <div class="svc glass r" data-tilt>
-        <div class="ic" aria-hidden="true">⟳</div>
-        <h3>AI &amp; Automation Systems</h3>
-        <p>Custom automation infrastructure using AI tooling, prompt engineering, and workflow design — eliminating manual overhead so your team executes more with fewer moving parts.</p>
-      </div>
-      <div class="svc glass r" data-tilt>
-        <div class="ic" aria-hidden="true">◈</div>
-        <h3>Analytics &amp; Dashboards</h3>
-        <p>KPI dashboards, UTM governance frameworks, and attribution models that give you a single source of truth — so every decision is backed by clean, pipeline-ready data.</p>
-      </div>
+      <div class="svc glass r" data-tilt><div class="ic">◷</div><h3>GTM Engineering</h3><p>End-to-end go-to-market architecture — ICP definition, offer positioning, funnel mapping, and coordinated multi-channel launch execution that drives pipeline from day one.</p></div>
+      <div class="svc glass r" data-tilt><div class="ic">❖</div><h3>Lifecycle &amp; Email Automation</h3><p>High-converting email sequences, segmentation logic, and automated nurture flows engineered to move leads from cold to checkout — consistently hitting 35–40% open rates and 8–10% CTR.</p></div>
+      <div class="svc glass r" data-tilt><div class="ic">↗</div><h3>CRO &amp; Web Experience</h3><p>Conversion rate optimization across landing pages, checkout flows, and key UX touchpoints — backed by data, tested systematically, and built to deliver 15%+ lift in revenue per session.</p></div>
+      <div class="svc glass r" data-tilt><div class="ic">✦</div><h3>Brand &amp; Conversion Copy</h3><p>Strategic copywriting that aligns positioning with buyer psychology — from brand voice guides and campaign messaging to direct-response landing pages and email sequences that close.</p></div>
+      <div class="svc glass r" data-tilt><div class="ic">⟳</div><h3>AI &amp; Automation Systems</h3><p>Custom automation infrastructure using AI tooling, prompt engineering, and workflow design — eliminating manual overhead so your team executes more with fewer moving parts.</p></div>
+      <div class="svc glass r" data-tilt><div class="ic">◈</div><h3>Analytics &amp; Dashboards</h3><p>KPI dashboards, UTM governance frameworks, and attribution models that give you a single source of truth — so every decision is backed by clean, pipeline-ready data.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ THE PROCESS (5-phase stepped accordion) ============ -->
 <section id="process">
   <div class="wrap">
     <div class="eyebrow sec-eyebrow r">The Process</div>
     <h2 class="sec-h r">How I work</h2>
-    <p class="sec-lead r">A proven five-phase framework — <b>from first brief to repeatable playbook.</b></p>
+    <p class="sec-lead r">A proven five-phase framework — from first brief to repeatable playbook.</p>
     <div class="proc">
-      <div class="step glass r open">
-        <button class="step-head" type="button" aria-expanded="true">
-          <span class="step-no">01</span>
-          <span class="step-t">GTM Architecture</span>
-          <span class="step-tog" aria-hidden="true"></span>
-        </button>
-        <div class="step-body">
-          <p>We start by getting ruthlessly clear on who we're targeting, what problem we're solving, and how the offer lands against the competitive landscape. ICP definition, positioning, offer structure, and funnel map — locked before a single asset is written.</p>
-        </div>
-      </div>
-      <div class="step glass r">
-        <button class="step-head" type="button" aria-expanded="false">
-          <span class="step-no">02</span>
-          <span class="step-t">Pre-Launch Warmup</span>
-          <span class="step-tog" aria-hidden="true"></span>
-        </button>
-        <div class="step-body">
-          <p>Audience priming across email and organic channels — warming cold subscribers, building anticipation, and setting up the nurture sequences that qualify leads before the cart opens. No launch succeeds without a warm audience.</p>
-        </div>
-      </div>
-      <div class="step glass r">
-        <button class="step-head" type="button" aria-expanded="false">
-          <span class="step-no">03</span>
-          <span class="step-t">Multi-Channel Launch</span>
-          <span class="step-tog" aria-hidden="true"></span>
-        </button>
-        <div class="step-body">
-          <p>Coordinated execution across email, paid, and organic — timed to hit simultaneously and reinforce each touchpoint. Checkout optimization, urgency copy, and cart abandonment sequences fire in real time to maximize conversion at peak intent.</p>
-        </div>
-      </div>
-      <div class="step glass r">
-        <button class="step-head" type="button" aria-expanded="false">
-          <span class="step-no">04</span>
-          <span class="step-t">Post-Launch Nurture</span>
-          <span class="step-tog" aria-hidden="true"></span>
-        </button>
-        <div class="step-body">
-          <p>The launch ends — the revenue engine doesn't. Lifecycle sequences, retention flows, win-back campaigns, and lead recovery automation keep your audience engaged and your pipeline full between launches.</p>
-        </div>
-      </div>
-      <div class="step glass r">
-        <button class="step-head" type="button" aria-expanded="false">
-          <span class="step-no">05</span>
-          <span class="step-t">Optimization &amp; Playbooks</span>
-          <span class="step-tog" aria-hidden="true"></span>
-        </button>
-        <div class="step-body">
-          <p>Post-mortem analysis against every KPI, UTM attribution audit, and a documented SOP library — so your next launch runs faster, tighter, and with predictable results. Strategy that compounds every cycle.</p>
-        </div>
-      </div>
+      <div class="step glass r open"><button class="hd" type="button" aria-expanded="true"><span class="no">01</span><span class="ti">GTM Architecture</span><span class="tog" aria-hidden="true"></span></button><div class="bd"><p>We start by getting ruthlessly clear on who we're targeting, what problem we're solving, and how the offer lands against the competitive landscape. ICP definition, positioning, offer structure, and funnel map — locked before a single asset is written.</p></div></div>
+      <div class="step glass r"><button class="hd" type="button" aria-expanded="false"><span class="no">02</span><span class="ti">Pre-Launch Warmup</span><span class="tog" aria-hidden="true"></span></button><div class="bd"><p>Audience priming across email and organic channels — warming cold subscribers, building anticipation, and setting up the nurture sequences that qualify leads before the cart opens. No launch succeeds without a warm audience.</p></div></div>
+      <div class="step glass r"><button class="hd" type="button" aria-expanded="false"><span class="no">03</span><span class="ti">Multi-Channel Launch</span><span class="tog" aria-hidden="true"></span></button><div class="bd"><p>Coordinated execution across email, paid, and organic — timed to hit simultaneously and reinforce each touchpoint. Checkout optimization, urgency copy, and cart abandonment sequences fire in real time to maximize conversion at peak intent.</p></div></div>
+      <div class="step glass r"><button class="hd" type="button" aria-expanded="false"><span class="no">04</span><span class="ti">Post-Launch Nurture</span><span class="tog" aria-hidden="true"></span></button><div class="bd"><p>The launch ends — the revenue engine doesn't. Lifecycle sequences, retention flows, win-back campaigns, and lead recovery automation keep your audience engaged and your pipeline full between launches.</p></div></div>
+      <div class="step glass r"><button class="hd" type="button" aria-expanded="false"><span class="no">05</span><span class="ti">Optimization &amp; Playbooks</span><span class="tog" aria-hidden="true"></span></button><div class="bd"><p>Post-mortem analysis against every KPI, UTM attribution audit, and a documented SOP library — so your next launch runs faster, tighter, and with predictable results. Strategy that compounds every cycle.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ PULL QUOTE ============ -->
-<section>
+<section class="pull">
   <div class="wrap">
-    <div class="pull r">
-      <q>Every engagement ends with a <b>repeatable playbook</b> — not just a one-time result.</q>
-      <div class="src">— Strategy. Systems. Scale.</div>
-    </div>
+    <blockquote class="r">Every engagement ends with a repeatable playbook — <b>not just a one-time result.</b></blockquote>
   </div>
 </section>
 
-<!-- ============ PROOF OF WORK (count-up tiles) ============ -->
 <section id="proof">
   <div class="wrap">
     <div class="eyebrow sec-eyebrow r">Proof Of Work</div>
-    <h2 class="sec-h r">The receipts.</h2>
-    <div class="proof-stats">
-      <div class="pstat glass r"><div class="n" data-count="1.5" data-pre="$" data-suf="M" data-dec="1">$0</div><div class="l">Revenue Driven — Single Role</div></div>
-      <div class="pstat glass r"><div class="n" data-count="117">0</div><div class="l">High-Ticket Enrollments</div></div>
-      <div class="pstat glass r"><div class="n" data-count="3">0</div><div class="l">Sold-Out Live Events</div></div>
-      <div class="pstat glass r"><div class="n" data-count="40" data-suf="%">0</div><div class="l">Email Open Rate</div></div>
-      <div class="pstat glass r"><div class="n" data-count="15" data-suf="%+">0</div><div class="l">Checkout Lift</div></div>
+    <div class="stats">
+      <div class="stat glass r"><div class="n" data-count="1.5" data-pre="$" data-suf="M" data-dec="1">$0</div><div class="l">Revenue Driven — Single Role</div></div>
+      <div class="stat glass r"><div class="n" data-count="117">0</div><div class="l">High-Ticket Enrollments</div></div>
+      <div class="stat glass r"><div class="n" data-count="3">0</div><div class="l">Sold-Out Live Events</div></div>
+      <div class="stat glass r"><div class="n" data-count="40" data-suf="%">0</div><div class="l">Email Open Rate</div></div>
+      <div class="stat glass r"><div class="n" data-count="15" data-suf="%+">0</div><div class="l">Checkout Lift</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ CTA BAND ============ -->
-<section class="cta-band">
+<section class="cta" id="contact">
   <div class="wrap">
-    <div class="eyebrow sec-eyebrow r">Let's build</div>
-    <h2 class="r">Ready to build <b>the engine?</b></h2>
-    <p class="r">Tell me where you're stuck — positioning, pipeline, conversion, or all three. I'll come in with a plan.</p>
-    <a href="contact.html" class="btn btn-p r" data-mag>Let's Talk Strategy →</a>
+    <div class="panel glass r" data-tilt>
+      <div class="eyebrow sec-eyebrow r">Let's Build</div>
+      <h2 class="r">Ready to build <b>the engine?</b></h2>
+      <p class="lead r">Tell me where you're stuck — positioning, pipeline, conversion, or all three. I'll come in with a plan.</p>
+      <a href="./contact.html" class="btn btn-p r" data-mag>Let's Talk Strategy →</a>
+    </div>
   </div>
 </section>
 
@@ -343,29 +258,28 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
   function runCount(){ if(counted)return; counted=true;
     document.querySelectorAll('[data-count]').forEach(function(el){
       var t=+el.dataset.count,pre=el.dataset.pre||'',suf=el.dataset.suf||'',dec=+(el.dataset.dec||0),st=null,dur=1500;
-      function fmt(v){return dec?v.toFixed(dec):Math.floor(v);}
-      function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);el.textContent=pre+fmt((1-Math.pow(1-p,3))*t)+suf;if(p<1)requestAnimationFrame(step);else el.textContent=pre+(dec?t.toFixed(dec):t)+suf;}
+      function fmt(v){return dec>0?v.toFixed(dec):Math.floor(v);}
+      function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);el.textContent=pre+fmt((1-Math.pow(1-p,3))*t)+suf;if(p<1)requestAnimationFrame(step);else el.textContent=pre+fmt(t)+suf;}
       requestAnimationFrame(step);
     });
   }
-  var se=document.querySelector('.proof-stats');
+  var se=document.querySelector('.stats');
   if(se){ reduce?runCount():new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount();});},{threshold:.4}).observe(se); }
-
-  /* process accordion */
-  var steps=[].slice.call(document.querySelectorAll('.step'));
-  steps.forEach(function(step){
-    var head=step.querySelector('.step-head');
-    if(!head)return;
-    head.addEventListener('click',function(){
-      var isOpen=step.classList.contains('open');
-      steps.forEach(function(s){s.classList.remove('open');var h=s.querySelector('.step-head');if(h)h.setAttribute('aria-expanded','false');});
-      if(!isOpen){step.classList.add('open');head.setAttribute('aria-expanded','true');}
-    });
-  });
 
   /* nav + scroll progress */
   var nav=document.getElementById('nav'),prog=document.getElementById('prog');
   addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop;nav.classList.toggle('stuck',y>30);if(prog)prog.style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+
+  /* process accordion (gated off under reduced-motion — all stay open) */
+  if(!reduce){
+    [].slice.call(document.querySelectorAll('.step .hd')).forEach(function(hd){
+      hd.addEventListener('click',function(){
+        var step=hd.parentNode, isOpen=step.classList.contains('open');
+        [].slice.call(document.querySelectorAll('.step')).forEach(function(s){ s.classList.remove('open'); var b=s.querySelector('.hd'); if(b)b.setAttribute('aria-expanded','false'); });
+        if(!isOpen){ step.classList.add('open'); hd.setAttribute('aria-expanded','true'); }
+      });
+    });
+  }
 
   /* ---- SINGLE coalesced pointer rAF for tilt + magnetic (no per-handler reflow) ---- */
   if(!reduce && fine){
@@ -382,7 +296,7 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
     });
     function onMove(e){mx=e.clientX;my=e.clientY;if(!ticking){ticking=true;requestAnimationFrame(apply);}}
     function apply(){ticking=false;
-      tilts.forEach(function(el){if(!el._on)return;var r=el._r,x=(mx-r.left)/r.width-.5,y=(my-r.top)/r.height-.5;el.style.transform='perspective(800px) rotateY('+(x*6)+'deg) rotateX('+(-y*6)+'deg)';});
+      tilts.forEach(function(el){if(!el._on)return;var r=el._r,x=(mx-r.left)/r.width-.5,y=(my-r.top)/r.height-.5;el.style.transform='perspective(800px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';});
       mags.forEach(function(el){if(!el._on)return;var r=el._r;el.style.transform='translate('+((mx-r.left-r.width/2)*.2)+'px,'+((my-r.top-r.height/2)*.3)+'px)';});
     }
     addEventListener('mousemove',onMove,{passive:true});
@@ -392,7 +306,7 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
   /* GSAP parallax on blob (transform only, scrubbed) */
   if(!reduce && window.gsap && window.ScrollTrigger){
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to('.blob',{yPercent:8,ease:'none',scrollTrigger:{trigger:'body',start:'top top',end:'bottom bottom',scrub:true}});
+    gsap.to('.blob',{yPercent:6,ease:'none',scrollTrigger:{trigger:'body',start:'top top',end:'bottom top',scrub:true}});
   }
 })();
 </script>

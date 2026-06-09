@@ -4,16 +4,17 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contact — Julianne Silla · Director of Marketing</title>
-<meta name="description" content="Let's build what's next — together. Strategic marketing, scalable systems, sustainable growth. Email julianne.mktg@gmail.com or call +650-759-0995."/>
+<meta name="description" content="Ready when you are. Strategic marketing, scalable systems, sustainable growth. Let's build what's next — together. julianne.mktg@gmail.com · San Francisco, CA."/>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0D0C'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23CDAD7D' text-anchor='middle'%3EJS%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ====================================================================
-   JULIANNE SILLA — CONTACT  (real voice · real palette · real assets)
-   Performance-first: NO animated SVG filters · coalesced pointer rAF ·
-   backdrop-filter capped + off on mobile · reduced-motion gated. 60fps target.
+   JULIANNE SILLA — DEFINITIVE PORTFOLIO · CONTACT  (real voice · real palette)
+   Tokens / .glass / .bg-.blob-.grain / .nav / footer / .r COPIED WHOLESALE
+   from index.html. Performance-first: NO animated SVG filters · coalesced
+   pointer rAF · backdrop-filter capped + off on mobile · reduced-motion gated.
    ==================================================================== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -65,66 +66,69 @@ h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;let
 .nav-cta:hover{background:var(--gold);color:var(--char)}
 @media(max-width:860px){.nav-links{display:none}}
 
-/* ---- hero ---- */
-.hero{padding:160px 0 36px;position:relative;text-align:center}
-.hero .eyebrow{margin-bottom:14px}
-.hero .statement{font-size:clamp(2.6rem,8vw,6rem);margin:14px auto 22px;max-width:16ch}
-.hero .statement b{color:var(--gold)}
-.hero .sub{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.15rem,2.6vw,1.6rem);color:var(--cream);max-width:46ch;margin:0 auto;line-height:1.35}
+/* ---- buttons (from index) ---- */
+.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center;cursor:pointer}
+.btn-p{background:var(--gold);color:var(--char);border:none}.btn-p:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-o{border:1px solid var(--ink-2);color:var(--cream);background:transparent}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ---- reveals ---- */
-section{padding:60px 0}
+/* ---- sections + reveal (from index) ---- */
+section{padding:96px 0}
+.sec-eyebrow{margin-bottom:14px}
 .r{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .r.in{opacity:1;transform:none}
 
-/* ---- contact layout: form + info ---- */
-.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:start;margin-top:10px}
-@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:22px}}
+/* ---- breadcrumb (matches sibling pages) ---- */
+.crumb{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:22px}
+.crumb a:hover{color:var(--gold)}
+.crumb .sep{color:var(--ink-2);margin:0 8px}
+.crumb .here{color:var(--gold)}
 
-/* form panel */
-.form-panel{padding:34px 32px;border-radius:18px}
-@media(max-width:560px){.form-panel{padding:26px 22px}}
-.form-panel .label{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.form-panel h2{font-size:clamp(1.9rem,4vw,2.6rem);text-transform:none;letter-spacing:-.01em;margin:12px 0 10px}
-.form-panel .lead{color:var(--on-dark-mut);font-size:1rem;margin-bottom:24px;max-width:40ch}
-.field{margin-bottom:18px}
-.field label{display:block;font-family:var(--display);font-weight:600;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);margin-bottom:8px}
-.field input,.field textarea{width:100%;font-family:var(--body);font-size:1rem;color:var(--on-dark);background:rgba(14,13,12,.5);
-  border:1px solid var(--ink-2);border-radius:11px;padding:14px 16px;transition:border-color .3s var(--ease),background .3s var(--ease)}
+/* ---- contact hero ---- */
+.c-hero{padding:150px 0 30px;position:relative;text-align:center}
+@media(max-width:900px){.c-hero{padding:120px 0 20px}}
+.c-hero .big{font-size:clamp(2.6rem,8vw,6rem);margin:18px auto 26px;max-width:16ch}
+.c-hero .big b{color:var(--gold)}
+.c-hero .sub{color:var(--on-dark-mut);font-size:1.06rem;max-width:54ch;margin:0 auto}
+
+/* ---- info tiles ---- */
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+@media(max-width:900px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.info-grid{grid-template-columns:1fr}}
+.tile{padding:26px 22px;border-radius:14px;display:flex;flex-direction:column;gap:8px;transition:transform .5s var(--ease),border-color .5s var(--ease);will-change:transform}
+.tile:hover{transform:translateY(-4px)}
+.tile .ic{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1}
+.tile .k{font-family:var(--display);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
+.tile .v{font-family:var(--display);font-weight:700;font-size:1.02rem;color:var(--cream);letter-spacing:.01em;word-break:break-word;transition:color .3s}
+a.tile:hover .v{color:var(--gold)}
+
+/* ---- form ---- */
+.form-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start;margin-top:8px}
+@media(max-width:860px){.form-wrap{grid-template-columns:1fr;gap:28px}}
+.form-intro h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:10px 0 16px}
+.form-intro p{color:var(--on-dark-mut);font-size:1.04rem;max-width:42ch}
+.form-intro .note{display:flex;align-items:center;gap:9px;margin-top:26px;font-family:var(--display);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.form-intro .note::before{content:'';width:7px;height:7px;border-radius:50%;background:#8fd18f}
+.c-form{padding:32px}
+@media(max-width:520px){.c-form{padding:24px}}
+.field{margin-bottom:20px}
+.field label{display:block;font-family:var(--display);font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:9px}
+.field input,.field textarea{width:100%;font-family:var(--body);font-size:1rem;color:var(--on-dark);background:rgba(14,13,12,.5);border:1px solid var(--ink-2);border-radius:10px;padding:14px 16px;transition:border-color .3s var(--ease),background .3s var(--ease)}
+.field textarea{resize:vertical;min-height:140px;line-height:1.55}
 .field input::placeholder,.field textarea::placeholder{color:var(--taupe)}
 .field input:hover,.field textarea:hover{border-color:var(--gold-3)}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:rgba(14,13,12,.7)}
-.field textarea{resize:vertical;min-height:130px;line-height:1.55}
-.form-submit{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
-  padding:15px 28px;border-radius:9px;background:var(--gold);color:var(--char);border:none;cursor:pointer;
-  display:inline-flex;gap:10px;align-items:center;transition:.3s var(--ease);width:100%;justify-content:center}
-.form-submit:hover{background:var(--gold-2);transform:translateY(-2px)}
-.form-note{font-family:var(--display);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);margin-top:16px;text-align:center}
-.form-note a{color:var(--on-dark-mut);border-bottom:1px solid var(--ink-2);transition:.3s}
-.form-note a:hover{color:var(--gold);border-color:var(--gold)}
-.resp-note{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:20px}
-.resp-note::before{content:'';width:7px;height:7px;border-radius:50%;background:#8fd18f}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:rgba(14,13,12,.72)}
+.field input:focus-visible,.field textarea:focus-visible{outline:2px solid var(--gold-2);outline-offset:2px}
+.c-form .btn{width:100%;justify-content:center;margin-top:4px}
 
-/* info tiles */
-.info-head{font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.info-tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:560px){.info-tiles{grid-template-columns:1fr}}
-.tile{padding:22px 20px;border-radius:14px;transition:transform .4s var(--ease),border-color .4s var(--ease);display:block}
-.tile.linkable:hover{transform:translateY(-3px);border-color:var(--gold-3)}
-.tile .ti{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1;margin-bottom:12px}
-.tile .tk{font-family:var(--display);font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut)}
-.tile .tv{font-family:var(--display);font-weight:700;font-size:.96rem;color:var(--cream);margin-top:6px;word-break:break-word}
-.tile.linkable:hover .tv{color:var(--gold)}
-.accent-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sapphire-hi);margin-left:7px;vertical-align:middle}
-
-/* socials */
-.socials-wrap{margin-top:30px;text-align:center}
-.socials-label{font-family:var(--display);font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);margin-bottom:16px}
-.socials{display:flex;gap:16px;justify-content:center}
-.socials a{width:46px;height:46px;border:1px solid var(--ink-2);border-radius:50%;display:grid;place-items:center;color:var(--cream);transition:.3s var(--ease);font-family:var(--display);font-weight:700;font-size:.7rem}
+/* ---- socials ---- */
+.socials-row{text-align:center}
+.socials{display:flex;gap:16px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.socials a{padding:0 22px;height:46px;border:1px solid var(--ink-2);border-radius:24px;display:inline-flex;align-items:center;gap:9px;color:var(--cream);transition:.3s var(--ease);font-family:var(--display);font-weight:700;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase}
+.socials a .glyph{font-family:var(--serif);font-size:1rem;color:var(--gold);transition:color .3s}
 .socials a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
 
-footer{padding:46px 0;border-top:1px solid var(--line);text-align:center;margin-top:30px}
+/* ---- footer (from index) ---- */
+footer{padding:46px 0;border-top:1px solid var(--line);text-align:center}
 footer .tag{font-family:var(--display);font-weight:800;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-top:10px}
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--sapphire-hi));z-index:1000}
@@ -150,80 +154,78 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
   </div></div>
 </nav>
 
-<header class="hero">
+<!-- ============ HERO ============ -->
+<header class="c-hero">
   <div class="wrap">
-    <div class="eyebrow r">05 — Contact</div>
-    <h1 class="statement r">I can't wait to <b>work with you.</b></h1>
+    <nav class="crumb r" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span class="sep">/</span><span class="here">Contact</span>
+    </nav>
+    <div class="eyebrow r">Ready when you are</div>
+    <h1 class="big r">I can't wait to <b>work with you.</b></h1>
     <p class="sub r">Strategic marketing. Scalable systems. Sustainable growth. Let's build what's next — together.</p>
   </div>
 </header>
 
-<section>
+<!-- ============ DIRECT LINES — INFO TILES ============ -->
+<section id="lines" style="padding-top:40px">
   <div class="wrap">
-    <div class="contact-grid">
+    <div class="eyebrow sec-eyebrow r">Direct lines</div>
+    <div class="info-grid">
+      <a class="tile glass r" href="mailto:julianne.mktg@gmail.com">
+        <span class="ic">✉</span><span class="k">Email</span><span class="v">julianne.mktg@gmail.com</span>
+      </a>
+      <a class="tile glass r" href="tel:+16507590995">
+        <span class="ic">✆</span><span class="k">Phone</span><span class="v">+650-759-0995</span>
+      </a>
+      <div class="tile glass r">
+        <span class="ic">⌖</span><span class="k">Based In</span><span class="v">San Francisco, CA</span>
+      </div>
+      <a class="tile glass r" href="mailto:julianne.mktg@gmail.com?subject=Discovery%20Call">
+        <span class="ic">◴</span><span class="k">Let's Connect</span><span class="v">Book a discovery call</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-      <!-- FORM -->
-      <div class="form-panel glass r" data-tilt>
-        <div class="label">Get in touch</div>
-        <h2>Let's talk.</h2>
-        <p class="lead">Drop a message below and I'll get back to you within 24 hours — no fluff, straight to the point.</p>
-        <div class="resp-note">Response within 24 hours.</div>
-        <!-- Honest, no-backend form: posts via the visitor's own email client (mailto). No fake success state. -->
-        <form action="mailto:julianne.mktg@gmail.com" method="post" enctype="text/plain">
-          <div class="field">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="Name" placeholder="Your name" autocomplete="name"/>
-          </div>
-          <div class="field">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="Email" placeholder="your@email.com" autocomplete="email"/>
-          </div>
-          <div class="field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="Message" placeholder="Tell me what you're building…"></textarea>
-          </div>
-          <button type="submit" class="form-submit">Send the message →</button>
-          <p class="form-note">This opens your email app — or email me directly at <a href="mailto:julianne.mktg@gmail.com">julianne.mktg@gmail.com</a>.</p>
-        </form>
+<!-- ============ FORM ============ -->
+<section id="get-in-touch">
+  <div class="wrap">
+    <div class="form-wrap">
+      <div class="form-intro">
+        <div class="eyebrow sec-eyebrow r">Get in touch</div>
+        <h2 class="r">Let's talk.</h2>
+        <p class="r">Drop a message below and I'll get back to you within 24 hours — no fluff, straight to the point.</p>
+        <div class="note r">Response within 24 hours.</div>
       </div>
 
-      <!-- INFO TILES -->
-      <div class="r">
-        <div class="info-head">Direct lines</div>
-        <div class="info-tiles">
-          <a class="tile glass linkable" href="mailto:julianne.mktg@gmail.com" aria-label="Email Julianne">
-            <div class="ti">✉</div>
-            <div class="tk">Email</div>
-            <div class="tv">julianne.mktg@gmail.com</div>
-          </a>
-          <a class="tile glass linkable" href="tel:+16507590995" aria-label="Call Julianne">
-            <div class="ti">✆</div>
-            <div class="tk">Phone</div>
-            <div class="tv">+650-759-0995</div>
-          </a>
-          <div class="tile glass">
-            <div class="ti">⌖</div>
-            <div class="tk">Based In</div>
-            <div class="tv">San Francisco, CA<span class="accent-dot" aria-hidden="true"></span></div>
-          </div>
-          <a class="tile glass linkable" href="mailto:julianne.mktg@gmail.com?subject=Discovery%20call" aria-label="Book a discovery call">
-            <div class="ti">◴</div>
-            <div class="tk">Let's Connect</div>
-            <div class="tv">Book a discovery call</div>
-          </a>
+      <form class="c-form glass r" action="mailto:julianne.mktg@gmail.com" method="post" enctype="text/plain">
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" placeholder="Your name" autocomplete="name" required/>
         </div>
-
-        <div class="socials-wrap">
-          <div class="socials-label">Find me online</div>
-          <div class="socials">
-            <a href="mailto:julianne.mktg@gmail.com" aria-label="Email">@</a>
-            <a href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
-            <a href="https://www.instagram.com/" aria-label="Instagram">IG</a>
-            <a href="https://www.tiktok.com/" aria-label="TikTok">TT</a>
-          </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required/>
         </div>
-      </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" placeholder="Tell me what you're building…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-p" data-mag>Send the message →</button>
+      </form>
+    </div>
+  </div>
+</section>
 
+<!-- ============ SOCIALS ============ -->
+<section id="socials" class="socials-row" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow sec-eyebrow r">Find me elsewhere</div>
+    <div class="socials r">
+      <a href="mailto:julianne.mktg@gmail.com" aria-label="Email Julianne"><span class="glyph">✉</span>Email</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="glyph">in</span>LinkedIn</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><span class="glyph">◎</span>Instagram</a>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><span class="glyph">♪</span>TikTok</a>
     </div>
   </div>
 </section>
@@ -278,11 +280,17 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
     });
     function onMove(e){mx=e.clientX;my=e.clientY;if(!ticking){ticking=true;requestAnimationFrame(apply);}}
     function apply(){ticking=false;
-      tilts.forEach(function(el){if(!el._on)return;var r=el._r,x=(mx-r.left)/r.width-.5,y=(my-r.top)/r.height-.5;el.style.transform='perspective(800px) rotateY('+(x*3)+'deg) rotateX('+(-y*3)+'deg)';});
+      tilts.forEach(function(el){if(!el._on)return;var r=el._r,x=(mx-r.left)/r.width-.5,y=(my-r.top)/r.height-.5;el.style.transform='perspective(800px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';});
       mags.forEach(function(el){if(!el._on)return;var r=el._r;el.style.transform='translate('+((mx-r.left-r.width/2)*.2)+'px,'+((my-r.top-r.height/2)*.3)+'px)';});
     }
     addEventListener('mousemove',onMove,{passive:true});
     addEventListener('resize',function(){tilts.concat(mags).forEach(function(el){el._r=el.getBoundingClientRect();});},{passive:true});
+  }
+
+  /* GSAP — subtle scrubbed drift on the form card (transform only) */
+  if(!reduce && window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to('.c-form',{yPercent:-4,ease:'none',scrollTrigger:{trigger:'#get-in-touch',start:'top bottom',end:'bottom top',scrub:true}});
   }
 })();
 </script>

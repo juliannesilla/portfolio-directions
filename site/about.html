@@ -3,18 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>About — Julianne Silla · Director of Marketing</title>
-<meta name="description" content="I'm a launch-obsessed, full-stack marketing leader who turns chaos into clarity — and clarity into revenue. Director of Marketing · GTM Engineer · Conversion Copywriter."/>
+<title>Julianne Silla — About</title>
+<meta name="description" content="I'm a launch-obsessed, full-stack marketing leader who turns chaos into clarity — and clarity into revenue. Director of Marketing · GTM Engineer · UGC Creator."/>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E0D0C'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23CDAD7D' text-anchor='middle'%3EJS%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ====================================================================
-   JULIANNE SILLA — ABOUT PAGE  (real voice · real palette · real assets)
+   JULIANNE SILLA — DEFINITIVE PORTFOLIO  (real voice · real palette · real assets)
    Performance-first: NO animated SVG filters · coalesced pointer rAF ·
    backdrop-filter capped + off on mobile · reduced-motion gated. 60fps target.
-   Style + script copied wholesale from index.html (THE reference).
    ==================================================================== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -66,6 +65,29 @@ h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;let
 .nav-cta:hover{background:var(--gold);color:var(--char)}
 @media(max-width:860px){.nav-links{display:none}}
 
+/* ---- hero ---- */
+.hero{padding:150px 0 70px;position:relative}
+.hero .grid{display:grid;grid-template-columns:1.35fr .85fr;gap:48px;align-items:center}
+@media(max-width:900px){.hero{padding:120px 0 50px}.hero .grid{grid-template-columns:1fr;gap:30px}}
+.hero .statement{font-size:clamp(2.6rem,6.6vw,5.6rem);margin:18px 0}
+.hero .statement b{color:var(--gold)}
+.hero .role{font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:22px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center}
+.btn-p{background:var(--gold);color:var(--char)}.btn-p:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-o{border:1px solid var(--ink-2);color:var(--cream)}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+.hero .portrait{position:relative;padding:14px;border-radius:20px}
+.hero .portrait img{width:100%;border-radius:12px;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%}
+.hero .avail{position:absolute;left:24px;bottom:24px;font-family:var(--display);font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:rgba(14,13,12,.6);padding:7px 12px;border-radius:7px;display:flex;align-items:center;gap:8px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.hero .avail::before{content:'';width:7px;height:7px;border-radius:50%;background:#8fd18f}
+
+/* ---- stats ---- */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:54px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:22px 18px;border-radius:13px;text-align:left}
+.stat .n{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--gold);line-height:1}
+.stat .l{font-family:var(--display);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:8px}
+
 /* ---- sections ---- */
 section{padding:96px 0}
 .sec-eyebrow{margin-bottom:14px}
@@ -73,78 +95,87 @@ section{padding:96px 0}
 .r{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .r.in{opacity:1;transform:none}
 
-/* ---- btn ---- */
-.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 26px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center}
-.btn-p{background:var(--gold);color:var(--char)}.btn-p:hover{background:var(--gold-2);transform:translateY(-2px)}
-.btn-o{border:1px solid var(--ink-2);color:var(--cream)}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
+/* about */
+.about .big{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.8rem,4.4vw,3rem);color:var(--cream);max-width:20ch;line-height:1.1}
+.about .big b{font-style:normal;font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--gold);display:block;font-size:.8em;margin-top:10px}
+.about .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+@media(max-width:820px){.about .cols{grid-template-columns:1fr;gap:20px}}
+.about p{color:var(--on-dark-mut);font-size:1.04rem}
+.about p b{color:var(--cream);font-weight:500}
 
-/* ====================================================================
-   ABOUT-PAGE SPECIFIC
-   ==================================================================== */
-/* hero */
-.a-hero{padding:150px 0 40px;position:relative}
-@media(max-width:900px){.a-hero{padding:120px 0 30px}}
-.crumb{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:22px}
-.crumb a:hover{color:var(--gold)}
-.crumb .sep{color:var(--ink-2);margin:0 8px}
-.crumb .here{color:var(--gold)}
-.a-title{font-size:clamp(4rem,15vw,11rem);line-height:.86}
-.a-title b{color:var(--gold)}
-.a-sub{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.4rem,3.4vw,2.3rem);color:var(--cream);max-width:24ch;line-height:1.18;margin-top:24px}
+/* work */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
+@media(max-width:820px){.work-grid{grid-template-columns:1fr}}
+.card{border-radius:16px;overflow:hidden;border:1px solid var(--ink-2);background:var(--ink);transition:transform .5s var(--ease),border-color .5s var(--ease);will-change:transform}
+.card:hover{border-color:var(--gold-3)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--char-2)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.card:hover .thumb img{transform:scale(1.05)}
+.card .body{padding:24px}
+.card .no{font-family:var(--display);font-size:.66rem;font-weight:700;letter-spacing:.18em;color:var(--gold)}
+.card h3{font-size:1.5rem;margin:10px 0 6px;text-transform:none;letter-spacing:0;font-family:var(--display);font-weight:800}
+.card .meta{font-family:var(--display);font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-mut)}
 
-/* full picture */
-.fp{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:center;margin-top:44px}
-@media(max-width:900px){.fp{grid-template-columns:1fr;gap:30px}}
-.fp .photo{position:relative;padding:14px;border-radius:20px}
-.fp .photo img{width:100%;border-radius:12px;aspect-ratio:4/5;object-fit:cover;object-position:50% 22%}
-.fp .panel{padding:38px}
-.fp h2{font-size:clamp(1.8rem,3.6vw,2.7rem);text-transform:none;letter-spacing:-.01em;line-height:1.02;font-weight:900;margin-bottom:22px}
-.fp h2 .dot{color:var(--sapphire-hi)}
-.fp p{color:var(--on-dark-mut);font-size:1.04rem;margin-bottom:18px}
-.fp p:last-child{margin-bottom:0}
-.fp p b{color:var(--cream);font-weight:500}
+/* skills */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media(max-width:760px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+.skill{padding:18px 20px;border:1px solid var(--ink-2);border-radius:11px;font-family:var(--display);font-weight:600;font-size:.86rem;color:var(--cream);transition:.3s var(--ease)}
+.skill:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
 
-/* by the numbers */
-.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
-@media(max-width:900px){.nums{grid-template-columns:repeat(2,1fr)}}
-.numtile{padding:26px 20px;border-radius:13px;text-align:left}
-.numtile .n{font-family:var(--display);font-weight:900;font-size:clamp(1.9rem,3.8vw,2.7rem);color:var(--gold);line-height:1}
-.numtile .l{font-family:var(--display);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px}
+/* contact */
+.contact{text-align:center}
+.contact .big{font-size:clamp(2.6rem,8vw,6rem);margin:18px 0 26px}
+.contact .big b{color:var(--gold)}
+.contact .info{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-family:var(--display);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-mut)}
+.contact .info a:hover{color:var(--gold)}
+.socials{display:flex;gap:16px;justify-content:center;margin-top:30px}
+.socials a{width:46px;height:46px;border:1px solid var(--ink-2);border-radius:50%;display:grid;place-items:center;color:var(--cream);transition:.3s var(--ease);font-family:var(--display);font-weight:700;font-size:.7rem}
+.socials a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
 
-/* values + show up */
-.vals{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
-@media(max-width:760px){.vals{grid-template-columns:1fr;gap:30px}}
-.vcol h3{font-family:var(--display);font-weight:800;font-size:1.4rem;text-transform:none;letter-spacing:-.01em;margin-bottom:18px}
-.vcol h3 b{color:var(--gold)}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{font-family:var(--display);font-weight:600;font-size:.84rem;letter-spacing:.02em;color:var(--cream);padding:11px 18px;border:1px solid var(--ink-2);border-radius:999px;transition:.3s var(--ease)}
-.chip:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-
-/* credentials */
-.creds .lead{color:var(--on-dark-mut);font-size:1.04rem;max-width:46ch;margin-top:6px}
-.cred-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.cred{font-family:var(--display);font-weight:600;font-size:.9rem;color:var(--cream);padding:16px 22px;border:1px solid var(--ink-2);border-radius:11px;display:flex;align-items:center;gap:10px;transition:.3s var(--ease)}
-.cred::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold)}
-.cred:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
-
-/* pull quote */
-.pq{text-align:center;padding:110px 0}
-.pq .mark{font-family:var(--serif);font-weight:700;font-size:4rem;color:var(--gold);line-height:0;display:block;margin-bottom:30px}
-.pq blockquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.8rem,4.6vw,3.2rem);color:var(--cream);max-width:18ch;margin:0 auto;line-height:1.16}
-.pq blockquote b{font-style:normal;font-family:var(--display);font-weight:900;text-transform:uppercase;color:var(--gold)}
-
-/* cta band */
-.cta-band{text-align:center;padding:96px 0}
-.cta-band .panel{padding:64px 40px}
-.cta-band h2{font-size:clamp(2.4rem,7vw,5rem);margin-bottom:18px}
-.cta-band h2 b{color:var(--gold)}
-.cta-band .lead{color:var(--on-dark-mut);font-size:1.08rem;max-width:48ch;margin:0 auto 30px}
-
-/* footer */
 footer{padding:46px 0;border-top:1px solid var(--line);text-align:center}
 footer .tag{font-family:var(--display);font-weight:800;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-top:10px}
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--sapphire-hi));z-index:1000}
+
+/* ---- ABOUT-PAGE additions (built on the same primitives) ---- */
+.about-hero{padding:170px 0 30px;position:relative}
+@media(max-width:900px){.about-hero{padding:130px 0 20px}}
+.about-hero .grid{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center}
+@media(max-width:900px){.about-hero .grid{grid-template-columns:1fr;gap:32px}}
+.crumb{font-family:var(--display);font-size:.64rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);margin-bottom:18px}
+.about-hero h1{font-size:clamp(3.4rem,11vw,8rem);color:var(--cream)}
+.about-hero h1 b{color:var(--gold)}
+.about-hero .sub{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.3rem,2.6vw,1.9rem);color:var(--on-dark);max-width:30ch;line-height:1.2;margin-top:22px}
+.about-hero .portrait{position:relative;padding:14px;border-radius:20px}
+.about-hero .portrait img{width:100%;border-radius:12px;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%}
+
+.copy-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+@media(max-width:820px){.copy-cols{grid-template-columns:1fr;gap:22px}}
+.copy-cols p{color:var(--on-dark-mut);font-size:1.06rem}
+
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:44px}
+@media(max-width:820px){.values-grid{grid-template-columns:1fr;gap:30px}}
+.values-grid .vh{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{padding:14px 22px;border:1px solid var(--ink-2);border-radius:11px;font-family:var(--display);font-weight:600;font-size:.92rem;color:var(--cream);transition:.3s var(--ease)}
+.chip:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+
+.creds .lead{color:var(--on-dark-mut);font-size:1.06rem;max-width:50ch;margin-bottom:8px}
+.cred-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+@media(max-width:760px){.cred-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.cred-grid{grid-template-columns:1fr}}
+.cred{padding:22px 22px;border:1px solid var(--ink-2);border-radius:12px;font-family:var(--display);font-weight:600;font-size:.94rem;color:var(--cream);display:flex;align-items:center;gap:12px;transition:.3s var(--ease)}
+.cred:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.cred::before{content:'✦';color:var(--gold);font-size:.9rem;flex:none}
+
+.pullq{text-align:center;padding:110px 0}
+.pullq blockquote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.7rem,4vw,2.8rem);color:var(--cream);max-width:24ch;margin:0 auto;line-height:1.18}
+.pullq blockquote::before{content:'\201C';color:var(--gold);font-size:1.4em;line-height:0;vertical-align:-.35em;margin-right:.04em}
+
+.cta-band{text-align:center;padding:100px 0}
+.cta-band h2{font-size:clamp(2.4rem,7vw,5rem);color:var(--cream)}
+.cta-band h2 b{color:var(--gold)}
+.cta-band .lead{color:var(--on-dark-mut);font-size:1.1rem;max-width:50ch;margin:22px auto 30px}
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -161,115 +192,103 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
   <div class="wrap"><div class="bar glass">
     <a class="logo" href="index.html">JS</a>
     <div class="nav-links">
-      <a href="about.html" class="active" aria-current="page">About</a><a href="work.html">Work</a><a href="services.html">Services</a><a href="case-study.html">Case Studies</a><a href="ugc.html">UGC</a><a href="contact.html">Contact</a>
+      <a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="work.html">Work</a><a href="services.html">Services</a><a href="case-study.html">Case Study</a><a href="ugc.html">UGC</a><a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta" data-mag>Work With Me</a>
   </div></div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<header class="a-hero">
+<header class="about-hero">
   <div class="wrap">
-    <nav class="crumb r" aria-label="Breadcrumb">
-      <a href="index.html">Home</a><span class="sep">/</span><span class="here">About</span>
-    </nav>
-    <h1 class="a-title r">About<b>.</b></h1>
-    <p class="a-sub r">I'm a launch-obsessed, full-stack marketing leader who turns chaos into clarity — and clarity into revenue.</p>
+    <div class="crumb r">Home / About</div>
+    <div class="grid">
+      <div>
+        <h1 class="r">About<b>.</b></h1>
+        <div class="sub r">I'm a launch-obsessed, full-stack marketing leader who turns chaos into clarity — and clarity into revenue.</div>
+      </div>
+      <div class="portrait glass r" data-tilt>
+        <img src="../assets/photos/julz-hero-real.jpg" alt="Julianne Silla" fetchpriority="high"
+             onerror="this.onerror=null;this.src='../assets/photos/julz-profile-card.jpg'"/>
+        <span class="avail">Available for select partnerships</span>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- ============ THE FULL PICTURE ============ -->
-<section id="full-picture">
+<section class="about" id="full-picture">
   <div class="wrap">
-    <div class="eyebrow sec-eyebrow r">01 — The Full Picture</div>
-    <div class="fp">
-      <div class="photo glass r" data-tilt>
-        <img src="../assets/photos/julz-hero-real.jpg" alt="Julianne Silla" loading="lazy"
-             onerror="this.onerror=null;this.src='../assets/photos/julz-profile-card.jpg'"/>
-      </div>
-      <div class="panel glass r" data-tilt>
-        <h2>Strategy. Systems. Scale. That's my lane<span class="dot">.</span></h2>
-        <p>In my last role I led <b>15+ GTM launches that drove $1.5M in revenue, 117 high-ticket enrollments, and 3 sold-out events in a four-month span.</b> I build KPI dashboards for pipeline forecasting, enforce clean UTM governance, and consistently hit 35–40% open rates, 8–10% CTR, and 15%+ checkout lift. From positioning to launch to post-mortem optimization — I own the full engine.</p>
-        <p>On the other side of the desk, I'm a <b>UGC creator</b> who makes authentic short-form content for brands. That dual identity is a real advantage: I know what a paid-media brief actually needs to convert, what a lifecycle sequence needs to retain, and what a scroll-stopping UGC hook needs to earn a second watch. <b>Strategy plus story — both in my hands, both calibrated to results.</b></p>
-      </div>
+    <div class="eyebrow sec-eyebrow r">The Full Picture</div>
+    <div class="big r">Strategy. Systems. Scale.<b>That's my lane.</b></div>
+    <div class="copy-cols">
+      <p class="r">In my last role I led 15+ GTM launches that drove $1.5M in revenue, 117 high-ticket enrollments, and 3 sold-out events in a four-month span. I build KPI dashboards for pipeline forecasting, enforce clean UTM governance, and consistently hit 35–40% open rates, 8–10% CTR, and 15%+ checkout lift. From positioning to launch to post-mortem optimization — I own the full engine.</p>
+      <p class="r">On the other side of the desk, I'm a UGC creator who makes authentic short-form content for brands. That dual identity is a real advantage: I know what a paid-media brief actually needs to convert, what a lifecycle sequence needs to retain, and what a scroll-stopping UGC hook needs to earn a second watch. Strategy plus story — both in my hands, both calibrated to results.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ BY THE NUMBERS ============ -->
-<section id="by-the-numbers">
+<section id="numbers">
   <div class="wrap">
-    <div class="eyebrow sec-eyebrow r">02 — By The Numbers</div>
+    <div class="eyebrow sec-eyebrow r">By The Numbers</div>
     <h2 class="sec-h r">By The Numbers</h2>
-    <div class="nums">
-      <div class="numtile glass r"><div class="n" data-count="8" data-pre="$" data-suf="M+">$0</div><div class="l">Cumulative Revenue Impact</div></div>
-      <div class="numtile glass r"><div class="n" data-count="15" data-suf="+">0</div><div class="l">GTM Launches Led</div></div>
-      <div class="numtile glass r"><div class="n" data-count="117">0</div><div class="l">High-Ticket Enrollments</div></div>
-      <div class="numtile glass r"><div class="n" data-count="40" data-suf="%+">0</div><div class="l">Avg Email Open Rate</div></div>
-      <div class="numtile glass r"><div class="n" data-count="15" data-suf="%+">0</div><div class="l">Checkout Lift</div></div>
+    <div class="stats">
+      <div class="stat glass r"><div class="n" data-count="8" data-pre="$" data-suf="M+">$0</div><div class="l">Cumulative Revenue Impact</div></div>
+      <div class="stat glass r"><div class="n" data-count="15" data-suf="+">0</div><div class="l">GTM Launches Led</div></div>
+      <div class="stat glass r"><div class="n" data-count="117">0</div><div class="l">High-Ticket Enrollments</div></div>
+      <div class="stat glass r"><div class="n" data-count="40" data-suf="%+">0</div><div class="l">Avg Email Open Rate</div></div>
+      <div class="stat glass r"><div class="n" data-count="15" data-suf="%+">0</div><div class="l">Checkout Lift</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ WHAT I VALUE / HOW I SHOW UP ============ -->
-<section id="what-drives-me">
+<section id="drives">
   <div class="wrap">
-    <div class="eyebrow sec-eyebrow r">03 — What Drives Me</div>
-    <div class="vals">
-      <div class="vcol r">
-        <h3>What I <b>value</b></h3>
+    <div class="eyebrow sec-eyebrow r">What Drives Me</div>
+    <h2 class="sec-h r">What I value.</h2>
+    <div class="values-grid">
+      <div class="r">
+        <div class="vh">What I value</div>
         <div class="chips">
-          <span class="chip">Clarity</span>
-          <span class="chip">Efficiency</span>
-          <span class="chip">Scalability</span>
-          <span class="chip">Data-Driven Precision</span>
+          <span class="chip">Clarity</span><span class="chip">Efficiency</span><span class="chip">Scalability</span><span class="chip">Data-Driven Precision</span>
         </div>
       </div>
-      <div class="vcol r">
-        <h3>How I <b>show up</b></h3>
+      <div class="r">
+        <div class="vh">How I show up</div>
         <div class="chips">
-          <span class="chip">Authoritative</span>
-          <span class="chip">Direct</span>
-          <span class="chip">Strategic</span>
-          <span class="chip">Result-Oriented</span>
+          <span class="chip">Authoritative</span><span class="chip">Direct</span><span class="chip">Strategic</span><span class="chip">Result-Oriented</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ CERTIFICATIONS & SPECIALIZATIONS ============ -->
-<section id="credentials" class="creds">
+<section class="creds" id="credentials">
   <div class="wrap">
-    <div class="eyebrow sec-eyebrow r">04 — Credentials</div>
+    <div class="eyebrow sec-eyebrow r">Credentials</div>
     <h2 class="sec-h r">Certifications &amp; Specializations</h2>
     <p class="lead r">Rigorous training across every layer of modern growth marketing.</p>
     <div class="cred-grid">
-      <span class="cred r">Conversion Copywriter</span>
-      <span class="cred r">Digital Marketing Certification</span>
-      <span class="cred r">Email Marketing Certification</span>
-      <span class="cred r">SEO Certification</span>
-      <span class="cred r">AI &amp; Automation</span>
-      <span class="cred r">Account-Based GTM</span>
+      <div class="cred r">Conversion Copywriter</div>
+      <div class="cred r">Digital Marketing Certification</div>
+      <div class="cred r">Email Marketing Certification</div>
+      <div class="cred r">SEO Certification</div>
+      <div class="cred r">AI &amp; Automation</div>
+      <div class="cred r">Account-Based GTM</div>
     </div>
   </div>
 </section>
 
-<!-- ============ PULL QUOTE ============ -->
-<section class="pq">
+<section class="pullq">
   <div class="wrap">
-    <span class="mark r">&ldquo;</span>
-    <blockquote class="r">I don't do vanity metrics. I build the systems that turn strategy into <b>compounding, measurable revenue.</b></blockquote>
+    <blockquote class="r">I don't do vanity metrics. I build the systems that turn strategy into compounding, measurable revenue.</blockquote>
   </div>
 </section>
 
-<!-- ============ CTA BAND ============ -->
-<section class="cta-band">
+<section class="cta-band" id="contact">
   <div class="wrap">
-    <div class="panel glass r" data-tilt>
-      <div class="eyebrow sec-eyebrow">05 — Let's Talk</div>
-      <h2>Let's build <b>what's next.</b></h2>
-      <p class="lead">If you're ready for a marketing partner who brings full-funnel clarity and executes with precision — let's talk.</p>
+    <div class="eyebrow sec-eyebrow r">Let's Talk</div>
+    <h2 class="r">Let's build <b>what's next.</b></h2>
+    <p class="lead r">If you're ready for a marketing partner who brings full-funnel clarity and executes with precision — let's talk.</p>
+    <div class="ctas r" style="justify-content:center;display:flex;gap:14px;flex-wrap:wrap">
       <a href="contact.html" class="btn btn-p" data-mag>Get In Touch →</a>
     </div>
   </div>
@@ -315,7 +334,7 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
       requestAnimationFrame(step);
     });
   }
-  var se=document.querySelector('.nums');
+  var se=document.querySelector('.stats');
   if(se){ reduce?runCount():new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)runCount();});},{threshold:.4}).observe(se); }
 
   /* nav + scroll progress */
@@ -344,10 +363,10 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
     addEventListener('resize',function(){tilts.concat(mags).forEach(function(el){el._r=el.getBoundingClientRect();});},{passive:true});
   }
 
-  /* GSAP parallax on photo (transform only, scrubbed) */
+  /* GSAP parallax on portrait + blob (transform only, scrubbed) */
   if(!reduce && window.gsap && window.ScrollTrigger){
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to('.fp .photo img',{yPercent:-6,ease:'none',scrollTrigger:{trigger:'.fp',start:'top bottom',end:'bottom top',scrub:true}});
+    gsap.to('.portrait img',{yPercent:-8,ease:'none',scrollTrigger:{trigger:'.about-hero',start:'top top',end:'bottom top',scrub:true}});
   }
 })();
 </script>
