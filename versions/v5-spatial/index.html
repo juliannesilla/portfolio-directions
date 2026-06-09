@@ -8,6 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Archivo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- import map: pins three + its add-ons to ONE 0.160.0 instance so post-processing /
+     RoomEnvironment import the same THREE (avoids dual-instance breakage). Ignored by
+     browsers without ESM-importmap support → module init is wrapped in try/catch → 2D fallback. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.min.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
 <style>
 /* ====================================================================
    JULIANNE SILLA — DIRECTION 05 · "SPATIAL"
@@ -33,7 +44,7 @@ body{background:var(--char);color:var(--on-dark);font-family:var(--sans);font-si
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing:-.015em}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.1;letter-spacing:-.015em}
 .eyebrow{font-family:var(--grotesk);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.34em;color:var(--gold)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;position:relative}
 ::selection{background:var(--ice);color:var(--char)}
@@ -46,7 +57,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing
     radial-gradient(44% 40% at 86% 20%, rgba(243,226,190,.16), transparent 70%),
     radial-gradient(60% 56% at 74% 94%, rgba(140,115,80,.20), transparent 75%),
     linear-gradient(160deg,#15120F,#0E0D0C 55%,#0B0A09);
-  will-change:transform}
+  will-change:transform;transition:opacity .8s var(--ease),filter .8s var(--ease)}
+/* dim the page atmosphere while the 3D stage is on screen so the canvas reads as the hero surface */
+body.canvas-active .bg{opacity:.62;filter:saturate(.85) brightness(.82)}
+body.canvas-active .gridfloor{opacity:.24}
 /* faint depth-grid that reads as a 3D floor receding to the horizon */
 .gridfloor{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;
   background-image:
@@ -54,7 +68,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing
     linear-gradient(90deg,rgba(191,227,240,.06) 1px,transparent 1px);
   background-size:60px 60px;
   -webkit-mask-image:radial-gradient(120% 80% at 50% 38%,#000 0%,transparent 72%);
-  mask-image:radial-gradient(120% 80% at 50% 38%,#000 0%,transparent 72%)}
+  mask-image:radial-gradient(120% 80% at 50% 38%,#000 0%,transparent 72%);
+  transition:opacity .8s var(--ease)}
 .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
@@ -161,10 +176,12 @@ body.menu-open{overflow:hidden}
 .btn .ar{transition:transform .4s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
 
 /* ---- sections ---- */
-section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
-.shead{margin-bottom:48px;max-width:60ch}
-.shead h2{font-size:clamp(2.4rem,5.5vw,4.4rem)}
-.shead .lead{font-family:var(--sans);font-size:1.05rem;color:var(--on-dark-mut);margin-top:18px;max-width:48ch}
+/* refactoring-ui rhythm: generous, consistent vertical padding (~120px desktop) */
+section{padding:clamp(5.5rem,10vw,7.5rem) 0;position:relative}
+.shead{margin-bottom:52px;max-width:62ch}
+.shead h2{font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:1.06}
+/* body measure capped ≤66ch for comfortable reading */
+.shead .lead{font-family:var(--sans);font-size:1.05rem;line-height:1.6;color:var(--on-dark-mut);margin-top:20px;max-width:62ch}
 .rule{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:30px}
 .rule .ln{height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex:1}
 .dia{width:7px;height:7px;background:var(--ice);transform:rotate(45deg);flex:none}
@@ -203,8 +220,14 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .stage-hint{position:absolute;left:20px;bottom:18px;z-index:6;display:flex;align-items:center;gap:10px;
   padding:9px 16px;border-radius:999px;background:rgba(14,13,12,.6);border:1px solid var(--line);
   -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
-.stage-hint .dot{width:7px;height:7px;border-radius:50%;background:var(--ice);box-shadow:0 0 10px var(--ice)}
+  font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut);
+  animation:hintBreathe 4.5s var(--ease) infinite}
+.stage-hint .dot{position:relative;width:7px;height:7px;border-radius:50%;background:var(--ice);box-shadow:0 0 10px var(--ice)}
+/* pulsing ring radiating from the hint dot */
+.stage-hint .dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--ice);
+  animation:hintPulse 2.4s var(--ease) infinite}
+@keyframes hintPulse{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(3.6);opacity:0}}
+@keyframes hintBreathe{0%,100%{border-color:var(--line)}50%{border-color:rgba(191,227,240,.4)}}
 .stage-meta{position:absolute;right:20px;top:18px;z-index:6;text-align:right;font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:.8}
 /* DOM label overlays positioned over the canvas by JS (sharper than CanvasTexture) */
 .labels{position:absolute;inset:0;z-index:5;pointer-events:none}
@@ -214,18 +237,26 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
   box-shadow:0 16px 40px rgba(0,0,0,.45);transition:border-color .35s var(--ease),background .35s var(--ease),transform .35s var(--ease)}
 .flabel a:hover{border-color:var(--ice);background:rgba(20,18,15,.6);transform:translateY(-3px)}
+/* magnetic-hover state: JS adds .hot to the label of the raycast-hovered plane */
+.flabel.hot a{border-color:var(--ice);background:rgba(20,18,15,.66);
+  box-shadow:0 18px 44px rgba(0,0,0,.5),0 0 22px rgba(191,227,240,.22);transform:scale(1.05)}
+.flabel.hot .no{color:var(--ice-hi)}
+.flabel a{transform-origin:center}
 .flabel .no{font-family:var(--grotesk);font-size:.66rem;font-weight:800;letter-spacing:.2em;color:var(--ice);display:flex;align-items:center;gap:10px}
 .flabel .no::after{content:'';width:26px;height:1px;background:var(--ice)}
 .flabel h3{font-family:var(--serif);font-size:1.15rem;color:var(--cream);margin:12px 0 6px;line-height:1.12}
 .flabel .meta{font-family:var(--grotesk);font-size:.56rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);opacity:.85}
 
 /* 2D fallback grid (shown when 3D unavailable / reduced-motion) */
-.work-fallback{display:none;grid-template-columns:repeat(3,1fr);gap:22px}
+/* perspective on the grid gives each card a subtle CSS-3D tilt on hover —
+   keeps the offline/reduced-3D experience cohesive with the spatial concept */
+.work-fallback{display:none;grid-template-columns:repeat(3,1fr);gap:22px;perspective:1400px}
 .work-fallback.show{display:grid}
 .work-stage.hide{display:none}
-.fcard{position:relative;padding:0;min-height:280px;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;
-  border:1px solid var(--line);background:var(--panel);transition:transform .55s var(--ease),border-color .35s var(--ease)}
-.fcard:hover{transform:translateY(-7px);border-color:var(--ice)}
+.fcard{position:relative;padding:0;min-height:280px;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;transform-style:preserve-3d;
+  border:1px solid var(--line);background:var(--panel);transition:transform .55s var(--ease),border-color .35s var(--ease),box-shadow .55s var(--ease)}
+.fcard:hover{transform:translateY(-7px) rotateX(5deg) rotateY(-4deg);border-color:var(--ice);
+  box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(191,227,240,.12)}
 .fcard .thumb{position:absolute;inset:0;z-index:0}
 .fcard .thumb img{width:100%;height:100%;object-fit:cover;opacity:.5;transition:opacity .5s var(--ease),transform .7s var(--ease)}
 .fcard:hover .thumb img{opacity:.7;transform:scale(1.05)}
@@ -515,208 +546,374 @@ footer a:hover{color:var(--ice)}
 })();
 </script>
 
-<!-- ===== THREE.JS WORK SHOWCASE (lazy, guarded, with clean 2D fallback) ===== -->
+<!-- ===== THREE.JS WORK SHOWCASE (lazy, guarded ESM, with clean 2D fallback) =====
+     Upgraded to a cinematic textured scene: real work thumbnails on thin boxes,
+     PMREM RoomEnvironment, UnrealBloom gold edge-glow, drifting dust, magnetic
+     raycast hover, one-time intro fly-through. Loaded as an ESM module pinned via
+     the <head> import map to ONE three@0.160.0 instance. Every layer degrades
+     gracefully: no importmap/ESM → watchdog shows 2D grid; bloom fails → plain
+     render; env fails → lights only; reduced-motion / no-WebGL → 2D grid. -->
 <script>
+/* Classic-script setup: gathers shared refs + a WATCHDOG so that browsers without
+   ES-module / import-map support (where the module below never runs) still get the
+   2D fallback instead of a blank stage. Runs the pre-flight guards up front too. */
 (function(){
   var reduce = (window.__JZ && window.__JZ.reduce) || matchMedia('(prefers-reduced-motion: reduce)').matches;
   var stage    = document.getElementById('work-stage');
   var fallback = document.getElementById('work-fallback');
   var canvas   = document.getElementById('work-canvas');
-  var labelsEl = document.getElementById('work-labels');
-
-  // Real content for the 6 floating work planes (inlined from julz-content.json — no runtime fetch)
-  var ITEMS = [
-    {no:'01', title:'Go-to-Market (GTM) Engineering', meta:'Strategy · Positioning · Execution', href:'work.html'},
-    {no:'02', title:'Designs',                          meta:'Brand · Visual Identity · Assets',   href:'work.html'},
-    {no:'03', title:'Brand Audit',                      meta:'Clarity · Positioning · Growth Map', href:'work.html'},
-    {no:'04', title:'Website',                          meta:'Web Design · UX · Conversion',       href:'work.html'},
-    {no:'05', title:'Case Study #1 — Mindset Mastery',  meta:'Full GTM · 100% high-ticket conversion', href:'case-study.html'},
-    {no:'06', title:'Case Study #2 — Multi-Launch + Lifecycle Engine', meta:'Repeatable launch architecture', href:'case-study.html'}
-  ];
-  // gold / ice plane tints, alternating for playful depth
-  var TINTS = [0xDBBF94, 0xBFE3F0, 0xF3E2BE, 0x8FB9C7, 0xE4D2A8, 0xA9D2E0];
 
   function showFallback(){
     if(stage){ stage.classList.add('hide'); stage.setAttribute('aria-hidden','true'); }
+    document.body.classList.remove('canvas-active');
     if(fallback){ fallback.classList.add('show'); fallback.querySelectorAll('.r').forEach(function(el){el.classList.add('in');}); }
   }
+  // expose so the module (and watchdog) share ONE fallback path
+  window.__JZ_SPATIAL = { showFallback:showFallback, claimed:false };
 
-  // Reduced motion or no canvas → never touch WebGL, show 2D grid.
-  if(reduce || !stage || !canvas || !fallback){ showFallback(); return; }
-
-  // Cheap WebGL capability probe before loading Three at all.
+  // Cheap WebGL capability probe before loading anything heavy.
   function webglOK(){
     try{ var c=document.createElement('canvas');
       return !!(window.WebGLRenderingContext && (c.getContext('webgl')||c.getContext('experimental-webgl'))); }
     catch(e){ return false; }
   }
-  if(!webglOK()){ showFallback(); return; }
+  // Reduced motion, missing nodes, no WebGL, or no ESM-importmap support → 2D grid, no module.
+  var importmapOK = (function(){ try{ return !!(HTMLScriptElement.supports && HTMLScriptElement.supports('importmap')); }catch(e){ return false; } })();
+  if(reduce || !stage || !canvas || !fallback || !webglOK() || !importmapOK){
+    window.__JZ_SPATIAL.blocked = true; showFallback(); return;
+  }
+  // Watchdog: if the module hasn't claimed the stage shortly after the section is
+  // reached (import error, CSP block, network), fall back cleanly. Re-armed on view.
+  window.__JZ_SPATIAL.arm = function(){
+    setTimeout(function(){ if(!window.__JZ_SPATIAL.claimed){ showFallback(); } }, 6000);
+  };
+})();
+</script>
 
-  // CDN loader with jsDelivr fallback if unpkg 404s/blocks.
-  function loadThree(cb){
-    if(window.THREE){ cb(); return; }
-    var primary='https://unpkg.com/three@0.160.0/build/three.min.js';
-    var backup ='https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';
-    var s=document.createElement('script'); s.src=primary; s.async=true;
-    s.onload=function(){ cb(); };
-    s.onerror=function(){
-      var s2=document.createElement('script'); s2.src=backup; s2.async=true;
-      s2.onload=function(){ cb(); };
-      s2.onerror=function(){ showFallback(); };
-      document.head.appendChild(s2);
-    };
-    document.head.appendChild(s);
+<script type="module">
+/* The cinematic scene. Imports resolve through the <head> import map to a single
+   three@0.160.0 instance, so post-processing + RoomEnvironment share that THREE. */
+(async function(){
+  var S = window.__JZ_SPATIAL;
+  if(!S || S.blocked){ return; }                 // pre-flight already routed to 2D
+  var showFallback = S.showFallback;
+
+  var stage    = document.getElementById('work-stage');
+  var fallback = document.getElementById('work-fallback');
+  var canvas   = document.getElementById('work-canvas');
+  var labelsEl = document.getElementById('work-labels');
+
+  // Real content for the 6 floating work planes (inlined — no runtime fetch).
+  // img = real thumbnail (from v5-spatial that's ../../preview/work-N.png).
+  var ITEMS = [
+    {no:'01', title:'Go-to-Market (GTM) Engineering', meta:'Strategy · Positioning · Execution', href:'work.html', img:'../../preview/work-1.png'},
+    {no:'02', title:'Designs',                          meta:'Brand · Visual Identity · Assets',   href:'work.html', img:'../../preview/work-2.png'},
+    {no:'03', title:'Brand Audit',                      meta:'Clarity · Positioning · Growth Map', href:'work.html', img:'../../preview/work-3.png'},
+    {no:'04', title:'Website',                          meta:'Web Design · UX · Conversion',       href:'work.html', img:'../../preview/work-4.png'},
+    {no:'05', title:'Case Study #1 — Mindset Mastery',  meta:'Full GTM · 100% high-ticket conversion', href:'case-study.html', img:'../../preview/work-5.png'},
+    {no:'06', title:'Case Study #2 — Multi-Launch + Lifecycle Engine', meta:'Repeatable launch architecture', href:'case-study.html', img:'../../preview/work-6.png'}
+  ];
+
+  // ---- lazy: only import + init three when the work section nears the viewport ----
+  function arm(){
+    var done=false;
+    function go(){ if(done) return; done=true; boot(); }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ io.disconnect(); go(); } });
+      },{rootMargin:'400px 0px'});
+      io.observe(stage);
+    } else { go(); }
   }
 
-  var inited=false;
-  function init(){
-    if(inited) return; inited=true;
+  async function boot(){
+    if(S.arm) S.arm();   // start the watchdog now that we're really trying
+    var THREE;
     try{
-      if(!window.THREE){ showFallback(); return; }
-      var THREE=window.THREE;
-      var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
-      renderer.setClearColor(0x000000, 0);
-      var W = stage.clientWidth, H = stage.clientHeight;
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
-      renderer.setSize(W, H, false);
-
-      var scene  = new THREE.Scene();
-      scene.fog  = new THREE.Fog(0x0B0A09, 6, 26);
-      var camera = new THREE.PerspectiveCamera(50, W/H, 0.1, 100);
-      camera.position.set(0, 0, 11);
-
-      // soft lighting
-      scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-      var key = new THREE.DirectionalLight(0xF3E2BE, 0.9); key.position.set(4,6,8); scene.add(key);
-      var rim = new THREE.DirectionalLight(0xBFE3F0, 0.5); rim.position.set(-6,-2,4); scene.add(rim);
-
-      // 6 floating planes scattered across x/y and staggered in z-depth
-      var group = new THREE.Group(); scene.add(group);
-      var POS = [
-        {x:-3.6, y: 1.5, z:-1.0, w:3.2, h:2.0},
-        {x: 3.4, y: 1.9, z:-3.2, w:2.8, h:1.8},
-        {x:-2.4, y:-1.8, z:-4.6, w:3.0, h:1.9},
-        {x: 3.0, y:-1.4, z:-7.0, w:2.6, h:1.7},
-        {x:-3.8, y: 0.4, z:-9.0, w:3.0, h:1.9},
-        {x: 2.2, y: 0.8, z:-11.5,w:2.9, h:1.85}
-      ];
-      var planes=[], labels=[];
-      for(var i=0;i<6;i++){
-        var p=POS[i];
-        var geo=new THREE.PlaneGeometry(p.w, p.h, 1, 1);
-        var mat=new THREE.MeshStandardMaterial({color:TINTS[i], roughness:.55, metalness:.15,
-                  transparent:true, opacity:.92, side:THREE.DoubleSide});
-        var mesh=new THREE.Mesh(geo,mat);
-        mesh.position.set(p.x, p.y, p.z);
-        mesh.userData={base:{x:p.x,y:p.y,z:p.z}, phase:i*1.1, w:p.w, h:p.h};
-        group.add(mesh); planes.push(mesh);
-
-        // matching DOM label overlay (sharp text over the canvas)
-        var d=document.createElement('div'); d.className='flabel';
-        d.innerHTML='<a href="'+ITEMS[i].href+'"><span class="no">'+ITEMS[i].no+'</span>'+
-                    '<h3>'+ITEMS[i].title+'</h3><span class="meta">'+ITEMS[i].meta+'</span></a>';
-        labelsEl.appendChild(d); labels.push(d);
-      }
-
-      // mouse parallax (normalized -1..1)
-      var mx=0, my=0, tmx=0, tmy=0;
-      stage.addEventListener('mousemove',function(e){
-        var r=stage.getBoundingClientRect();
-        tmx=((e.clientX-r.left)/r.width)*2-1;
-        tmy=((e.clientY-r.top)/r.height)*2-1;
-      });
-      stage.addEventListener('mouseleave',function(){ tmx=0; tmy=0; });
-
-      // scroll-driven camera dolly: as the section scrolls through the viewport,
-      // the camera flies forward through the planes (0 at entry → 1 at exit).
-      var dolly=0;
-      function computeDolly(){
-        var r=stage.getBoundingClientRect(), vh=window.innerHeight||1;
-        var prog=(vh - r.top)/(vh + r.height);          // 0 before, 1 after
-        return Math.max(0, Math.min(1, prog));
-      }
-
-      var v3=new THREE.Vector3();
-      function project(mesh){
-        v3.copy(mesh.position); v3.applyMatrix4(group.matrixWorld); v3.project(camera);
-        return {x:(v3.x*0.5+0.5)*W, y:(-v3.y*0.5+0.5)*H, z:v3.z};
-      }
-
-      var running=true, t0=performance.now();
-      function frame(now){
-        if(!running) return;
-        var t=(now-t0)/1000;
-        dolly += (computeDolly()-dolly)*0.08;
-        mx += (tmx-mx)*0.06; my += (tmy-my)*0.06;
-
-        // camera dolly forward through the field + gentle parallax sway
-        camera.position.z = 11 - dolly*13.5;
-        camera.position.x = mx*0.9;
-        camera.position.y = -my*0.6;
-        camera.lookAt(0, 0, camera.position.z - 8);
-
-        // bob each plane + subtle yaw toward the cursor
-        for(var i=0;i<planes.length;i++){
-          var m=planes[i], b=m.userData.base;
-          m.position.y = b.y + Math.sin(t*0.7 + m.userData.phase)*0.18;
-          m.position.x = b.x + Math.cos(t*0.5 + m.userData.phase)*0.10;
-          m.rotation.y = mx*0.25 + Math.sin(t*0.4+m.userData.phase)*0.04;
-          m.rotation.x = -my*0.15;
-        }
-
-        group.updateMatrixWorld();
-        // position DOM labels over each plane; fade by depth so far ones recede
-        for(var j=0;j<planes.length;j++){
-          var s=project(planes[j]), lab=labels[j];
-          if(s.z<1 && s.z>-1){
-            var depth = planes[j].position.z - camera.position.z; // negative = in front
-            var op = Math.max(0, Math.min(1, 1.15 + depth*0.10));
-            lab.style.opacity=op.toFixed(3);
-            lab.style.transform='translate(-50%,-50%) translate('+s.x.toFixed(1)+'px,'+s.y.toFixed(1)+'px)';
-            lab.style.display='block';
-          } else { lab.style.display='none'; }
-        }
-
-        renderer.render(scene,camera);
-        requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
-
-      // resize
-      function onResize(){
-        W=stage.clientWidth; H=stage.clientHeight;
-        if(!W||!H) return;
-        camera.aspect=W/H; camera.updateProjectionMatrix();
-        renderer.setSize(W,H,false);
-      }
-      window.addEventListener('resize', onResize, {passive:true});
-
-      // pause when the stage scrolls out of view (perf)
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(function(es){es.forEach(function(e){
-          if(e.isIntersecting){ if(!running){ running=true; requestAnimationFrame(frame); } }
-          else { running=false; }
-        });},{threshold:0.01}).observe(stage);
-      }
-
-      // make the stage visible to AT now that it's interactive
-      stage.setAttribute('aria-hidden','false');
+      THREE = await import('three');
     }catch(err){
-      // any failure → reveal the clean 2D grid, never a broken canvas
+      try{ console.warn('three import failed → 2D fallback:', err); }catch(e){}
+      showFallback(); return;
+    }
+    // Add-ons are OPTIONAL. Each is awaited in its own try so a failure only
+    // disables that feature (bloom / env), never the whole scene.
+    var EffectComposer=null, RenderPass=null, UnrealBloomPass=null, RoomEnvironment=null;
+    try{
+      var pp = await Promise.all([
+        import('three/addons/postprocessing/EffectComposer.js'),
+        import('three/addons/postprocessing/RenderPass.js'),
+        import('three/addons/postprocessing/UnrealBloomPass.js')
+      ]);
+      EffectComposer = pp[0].EffectComposer;
+      RenderPass     = pp[1].RenderPass;
+      UnrealBloomPass= pp[2].UnrealBloomPass;
+    }catch(e){ try{ console.warn('post-processing unavailable → plain render', e); }catch(_){ } }
+    try{
+      RoomEnvironment = (await import('three/addons/environments/RoomEnvironment.js')).RoomEnvironment;
+    }catch(e){ try{ console.warn('RoomEnvironment unavailable → lights only', e); }catch(_){ } }
+
+    try{ init(THREE, EffectComposer, RenderPass, UnrealBloomPass, RoomEnvironment); }
+    catch(err){
       try{ console.warn('3D work scene failed, using 2D fallback:', err); }catch(e){}
       showFallback();
     }
   }
 
-  // Lazy: only spin up Three when the work section nears the viewport.
-  if('IntersectionObserver' in window){
-    var lazyIO=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ lazyIO.disconnect(); loadThree(init); } });
-    },{rootMargin:'400px 0px'});
-    lazyIO.observe(stage);
-  } else {
-    loadThree(init);
+  function init(THREE, EffectComposer, RenderPass, UnrealBloomPass, RoomEnvironment){
+    S.claimed = true;                       // tell the watchdog we're live
+    document.body.classList.add('canvas-active');
+
+    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
+    renderer.setClearColor(0x000000, 0);
+    var W = stage.clientWidth, H = stage.clientHeight;
+    // PERF: pixelRatio capped at 1.5 (was 2) — big GPU saving on retina, still crisp.
+    var PR = Math.min(window.devicePixelRatio||1, 1.5);
+    renderer.setPixelRatio(PR);
+    renderer.setSize(W, H, false);
+    if('outputColorSpace' in renderer && THREE.SRGBColorSpace){ renderer.outputColorSpace = THREE.SRGBColorSpace; }
+
+    var scene  = new THREE.Scene();
+    // DEPTH: stronger, nearer fog so far planes recede into the charcoal (DOF feel).
+    scene.fog  = new THREE.Fog(0x0B0A09, 7, 20);
+    var camera = new THREE.PerspectiveCamera(50, W/H, 0.1, 100);
+    var CAM_Z0 = 11;
+    camera.position.set(0, 0, CAM_Z0);
+
+    // ---- environment (soft IBL so glossy surfaces catch light) ----
+    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+    var key = new THREE.DirectionalLight(0xF3E2BE, 0.85); key.position.set(4,6,8); scene.add(key);   // warm key
+    var rim = new THREE.DirectionalLight(0xBFE3F0, 0.55); rim.position.set(-6,-2,4); scene.add(rim);  // cool rim
+    var envMap = null;
+    if(RoomEnvironment && THREE.PMREMGenerator){
+      try{
+        var pmrem = new THREE.PMREMGenerator(renderer);
+        envMap = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
+        scene.environment = envMap;
+        pmrem.dispose();
+      }catch(e){ envMap=null; try{ console.warn('PMREM env failed → lights only', e); }catch(_){ } }
+    }
+
+    // ---- textured work planes (thin boxes + gold frame) ----
+    var loader = new THREE.TextureLoader();
+    loader.crossOrigin = 'anonymous';
+    var group = new THREE.Group(); scene.add(group);
+    var POS = [
+      {x:-3.6, y: 1.5, z:-1.0, w:3.2, h:2.0},
+      {x: 3.4, y: 1.9, z:-3.2, w:2.8, h:1.8},
+      {x:-2.4, y:-1.8, z:-4.6, w:3.0, h:1.9},
+      {x: 3.0, y:-1.4, z:-7.0, w:2.6, h:1.7},
+      {x:-3.8, y: 0.4, z:-9.0, w:3.0, h:1.9},
+      {x: 2.2, y: 0.8, z:-11.5,w:2.9, h:1.85}
+    ];
+    var TINTS = [0xDBBF94, 0xBFE3F0, 0xF3E2BE, 0x8FB9C7, 0xE4D2A8, 0xA9D2E0]; // fallback tints if a texture fails
+    var planes=[], labels=[], hitTargets=[];
+    var GOLD = new THREE.Color(0xDBBF94);
+
+    for(var i=0;i<6;i++){
+      var p=POS[i];
+      // GEOMETRY: thin box (not paper-flat) for real edge definition.
+      var geo=new THREE.BoxGeometry(p.w, p.h, 0.06);
+      // glossier standard material; texture mapped on load, tint until then.
+      var mat=new THREE.MeshStandardMaterial({
+        color: TINTS[i], roughness:0.4, metalness:0.1,
+        envMap: envMap, envMapIntensity:1.0
+      });
+      // gold edge material for the 4 side faces of the box (frame feel)
+      var edge=new THREE.MeshStandardMaterial({color:0xCDAD7D, roughness:0.35, metalness:0.5, envMap:envMap, envMapIntensity:1.0});
+      // BoxGeometry face order: +x,-x,+y,-y,+z(front),-z(back). Picture on front, gold on the rest.
+      var mats=[edge,edge,edge,edge,mat,edge];
+      var mesh=new THREE.Mesh(geo,mats);
+      mesh.position.set(p.x, p.y, p.z);
+      mesh.userData={base:{x:p.x,y:p.y,z:p.z}, phase:i*1.1, w:p.w, h:p.h, idx:i, tilt:{x:0,y:0}};
+      group.add(mesh); planes.push(mesh); hitTargets.push(mesh);
+
+      // load real thumbnail → map onto the front face; keep tint on failure.
+      (function(material, url){
+        loader.load(url, function(tex){
+          if('colorSpace' in tex && THREE.SRGBColorSpace){ tex.colorSpace = THREE.SRGBColorSpace; }
+          if(renderer.capabilities){ tex.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy ? renderer.capabilities.getMaxAnisotropy() : 1); }
+          material.map = tex; material.color.set(0xffffff); material.needsUpdate = true;
+        }, undefined, function(){ /* texture failed → keep tinted plane, no break */ });
+      })(mat, ITEMS[i].img);
+
+      // matching DOM label overlay (sharp text over the canvas)
+      var d=document.createElement('div'); d.className='flabel';
+      d.innerHTML='<a href="'+ITEMS[i].href+'"><span class="no">'+ITEMS[i].no+'</span>'+
+                  '<h3>'+ITEMS[i].title+'</h3><span class="meta">'+ITEMS[i].meta+'</span></a>';
+      labelsEl.appendChild(d); labels.push(d);
+    }
+
+    // ---- ATMOSPHERE: drifting ice/gold dust field (~180 points) ----
+    var dust=null;
+    try{
+      var COUNT=180, pa=new Float32Array(COUNT*3), ca=new Float32Array(COUNT*3);
+      var cGold=new THREE.Color(0xF3E2BE), cIce=new THREE.Color(0xBFE3F0);
+      for(var k=0;k<COUNT;k++){
+        pa[k*3]  =(Math.random()-0.5)*16;
+        pa[k*3+1]=(Math.random()-0.5)*10;
+        pa[k*3+2]=-Math.random()*14;                 // spread back through the field
+        var c=(Math.random()<0.5)?cGold:cIce;
+        ca[k*3]=c.r; ca[k*3+1]=c.g; ca[k*3+2]=c.b;
+      }
+      var dg=new THREE.BufferGeometry();
+      dg.setAttribute('position', new THREE.BufferAttribute(pa,3));
+      dg.setAttribute('color',    new THREE.BufferAttribute(ca,3));
+      var dm=new THREE.PointsMaterial({size:0.05, sizeAttenuation:true, transparent:true,
+              opacity:0.4, vertexColors:true, depthWrite:false, blending:THREE.AdditiveBlending});
+      dust=new THREE.Points(dg, dm); scene.add(dust);
+    }catch(e){ dust=null; }
+
+    // ---- POST: subtle UnrealBloom (cinematic gold edge-glow), with fallback ----
+    var composer=null, bloomPass=null;
+    if(EffectComposer && RenderPass && UnrealBloomPass){
+      try{
+        composer = new EffectComposer(renderer);
+        composer.setPixelRatio(PR);
+        composer.setSize(W,H);
+        composer.addPass(new RenderPass(scene,camera));
+        bloomPass = new UnrealBloomPass(new THREE.Vector2(W,H), 0.5, 0.4, 0.85); // strength, radius, threshold
+        composer.addPass(bloomPass);
+      }catch(e){ composer=null; try{ console.warn('bloom init failed → plain render', e); }catch(_){ } }
+    }
+    function renderFrame(){ if(composer){ composer.render(); } else { renderer.render(scene,camera); } }
+
+    // ---- input: parallax + magnetic raycast hover ----
+    var mx=0, my=0, tmx=0, tmy=0, pointerInside=false, mouseMoved=false;
+    var pointer=new THREE.Vector2(-2,-2);
+    var raycaster=new THREE.Raycaster();
+    stage.addEventListener('mousemove',function(e){
+      var r=stage.getBoundingClientRect();
+      tmx=((e.clientX-r.left)/r.width)*2-1;
+      tmy=((e.clientY-r.top)/r.height)*2-1;
+      pointer.x=tmx; pointer.y=-tmy; pointerInside=true; mouseMoved=true;
+    },{passive:true});
+    stage.addEventListener('mouseleave',function(){ tmx=0; tmy=0; pointerInside=false; pointer.set(-2,-2); });
+
+    // scroll-driven camera dolly (0 at entry → 1 at exit)
+    function computeDolly(){
+      var r=stage.getBoundingClientRect(), vh=window.innerHeight||1;
+      var prog=(vh - r.top)/(vh + r.height);
+      return Math.max(0, Math.min(1, prog));
+    }
+    var dolly=0;
+
+    // ---- INTRO: one-time ~2s eased camera fly-through on first reveal,
+    //      ONLY if the user hasn't moved the mouse yet. Then hands control back. ----
+    var introActive=false, introStart=0, introDone=false;
+    function maybeStartIntro(){
+      if(introDone || introActive || mouseMoved) { introDone=true; return; }
+      introActive=true; introStart=performance.now();
+    }
+    function easeInOut(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+
+    var v3=new THREE.Vector3();
+    function project(mesh){
+      v3.copy(mesh.position); v3.applyMatrix4(group.matrixWorld); v3.project(camera);
+      return {x:(v3.x*0.5+0.5)*W, y:(-v3.y*0.5+0.5)*H, z:v3.z};
+    }
+
+    var hovered=-1;
+    var running=true, t0=performance.now();
+    function loop(now){
+      if(!running) return;
+      var t=(now-t0)/1000;
+
+      // SMOOTHER camera: slower dolly lerp + parallax momentum (less janky)
+      dolly += (computeDolly()-dolly)*0.05;
+      mx += (tmx-mx)*0.045; my += (tmy-my)*0.045;
+
+      var camZ = CAM_Z0 - dolly*13.5;
+      var camX = mx*0.9, camY = -my*0.6;
+      // intro fly-through overrides camera for ~2s on first view
+      if(introActive){
+        var pr=(now-introStart)/2000;
+        if(pr>=1){ introActive=false; introDone=true; }
+        else if(mouseMoved){ introActive=false; introDone=true; } // user took control
+        else {
+          var e=easeInOut(Math.max(0,Math.min(1,pr)));
+          camZ = CAM_Z0 - e*9.0;          // glide forward into the field
+          camX = Math.sin(e*Math.PI)*0.9; // gentle lateral arc
+          camY = Math.sin(e*Math.PI)*0.4;
+        }
+      }
+      camera.position.set(camX, camY, camZ);
+      camera.lookAt(0, 0, camera.position.z - 8);
+
+      // raycast hover → magnetic tilt of the hovered plane
+      var newHover=-1;
+      if(pointerInside && !introActive){
+        raycaster.setFromCamera(pointer, camera);
+        var hits=raycaster.intersectObjects(hitTargets, false);
+        if(hits.length){ newHover = hits[0].object.userData.idx; }
+      }
+      if(newHover!==hovered){
+        if(hovered>=0 && labels[hovered]) labels[hovered].classList.remove('hot');
+        if(newHover>=0 && labels[newHover]) labels[newHover].classList.add('hot');
+        hovered=newHover;
+      }
+
+      // bob each plane + ease its magnetic tilt toward the cursor when hovered
+      for(var i=0;i<planes.length;i++){
+        var m=planes[i], b=m.userData.base, td=m.userData.tilt;
+        m.position.y = b.y + Math.sin(t*0.7 + m.userData.phase)*0.18;
+        m.position.x = b.x + Math.cos(t*0.5 + m.userData.phase)*0.10;
+        var targY = (i===hovered ? mx*0.55 : 0) + mx*0.18 + Math.sin(t*0.4+m.userData.phase)*0.04;
+        var targX = (i===hovered ? -my*0.45 : 0) - my*0.12;
+        td.x += (targX-td.x)*0.12; td.y += (targY-td.y)*0.12;
+        m.rotation.x = td.x; m.rotation.y = td.y;
+      }
+
+      // drifting dust
+      if(dust){ dust.rotation.y = t*0.012; dust.position.y = Math.sin(t*0.1)*0.3; }
+
+      group.updateMatrixWorld();
+      // position DOM labels over each plane; fade by depth so far ones recede
+      for(var j=0;j<planes.length;j++){
+        var sp=project(planes[j]), lab=labels[j];
+        if(sp.z<1 && sp.z>-1){
+          var depth = planes[j].position.z - camera.position.z; // negative = in front
+          var op = Math.max(0, Math.min(1, 1.15 + depth*0.10));
+          lab.style.opacity=op.toFixed(3);
+          lab.style.transform='translate(-50%,-50%) translate('+sp.x.toFixed(1)+'px,'+sp.y.toFixed(1)+'px)';
+          lab.style.display='block';
+        } else { lab.style.display='none'; }
+      }
+
+      renderFrame();
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+    // kick the one-time intro once the scene is live
+    maybeStartIntro();
+
+    // resize (keep composer + bloom in sync)
+    function onResize(){
+      W=stage.clientWidth; H=stage.clientHeight;
+      if(!W||!H) return;
+      camera.aspect=W/H; camera.updateProjectionMatrix();
+      renderer.setSize(W,H,false);
+      if(composer){ composer.setSize(W,H); }
+      if(bloomPass && bloomPass.setSize){ bloomPass.setSize(W,H); }
+    }
+    window.addEventListener('resize', onResize, {passive:true});
+
+    // pause render when the stage scrolls out of view (perf) + toggle bg dim
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){
+          document.body.classList.add('canvas-active');
+          if(!running){ running=true; requestAnimationFrame(loop); }
+        } else {
+          document.body.classList.remove('canvas-active');
+          running=false;
+        }
+      });},{threshold:0.01}).observe(stage);
+    }
+
+    stage.setAttribute('aria-hidden','false');
   }
+
+  arm();
 })();
 </script>
 <script src="../../site/comments.js" defer></script>
