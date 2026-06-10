@@ -283,6 +283,10 @@ footer a:hover{color:var(--gold-deep)}
   .case-visual img{transform:none}
   [data-tilt]{transform:none!important;will-change:auto}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.case-visual:hover img{transform:none}}
 </style>
 </head>
 <body>

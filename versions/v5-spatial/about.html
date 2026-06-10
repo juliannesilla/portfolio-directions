@@ -245,6 +245,10 @@ footer a:hover{color:var(--ice)}
   [data-tilt]{transform:none!important;will-change:auto}
   .bg,.grain,.gridfloor,.ahero .deco,.ahero .deco2{transform:none!important;will-change:auto}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.stat:hover,.cred:hover{transform:none}}
 </style>
 </head>
 <body>

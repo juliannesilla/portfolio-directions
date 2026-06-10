@@ -236,6 +236,10 @@ footer a:hover{color:var(--gold)}
   .glass::after{display:none}
   .bg,.grain,.hero-photo img,.hero-card{transform:none!important;will-change:auto}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.fcard:hover{transform:none}}
 </style>
 </head>
 <body>

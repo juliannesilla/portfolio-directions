@@ -251,6 +251,10 @@ footer a:hover{color:var(--gold-deep)}
   .stamp{display:none}.grain,.atmos{display:none}
   [data-tilt]{transform:none!important;will-change:auto}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.chip:hover,.cred:hover{transform:none}}
 </style>
 </head>
 <body>

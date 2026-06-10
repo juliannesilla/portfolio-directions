@@ -145,6 +145,10 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
 /* form validation affordance */
 .field input:invalid:not(:placeholder-shown),.field textarea:invalid:not(:placeholder-shown){border-color:#c0564f}
 .field input:valid:not(:placeholder-shown),.field textarea:valid:not(:placeholder-shown){border-color:rgba(143,209,143,.45)}
+/* press feedback */
+.btn-p:active,.btn-o:active,.nav-cta:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn-p:hover,.tile:hover,.socials a:hover{transform:none}}
 </style>
 </head>
 <body>

@@ -237,6 +237,10 @@ footer .fm .d{width:4px;height:4px;background:var(--gold);transform:rotate(45deg
   /* accordions default open so all content is reachable without JS motion */
   .step-body{max-height:none!important}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.svc:hover .ic{transform:none}}
 </style>
 </head>
 <body>

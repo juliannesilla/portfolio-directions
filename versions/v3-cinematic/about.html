@@ -237,6 +237,10 @@ footer a:hover{color:var(--gold)}
   .bar.top,.bar.bot{transform:none}
   .panel::before{height:100%}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.stat:hover,.chipcard:hover,.cred:hover{transform:none}}
 </style>
 </head>
 <body>

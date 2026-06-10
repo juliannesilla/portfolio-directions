@@ -129,6 +129,10 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
 /* --- type/spacing polish (refactoring-ui pass) --- */
 @media(max-width:900px){section{padding:80px 0}}
 .about p,.cols p,.copy p,.copy-cols p,.lead p,p.lead{max-width:66ch}
+/* press feedback */
+.btn-p:active,.btn-o:active,.nav-cta:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.card:hover .thumb img,.btn-p:hover{transform:none}}
 </style>
 </head>
 <body>

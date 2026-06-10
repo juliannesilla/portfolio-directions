@@ -218,6 +218,10 @@ footer a:hover{color:var(--gold)}
   [data-tilt]{transform:none!important;will-change:auto}
   .step-body{max-height:none!important}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.svc:hover,.svc:hover::before,.stat:hover{transform:none}}
 </style>
 </head>
 <body>

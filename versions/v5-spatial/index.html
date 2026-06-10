@@ -307,6 +307,10 @@ footer a:hover{color:var(--ice)}
   .work-fallback{display:grid}
 }
 .fcard:focus-within .view{opacity:1}
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.stat:hover,.flabel a:hover,.fcard:hover,.fcard:hover .thumb img,.cinfo .c:hover{transform:none}}
 </style>
 </head>
 <body>

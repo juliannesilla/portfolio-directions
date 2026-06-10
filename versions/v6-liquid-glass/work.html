@@ -224,6 +224,10 @@ footer a:hover{color:var(--gold)}
   .bg,.grain,.thumb img,.headcard{transform:none!important;will-change:auto}
   .card:hover .thumb img{transform:none}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.card:hover,.card:focus-within,.card:hover .thumb img{transform:none}}
 </style>
 </head>
 <body>

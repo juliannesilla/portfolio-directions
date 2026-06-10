@@ -244,6 +244,10 @@ footer a:hover{color:var(--gold)}
   .glass::after{display:none}
   .bg,.grain,.ahero .deco{transform:none!important;will-change:auto}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.stat:hover,.cred:hover{transform:none}}
 </style>
 </head>
 <body>

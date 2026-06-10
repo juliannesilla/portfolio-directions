@@ -229,6 +229,10 @@ footer a:hover{color:var(--gold-deep)}
   .thumb img{transform:none}.card:hover .thumb img{transform:none}
   [data-tilt]{transform:none!important;will-change:auto}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.card:hover .thumb img,.card:hover .corner{transform:none}}
 </style>
 </head>
 <body>

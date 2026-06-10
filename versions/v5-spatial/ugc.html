@@ -240,6 +240,10 @@ footer a:hover{color:var(--ice)}
   [data-tilt]{transform:none!important;will-change:auto}
   .bg,.grain,.gridfloor,.reel img{transform:none!important;will-change:auto}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.ccard:hover,.reel:hover,.reel:hover img,.reel:hover .play,.bchip:hover,.cinfo .c:hover{transform:none}}
 </style>
 </head>
 <body>

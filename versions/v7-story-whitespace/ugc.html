@@ -259,6 +259,10 @@ footer a:hover{color:var(--gold-deep)}
   [data-tilt]{transform:none!important;will-change:auto}
   .reel img{transform:none!important;will-change:auto}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.ccard:hover .ic,.reel:hover img,.reel:hover .play,.bchip:hover,.cinfo .c:hover{transform:none}}
 </style>
 </head>
 <body>

@@ -228,6 +228,10 @@ footer a:hover{color:var(--gold-deep)}
   .fface.fback{display:none}
   [data-parallax]{transform:none!important}
 }
+/* press feedback */
+.btn:active{transform:scale(.97)}
+/* touch: no sticky hover transforms */
+@media (hover:none){.btn:hover .ar,.fcard:hover .fflip,.fcard:focus-within .fflip{transform:none}}
 </style>
 </head>
 <body>
