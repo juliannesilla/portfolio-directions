@@ -627,8 +627,27 @@ footer a:hover{color:var(--ice)}
     } else { go(); }
   }
 
+  // Probe for a software / no-GPU WebGL renderer (CPU rasterizer) up front.
+  function softwareGL(){
+    try{
+      var c=document.createElement('canvas');
+      var gl=c.getContext('webgl')||c.getContext('experimental-webgl');
+      if(!gl) return true;                       // no WebGL at all → fallback
+      var ex=gl.getExtension('WEBGL_debug_renderer_info');
+      var r=(ex?gl.getParameter(ex.UNMASKED_RENDERER_WEBGL):'')||''; r=(''+r).toLowerCase();
+      return r.indexOf('swiftshader')>=0||r.indexOf('llvmpipe')>=0||r.indexOf('software')>=0||r.indexOf('basic render')>=0;
+    }catch(_){ return false; }                   // unknown → proceed (don't over-fallback)
+  }
+
   async function boot(){
     if(S.arm) S.arm();   // start the watchdog now that we're really trying
+    // PERF: a software / no-GPU renderer (Chrome HW-accel off, or "Microsoft Basic
+    //  Render Driver") rasterizes WebGL on the CPU → never smooth. Serve the clean
+    //  static 2D fallback instead of a stutter; the 3D scene runs only with a real GPU.
+    if(softwareGL()){
+      try{ console.info('software WebGL (no GPU) → 2D fallback for smoothness'); }catch(_){}
+      showFallback(); return;
+    }
     var THREE;
     try{
       THREE = await import('three');
