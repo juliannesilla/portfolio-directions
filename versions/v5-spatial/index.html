@@ -664,11 +664,23 @@ footer a:hover{color:var(--ice)}
     S.claimed = true;                       // tell the watchdog we're live
     document.body.classList.add('canvas-active');
 
-    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
+    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
     renderer.setClearColor(0x000000, 0);
     var W = stage.clientWidth, H = stage.clientHeight;
-    // PERF: pixelRatio capped at 1.5 (was 2) — big GPU saving on retina, still crisp.
-    var PR = Math.min(window.devicePixelRatio||1, 1.5);
+    // PERF: detect GPU tier up front so weak/integrated GPUs never stutter.
+    //  0 = software/swiftshader, 1 = integrated (Intel/MS basic), 2 = discrete/Apple.
+    function gpuTier(){
+      try{
+        var gl=renderer.getContext(); var ex=gl.getExtension('WEBGL_debug_renderer_info');
+        var r=(ex?gl.getParameter(ex.UNMASKED_RENDERER_WEBGL):'')||''; r=(''+r).toLowerCase();
+        if(r.indexOf('swiftshader')>=0||r.indexOf('llvmpipe')>=0||r.indexOf('software')>=0||r.indexOf('basic render')>=0) return 0;
+        if(r.indexOf('intel')>=0||r.indexOf('microsoft')>=0) return 1;
+        return 2;
+      }catch(_){ return 1; }
+    }
+    var TIER = gpuTier();
+    // pixelRatio: lighter on weaker tiers — the DOM labels keep all TEXT crisp regardless.
+    var PR = Math.min(window.devicePixelRatio||1, TIER>=2 ? 1.25 : 1.0);
     renderer.setPixelRatio(PR);
     renderer.setSize(W, H, false);
     if('outputColorSpace' in renderer && THREE.SRGBColorSpace){ renderer.outputColorSpace = THREE.SRGBColorSpace; }
@@ -765,8 +777,10 @@ footer a:hover{color:var(--ice)}
     }catch(e){ dust=null; }
 
     // ---- POST: subtle UnrealBloom (cinematic gold edge-glow), with fallback ----
+    //  HALF-RES bloom (a glow needs no full res → ~4x cheaper); skipped on tier-0 GPUs.
     var composer=null, bloomPass=null;
-    if(EffectComposer && RenderPass && UnrealBloomPass){
+    function sizeBloom(){ if(bloomPass && bloomPass.setSize){ bloomPass.setSize(Math.max(2,Math.round(W*PR*0.5)), Math.max(2,Math.round(H*PR*0.5))); } }
+    if(TIER>0 && EffectComposer && RenderPass && UnrealBloomPass){
       try{
         composer = new EffectComposer(renderer);
         composer.setPixelRatio(PR);
@@ -774,9 +788,27 @@ footer a:hover{color:var(--ice)}
         composer.addPass(new RenderPass(scene,camera));
         bloomPass = new UnrealBloomPass(new THREE.Vector2(W,H), 0.5, 0.4, 0.85); // strength, radius, threshold
         composer.addPass(bloomPass);
+        sizeBloom();                       // halve bloom RTs AFTER composer sized them
       }catch(e){ composer=null; try{ console.warn('bloom init failed → plain render', e); }catch(_){ } }
     }
-    function renderFrame(){ if(composer){ composer.render(); } else { renderer.render(scene,camera); } }
+    var useComposer = !!composer;
+    function renderFrame(){ if(useComposer && composer){ composer.render(); } else { renderer.render(scene,camera); } }
+
+    // ---- ADAPTIVE GOVERNOR: if frames slip below ~47fps for ~½s, shed bloom and run
+    //      buttery direct-render. Degrade-only (no oscillation). Exposes window.__spatialFPS. ----
+    var govSamp=[], govLast=performance.now(), govSlow=0, governed=false;
+    try{ window.__spatialTier=TIER; }catch(_){}
+    function govern(now){
+      var dt=now-govLast; govLast=now;
+      if(dt<=0 || dt>1000) return;                 // ignore init / tab-resume spikes
+      govSamp.push(dt); if(govSamp.length>50) govSamp.shift();
+      if(govSamp.length<40) return;
+      var avg=0; for(var s=0;s<govSamp.length;s++) avg+=govSamp[s]; avg/=govSamp.length;
+      try{ window.__spatialFPS=Math.round(1000/avg); }catch(_){}
+      if(governed) return;
+      if(avg>21){ govSlow++; if(govSlow>30){ governed=true; useComposer=false; try{ window.__spatialGoverned=true; }catch(_){} } }
+      else { govSlow=0; }
+    }
 
     // ---- input: parallax + magnetic raycast hover ----
     var mx=0, my=0, tmx=0, tmy=0, pointerInside=false, mouseMoved=false;
@@ -817,6 +849,7 @@ footer a:hover{color:var(--ice)}
     var running=true, t0=performance.now();
     function loop(now){
       if(!running) return;
+      govern(now);
       var t=(now-t0)/1000;
 
       // SMOOTHER camera: slower dolly lerp + parallax momentum (less janky)
@@ -894,9 +927,15 @@ footer a:hover{color:var(--ice)}
       camera.aspect=W/H; camera.updateProjectionMatrix();
       renderer.setSize(W,H,false);
       if(composer){ composer.setSize(W,H); }
-      if(bloomPass && bloomPass.setSize){ bloomPass.setSize(W,H); }
+      sizeBloom();
     }
     window.addEventListener('resize', onResize, {passive:true});
+
+    // pause entirely when the tab is backgrounded (saves GPU/battery)
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ running=false; }
+      else if(document.body.classList.contains('canvas-active') && !running){ running=true; govLast=performance.now(); requestAnimationFrame(loop); }
+    });
 
     // pause render when the stage scrolls out of view (perf) + toggle bg dim
     if('IntersectionObserver' in window){
