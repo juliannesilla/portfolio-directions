@@ -43,7 +43,7 @@ h1,h2,h3{font-weight:600;line-height:1.02;letter-spacing:-.01em}
 
 /* ---- thin architectural grid (fixed, cursor-reactive) ---- */
 .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.grid-lines .v{position:absolute;top:0;bottom:0;width:1px;background:var(--line);transition:background .6s var(--ease)}
+.grid-lines .v{position:absolute;top:0;bottom:0;width:1px;background:var(--line);transition:background .3s var(--ease)}
 .grid-lines .v.lit{background:var(--line-strong)}
 .grid-lines .v:nth-child(1){left:16.66%}
 .grid-lines .v:nth-child(2){left:33.33%}
@@ -59,7 +59,7 @@ h1,h2,h3{font-weight:600;line-height:1.02;letter-spacing:-.01em}
 .prog{position:fixed;top:0;left:0;height:1px;width:0;background:var(--gold);z-index:9000;opacity:.85}
 
 /* ---- nav ---- */
-.nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .5s var(--ease),border-color .5s var(--ease)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;transition:background .35s var(--ease),border-color .35s var(--ease)}
 .nav::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:transparent;transition:background .5s var(--ease)}
 .nav.stuck{background:rgba(222,218,210,.82);-webkit-backdrop-filter:blur(10px) saturate(120%);backdrop-filter:blur(10px) saturate(120%)}
 .nav.stuck::after{background:var(--line)}

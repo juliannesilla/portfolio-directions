@@ -150,7 +150,7 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
   padding:9px 18px 9px 14px;border:1px solid var(--line);border-radius:40px;background:rgba(255,255,255,.4);margin-bottom:30px}
 .hero .avail .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(185,152,95,.18)}
 .hero .ey{margin-bottom:26px}
-.hero h1{font-size:clamp(4.4rem,12vw,11rem);line-height:.86;letter-spacing:-.035em;font-weight:800}
+.hero h1{font-size:clamp(4.4rem,12vw,11rem);line-height:.92;letter-spacing:-.035em;font-weight:800}
 .hero h1 .last{display:block;font-style:italic;font-weight:500;color:var(--gold-deep);letter-spacing:-.02em}
 .hero .role{font-family:var(--grotesk);font-size:clamp(.66rem,1vw,.8rem);font-weight:600;letter-spacing:.2em;
   text-transform:uppercase;color:var(--ink-mut);margin:36px 0 30px;line-height:2}
@@ -176,7 +176,7 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 /* ---- STATS ---- */
 .stats-sec{padding-top:0}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line)}
-.stat{padding:46px 22px;text-align:center;position:relative;transition:background .5s var(--ease)}
+.stat{padding:46px 32px;text-align:center;position:relative;transition:background .5s var(--ease)}
 .stat+.stat{border-left:1px solid var(--line)}
 .stat:hover{background:rgba(216,194,154,.16)}
 .stat .n{font-family:var(--serif);font-size:clamp(2.6rem,4vw,3.6rem);font-weight:800;color:var(--ink);line-height:1;letter-spacing:-.02em}
@@ -200,7 +200,7 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 .pillar{display:flex;gap:22px;align-items:flex-start;padding:26px 0;border-top:1px solid var(--line)}
 .pillar:last-child{border-bottom:1px solid var(--line)}
 .pillar .ic{width:52px;height:52px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;
-  justify-content:center;color:var(--gold-deep);flex:none;font-size:1.3rem;transition:.4s var(--ease)}
+  justify-content:center;color:var(--gold-deep);flex:none;font-size:1.3rem;transition:.25s var(--ease)}
 .pillar:hover .ic{background:var(--gold);color:var(--canvas);transform:rotate(-8deg)}
 .pillar h3{font-family:var(--grotesk);font-size:.9rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px;color:var(--ink)}
 .pillar p{color:var(--ink-mut);font-size:.96rem;margin:0;max-width:38ch}
@@ -213,7 +213,7 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 .work{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;perspective:1400px}
 .card{position:relative;padding:38px 32px;min-height:300px;border-radius:22px;display:flex;flex-direction:column;
   cursor:pointer;background:var(--canvas2);border:1px solid var(--line);
-  transform-style:preserve-3d;transition:box-shadow .5s var(--ease),background .5s var(--ease);will-change:transform}
+  transform-style:preserve-3d;transition:box-shadow .2s var(--ease),background .5s var(--ease);will-change:transform}
 .card .face{transform-style:preserve-3d}
 .card .no{font-family:var(--grotesk);font-size:.8rem;font-weight:800;letter-spacing:.2em;color:var(--gold-deep);
   display:flex;align-items:center;gap:14px;transform:translateZ(30px)}
@@ -224,7 +224,7 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
   color:var(--ink-mut);transform:translateZ(24px)}
 .card .view{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink);margin-top:24px;display:flex;align-items:center;gap:10px;opacity:.55;transition:.4s var(--ease);transform:translateZ(20px)}
-.card .corner{position:absolute;top:30px;right:30px;color:var(--gold);opacity:0;transform:translateZ(60px) scale(.6);transition:.45s var(--ease)}
+.card .corner{position:absolute;top:30px;right:30px;color:var(--gold);opacity:0;transform:translateZ(60px) scale(.85);transition:.45s var(--ease)}
 .card:hover{box-shadow:var(--paper-sh);background:#FBF7EF}
 .card:hover .view{opacity:1;gap:16px;color:var(--gold-deep)}
 .card:hover .corner{opacity:1;transform:translateZ(60px) scale(1)}
