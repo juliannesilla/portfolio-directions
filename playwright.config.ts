@@ -3,6 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
+  workers: 2, // python -m http.server is single-threaded; >2 workers causes ERR_CONNECTION_REFUSED flake
   retries: 0,
   reporter: 'list',
   use: {
