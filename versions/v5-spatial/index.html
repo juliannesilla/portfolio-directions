@@ -54,7 +54,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.1;letter-spacing
 /* ---- atmospheric spatial background (deep field + drifting glows) ---- */
 .bg{position:fixed;inset:-10%;z-index:-3;
   background:
-    radial-gradient(46% 42% at 16% 14%, rgba(191,227,240,.16), transparent 70%),
+    radial-gradient(46% 42% at 16% 14%, rgba(110,158,255,.16), transparent 70%),
     radial-gradient(44% 40% at 86% 20%, rgba(243,226,190,.16), transparent 70%),
     radial-gradient(60% 56% at 74% 94%, rgba(140,115,80,.20), transparent 75%),
     linear-gradient(160deg,#15120F,#0E0D0C 55%,#0B0A09);
@@ -65,8 +65,8 @@ body.canvas-active .gridfloor{opacity:.24}
 /* faint depth-grid that reads as a 3D floor receding to the horizon */
 .gridfloor{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;
   background-image:
-    linear-gradient(rgba(191,227,240,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(191,227,240,.06) 1px,transparent 1px);
+    linear-gradient(rgba(110,158,255,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(110,158,255,.06) 1px,transparent 1px);
   background-size:60px 60px;
   -webkit-mask-image:radial-gradient(120% 80% at 50% 38%,#000 0%,transparent 72%);
   mask-image:radial-gradient(120% 80% at 50% 38%,#000 0%,transparent 72%);
@@ -128,7 +128,7 @@ body.canvas-active .gridfloor{opacity:.24}
 .mobnav a.mob-link{position:relative;display:block;font-family:var(--grotesk);font-size:1.05rem;font-weight:600;
   letter-spacing:.04em;color:var(--on-dark);padding:15px 16px;border-radius:9px;
   transition:background .3s var(--ease),color .3s var(--ease),padding-left .3s var(--ease)}
-.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:rgba(191,227,240,.1);color:var(--ice-hi);padding-left:22px}
+.mobnav a.mob-link:hover,.mobnav a.mob-link:focus-visible{background:rgba(110,158,255,.1);color:var(--ice-hi);padding-left:22px}
 .mobnav a.mob-link.active{color:var(--ice)}
 .mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
   width:3px;height:22px;border-radius:2px;background:var(--ice)}
@@ -160,10 +160,10 @@ body.menu-open{overflow:hidden}
 .hero-stage{position:relative;height:80vh;perspective:1200px}
 .hero-photo{position:absolute;inset:0;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.55);transform-style:preserve-3d;transition:transform .5s var(--ease)}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 26%;transform:scale(1.06);transition:transform .8s var(--ease)}
-.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,13,12,.55)),linear-gradient(90deg,rgba(191,227,240,.10),transparent 42%)}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,13,12,.55)),linear-gradient(90deg,rgba(110,158,255,.10),transparent 42%)}
 .hero-ghost{position:absolute;border-radius:18px;border:1px solid var(--line);pointer-events:none}
 .hero-ghost.g1{inset:-22px -26px 30px 30px;background:rgba(219,191,148,.05);transform:translateZ(-60px)}
-.hero-ghost.g2{inset:30px 34px -24px -28px;background:rgba(191,227,240,.05);transform:translateZ(-110px)}
+.hero-ghost.g2{inset:30px 34px -24px -28px;background:rgba(110,158,255,.05);transform:translateZ(-110px)}
 .hero-photo .float{position:absolute;left:20px;bottom:20px;right:20px;padding:16px 20px;border-radius:12px;display:flex;align-items:center;gap:14px;
   background:rgba(14,13,12,.55);border:1px solid var(--line);
   -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
@@ -174,7 +174,7 @@ body.menu-open{overflow:hidden}
 /* ---- btn ---- */
 .btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 34px;border:1px solid var(--gold);color:var(--gold);border-radius:11px;cursor:pointer;transition:.4s var(--ease);background:rgba(219,191,148,.06)}
 .btn:hover{background:var(--gold);color:var(--char)}
-.btn.ice{border-color:var(--ice);color:var(--ice);background:rgba(191,227,240,.06)}
+.btn.ice{border-color:var(--ice);color:var(--ice);background:rgba(110,158,255,.06)}
 .btn.ice:hover{background:var(--ice);color:var(--char)}
 .btn .ar{transition:transform .25s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
 
@@ -219,7 +219,7 @@ section{padding:clamp(5.5rem,10vw,7.5rem) 0;position:relative}
    ==================================================================== */
 .workhead{margin-bottom:40px}
 .work-stage{position:relative;width:100%;height:min(78vh,720px);border-radius:18px;overflow:hidden;
-  border:1px solid var(--line);background:radial-gradient(70% 90% at 50% 0%,rgba(191,227,240,.06),transparent 60%),linear-gradient(180deg,#100E0B,#0B0A09)}
+  border:1px solid var(--line);background:radial-gradient(70% 90% at 50% 0%,rgba(110,158,255,.06),transparent 60%),linear-gradient(180deg,#100E0B,#0B0A09)}
 #work-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 /* hint chip over the canvas */
 .stage-hint{position:absolute;left:20px;bottom:18px;z-index:6;display:flex;align-items:center;gap:10px;
@@ -232,7 +232,7 @@ section{padding:clamp(5.5rem,10vw,7.5rem) 0;position:relative}
 .stage-hint .dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--ice);
   animation:hintPulse 2.4s var(--ease) infinite}
 @keyframes hintPulse{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(3.6);opacity:0}}
-@keyframes hintBreathe{0%,100%{border-color:var(--line)}50%{border-color:rgba(191,227,240,.4)}}
+@keyframes hintBreathe{0%,100%{border-color:var(--line)}50%{border-color:rgba(110,158,255,.4)}}
 .stage-meta{position:absolute;right:20px;top:18px;z-index:6;text-align:right;font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:.8}
 /* DOM label overlays positioned over the canvas by JS (sharper than CanvasTexture) */
 .labels{position:absolute;inset:0;z-index:5;pointer-events:none}
@@ -244,7 +244,7 @@ section{padding:clamp(5.5rem,10vw,7.5rem) 0;position:relative}
 .flabel a:hover{border-color:var(--ice);background:rgba(20,18,15,.6);transform:translateY(-3px)}
 /* magnetic-hover state: JS adds .hot to the label of the raycast-hovered plane */
 .flabel.hot a{border-color:var(--ice);background:rgba(20,18,15,.66);
-  box-shadow:0 18px 44px rgba(0,0,0,.5),0 0 22px rgba(191,227,240,.22);transform:scale(1.05)}
+  box-shadow:0 18px 44px rgba(0,0,0,.5),0 0 22px rgba(110,158,255,.22);transform:scale(1.05)}
 .flabel.hot .no{color:var(--ice-hi)}
 .flabel a{transform-origin:center}
 .flabel .no{font-family:var(--grotesk);font-size:.7rem;font-weight:800;letter-spacing:.2em;color:var(--ice);display:flex;align-items:center;gap:10px}
@@ -261,7 +261,7 @@ section{padding:clamp(5.5rem,10vw,7.5rem) 0;position:relative}
 .fcard{position:relative;padding:0;min-height:280px;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;transform-style:preserve-3d;
   border:1px solid var(--line);background:var(--panel);transition:transform .55s var(--ease),border-color .35s var(--ease),box-shadow .55s var(--ease)}
 .fcard:hover{transform:translateY(-7px) rotateX(5deg) rotateY(-4deg);border-color:var(--ice);
-  box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(191,227,240,.12)}
+  box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(110,158,255,.12)}
 .fcard .thumb{position:absolute;inset:0;z-index:0}
 .fcard .thumb img{width:100%;height:100%;object-fit:cover;opacity:.5;transition:opacity .5s var(--ease),transform .7s var(--ease)}
 .fcard:hover .thumb img{opacity:.7;transform:scale(1.05)}
