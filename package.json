@@ -1,0 +1,20 @@
+{
+  "name": "juliannesilla-portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliannesilla/portfolio-directions.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/juliannesilla/portfolio-directions/issues"
+  },
+  "homepage": "https://github.com/juliannesilla/portfolio-directions#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  },
+  "private": true
+}
