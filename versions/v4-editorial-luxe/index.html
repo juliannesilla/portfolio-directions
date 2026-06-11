@@ -229,7 +229,7 @@ section{padding:clamp(5.5rem,10vw,9.5rem) 0;position:relative}
 .cinfo .ic{color:var(--gold-deep);font-size:1.2rem;line-height:1}
 .cinfo .k{font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut)}
 .cinfo .v{font-size:1rem;color:var(--ink);font-weight:500}
-@media(max-width:820px){.cinfo{grid-template-columns:repeat(2,1fr)}.cinfo .c{border-bottom:1px solid var(--line)}.cinfo .c:nth-child(odd)::before{display:none}}
+@media(max-width:820px){.cinfo{grid-template-columns:repeat(2,minmax(0,1fr))}.cinfo .c{border-bottom:1px solid var(--line)}.cinfo .c:nth-child(odd)::before{display:none}}
 
 /* ---- footer ---- */
 footer.fz{background:var(--char);color:#CFC6B6;margin-top:0}
@@ -264,6 +264,9 @@ footer.fz a:hover{color:var(--gold-hi)}
 .btn:active{transform:scale(.97)}
 /* touch: no sticky hover transforms */
 @media (hover:none){.btn:hover .ar,.gfig:hover img,.gbody .more:hover .ar{transform:none}}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
+.cinfo .v{overflow-wrap:anywhere}
 </style>
 </head>
 <body>

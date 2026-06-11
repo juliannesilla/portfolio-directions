@@ -238,6 +238,9 @@ footer a:hover{color:var(--gold-deep)}
 .btn:active{transform:scale(.97)}
 /* touch: no sticky hover transforms */
 @media (hover:none){.btn:hover .ar,.cinfo-col .c:hover,.cinfo-col .c:hover .ic{transform:none}}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
+.cinfo .v{overflow-wrap:anywhere}
 </style>
 </head>
 <body>

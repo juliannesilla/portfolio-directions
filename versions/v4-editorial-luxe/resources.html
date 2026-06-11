@@ -232,6 +232,8 @@ footer.fz a:hover{color:var(--gold-hi)}
 .btn:active{transform:scale(.97)}
 /* touch: no sticky hover transforms */
 @media (hover:none){.btn:hover .ar,.gfig:hover img,.gbody .more:hover .ar{transform:none}}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
 </style>
 </head>
 <body>

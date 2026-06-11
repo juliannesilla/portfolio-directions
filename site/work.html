@@ -133,6 +133,8 @@ footer .fine{font-family:var(--display);font-size:.6rem;letter-spacing:.16em;tex
 .btn-p:active,.btn-o:active,.nav-cta:active{transform:scale(.97)}
 /* touch: no sticky hover transforms */
 @media (hover:none){.card:hover .thumb img,.btn-p:hover{transform:none}}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
 </style>
 </head>
 <body>

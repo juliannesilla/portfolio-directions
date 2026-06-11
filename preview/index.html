@@ -166,6 +166,9 @@ footer{padding:40px;border-top:1px solid var(--line-dark);display:flex;justify-c
 }
 /* press feedback */
 .btn:active{transform:scale(.97)}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
+.cinfo .v{overflow-wrap:anywhere}
 </style>
 </head>
 <body>

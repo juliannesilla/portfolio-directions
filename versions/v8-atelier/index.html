@@ -257,6 +257,9 @@ footer .fm .d{width:4px;height:4px;background:var(--gold);transform:rotate(45deg
 .btn:active{transform:scale(.97)}
 /* touch: no sticky hover transforms */
 @media (hover:none){.btn:hover .ar,.pillar:hover .ic,.row:hover .go{transform:none}}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
+.cinfo .v{overflow-wrap:anywhere}
 </style>
 </head>
 <body>

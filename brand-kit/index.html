@@ -78,6 +78,8 @@ header.hero .meta{margin-top:26px;font-family:var(--display);font-size:.7rem;let
 .dd .dont li::before{content:'✕';position:absolute;left:0;color:#C98B7A}
 footer{padding:50px 0;text-align:center;color:var(--taupe);font-family:var(--display);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;border-top:1px solid var(--ink-2)}
 ::selection{background:var(--gold);color:var(--char)}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
 </style>
 </head>
 <body>

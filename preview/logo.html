@@ -93,6 +93,8 @@ body{background:#0b0a09;color:var(--cream);font-family:var(--grotesk);padding:42
 
 @media(max-width:860px){.grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.anim{animation:none!important}}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
 </style>
 </head>
 <body>

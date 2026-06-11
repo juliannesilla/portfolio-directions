@@ -74,6 +74,8 @@ footer{padding:40px 0 70px;border-top:1px solid var(--line);text-align:center;fo
 .note b{color:var(--gold)}
 /* touch: no sticky hover transforms */
 @media (hover:none){.card:hover{transform:none}}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
 </style>
 </head>
 <body>

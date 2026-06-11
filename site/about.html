@@ -191,6 +191,8 @@ footer .fine{font-family:var(--display);font-size:.6rem;letter-spacing:.16em;tex
 .btn-p:active,.btn-o:active,.nav-cta:active{transform:scale(.97)}
 /* touch: no sticky hover transforms */
 @media (hover:none){.btn-p:hover,.card:hover .thumb img,.skill:hover,.socials a:hover,.chip:hover,.cred:hover{transform:none}}
+/* overflow hardening (fail-hunt) */
+html{overflow-x:clip}
 </style>
 </head>
 <body>
