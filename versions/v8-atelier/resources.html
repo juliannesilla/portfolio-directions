@@ -44,7 +44,7 @@ h1,h2,h3{font-weight:600;line-height:1.02;letter-spacing:-.01em}
 /* ---- thin architectural grid (fixed, cursor-reactive) ---- */
 .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .grid-lines .v{position:absolute;top:0;bottom:0;width:1px;background:var(--line);transition:background .3s var(--ease)}
-.grid-lines .v.lit{background:var(--line-strong)}
+.grid-lines .v.lit{background:rgba(42,36,29,.18)}
 .grid-lines .v:nth-child(1){left:16.66%}
 .grid-lines .v:nth-child(2){left:33.33%}
 .grid-lines .v:nth-child(3){left:50%}
@@ -129,14 +129,14 @@ body.menu-open{overflow:hidden}
 
 /* ---- inner-page hero (text-only, architectural) ---- */
 .page-hero{min-height:auto;display:block;padding:200px 0 40px;position:relative}
-.crumb{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:26px}
+.crumb{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:36px}
 .crumb a{color:var(--ink-mut);transition:color .3s var(--ease)}
 .crumb a:hover{color:var(--gold)}
 .crumb .sep{color:var(--gold);margin:0 .5em}
-.page-hero .eyebrow-row{display:flex;align-items:center;gap:18px;margin-bottom:34px}
+.page-hero .eyebrow-row{display:flex;align-items:center;gap:18px;margin-bottom:36px}
 .page-hero .eyebrow-row .ln{width:54px;height:1px;background:var(--gold)}
-.page-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3rem,8vw,6.2rem);line-height:.94;letter-spacing:-.02em;margin:8px 0 0}
-.page-hero .intro{font-family:var(--serif);font-size:clamp(1.2rem,2.1vw,1.7rem);font-style:italic;line-height:1.4;color:var(--ink-mut);max-width:36ch;margin-top:32px}
+.page-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3rem,8vw,6.2rem);line-height:.94;letter-spacing:-.02em;margin:0}
+.page-hero .intro{font-family:var(--serif);font-size:clamp(1.2rem,2.1vw,1.7rem);font-style:italic;line-height:1.4;color:var(--ink-mut);max-width:36ch;margin-top:36px}
 .page-hero .intro b{font-style:normal;color:var(--ink)}
 
 /* ---- sections ---- */
@@ -145,7 +145,7 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 .shead .meta-row{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-top:1px solid var(--line);padding-top:24px;margin-bottom:46px}
 .shead h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.9rem);line-height:1.04;letter-spacing:-.018em;max-width:18ch}
 .shead .lead{font-family:var(--sans);font-size:1.02rem;color:var(--ink-mut);margin-top:20px;max-width:48ch}
-.snum{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.3em;color:var(--gold)}
+.snum{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.3em;color:var(--gold)}
 
 /* ---- framework library cards (architectural grid) ---- */
 .frameworks{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}

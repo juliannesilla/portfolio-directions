@@ -34,7 +34,7 @@ body{background:var(--char);color:var(--on-dark);font-family:var(--sans);font-si
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing:-.015em}
-.eyebrow{font-family:var(--grotesk);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.34em;color:var(--gold)}
+.eyebrow{font-family:var(--grotesk);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.34em;color:var(--gold);opacity:.8}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
 ::selection{background:var(--gold);color:var(--char)}
 :focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px;border-radius:3px}
@@ -143,12 +143,13 @@ body.menu-open{overflow:hidden}
 /* ---- hero ---- */
 .hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;padding:150px 0 70px;position:relative}
 .hero-card{padding:54px 50px;border-radius:24px}
-.hero h1{font-size:clamp(3.6rem,8.5vw,7.4rem);line-height:.9;margin:14px 0 0}
+.hero h1{font-size:clamp(3.6rem,8.5vw,7.4rem);line-height:.9;margin:18px 0 0}
 .hero h1 .sub{display:block;font-size:.62em;font-style:italic;font-weight:500;color:var(--gold-hi)}
-.role{font-family:var(--grotesk);font-size:clamp(.66rem,1vw,.82rem);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-mut);margin:26px 0 30px;line-height:1.9}
+.role{font-family:var(--grotesk);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin:18px 0 36px;line-height:1.8}
+@media(min-width:1200px){.role{font-size:.58rem;letter-spacing:.1em;white-space:nowrap}}
 .role b{color:var(--gold)}
-.hero .line{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.85rem);line-height:1.25;color:var(--on-dark);max-width:30ch;margin-bottom:34px}
-.hero .line b{color:var(--gold)}.hero .line i{color:var(--on-dark-mut)}
+.hero .line{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.85rem);line-height:1.25;color:var(--on-dark);max-width:30ch;margin-bottom:36px}
+.hero .line b{color:var(--gold)}.hero .line i{color:var(--gold-hi)}
 .hero-photo{position:relative;height:80vh;border-radius:24px;overflow:hidden;border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow)}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;transform:scale(1.05);transition:transform .8s var(--ease)}
 .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(14,13,12,.5)),linear-gradient(90deg,rgba(219,191,148,.10),transparent 40%)}
@@ -176,7 +177,8 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .stat{padding:30px 18px;text-align:center;border-radius:16px;transition:transform .5s var(--ease)}
 .stat:hover{transform:translateY(-6px)}
 .stat .n{font-family:var(--serif);font-size:2.3rem;font-weight:700;color:var(--gold-hi);line-height:1}
-.stat .l{font-family:var(--grotesk);font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
+.stat .l{font-family:var(--grotesk);font-size:.56rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
+@media(min-width:1200px){.stat .l{white-space:nowrap}}
 @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
 /* ---- about ---- */
@@ -197,11 +199,12 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .work{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .card{padding:32px 28px;min-height:260px;border-radius:18px;display:flex;flex-direction:column;cursor:pointer;transition:transform .55s var(--ease)}
 .card:hover,.card:focus-within{transform:translateY(-7px)}
+.card .chead{display:flex;align-items:center;justify-content:space-between;gap:14px}
 .card .no{font-family:var(--grotesk);font-size:.78rem;font-weight:700;letter-spacing:.2em;color:var(--gold);display:flex;align-items:center;gap:12px}
 .card .no::after{content:'';width:32px;height:1px;background:var(--gold)}
-.card h3{font-family:var(--serif);font-size:1.5rem;color:var(--cream);margin:auto 0 8px;line-height:1.12}
-.card .meta{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.85}
-.card .view{font-family:var(--grotesk);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);margin-top:20px;display:flex;align-items:center;gap:10px;opacity:.6;transition:.4s var(--ease)}
+.card h3{font-family:var(--serif);font-size:1.5rem;color:var(--cream);margin:auto 0 0;line-height:1.12}
+.card .meta{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.7;text-align:right}
+.card .view{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);margin-top:20px;display:flex;align-items:center;gap:10px;opacity:.6;transition:.4s var(--ease)}
 .card:hover .view{opacity:1;gap:16px;color:var(--gold-hi)}
 @media(max-width:900px){.work{grid-template-columns:1fr}}
 
@@ -212,13 +215,13 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .contact .lead{color:var(--on-dark-mut);font-size:1.15rem;margin:26px auto 0;max-width:46ch}
 .contact .lead b{color:var(--gold)}
 .cinfo{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
-.cinfo .c{padding:28px 22px;border-radius:14px;text-align:left}
-.cinfo .ic{color:var(--gold);font-size:1.1rem;margin-bottom:12px}
-.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:6px}
-.cinfo .v{font-size:.94rem;color:var(--on-dark)}
+.cinfo .c{padding:28px 22px;border-radius:14px;text-align:left;display:flex;flex-wrap:wrap;align-items:center;gap:0 10px}
+.cinfo .ic{color:var(--gold);font-size:1.1rem;margin-bottom:0}
+.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:0}
+.cinfo .v{font-size:.94rem;color:var(--on-dark);flex-basis:100%;margin-top:10px}
 @media(max-width:760px){.cinfo{grid-template-columns:repeat(2,1fr)}}
 
-footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
+footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
 footer a:hover{color:var(--gold)}
 
 /* version badge */
@@ -335,12 +338,12 @@ footer a:hover{color:var(--gold)}
     <div class="lead">Proven strategies. Measurable impact.</div>
   </div>
   <div class="work">
-    <div class="card glass r" data-tilt><div class="no">01</div><h3>Go-to-Market (GTM) Engineering</h3><div class="meta">Strategy · Positioning · Execution</div><div class="view">View Project →</div></div>
-    <div class="card glass r d1" data-tilt><div class="no">02</div><h3>Designs</h3><div class="meta">Brand · Visual Identity · Assets</div><div class="view">View Project →</div></div>
-    <div class="card glass r d2" data-tilt><div class="no">03</div><h3>Brand Audit</h3><div class="meta">Clarity · Positioning · Growth Map</div><div class="view">View Project →</div></div>
-    <div class="card glass r" data-tilt><div class="no">04</div><h3>Website</h3><div class="meta">Web Design · UX · Conversion</div><div class="view">View Project →</div></div>
-    <div class="card glass r d1" data-tilt><div class="no">05</div><h3>Case Study #1 — Mindset Mastery</h3><div class="meta">Full GTM · 100% high-ticket conversion</div><div class="view">View Project →</div></div>
-    <div class="card glass r d2" data-tilt><div class="no">06</div><h3>Case Study #2 — Multi-Launch + Lifecycle Engine</h3><div class="meta">Repeatable launch architecture</div><div class="view">View Project →</div></div>
+    <div class="card glass r" data-tilt><div class="chead"><div class="no">01</div><div class="meta">Strategy · Positioning · Execution</div></div><h3>Go-to-Market (GTM) Engineering</h3><div class="view">View Project →</div></div>
+    <div class="card glass r d1" data-tilt><div class="chead"><div class="no">02</div><div class="meta">Brand · Visual Identity · Assets</div></div><h3>Designs</h3><div class="view">View Project →</div></div>
+    <div class="card glass r d2" data-tilt><div class="chead"><div class="no">03</div><div class="meta">Clarity · Positioning · Growth Map</div></div><h3>Brand Audit</h3><div class="view">View Project →</div></div>
+    <div class="card glass r" data-tilt><div class="chead"><div class="no">04</div><div class="meta">Web Design · UX · Conversion</div></div><h3>Website</h3><div class="view">View Project →</div></div>
+    <div class="card glass r d1" data-tilt><div class="chead"><div class="no">05</div><div class="meta">Full GTM · 100% high-ticket conversion</div></div><h3>Case Study #1 — Mindset Mastery</h3><div class="view">View Project →</div></div>
+    <div class="card glass r d2" data-tilt><div class="chead"><div class="no">06</div><div class="meta">Repeatable launch architecture</div></div><h3>Case Study #2 — Multi-Launch + Lifecycle Engine</h3><div class="view">View Project →</div></div>
   </div>
 </section>
 

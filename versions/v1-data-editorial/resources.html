@@ -121,7 +121,7 @@ body.menu-open{overflow:hidden}
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi));z-index:9000}
 
 /* ---- btn (editorial, sharp) ---- */
-.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 32px;border:1px solid var(--ink);color:var(--surf2);background:var(--ink);border-radius:2px;cursor:pointer;transition:.4s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 32px;border:1px solid var(--ink);color:var(--surf2);background:var(--ink);border-radius:2px;cursor:pointer;transition:.4s var(--ease)}
 .btn:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
 .btn .ar{transition:transform .4s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
 .btn.ghost{background:transparent;color:var(--ink)}
@@ -129,12 +129,12 @@ body.menu-open{overflow:hidden}
 
 /* ---- inner-page hero (text-only, editorial) ---- */
 .page-hero{padding:178px 0 30px;position:relative}
-.crumb{font-family:var(--mono);font-size:.7rem;font-weight:400;letter-spacing:.06em;color:var(--ink-mut);margin-bottom:22px}
+.crumb{font-family:var(--mono);font-size:.7rem;font-weight:400;letter-spacing:.06em;color:var(--ink-mut);margin-bottom:18px}
 .crumb a:hover{color:var(--gold-deep)}
-.page-hero .rule{display:flex;align-items:center;gap:16px;color:var(--gold-deep);margin-bottom:30px}
-.page-hero h1{font-size:clamp(3rem,9vw,6.4rem);line-height:.92;margin:6px 0 0;font-weight:800}
+.page-hero .rule{display:flex;align-items:center;gap:16px;color:var(--gold-deep);margin-bottom:18px}
+.page-hero h1{font-size:clamp(3rem,9vw,6.4rem);line-height:.92;margin:0;font-weight:800}
 .page-hero h1 .it{font-style:italic;font-weight:500;color:var(--gold-deep)}
-.page-hero .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.3vw,1.85rem);line-height:1.3;color:var(--ink-soft);max-width:34ch;margin-top:28px}
+.page-hero .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.3vw,1.85rem);line-height:1.3;color:var(--ink-soft);max-width:34ch;margin-top:18px}
 .page-hero .intro b{font-style:italic;color:var(--gold-deep)}
 
 /* ---- sections ---- */
@@ -145,7 +145,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
 .shead{margin-bottom:52px;max-width:64ch}
 .shead h2{font-size:clamp(2.4rem,5.4vw,4.2rem);margin-top:14px}
-.shead .lead{font-family:var(--sans);font-size:1.06rem;color:var(--ink-mut);margin-top:18px;max-width:48ch}
+.shead .lead{font-family:var(--sans);font-size:1rem;color:var(--ink-mut);margin-top:18px;max-width:48ch}
 
 /* ===================================================================
    FRAMEWORK LIBRARY — 3D FLIP cards (front = framework, back = context).
@@ -164,15 +164,15 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .fcard .idx{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--gold-deep);letter-spacing:.08em}
 .fcard .ic{width:50px;height:50px;border:1px solid var(--gold-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);font-size:1.3rem;flex:none}
 .fcard h3{font-family:var(--serif);font-size:clamp(1.45rem,2.3vw,1.85rem);color:var(--ink);margin-bottom:14px;line-height:1.1}
-.fcard p{color:var(--ink-mut);font-size:.96rem;margin:0;flex:1}
-.fcard .cta{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut);display:flex;align-items:center;gap:10px;margin-top:24px;transition:.4s var(--ease)}
+.fcard p{color:var(--ink-mut);font-size:1rem;margin:0;flex:1}
+.fcard .cta{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut);display:flex;align-items:center;gap:10px;margin-top:24px;transition:.4s var(--ease)}
 .fcard:hover .fface.ffront .cta{color:var(--gold-deep);gap:16px}
 .fcard .hint{font-family:var(--grotesk);font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut);opacity:.7;margin-top:auto;align-self:flex-end}
 /* back face */
 .fface.fback h3{color:var(--surf2)}
-.fface.fback .btag{font-family:var(--mono);font-size:.66rem;color:var(--gold-hi);letter-spacing:.08em;margin-bottom:18px}
+.fface.fback .btag{font-family:var(--mono);font-size:.6rem;color:var(--gold-hi);letter-spacing:.08em;margin-bottom:18px}
 .fface.fback .bctx{font-family:var(--serif);font-style:italic;font-size:1.25rem;line-height:1.4;color:var(--surf2)}
-.fface.fback .bcta{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);display:flex;align-items:center;gap:10px;margin-top:auto}
+.fface.fback .bcta{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);display:flex;align-items:center;gap:10px;margin-top:auto}
 @media(max-width:760px){.frameworks{grid-template-columns:1fr}.fcard:nth-child(odd){border-right:none}}
 
 /* ===================================================================
@@ -190,7 +190,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .lm-form{display:flex;gap:12px;margin:38px auto 0;max-width:540px;flex-wrap:wrap}
 .lm-form .field{flex:1;min-width:240px;position:relative;text-align:left}
 .lm-form label{position:absolute;left:-9999px}
-.lm-form input{width:100%;font-family:var(--mono);font-size:.96rem;color:var(--surf2);
+.lm-form input{width:100%;font-family:var(--mono);font-size:1rem;color:var(--surf2);
   background:rgba(251,249,244,.06);border:1px solid rgba(205,174,118,.3);border-radius:2px;
   padding:17px 22px;transition:.35s var(--ease)}
 .lm-form input::placeholder{color:#9C9182;opacity:.9}
@@ -208,7 +208,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .contact .lead{color:var(--ink-soft);font-size:1.16rem;margin:28px auto 0;max-width:48ch}
 .contact .lead b{color:var(--gold-deep)}
 
-footer{padding:42px 0 60px;margin-top:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut)}
+footer{padding:42px 0 60px;margin-top:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut)}
 footer a:hover{color:var(--gold-deep)}
 
 /* version badge */

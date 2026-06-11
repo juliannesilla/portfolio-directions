@@ -146,18 +146,20 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 .hero{min-height:100vh;display:grid;grid-template-columns:1.18fr .82fr;align-items:center;gap:50px;
   padding:200px 0 120px;position:relative}
 .hero-copy{position:relative;z-index:2}
-.hero .avail{display:inline-flex;align-items:center;gap:11px;font-family:var(--grotesk);font-size:.66rem;font-weight:600;
+.hero .hero-topline{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:36px}
+.hero .avail{display:inline-flex;align-items:center;gap:10px;font-family:var(--grotesk);font-size:.62rem;font-weight:600;
   letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut);
-  padding:9px 18px 9px 14px;border:1px solid var(--line);border-radius:40px;background:rgba(255,255,255,.4);margin-bottom:30px}
+  padding:8px 16px 8px 13px;border:1px solid var(--line);border-radius:40px;background:rgba(255,255,255,.25)}
 .hero .avail .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(185,152,95,.18)}
-.hero .ey{margin-bottom:26px}
+.hero .ey{margin-bottom:0}
 .hero h1{font-size:clamp(4.4rem,12vw,11rem);line-height:.92;letter-spacing:-.035em;font-weight:800}
 .hero h1 .last{display:block;font-style:italic;font-weight:500;color:var(--gold-deep);letter-spacing:-.02em}
-.hero .role{font-family:var(--grotesk);font-size:clamp(.66rem,1vw,.8rem);font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--ink-mut);margin:36px 0 30px;line-height:2}
+.hero .role{font-family:var(--grotesk);font-size:clamp(.64rem,.85vw,.72rem);font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-mut);margin:36px 0 36px;line-height:1.4}
 .hero .role b{color:var(--gold-deep)}
+@media(min-width:1100px){.hero .role{white-space:nowrap}}
 .hero .line{font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.28;color:var(--ink);
-  max-width:24ch;margin-bottom:42px;font-style:italic}
+  max-width:24ch;margin-bottom:36px;font-style:italic}
 .hero .line b{font-style:normal;color:var(--gold-deep)}
 .hero .line .t{font-style:normal;color:var(--terra)}
 .hero-figure{position:relative;z-index:1}
@@ -182,8 +184,8 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 .stat:hover{background:rgba(216,194,154,.16)}
 .stat .n{font-family:var(--serif);font-size:clamp(2.6rem,4vw,3.6rem);font-weight:800;color:var(--ink);line-height:1;letter-spacing:-.02em}
 .stat .n .u{color:var(--gold-deep)}
-.stat .l{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-mut);margin-top:16px;line-height:1.6}
+.stat .l{font-family:var(--grotesk);font-size:.56rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-mut);margin-top:16px;line-height:1.5}
 @media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}
   .stat{border-bottom:1px solid var(--line)}.stat+.stat{border-left:1px solid var(--line)}
   .stat:nth-child(odd){border-left:none}}
@@ -216,16 +218,17 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
   cursor:pointer;background:var(--canvas2);border:1px solid var(--line);
   transform-style:preserve-3d;transition:box-shadow .2s var(--ease),background .5s var(--ease);will-change:transform}
 .card .face{transform-style:preserve-3d}
+.card .chead{display:flex;align-items:center;justify-content:space-between;gap:14px;transform:translateZ(30px)}
 .card .no{font-family:var(--grotesk);font-size:.8rem;font-weight:800;letter-spacing:.2em;color:var(--gold-deep);
-  display:flex;align-items:center;gap:14px;transform:translateZ(30px)}
+  display:flex;align-items:center;gap:14px;flex:none}
 .card .no::after{content:'';width:34px;height:1.5px;background:var(--gold)}
 .card h3{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--ink);margin:auto 0 10px;line-height:1.1;
   letter-spacing:-.01em;transform:translateZ(46px)}
-.card .meta{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-mut);transform:translateZ(24px)}
+.card .meta{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-mut);text-align:right}
 .card .view{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink);margin-top:24px;display:flex;align-items:center;gap:10px;opacity:.55;transition:.4s var(--ease);transform:translateZ(20px)}
-.card .corner{position:absolute;top:30px;right:30px;color:var(--gold);opacity:0;transform:translateZ(60px) scale(.85);transition:.45s var(--ease)}
+.card .corner{position:absolute;top:30px;right:30px;color:var(--gold);opacity:.3;transform:translateZ(60px) scale(.85);transition:.45s var(--ease)}
 .card:hover{box-shadow:var(--paper-sh);background:#FBF7EF}
 .card:hover .view{opacity:1;gap:16px;color:var(--gold-deep)}
 .card:hover .corner{opacity:1;transform:translateZ(60px) scale(1)}
@@ -239,11 +242,12 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 .contact .lead b{color:var(--ink);font-weight:600}
 .contact .btn{margin-top:46px}
 .cinfo{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:80px;text-align:left}
-.cinfo .c{padding:32px 26px;border-radius:18px;background:var(--canvas2);border:1px solid var(--line);transition:.45s var(--ease)}
+.cinfo .c{padding:32px 26px;border-radius:18px;background:var(--canvas2);border:1px solid var(--line);transition:.45s var(--ease);
+  display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:14px}
 .cinfo .c:hover{background:#FBF7EF;transform:translateY(-6px);box-shadow:var(--paper-sh)}
-.cinfo .ic{color:var(--gold-deep);font-size:1.3rem;margin-bottom:16px}
-.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:8px}
-.cinfo .v{font-size:.98rem;color:var(--ink);font-weight:500}
+.cinfo .ic{color:var(--gold-deep);font-size:1.3rem;line-height:1}
+.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut)}
+.cinfo .v{font-size:.98rem;color:var(--ink);font-weight:500;grid-column:1/-1;margin-top:12px}
 @media(max-width:860px){.cinfo{grid-template-columns:repeat(2,1fr)}}
 
 /* ---- FOOTER ---- */
@@ -322,8 +326,10 @@ footer a:hover{color:var(--gold-deep)}
   </span>
 
   <div class="hero-copy">
-    <div class="avail"><span class="dot"></span>Available for select partnerships</div>
-    <div class="eyebrow ey">The partner behind your growth</div>
+    <div class="hero-topline">
+      <div class="avail"><span class="dot"></span>Available for select partnerships</div>
+      <div class="eyebrow ey">The partner behind your growth</div>
+    </div>
     <h1 data-depth="34">Julianne<span class="last">Silla</span></h1>
     <div class="role">Director of Marketing <b>/</b> GTM Engineer <b>/</b> AI &amp; Automation <b>/</b> Conversion Copywriter</div>
     <div class="line">I turn <b>chaos into clarity,</b> and <span class="t">clarity into revenue.</span></div>
@@ -383,12 +389,12 @@ footer a:hover{color:var(--gold-deep)}
     <div class="lead">Proven strategies. Measurable impact.</div>
   </div>
   <div class="work">
-    <a class="card r" href="work.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="no">01</div><h3>Go-to-Market (GTM) Engineering</h3><div class="meta">Strategy · Positioning · Execution</div><div class="view">View Project →</div></div></a>
-    <a class="card r d1" href="work.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="no">02</div><h3>Designs</h3><div class="meta">Brand · Visual Identity · Assets</div><div class="view">View Project →</div></div></a>
-    <a class="card r d2" href="work.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="no">03</div><h3>Brand Audit</h3><div class="meta">Clarity · Positioning · Growth Map</div><div class="view">View Project →</div></div></a>
-    <a class="card r" href="work.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="no">04</div><h3>Website</h3><div class="meta">Web Design · UX · Conversion</div><div class="view">View Project →</div></div></a>
-    <a class="card r d1" href="case-study.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="no">05</div><h3>Case Study #1 — Mindset Mastery</h3><div class="meta">Full GTM · 100% high-ticket conversion</div><div class="view">View Project →</div></div></a>
-    <a class="card r d2" href="case-study.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="no">06</div><h3>Case Study #2 — Multi-Launch + Lifecycle Engine</h3><div class="meta">Repeatable launch architecture</div><div class="view">View Project →</div></div></a>
+    <a class="card r" href="work.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chead"><div class="no">01</div><div class="meta">Strategy · Positioning · Execution</div></div><h3>Go-to-Market (GTM) Engineering</h3><div class="view">View Project →</div></div></a>
+    <a class="card r d1" href="work.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chead"><div class="no">02</div><div class="meta">Brand · Visual Identity · Assets</div></div><h3>Designs</h3><div class="view">View Project →</div></div></a>
+    <a class="card r d2" href="work.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chead"><div class="no">03</div><div class="meta">Clarity · Positioning · Growth Map</div></div><h3>Brand Audit</h3><div class="view">View Project →</div></div></a>
+    <a class="card r" href="work.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chead"><div class="no">04</div><div class="meta">Web Design · UX · Conversion</div></div><h3>Website</h3><div class="view">View Project →</div></div></a>
+    <a class="card r d1" href="case-study.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chead"><div class="no">05</div><div class="meta">Full GTM · 100% high-ticket conversion</div></div><h3>Case Study #1 — Mindset Mastery</h3><div class="view">View Project →</div></div></a>
+    <a class="card r d2" href="case-study.html" data-tilt><div class="face"><div class="corner" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17 17 5M17 5H8M17 5v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="chead"><div class="no">06</div><div class="meta">Repeatable launch architecture</div></div><h3>Case Study #2 — Multi-Launch + Lifecycle Engine</h3><div class="view">View Project →</div></div></a>
   </div>
 </section>
 

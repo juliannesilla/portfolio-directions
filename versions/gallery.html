@@ -58,15 +58,16 @@ header.hd .rule .dia{width:7px;height:7px;background:var(--gold);transform:rotat
 .card:hover{transform:translateY(-6px);border-color:var(--gold-dim);background:rgba(244,238,228,.06)}
 .card .no{font-family:var(--grotesk);font-size:.78rem;font-weight:800;letter-spacing:.2em;color:var(--gold);display:flex;align-items:center;gap:12px}
 .card .no::after{content:'';width:34px;height:1px;background:var(--gold)}
-.card .from{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut);margin-left:auto}
+.card .from{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut);margin-left:auto}
 .card .no{justify-content:space-between}
 .card h2{font-family:var(--serif);font-size:1.9rem;line-height:1.06;margin:20px 0 10px}
 .card .one{color:var(--on-dark-mut);font-size:.98rem;max-width:42ch;flex:1}
-.card .sig{font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);margin-top:16px;line-height:1.7}
+.card .sig{font-family:var(--grotesk);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);margin-top:16px;line-height:1.4}
 .card .open{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark);margin-top:22px;display:flex;align-items:center;gap:10px;transition:.4s var(--ease)}
 .card:hover .open{gap:16px;color:var(--gold-hi)}
-.card.flag::before{content:'★ FLAGSHIP';position:absolute;top:18px;right:0;font-family:var(--grotesk);font-size:.56rem;font-weight:800;letter-spacing:.18em;color:var(--char);background:var(--gold);padding:5px 14px 5px 12px;border-radius:8px 0 0 8px}
-.card .badge3d{position:absolute;top:18px;right:0;font-family:var(--grotesk);font-size:.56rem;font-weight:800;letter-spacing:.16em;color:var(--char);background:var(--gold-hi);padding:5px 14px 5px 12px;border-radius:8px 0 0 8px}
+.card.flag::before,.card .badge3d{position:absolute;top:18px;right:18px;font-family:var(--grotesk);font-size:.56rem;font-weight:800;line-height:1;letter-spacing:.18em;color:var(--char);padding:5px 12px;border-radius:8px}
+.card.flag::before{content:'★ FLAGSHIP';background:var(--gold)}
+.card .badge3d{background:var(--gold-hi)}
 
 footer{padding:40px 0 70px;border-top:1px solid var(--line);text-align:center;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
 .note{max-width:var(--maxw);margin:0 auto 30px;padding:18px 26px;border:1px dashed var(--gold-dim);border-radius:14px;color:var(--on-dark-mut);font-size:.92rem;text-align:center}

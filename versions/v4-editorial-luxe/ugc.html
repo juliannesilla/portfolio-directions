@@ -140,9 +140,10 @@ section{padding:clamp(5.5rem,10vw,9.5rem) 0;position:relative}
 .cinfo .c{padding:34px 26px;text-align:left;position:relative;transition:background .4s var(--ease)}
 .cinfo .c+.c::before{content:'';position:absolute;left:0;top:22%;height:56%;width:1px;background:var(--line)}
 .cinfo .c:hover{background:var(--cream2)}
-.cinfo .ic{color:var(--gold-deep);font-size:1.2rem;margin-bottom:14px}
-.cinfo .k{font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:8px}
-.cinfo .v{font-size:.95rem;color:var(--ink);font-weight:500}
+.cinfo .ch{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.cinfo .ic{color:var(--gold-deep);font-size:1.2rem;line-height:1}
+.cinfo .k{font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut)}
+.cinfo .v{font-size:1rem;color:var(--ink);font-weight:500}
 @media(max-width:820px){.cinfo{grid-template-columns:repeat(2,1fr)}.cinfo .c{border-bottom:1px solid var(--line)}.cinfo .c:nth-child(odd)::before{display:none}}
 
 /* ---- footer ---- */
@@ -174,7 +175,7 @@ footer.fz a:hover{color:var(--gold-hi)}
 .phero h1 .sub{display:block;font-size:.5em;font-style:italic;font-weight:400;color:var(--gold-deep);letter-spacing:0}
 .phero .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.95rem);line-height:1.32;color:var(--ink);max-width:34ch;margin:34px 0 14px;font-weight:400}
 .phero .intro b{color:var(--gold-deep);font-weight:600}
-.phero .dual{font-family:var(--sans);font-size:1.04rem;color:var(--ink-soft);max-width:56ch;margin-top:22px}
+.phero .dual{font-family:var(--sans);font-size:1rem;color:var(--ink-soft);max-width:56ch;margin-top:22px}
 .phero .dual b{color:var(--ink);font-weight:600}
 .phero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:42px}
 @media(max-width:760px){.phero{padding-top:150px;min-height:auto}}
@@ -187,7 +188,7 @@ footer.fz a:hover{color:var(--gold-hi)}
 .ccard:hover{transform:translateY(-7px);box-shadow:0 34px 70px -34px rgba(42,36,29,.4);border-color:var(--line-2)}
 .ccard .ic{width:52px;height:52px;border:1px solid var(--gold-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);font-size:1.3rem;flex:none}
 .ccard h3{font-family:var(--serif);font-size:1.6rem;color:var(--ink);line-height:1.12;font-weight:500}
-.ccard p{color:var(--ink-soft);font-size:.96rem;margin:0;max-width:42ch}
+.ccard p{color:var(--ink-soft);font-size:1rem;margin:0;max-width:42ch}
 @media(max-width:760px){.create{grid-template-columns:1fr}}
 
 /* reel gallery */
@@ -344,10 +345,10 @@ footer.fz a:hover{color:var(--gold-hi)}
   <p class="lead r d1">Authentic content that converts. No fluff, no over-production — <b>just work that performs.</b></p>
   <a class="btn r d2" data-mag href="contact.html" style="margin-top:42px">Start the conversation <span class="ar">→</span></a>
   <div class="cinfo">
-    <a class="c r" href="mailto:julianne.mktg@gmail.com"><div class="ic">✉</div><div class="k">Email</div><div class="v">julianne.mktg@gmail.com</div></a>
-    <a class="c r d1" href="tel:+16507590995"><div class="ic">✆</div><div class="k">Phone</div><div class="v">+650-759-0995</div></a>
-    <div class="c r d2"><div class="ic">⌖</div><div class="k">Based In</div><div class="v">San Francisco, CA</div></div>
-    <a class="c r d3" href="contact.html"><div class="ic">◴</div><div class="k">Let's Connect</div><div class="v">Book a discovery call</div></a>
+    <a class="c r" href="mailto:julianne.mktg@gmail.com"><div class="ch"><div class="ic">✉</div><div class="k">Email</div></div><div class="v">julianne.mktg@gmail.com</div></a>
+    <a class="c r d1" href="tel:+16507590995"><div class="ch"><div class="ic">✆</div><div class="k">Phone</div></div><div class="v">+650-759-0995</div></a>
+    <div class="c r d2"><div class="ch"><div class="ic">⌖</div><div class="k">Based In</div></div><div class="v">San Francisco, CA</div></div>
+    <a class="c r d3" href="contact.html"><div class="ch"><div class="ic">◴</div><div class="k">Let's Connect</div></div><div class="v">Book a discovery call</div></a>
   </div>
 </section>
 

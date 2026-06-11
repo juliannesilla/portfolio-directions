@@ -45,7 +45,7 @@ h1,h2,h3{font-weight:600;line-height:1.02;letter-spacing:-.01em}
 /* ---- thin architectural grid (fixed, cursor-reactive) ---- */
 .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .grid-lines .v{position:absolute;top:0;bottom:0;width:1px;background:var(--line);transition:background .3s var(--ease)}
-.grid-lines .v.lit{background:var(--line-strong)}
+.grid-lines .v.lit{background:rgba(42,36,29,.18)}
 .grid-lines .v:nth-child(1){left:16.66%}
 .grid-lines .v:nth-child(2){left:33.33%}
 .grid-lines .v:nth-child(3){left:50%}
@@ -130,20 +130,20 @@ body.menu-open{overflow:hidden}
 /* ---- sections ---- */
 section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 .shead{margin-bottom:64px}
-.snum{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.3em;color:var(--gold)}
+.snum{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.3em;color:var(--gold)}
 
 /* ---- work page head (hero band) ---- */
 .workhead{min-height:78vh;display:flex;flex-direction:column;justify-content:flex-end;padding:172px 0 0;position:relative}
-.crumb{font-family:var(--grotesk);font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:28px;display:flex;gap:12px;align-items:center}
+.crumb{font-family:var(--grotesk);font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:36px;display:flex;gap:12px;align-items:center}
 .crumb a{color:var(--ink-mut);transition:color .3s}
 .crumb a:hover{color:var(--gold)}
 .crumb .sep{color:var(--gold)}
-.workhead .eyebrow-row{display:flex;align-items:center;gap:18px;margin-bottom:34px}
+.workhead .eyebrow-row{display:flex;align-items:center;gap:18px;margin-bottom:36px}
 .workhead .eyebrow-row .ln{width:54px;height:1px;background:var(--gold)}
 .workhead h1{font-family:var(--serif);font-weight:500;font-size:clamp(3rem,8vw,6.6rem);line-height:.94;letter-spacing:-.02em;margin:0}
 .workhead h1 .it{display:block;font-style:italic;font-weight:400;color:var(--ink)}
 .workhead h1 .it .am{color:var(--gold)}
-.workhead .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.85rem);font-style:italic;line-height:1.35;color:var(--ink-mut);max-width:30ch;margin-top:32px}
+.workhead .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.85rem);font-style:italic;line-height:1.35;color:var(--ink-mut);max-width:30ch;margin-top:36px}
 .workhead .intro b{font-style:normal;color:var(--ink)}
 .workhead .head-index{position:absolute;right:0;top:172px;font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.26em;color:var(--ink-faint);writing-mode:vertical-rl}
 @media(max-width:900px){.workhead{padding-top:140px;min-height:auto}.workhead .head-index{display:none}}

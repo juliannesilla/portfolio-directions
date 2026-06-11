@@ -46,7 +46,7 @@ h1,h2,h3{font-weight:600;line-height:1.02;letter-spacing:-.01em}
 /* ---- thin architectural grid (fixed, cursor-reactive) ---- */
 .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .grid-lines .v{position:absolute;top:0;bottom:0;width:1px;background:var(--line);transition:background .3s var(--ease)}
-.grid-lines .v.lit{background:var(--line-strong)}
+.grid-lines .v.lit{background:rgba(42,36,29,.18)}
 .grid-lines .v:nth-child(1){left:16.66%}
 .grid-lines .v:nth-child(2){left:33.33%}
 .grid-lines .v:nth-child(3){left:50%}
@@ -136,7 +136,7 @@ section{padding:clamp(6rem,12vw,11rem) 0;position:relative}
 .shead .meta-row{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-top:1px solid var(--line);padding-top:24px;margin-bottom:46px}
 .shead h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.9rem);line-height:1.04;letter-spacing:-.018em;max-width:18ch}
 .shead .lead{font-family:var(--sans);font-size:1.02rem;color:var(--ink-mut);margin-top:20px;max-width:48ch}
-.snum{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.3em;color:var(--gold)}
+.snum{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.3em;color:var(--gold)}
 
 /* ---- footer ---- */
 footer{padding:46px 0 64px;margin-top:0;border-top:1px solid var(--line);display:flex;justify-content:space-between;
@@ -167,15 +167,15 @@ footer .fm .d{width:4px;height:4px;background:var(--gold);transform:rotate(45deg
 .crumb a{color:var(--ink-mut);transition:color .3s}.crumb a:hover{color:var(--gold)}
 .crumb .sl{color:var(--ink-faint)}
 .crumb b{color:var(--gold);font-weight:600}
-.phero .eyebrow-row{display:flex;align-items:center;gap:18px;margin-bottom:34px}
+.phero .eyebrow-row{display:flex;align-items:center;gap:18px;margin-bottom:36px}
 .phero .eyebrow-row .ln{width:54px;height:1px;background:var(--gold)}
 .phero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3.2rem,8vw,6.6rem);line-height:.94;letter-spacing:-.02em;max-width:15ch}
 .phero h1 .sub{display:block;font-size:.46em;font-style:italic;font-weight:400;color:var(--gold);letter-spacing:-.01em}
-.phero .intro{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.7rem);font-style:italic;line-height:1.38;color:var(--ink-mut);max-width:34ch;margin:38px 0 14px}
+.phero .intro{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.7rem);font-style:italic;line-height:1.38;color:var(--ink-mut);max-width:34ch;margin:36px 0 18px}
 .phero .intro b{font-style:normal;color:var(--ink)}
-.phero .dual{font-family:var(--sans);font-size:1.04rem;color:var(--ink-mut);max-width:56ch;margin-top:22px}
+.phero .dual{font-family:var(--sans);font-size:1.04rem;color:var(--ink-mut);max-width:56ch;margin-top:18px}
 .phero .dual b{color:var(--ink);font-weight:600}
-.phero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:46px}
+.phero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:54px}
 @media(max-width:760px){.phero{padding:150px 0 60px;min-height:auto}}
 
 /* "what I create" cards — bordered architectural tiles, no shadow */
@@ -227,11 +227,11 @@ footer .fm .d{width:4px;height:4px;background:var(--gold);transform:rotate(45deg
 .contact .lead b{color:var(--ink);font-weight:600}
 .contact .cta-wrap{margin-top:44px}
 .cinfo{display:grid;grid-template-columns:repeat(4,1fr);margin-top:84px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.cinfo .c{padding:34px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .5s var(--ease)}
+.cinfo .c{padding:34px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .5s var(--ease);display:flex;flex-wrap:wrap;align-items:center;column-gap:10px}
 .cinfo .c:hover{background:rgba(232,229,221,.55)}
-.cinfo .ic{color:var(--gold);font-size:1.05rem;margin-bottom:18px}
-.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:9px}
-.cinfo .v{font-family:var(--grotesk);font-size:.86rem;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.cinfo .ic{color:var(--gold);font-size:1.05rem;margin-bottom:0}
+.cinfo .k{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:0}
+.cinfo .v{font-family:var(--grotesk);font-size:.86rem;font-weight:500;color:var(--ink);letter-spacing:.01em;flex-basis:100%;margin-top:10px}
 @media(max-width:760px){.cinfo{grid-template-columns:repeat(2,1fr)}}
 
 /* reduced motion → fully static, no parallax / 3D / auto-motion */

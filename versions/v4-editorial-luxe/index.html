@@ -130,14 +130,15 @@ body.menu-open{overflow:hidden}
 .btn.ghost:hover{background:var(--ink);color:var(--cream2)}
 
 /* ---- hero ---- */
-.hero{min-height:100vh;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:56px;padding:170px 0 90px;position:relative}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:56px;padding:170px 0 90px;position:relative}
 .hero-text .avail{display:inline-flex;align-items:center;gap:11px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:26px}
 .hero-text .avail .dot{width:7px;height:7px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 4px rgba(124,130,112,.18);flex:none}
-.hero h1{font-size:clamp(3.4rem,8.4vw,7.6rem);line-height:.92;margin:14px 0 0;color:var(--ink)}
-.hero h1 .sub{display:block;font-style:italic;font-weight:400;color:var(--gold-deep);font-size:.96em;margin-top:.02em}
-.role{font-family:var(--grotesk);font-size:clamp(.62rem,.95vw,.76rem);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mut);margin:30px 0 30px;line-height:2}
+.hero h1{font-size:clamp(3.4rem,8.4vw,7.6rem);font-weight:650;line-height:.92;margin:18px 0 0;color:var(--ink)}
+.hero h1 .sub{display:block;font-style:italic;font-weight:400;color:var(--gold-deep);font-size:.9em;margin-top:.02em}
+.role{font-family:var(--grotesk);font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut);margin:18px 0 36px;line-height:2}
 .role b{color:var(--gold-deep);font-weight:700;margin:0 .15em}
-.hero .line{font-family:var(--serif);font-size:clamp(1.35rem,2.3vw,1.95rem);line-height:1.32;color:var(--ink-soft);max-width:28ch;margin-bottom:40px;font-weight:400}
+@media(min-width:1100px){.role{white-space:nowrap;font-size:clamp(.6rem,.88vw,.7rem);letter-spacing:.14em;line-height:1.6}}
+.hero .line{font-family:var(--serif);font-size:clamp(1.35rem,2.3vw,1.95rem);line-height:1.32;color:var(--ink-soft);max-width:28ch;margin-bottom:36px;font-weight:400}
 .hero .line b{color:var(--ink);font-weight:600}.hero .line i{color:var(--gold-deep);font-style:italic}
 .hero-photo{position:relative;height:82vh;max-height:760px;overflow:hidden;border-radius:3px;box-shadow:0 40px 90px -30px rgba(42,36,29,.4);background:var(--cream)}
 .hero-photo .frame{position:absolute;inset:-8% 0;will-change:transform}
@@ -165,7 +166,7 @@ section{padding:clamp(5.5rem,10vw,9.5rem) 0;position:relative}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
 .stat{padding:14px 22px;text-align:center;position:relative}
 .stat+.stat::before{content:'';position:absolute;left:0;top:18%;height:64%;width:1px;background:var(--line)}
-.stat .n{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.2rem);font-weight:500;color:var(--ink);line-height:1}
+.stat .n{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.2rem);font-weight:600;color:var(--ink);line-height:1}
 .stat .l{font-family:var(--grotesk);font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mut);margin-top:14px;line-height:1.6}
 @media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr);gap:0}
   .stat{padding:30px 18px;border-bottom:1px solid var(--line)}.stat::before{display:none}}
@@ -182,8 +183,8 @@ section{padding:clamp(5.5rem,10vw,9.5rem) 0;position:relative}
 .pillars{display:grid;gap:2px;margin-top:46px;grid-column:1 / -1;border-top:1px solid var(--line)}
 .pillar{display:flex;gap:22px;align-items:flex-start;padding:30px 0;border-bottom:1px solid var(--line)}
 .pillar .ic{width:46px;height:46px;border:1px solid var(--gold-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);flex:none;font-size:1.15rem}
-.pillar h3{font-family:var(--grotesk);font-size:.84rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;color:var(--ink)}
-.pillar p{color:var(--ink-soft);font-size:.96rem;margin:0;max-width:54ch}
+.pillar h3{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;color:var(--ink)}
+.pillar p{color:var(--ink-soft);font-size:1rem;margin:0;max-width:54ch}
 @media(max-width:920px){.about{grid-template-columns:1fr;gap:40px}.about-portrait{min-height:380px}}
 
 /* ====================================================================
@@ -224,9 +225,10 @@ section{padding:clamp(5.5rem,10vw,9.5rem) 0;position:relative}
 .cinfo .c{padding:34px 26px;text-align:left;position:relative;transition:background .4s var(--ease)}
 .cinfo .c+.c::before{content:'';position:absolute;left:0;top:22%;height:56%;width:1px;background:var(--line)}
 .cinfo .c:hover{background:var(--cream2)}
-.cinfo .ic{color:var(--gold-deep);font-size:1.2rem;margin-bottom:14px}
-.cinfo .k{font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:8px}
-.cinfo .v{font-size:.95rem;color:var(--ink);font-weight:500}
+.cinfo .ch{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.cinfo .ic{color:var(--gold-deep);font-size:1.2rem;line-height:1}
+.cinfo .k{font-family:var(--grotesk);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut)}
+.cinfo .v{font-size:1rem;color:var(--ink);font-weight:500}
 @media(max-width:820px){.cinfo{grid-template-columns:repeat(2,1fr)}.cinfo .c{border-bottom:1px solid var(--line)}.cinfo .c:nth-child(odd)::before{display:none}}
 
 /* ---- footer ---- */
@@ -450,10 +452,10 @@ footer.fz a:hover{color:var(--gold-hi)}
   <p class="lead r d1">Strategic marketing. Scalable systems. Sustainable growth. <b>Let's build what's next — together.</b></p>
   <a class="btn r d2" data-mag href="mailto:julianne.mktg@gmail.com" style="margin-top:42px">Let's build what's next <span class="ar">→</span></a>
   <div class="cinfo">
-    <a class="c r" href="mailto:julianne.mktg@gmail.com"><div class="ic">✉</div><div class="k">Email</div><div class="v">julianne.mktg@gmail.com</div></a>
-    <a class="c r d1" href="tel:+16507590995"><div class="ic">✆</div><div class="k">Phone</div><div class="v">+650-759-0995</div></a>
-    <div class="c r d2"><div class="ic">⌖</div><div class="k">Based In</div><div class="v">San Francisco, CA</div></div>
-    <a class="c r d3" href="mailto:julianne.mktg@gmail.com"><div class="ic">◴</div><div class="k">Let's Connect</div><div class="v">Book a discovery call</div></a>
+    <a class="c r" href="mailto:julianne.mktg@gmail.com"><div class="ch"><div class="ic">✉</div><div class="k">Email</div></div><div class="v">julianne.mktg@gmail.com</div></a>
+    <a class="c r d1" href="tel:+16507590995"><div class="ch"><div class="ic">✆</div><div class="k">Phone</div></div><div class="v">+650-759-0995</div></a>
+    <div class="c r d2"><div class="ch"><div class="ic">⌖</div><div class="k">Based In</div></div><div class="v">San Francisco, CA</div></div>
+    <a class="c r d3" href="mailto:julianne.mktg@gmail.com"><div class="ch"><div class="ic">◴</div><div class="k">Let's Connect</div></div><div class="v">Book a discovery call</div></a>
   </div>
 </section>
 

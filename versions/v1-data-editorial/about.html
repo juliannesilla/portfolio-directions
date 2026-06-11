@@ -125,7 +125,7 @@ body.menu-open{overflow:hidden}
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi));z-index:9000}
 
 /* ---- btn (editorial, sharp) ---- */
-.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 32px;border:1px solid var(--ink);color:var(--surf2);background:var(--ink);border-radius:2px;cursor:pointer;transition:.4s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:17px 32px;border:1px solid var(--ink);color:var(--surf2);background:var(--ink);border-radius:2px;cursor:pointer;transition:.4s var(--ease)}
 .btn:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
 .btn .ar{transition:transform .4s var(--ease)}.btn:hover .ar{transform:translateX(6px)}
 .btn.ghost{background:transparent;color:var(--ink)}
@@ -139,25 +139,25 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .dia{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
 .shead{margin-bottom:52px;max-width:64ch}
 .shead h2{font-size:clamp(2.4rem,5.4vw,4.2rem);margin-top:14px}
-.shead .lead{font-family:var(--sans);font-size:1.06rem;color:var(--ink-mut);margin-top:18px;max-width:46ch}
+.shead .lead{font-family:var(--sans);font-size:1rem;color:var(--ink-mut);margin-top:18px;max-width:46ch}
 
 /* ---- about hero ---- */
 .ahero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:170px 0 60px;position:relative}
-.ahero .crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:26px;display:inline-flex;align-items:center;gap:14px}
+.ahero .crumb{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-mut);margin-bottom:18px;display:inline-flex;align-items:center;gap:14px}
 .ahero .crumb::before{content:'';width:42px;height:1px;background:var(--gold-deep)}
 .ahero .crumb b{color:var(--gold-deep)}
-.ahero h1{font-size:clamp(3.6rem,11vw,9rem);line-height:.88;font-weight:800;margin-top:8px}
+.ahero h1{font-size:clamp(3.6rem,11vw,9rem);line-height:.88;font-weight:800;margin-top:0}
 .ahero h1 .dot{color:var(--gold)}
-.ahero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.4vw,2rem);line-height:1.28;color:var(--ink-soft);max-width:30ch;margin-top:30px}
+.ahero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.4vw,2rem);line-height:1.28;color:var(--ink-soft);max-width:30ch;margin-top:18px}
 .ahero .sub b{color:var(--gold-deep);font-style:normal;font-weight:700}
 .ahero .deco{position:absolute;right:-1%;top:14%;width:clamp(180px,26vw,360px);height:clamp(180px,26vw,360px);border-radius:50%;
   background:radial-gradient(circle at 38% 32%,rgba(205,174,118,.30),rgba(185,152,95,.10) 55%,transparent 72%);
   filter:blur(8px);pointer-events:none;z-index:-1}
 /* a giant editorial figure anchors the hero — the metric is the hero */
-.ahero .anchor{margin-top:42px;display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.ahero .anchor{margin-top:36px;display:flex;align-items:flex-end;align-items:last baseline;gap:24px;flex-wrap:wrap}
 .ahero .anchor .big{font-family:var(--mono);font-weight:700;font-size:clamp(3.4rem,9vw,6.2rem);line-height:.8;letter-spacing:-.04em;color:var(--ink);font-feature-settings:"tnum"}
 .ahero .anchor .big .u{color:var(--gold-deep)}
-.ahero .anchor .cap{font-family:var(--grotesk);font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);max-width:16ch;line-height:1.7;padding-bottom:12px;border-left:1px solid var(--line-strong);padding-left:16px}
+.ahero .anchor .cap{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);max-width:26ch;line-height:1.7;border-left:1px solid var(--line-strong);padding-left:16px}
 .ahero .anchor .cap b{color:var(--gold-deep);display:block;font-size:.74rem;margin-bottom:4px}
 @media(max-width:760px){.ahero{padding-top:140px;min-height:64vh}.ahero .deco{display:none}}
 
@@ -189,10 +189,10 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between}
 .face.back{transform:rotateY(180deg)}
 .stat .n{font-family:var(--mono);font-weight:700;font-size:clamp(2.7rem,4.4vw,4.1rem);line-height:.9;letter-spacing:-.04em;color:var(--gold-hi);font-feature-settings:"tnum"}
-.stat .idx{font-family:var(--mono);font-size:.7rem;font-weight:700;color:rgba(243,226,190,.5);letter-spacing:.1em}
+.stat .idx{font-family:var(--mono);font-size:.6rem;font-weight:700;color:rgba(243,226,190,.5);letter-spacing:.1em}
 .stat .l{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#A99E8E;line-height:1.6;max-width:18ch}
 .face.back .ctx{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.4;color:var(--surf2)}
-.face.back .tag{font-family:var(--mono);font-size:.62rem;color:var(--gold-hi);letter-spacing:.08em}
+.face.back .tag{font-family:var(--mono);font-size:.6rem;color:var(--gold-hi);letter-spacing:.08em}
 .stat .hint{font-family:var(--grotesk);font-size:.52rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,226,190,.4)}
 @media(max-width:880px){.statgrid{grid-template-columns:repeat(2,1fr);gap:1px}.statgrid .stat{min-height:200px}.statgrid .stat+.stat{border-left:none}.statgrid .stat{border-top:1px solid rgba(243,226,190,.14)}}
 @media(max-width:480px){.statgrid{grid-template-columns:1fr}}
@@ -212,7 +212,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 
 /* ---- credentials ---- */
 .creds{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
-.cred{font-family:var(--grotesk);font-size:.76rem;font-weight:700;letter-spacing:.08em;
+.cred{font-family:var(--grotesk);font-size:.7rem;font-weight:700;letter-spacing:.08em;
   padding:16px 26px;border:1px solid var(--line-strong);border-radius:2px;background:var(--surf2);color:var(--ink-soft);display:flex;align-items:center;gap:12px;
   transition:transform .5s var(--ease),background .4s var(--ease)}
 .cred:hover{transform:translateY(-5px);background:var(--surf)}
@@ -233,7 +233,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .ctaband .lead{color:var(--ink-soft);font-size:1.15rem;margin:26px auto 0;max-width:48ch}
 .ctaband .lead b{color:var(--gold-deep)}
 
-footer{padding:42px 0 60px;margin-top:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut)}
+footer{padding:42px 0 60px;margin-top:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mut)}
 footer a:hover{color:var(--gold-deep)}
 
 /* version badge */

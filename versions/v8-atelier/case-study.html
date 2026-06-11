@@ -47,7 +47,7 @@ h1,h2,h3{font-weight:600;line-height:1.02;letter-spacing:-.01em}
 /* ---- thin architectural grid (fixed, cursor-reactive) ---- */
 .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .grid-lines .v{position:absolute;top:0;bottom:0;width:1px;background:var(--line);transition:background .3s var(--ease)}
-.grid-lines .v.lit{background:var(--line-strong)}
+.grid-lines .v.lit{background:rgba(42,36,29,.18)}
 .grid-lines .v:nth-child(1){left:16.66%}
 .grid-lines .v:nth-child(2){left:33.33%}
 .grid-lines .v:nth-child(3){left:50%}
@@ -162,18 +162,18 @@ footer .fm .d{width:4px;height:4px;background:var(--gold);transform:rotate(45deg
    ==================================================================== */
 
 /* ---- breadcrumb ---- */
-.crumb{font-family:var(--grotesk);font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.crumb{font-family:var(--grotesk);font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mut);display:flex;align-items:center;gap:10px;margin-bottom:36px}
 .crumb a{color:var(--ink-mut);transition:color .3s}.crumb a:hover{color:var(--gold)}
 .crumb .sep{color:var(--gold);opacity:.7}
 
 /* ---- case hero ---- */
 .case-hero{padding:170px 0 0}
 .case-hero .head{max-width:64ch}
-.case-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3rem,7.5vw,6.2rem);line-height:.94;letter-spacing:-.02em;margin:16px 0 0}
+.case-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3rem,7.5vw,6.2rem);line-height:.94;letter-spacing:-.02em;margin:18px 0 0}
 .case-hero h1 i{font-style:italic;font-weight:400;color:var(--gold)}
-.case-hero .sub{font-family:var(--serif);font-size:clamp(1.2rem,2.1vw,1.7rem);font-style:italic;line-height:1.4;color:var(--ink-mut);max-width:34ch;margin:30px 0 0}
-.case-meta{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.case-meta .chip{font-family:var(--grotesk);font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mut);padding:18px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);flex:1 1 auto;min-width:180px;transition:background .5s var(--ease)}
+.case-hero .sub{font-family:var(--serif);font-size:clamp(1.2rem,2.1vw,1.7rem);font-style:italic;line-height:1.4;color:var(--ink-mut);max-width:34ch;margin:36px 0 0}
+.case-meta{display:flex;flex-wrap:wrap;gap:0;margin-top:36px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.case-meta .chip{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mut);padding:18px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);flex:1 1 auto;min-width:180px;transition:background .5s var(--ease)}
 .case-meta .chip:hover{background:rgba(232,229,221,.55)}
 .case-meta .chip b{display:block;color:var(--ink);font-weight:600;font-size:.82rem;letter-spacing:.02em;margin-top:8px;text-transform:none}
 /* case visual — big quiet photo with single-axis parallax */

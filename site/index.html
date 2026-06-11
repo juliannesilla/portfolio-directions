@@ -66,13 +66,16 @@ h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;let
 
 /* ---- hero ---- */
 .hero{padding:150px 0 100px;position:relative}
-.hero .grid{display:grid;grid-template-columns:1.35fr .85fr;gap:48px;align-items:center}
+.hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
 @media(max-width:900px){.hero{padding:120px 0 50px}.hero .grid{grid-template-columns:1fr;gap:30px}}
 .hero .statement{font-size:clamp(2.6rem,6.6vw,4.8rem);margin:18px 0}
 .hero .statement b{color:var(--gold)}
-.hero .role{font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:22px}
-.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
-.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center}
+.hero .role{font-family:var(--display);font-weight:600;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:18px}
+.hero .role .who{color:var(--cream)}
+@media(min-width:1100px){.hero .role{white-space:nowrap;font-size:clamp(.55rem,.8vw,.64rem);letter-spacing:.04em}}
+.hero .ctas{display:flex;gap:14px;flex-wrap:nowrap;margin-top:0}
+@media(max-width:768px){.hero .ctas{flex-wrap:wrap}}
+.btn{font-family:var(--display);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;border-radius:9px;transition:.3s var(--ease);display:inline-flex;gap:10px;align-items:center;white-space:nowrap}
 .btn-p{background:var(--gold);color:var(--char)}.btn-p:hover{background:var(--gold-2);transform:translateY(-2px)}
 .btn-o{border:1px solid var(--ink-2);color:var(--cream)}.btn-o:hover{border-color:var(--gold);color:var(--gold)}
 .hero .portrait{position:relative;padding:14px;border-radius:20px}
@@ -111,14 +114,14 @@ section{padding:120px 0}
 .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
 .card:hover .thumb img{transform:scale(1.05)}
 .card .body{padding:24px}
-.card .no{font-family:var(--display);font-size:.66rem;font-weight:700;letter-spacing:.18em;color:var(--gold)}
+.card .no{font-family:var(--display);font-size:.7rem;font-weight:700;letter-spacing:.18em;color:var(--gold)}
 .card h3{font-size:1.5rem;margin:10px 0 6px;text-transform:none;letter-spacing:0;font-family:var(--display);font-weight:800}
-.card .meta{font-family:var(--display);font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-mut)}
+.card .meta{font-family:var(--display);font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-mut)}
 
 /* skills */
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
 @media(max-width:760px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
-.skill{padding:18px 20px;border:1px solid var(--ink-2);border-radius:11px;font-family:var(--display);font-weight:600;font-size:.86rem;color:var(--cream);transition:.3s var(--ease)}
+.skill{padding:18px 20px;border:1px solid var(--ink-2);border-radius:11px;font-family:var(--display);font-weight:600;font-size:1rem;color:var(--cream);transition:.3s var(--ease)}
 .skill:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
 
 /* contact */
@@ -133,7 +136,7 @@ section{padding:120px 0}
 
 footer{padding:46px 0;border-top:1px solid var(--line);text-align:center}
 footer .tag{font-family:var(--display);font-weight:800;font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-top:10px}
+footer .fine{font-family:var(--display);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-top:10px}
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--sapphire-hi));z-index:1000}
 
 @media(prefers-reduced-motion:reduce){
@@ -171,7 +174,7 @@ footer .fine{font-family:var(--display);font-size:.64rem;letter-spacing:.16em;te
       <div>
         <div class="eyebrow r">The partner behind your growth</div>
         <h1 class="statement r">I build revenue engines that measure what matters — <b>and kill what doesn't.</b></h1>
-        <div class="role r">Julianne Silla · Director of Marketing · GTM Engineer · AI &amp; Automation · Conversion Copywriter</div>
+        <div class="role r"><b class="who">Julianne Silla</b> · Director of Marketing · GTM Engineer · AI &amp; Automation · Conversion Copywriter</div>
         <div class="ctas r">
           <a href="work.html" class="btn btn-p" data-mag>View my work →</a>
           <a href="#contact" class="btn btn-o">Let's talk</a>

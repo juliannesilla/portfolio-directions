@@ -117,7 +117,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing
 .mobnav a.mob-link.active{color:var(--gold)}
 .mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
   width:3px;height:22px;border-radius:2px;background:var(--gold)}
-.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.74rem;font-weight:700;
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.72rem;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--gold);
   color:var(--gold);border-radius:11px;transition:.35s var(--ease)}
 .mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--gold);color:var(--char)}
@@ -146,7 +146,8 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 
 /* ---- page hero (inner) ---- */
 .phero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:180px 0 60px;position:relative}
-.crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:26px}
+.crumb{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-mut);opacity:.75;margin-bottom:26px}
+.crumb.r.in{opacity:.75}
 .crumb a{color:var(--gold)}.crumb a:hover{color:var(--gold-hi)}
 .phero h1{font-size:clamp(3rem,8vw,6.4rem);line-height:.92;margin:14px 0 0}
 .phero .intro{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,2rem);font-style:italic;line-height:1.25;color:var(--on-dark);max-width:26ch;margin-top:30px}
@@ -188,7 +189,8 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .stat:hover{transform:translateY(-6px)}
 .stat .n{font-family:var(--serif);font-size:2.3rem;font-weight:700;color:var(--gold-hi)}
 .stat:nth-child(even) .n{color:var(--ice-hi)}
-.stat .l{font-family:var(--grotesk);font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
+.stat .l{font-family:var(--grotesk);font-size:.56rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
+@media(min-width:1100px){.stat .l{white-space:nowrap}}
 @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
 /* ---- CTA band ---- */
@@ -198,7 +200,7 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .ctaband .lead b{color:var(--gold)}
 @media(max-width:640px){.ctaband{padding:50px 26px}}
 
-footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
+footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
 footer a:hover{color:var(--ice)}
 
 /* version badge */

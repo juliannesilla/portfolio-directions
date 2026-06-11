@@ -124,7 +124,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.0;letter-spacing
 .mobnav a.mob-link.active{color:var(--gold)}
 .mobnav a.mob-link.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
   width:3px;height:22px;border-radius:2px;background:var(--gold)}
-.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.74rem;font-weight:700;
+.mobnav .mob-cta{margin-top:18px;text-align:center;font-family:var(--grotesk);font-size:.72rem;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;padding:15px 20px;border:1px solid var(--gold);
   color:var(--gold);border-radius:11px;transition:.35s var(--ease)}
 .mobnav .mob-cta:hover,.mobnav .mob-cta:focus-visible{background:var(--gold);color:var(--char)}
@@ -154,7 +154,8 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 
 /* ---- about hero ---- */
 .ahero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:160px 0 60px;position:relative}
-.ahero .crumb{font-family:var(--grotesk);font-size:.66rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--on-dark-mut);margin-bottom:26px}
+.ahero .crumb{font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--on-dark-mut);opacity:.75;margin-bottom:26px}
+.crumb.r.in{opacity:.75}
 .ahero .crumb b{color:var(--gold)}
 .ahero h1{font-size:clamp(3.6rem,11vw,9rem);line-height:.88}
 .ahero h1 .dot{color:var(--ice)}
@@ -173,7 +174,7 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .fpic{display:grid;grid-template-columns:.92fr 1.08fr;gap:54px;align-items:center}
 .fpic .lead-col h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1}
 .fpic .lead-col .eyebrow{display:block;margin-bottom:20px}
-.fpanel{padding:46px 44px;border-radius:22px;transform-style:preserve-3d}
+.fpanel{padding:46px 32px;border-radius:22px;transform-style:preserve-3d}
 .fpanel p{color:var(--on-dark-mut);margin-bottom:22px;max-width:60ch}
 .fpanel p:last-child{margin-bottom:0}
 .fpanel p b{color:var(--on-dark)}
@@ -185,16 +186,17 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .stat:hover{transform:translateY(-6px)}
 .stat .n{font-family:var(--serif);font-size:2.3rem;font-weight:700;color:var(--gold-hi)}
 .stat:nth-child(even) .n{color:var(--ice-hi)}
-.stat .l{font-family:var(--grotesk);font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
+.stat .l{font-family:var(--grotesk);font-size:.56rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:10px;line-height:1.5}
+@media(min-width:1100px){.stat .l{white-space:nowrap}}
 @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
 /* ---- drives me (value chips) ---- */
 .drives{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.chipcard{padding:40px 38px;border-radius:20px;transform-style:preserve-3d}
+.chipcard{padding:40px 32px;border-radius:20px;transform-style:preserve-3d}
 .chipcard h3{font-family:var(--grotesk);font-size:.88rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);margin-bottom:24px;display:flex;align-items:center;gap:14px}
 .chipcard h3::before{content:'';width:8px;height:8px;background:var(--ice);transform:rotate(45deg);flex:none}
 .chips{display:flex;flex-wrap:wrap;gap:12px}
-.chip{font-family:var(--grotesk);font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+.chip{font-family:var(--grotesk);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
   padding:11px 20px;border-radius:999px;border:1px solid var(--line);color:var(--gold-hi);
   background:rgba(219,191,148,.07);transition:.4s var(--ease)}
 .chip:hover{background:var(--gold);color:var(--char);border-color:var(--gold)}
@@ -224,7 +226,7 @@ section{padding:clamp(5rem,9vw,8.5rem) 0;position:relative}
 .ctaband .lead{color:var(--on-dark-mut);font-size:1.15rem;margin:26px auto 0;max-width:48ch}
 .ctaband .lead b{color:var(--gold)}
 
-footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
+footer{padding:40px 0 60px;margin-top:30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--grotesk);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mut)}
 footer a:hover{color:var(--ice)}
 
 /* version badge */
